@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Meet Zohal Zahir, data analytics consultant with expertise in Power BI, Excel automation, and business intelligence. Top-Rated Professional based in Canberra.">
-    <meta name="keywords" content="data analyst Canberra, Power BI consultant, Excel expert, Zohal Zahir">
-    <title>About Zohal Zahir - Data Analytics Consultant | DATASANJ</title>
+    <meta name="description" content="Zohal Zahir - Power BI consultant and Excel automation specialist. Custom dashboards, financial reporting, VBA automation, and data integration solutions for businesses worldwide.">
+    <meta name="keywords" content="Power BI consultant, Excel automation specialist, VBA developer, data analyst, business intelligence, Python automation, financial dashboards, automated reporting">
+    <title>Zohal Zahir - Power BI & Excel Specialist | Data Analytics Consultant</title>
     <link rel="canonical" href="https://datasanj.com/About.html">
 
     <style>
@@ -23,31 +23,53 @@
         .cta-btn { background: #2563eb; color: white !important; padding: 14px 32px; border-radius: 6px; }
 
         /* Page header */
-        .page-header { margin-top: 100px; padding: 100px 0; text-align: center; background: white; }
-        .page-header h1 { font-size: 52px; font-weight: 800; color: #1e293b; margin-bottom: 25px; }
-        .page-header p { font-size: 20px; color: #64748b; max-width: 700px; margin: 0 auto; }
+        .page-header { margin-top: 100px; padding: 100px 0 80px; text-align: center; background: white; }
+        .page-header h1 { font-size: 48px; font-weight: 800; color: #1e293b; margin-bottom: 20px; line-height: 1.2; }
+        .page-header .subtitle { font-size: 22px; color: #64748b; max-width: 800px; margin: 0 auto 30px; }
+        .location { font-size: 16px; color: #64748b; font-weight: 500; }
+
+        /* Services Overview */
+        .services-overview { padding: 100px 0; background: #f8fafc; }
+        .services-overview h2 { font-size: 42px; font-weight: 800; text-align: center; margin-bottom: 60px; color: #1e293b; }
+        .service-categories { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
+        .service-category { background: white; padding: 50px; border-radius: 8px; border-left: 4px solid #2563eb; }
+        .service-category h3 { font-size: 28px; margin-bottom: 25px; color: #1e293b; font-weight: 700; }
+        .service-category p { font-size: 17px; color: #64748b; margin-bottom: 25px; line-height: 1.8; }
+        .service-category ul { list-style: none; }
+        .service-category li { padding: 12px 0; color: #475569; position: relative; padding-left: 25px; font-size: 16px; }
+        .service-category li:before { content: "•"; position: absolute; left: 0; color: #2563eb; font-size: 24px; line-height: 1; }
+
+        /* Problems Section */
+        .problems { padding: 100px 0; background: white; }
+        .problems h2 { font-size: 42px; font-weight: 800; text-align: center; margin-bottom: 60px; color: #1e293b; }
+        .problems-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 35px; }
+        .problem-card { background: #f8fafc; padding: 35px; border-radius: 8px; }
+        .problem-card h3 { font-size: 20px; margin-bottom: 15px; color: #1e293b; font-weight: 700; }
+        .problem-card p { font-size: 15px; color: #64748b; line-height: 1.7; }
 
         /* About Section */
         .about { padding: 100px 0; background: #e0f2fe; }
-        .about-content { display: grid; grid-template-columns: 380px 1fr; gap: 80px; align-items: center; }
-        .about-avatar img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
+        .about-content { display: grid; grid-template-columns: 350px 1fr; gap: 70px; align-items: start; }
+        .about-avatar img { width: 100%; border-radius: 8px; }
         .about-text h2 { font-size: 36px; margin-bottom: 25px; color: #1e293b; font-weight: 800; }
+        .about-text h3 { font-size: 20px; margin: 30px 0 15px; color: #1e293b; font-weight: 700; }
         .about-text p { font-size: 17px; line-height: 1.8; margin-bottom: 20px; color: #64748b; }
-        .credentials { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
-        .credential { background: white; padding: 10px 18px; border-radius: 4px; font-size: 13px; font-weight: 600; color: #1e293b; }
+        .credentials { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 30px; }
+        .credential { background: white; padding: 12px 18px; border-radius: 4px; font-size: 14px; font-weight: 600; color: #1e293b; text-align: center; }
 
-        /* Skills Section */
-        .skills { padding: 100px 0; background: white; }
-        h2 { font-size: 42px; font-weight: 800; text-align: center; margin-bottom: 70px; color: #1e293b; }
-        .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
-        .skill-card { background: #f8fafc; padding: 40px; border-radius: 8px; }
-        .skill-card h3 { font-size: 22px; margin-bottom: 20px; color: #1e293b; font-weight: 700; }
-        .skill-card ul { list-style: none; }
-        .skill-card li { padding: 10px 0; color: #64748b; position: relative; padding-left: 25px; }
-        .skill-card li:before { content: "•"; position: absolute; left: 0; color: #2563eb; font-size: 24px; line-height: 1; }
+        /* Technical Expertise */
+        .expertise { padding: 100px 0; background: white; }
+        .expertise h2 { font-size: 42px; font-weight: 800; text-align: center; margin-bottom: 70px; color: #1e293b; }
+        .expertise-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
+        .expertise-card { background: #f8fafc; padding: 40px; border-radius: 8px; }
+        .expertise-card h3 { font-size: 22px; margin-bottom: 20px; color: #1e293b; font-weight: 700; }
+        .expertise-card ul { list-style: none; }
+        .expertise-card li { padding: 10px 0; color: #64748b; position: relative; padding-left: 25px; }
+        .expertise-card li:before { content: "•"; position: absolute; left: 0; color: #2563eb; font-size: 24px; line-height: 1; }
 
-        /* Testimonials Section */
+        /* Testimonials */
         .testimonials { padding: 100px 0; background: #f8fafc; }
+        .testimonials h2 { font-size: 42px; font-weight: 800; text-align: center; margin-bottom: 70px; color: #1e293b; }
         .testimonial-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
         .testimonial-card { background: white; padding: 40px; border-radius: 8px; }
         .rating { color: #2563eb; font-size: 18px; margin-bottom: 15px; letter-spacing: 2px; }
@@ -55,7 +77,7 @@
         .testimonial-author { font-weight: 600; color: #1e293b; font-size: 15px; }
         .testimonial-role { color: #64748b; font-size: 14px; }
 
-        /* CTA Section */
+        /* CTA */
         .cta { padding: 120px 0; text-align: center; background: white; }
         .btn-primary { background: #2563eb; color: white; padding: 18px 40px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 16px; display: inline-block; transition: all 0.3s; }
         .btn-primary:hover { background: #1d4ed8; transform: translateY(-2px); }
@@ -72,18 +94,20 @@
 
         @media (max-width: 768px) {
             .container { padding: 0 20px; }
-            .page-header h1 { font-size: 36px; }
+            .page-header h1 { font-size: 32px; }
             .logo { font-size: 30px; }
             nav ul { display: none; }
+            .service-categories { grid-template-columns: 1fr; }
+            .problems-grid { grid-template-columns: 1fr; }
             .about-content { grid-template-columns: 1fr; }
-            .about-avatar img { margin: 0 auto; width: 80%; height: auto; }
-            .skills-grid, .testimonial-grid { grid-template-columns: 1fr; }
+            .credentials { grid-template-columns: repeat(2, 1fr); }
+            .expertise-grid, .testimonial-grid { grid-template-columns: 1fr; }
             .footer-content { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation with updated SVG logo -->
+    <!-- Navigation -->
     <nav>
         <div class="container">
             <a href="index.html" class="logo">
@@ -101,7 +125,6 @@
                             <circle cx="50" cy="28" r="3" fill="#ec4899"/>
                         </g>
                     </svg>
-
                     <div style="display: flex; flex-direction: column; line-height: 1;">
                         <span style="font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; font-size:36px; background:linear-gradient(to right,#1e3a8a,#3b82f6); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">
                             DATASANJ
@@ -125,8 +148,75 @@
     <!-- Page Header -->
     <section class="page-header">
         <div class="container">
-            <h1>About Zohal Zahir</h1>
-            <p>Data analytics consultant combining medical expertise, financial knowledge, and technical skills.</p>
+            <h1>Power BI Dashboards & Excel Automation<br>That Actually Work</h1>
+            <p class="subtitle">Production-ready solutions that eliminate manual reporting and turn scattered data into automated systems</p>
+            <p class="location">Based in Canberra, Australia | Working with clients globally</p>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="services-overview">
+        <div class="container">
+            <h2>What I Do</h2>
+            <div class="service-categories">
+                <div class="service-category">
+                    <h3>Power BI Solutions</h3>
+                    <p>Custom business intelligence dashboards and automated reporting systems that turn your data into actionable insights.</p>
+                    <ul>
+                        <li>Interactive Power BI dashboards with DAX measures</li>
+                        <li>Automated data refresh and pipeline setup</li>
+                        <li>Multi-source data integration (APIs, databases, Excel)</li>
+                        <li>Real-time KPI tracking and alerts</li>
+                        <li>Financial performance dashboards</li>
+                        <li>Operational metrics and reporting</li>
+                    </ul>
+                </div>
+                <div class="service-category">
+                    <h3>Excel Automation & Development</h3>
+                    <p>Production-grade Excel solutions with VBA macros and Python integration that eliminate manual data work.</p>
+                    <ul>
+                        <li>Custom VBA macros and automation scripts</li>
+                        <li>Automated report generation and PDF exports</li>
+                        <li>Financial modeling and forecasting tools</li>
+                        <li>Data validation and error checking systems</li>
+                        <li>Python integration for advanced processing</li>
+                        <li>Database connections and API integrations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problems I Solve -->
+    <section class="problems">
+        <div class="container">
+            <h2>Problems I Solve</h2>
+            <div class="problems-grid">
+                <div class="problem-card">
+                    <h3>Manual Reporting</h3>
+                    <p>Hours spent copying data between systems, formatting reports, and updating spreadsheets. I automate these workflows to save time and eliminate errors.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>Disconnected Data</h3>
+                    <p>Information scattered across multiple platforms with no single source of truth. I integrate your data sources into unified dashboards.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>Lack of Visibility</h3>
+                    <p>Making decisions based on outdated or incomplete information. I create real-time dashboards that give you current insights when you need them.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>Complex Excel Files</h3>
+                    <p>Spreadsheets that only one person understands and break when anything changes. I build robust, maintainable solutions with proper documentation.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>Scaling Challenges</h3>
+                    <p>Systems that worked for 10 clients now failing with 100. I design solutions that scale with your business growth.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>Data Quality Issues</h3>
+                    <p>Unreliable data leading to incorrect decisions. I implement validation, cleaning, and quality control measures.</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -135,77 +225,87 @@
         <div class="container">
             <div class="about-content">
                 <div class="about-avatar">
-                    <img src="Zohal Zahir.jpg" alt="Zohal Zahir">
+                    <img src="Zohal Zahir.jpg" alt="Zohal Zahir - Power BI and Excel Automation Specialist">
                 </div>
                 <div class="about-text">
-                    <h2>From Medicine to Data Mastery</h2>
-                    <p>I'm a data analytics consultant with an unconventional background that gives me a unique perspective. With a Bachelor of Medicine, Graduate Certificate in Data Science, and Certificate III in Accounting and Bookkeeping, I bring cross-disciplinary expertise to every project.</p>
-                    <p>My medical training taught me precision and the importance of accurate data for critical decisions. My financial education provided deep understanding of business metrics and reporting. Combined with data science expertise, this allows me to create solutions that truly serve business needs.</p>
-                    <p>I specialize in production-ready data solutions that deliver measurable results. Every dashboard, automation, and integration I build is designed for reliability and long-term use.</p>
+                    <h2>Zohal Zahir</h2>
+                    <p>Founder & Principal Consultant at DATASANJ</p>
+                    
+                    <h3>Background</h3>
+                    <p>I bring an unconventional perspective to data analytics through my diverse background in medicine, data science, and accounting. This combination allows me to understand both the technical requirements and business context of every project.</p>
+                    
+                    <p>My medical training instilled precision and the critical importance of accurate data. My accounting certification provided deep insight into financial reporting and business metrics. My data science education gave me the technical tools to build production-grade solutions.</p>
+                    
+                    <h3>Work Approach</h3>
+                    <p>When you work with me, you work directly with me. No project managers, no miscommunication. I handle every aspect of your project from requirements gathering to deployment and training.</p>
+                    
+                    <p>I specialize in building solutions that work reliably in production environments. Every dashboard, automation, and integration I create is designed for long-term use with proper error handling, documentation, and scalability.</p>
+                    
                     <div class="credentials">
                         <span class="credential">Bachelor of Medicine</span>
-                        <span class="credential">Data Science Graduate</span>
-                        <span class="credential">Accounting Certified</span>
-                        <span class="credential">Xero Advisor</span>
-                        <span class="credential">Top-Rated Professional</span>
-                        <span class="credential">100% Success Rate</span>
-                        <span class="credential">60+ Projects</span>
-                        <span class="credential">Canberra, Australia</span>
+                        <span class="credential">Graduate Certificate Data Science</span>
+                        <span class="credential">Certificate III Accounting</span>
+                        <span class="credential">Xero Advisor Certified</span>
+                        <span class="credential">Upwork Top-Rated</span>
+                        <span class="credential">100% Job Success Rate</span>
+                        <span class="credential">70+ Projects Delivered</span>
+                        <span class="credential">University of Adelaide</span>
+                        <span class="credential">Working Globally</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section class="skills">
+    <!-- Technical Expertise -->
+    <section class="expertise">
         <div class="container">
-            <h2>Technical Expertise</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <h3>Business Intelligence</h3>
+            <h2>Technical Capabilities</h2>
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <h3>Business Intelligence Tools</h3>
                     <ul>
-                        <li>Power BI (DAX, Power Query)</li>
-                        <li>Dashboard Design</li>
-                        <li>Data Modeling</li>
-                        <li>Report Automation</li>
+                        <li>Microsoft Power BI (DAX, Power Query, M)</li>
+                        <li>Data modeling and star schema design</li>
+                        <li>Power BI Service and deployment</li>
+                        <li>Automated refresh and pipelines</li>
                     </ul>
                 </div>
-                <div class="skill-card">
-                    <h3>Data Analysis</h3>
+                <div class="expertise-card">
+                    <h3>Data Analysis & Automation</h3>
                     <ul>
-                        <li>Microsoft Excel (Advanced)</li>
-                        <li>VBA Development</li>
-                        <li>SQL & Databases</li>
-                        <li>Statistical Analysis (R)</li>
+                        <li>Microsoft Excel (Advanced functions, pivot tables)</li>
+                        <li>VBA macro development and automation</li>
+                        <li>Python (Pandas, data processing, APIs)</li>
+                        <li>R (statistical analysis, modeling)</li>
                     </ul>
                 </div>
-                <div class="skill-card">
-                    <h3>Programming</h3>
+                <div class="expertise-card">
+                    <h3>Integration & Development</h3>
                     <ul>
-                        <li>Python (Pandas, API Integration)</li>
-                        <li>Power Automate</li>
-                        <li>Google Apps Script</li>
-                        <li>Process Automation</li>
+                        <li>SQL database querying and optimization</li>
+                        <li>REST API integration and authentication</li>
+                        <li>Microsoft Fabric and cloud pipelines</li>
+                        <li>Power Automate workflow development</li>
                     </ul>
                 </div>
-                <div class="skill-card">
-                    <h3>Domain Knowledge</h3>
+                <div class="expertise-card">
+                    <h3>Industry Experience</h3>
                     <ul>
-                        <li>Financial Analysis</li>
-                        <li>Healthcare Data</li>
-                        <li>Accounting (Xero)</li>
-                        <li>Business Process Optimization</li>
+                        <li>Financial services and accounting (Xero)</li>
+                        <li>Healthcare data and reporting systems</li>
+                        <li>SaaS metrics and operational analytics</li>
+                        <li>Small business and enterprise solutions</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
+    <!-- Testimonials -->
     <section class="testimonials">
         <div class="container">
-            <h2>Client Testimonials</h2>
+            <h2>Client Results</h2>
             <div class="testimonial-grid">
                 <div class="testimonial-card">
                     <div class="rating">★★★★★</div>
@@ -235,11 +335,11 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- CTA -->
     <section class="cta">
         <div class="container">
-            <h2>Let's Work Together</h2>
-            <p style="font-size: 20px; margin-bottom: 40px; color: #64748b;">Ready to transform your data processes?</p>
+            <h2>Ready to Automate Your Data Processes?</h2>
+            <p style="font-size: 20px; margin-bottom: 40px; color: #64748b;">Let's discuss your specific requirements and build a solution that works.</p>
             <a href="Contact.html" class="btn-primary">Get In Touch</a>
         </div>
     </section>
@@ -250,8 +350,8 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <h3>DATASANJ</h3>
-                    <p>Professional data analytics, Power BI consulting, and Excel automation services in Canberra, Australia.</p>
-                    <p style="margin-top: 20px;">Canberra, ACT, Australia<br><a href="mailto:d_zohal@datasanj.com" style="color:#94a3b8;">d_zohal@datasanj.com</a></p>
+                    <p>Power BI consulting and Excel automation services for businesses worldwide. Founded and operated by Zohal Zahir, specializing in production-grade data solutions that eliminate manual work.</p>
+                    <p style="margin-top: 20px;">Based in Canberra, Australia<br><a href="mailto:d_zohal@datasanj.com" style="color:#94a3b8;">d_zohal@datasanj.com</a></p>
                 </div>
                 <div class="footer-links">
                     <h4>Quick Links</h4>
@@ -269,7 +369,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                2025 DATASANJ | Zohal Zahir | All Rights Reserved
+                © 2025 DATASANJ | Zohal Zahir | Power BI & Excel Automation Specialist
             </div>
         </div>
     </footer>

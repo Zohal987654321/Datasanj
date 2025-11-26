@@ -3,79 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Professional Power BI dashboards, Excel automation, and data analytics services in Canberra, Australia. 100% job success rate.">
-    <meta name="keywords" content="Power BI consultant, Excel automation, data analyst Canberra, business intelligence, dashboard development">
-    <meta name="author" content="Zohal Zahir">
-    <title>DATASANJ - Power BI & Excel Data Analytics Consultant | Canberra, Australia</title>
-    <link rel="canonical" href="https://datasanj.com">
-    
+    <meta name="description" content="Zohal Zahir - Power BI consultant and Excel automation specialist. Custom dashboards, financial reporting, VBA automation, and data integration solutions for businesses worldwide.">
+    <meta name="keywords" content="Power BI consultant, Excel automation specialist, VBA developer, data analyst, business intelligence, Python automation, financial dashboards, automated reporting">
+    <title>Zohal Zahir - Power BI & Excel Specialist | Data Analytics Consultant</title>
+    <link rel="canonical" href="https://datasanj.com/About.html">
+
     <style>
-        /* Reset & Base Styles */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; line-height: 1.6; color: #1e293b; background: white; }
-        a { text-decoration: none; }
-        img { display: block; max-width: 100%; height: auto; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
 
         /* Navigation */
-        nav { position: fixed; top: 0; width: 100%; background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.05); z-index: 1000; padding: 20px 0; }
+        nav { position: fixed; top: 0; width: 100%; background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.05); z-index: 1000; padding: 25px 0; }
         nav .container { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 42px; font-weight: 800; color: #2563eb; display: flex; align-items: center; gap: 10px; }
-        nav ul { display: flex; list-style: none; gap: 40px; align-items: center; }
-        nav a { color: #1e293b; font-weight: 500; font-size: 16px; transition: color 0.3s; }
+        .logo { font-size: 42px; font-weight: 800; color: #2563eb; text-decoration: none; display: flex; align-items: center; gap: 10px; }
+        nav ul { display: flex; list-style: none; gap: 50px; align-items: center; }
+        nav a { text-decoration: none; color: #1e293b; font-weight: 500; font-size: 16px; transition: color 0.3s; }
         nav a:hover, nav a.active { color: #2563eb; }
-        .cta-btn { background: #2563eb; color: white !important; padding: 12px 28px; border-radius: 6px; }
-        .cta-btn:hover { background: #1d4ed8; }
+        .cta-btn { background: #2563eb; color: white !important; padding: 14px 32px; border-radius: 6px; }
 
-        /* Hero Section */
-        .hero {
-            margin-top: 100px;
-            padding: 80px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 60px;
-            flex-wrap: wrap;
-            background: #1e293b;
-            color: white;
-        }
-        .hero-image { flex: 1 1 400px; max-width: 500px; }
-        .hero-image img { width: 100%; height: auto; border-radius: 12px; box-shadow: 0 20px 50px rgba(0,0,0,0.2); }
-        .hero-text { flex: 1 1 500px; max-width: 600px; }
-        .hero-text h1 { font-size: 48px; line-height: 1.2; margin-bottom: 20px; }
-        .hero-text p { font-size: 20px; color: #e2e8f0; margin-bottom: 30px; }
-        .hero-buttons { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 40px; }
-        .hero-buttons .btn { display: inline-block; padding: 16px 36px; border-radius: 6px; font-weight: 600; transition: all 0.3s; }
-        .btn-primary { background: #2563eb; color: white; }
+        /* Page header */
+        .page-header { margin-top: 100px; padding: 100px 0 80px; text-align: center; background: white; }
+        .page-header h1 { font-size: 48px; font-weight: 800; color: #1e293b; margin-bottom: 20px; line-height: 1.2; }
+        .page-header .subtitle { font-size: 22px; color: #64748b; max-width: 800px; margin: 0 auto 30px; }
+        .location { font-size: 16px; color: #64748b; font-weight: 500; }
+
+        /* Services Overview */
+        .services-overview { padding: 100px 0; background: #f8fafc; }
+        .services-overview h2 { font-size: 42px; font-weight: 800; text-align: center; margin-bottom: 60px; color: #1e293b; }
+        .service-categories { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
+        .service-category { background: white; padding: 50px; border-radius: 8px; border-left: 4px solid #2563eb; }
+        .service-category h3 { font-size: 28px; margin-bottom: 25px; color: #1e293b; font-weight: 700; }
+        .service-category p { font-size: 17px; color: #64748b; margin-bottom: 25px; line-height: 1.8; }
+        .service-category ul { list-style: none; }
+        .service-category li { padding: 12px 0; color: #475569; position: relative; padding-left: 25px; font-size: 16px; }
+        .service-category li:before { content: "•"; position: absolute; left: 0; color: #2563eb; font-size: 24px; line-height: 1; }
+
+        /* Problems Section */
+        .problems { padding: 100px 0; background: white; }
+        .problems h2 { font-size: 42px; font-weight: 800; text-align: center; margin-bottom: 60px; color: #1e293b; }
+        .problems-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 35px; }
+        .problem-card { background: #f8fafc; padding: 35px; border-radius: 8px; }
+        .problem-card h3 { font-size: 20px; margin-bottom: 15px; color: #1e293b; font-weight: 700; }
+        .problem-card p { font-size: 15px; color: #64748b; line-height: 1.7; }
+
+        /* About Section */
+        .about { padding: 100px 0; background: #e0f2fe; }
+        .about-content { display: grid; grid-template-columns: 350px 1fr; gap: 70px; align-items: start; }
+        .about-avatar img { width: 100%; border-radius: 8px; }
+        .about-text h2 { font-size: 36px; margin-bottom: 25px; color: #1e293b; font-weight: 800; }
+        .about-text h3 { font-size: 20px; margin: 30px 0 15px; color: #1e293b; font-weight: 700; }
+        .about-text p { font-size: 17px; line-height: 1.8; margin-bottom: 20px; color: #64748b; }
+        .credentials { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 30px; }
+        .credential { background: white; padding: 12px 18px; border-radius: 4px; font-size: 14px; font-weight: 600; color: #1e293b; text-align: center; }
+
+        /* Technical Expertise */
+        .expertise { padding: 100px 0; background: white; }
+        .expertise h2 { font-size: 42px; font-weight: 800; text-align: center; margin-bottom: 70px; color: #1e293b; }
+        .expertise-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
+        .expertise-card { background: #f8fafc; padding: 40px; border-radius: 8px; }
+        .expertise-card h3 { font-size: 22px; margin-bottom: 20px; color: #1e293b; font-weight: 700; }
+        .expertise-card ul { list-style: none; }
+        .expertise-card li { padding: 10px 0; color: #64748b; position: relative; padding-left: 25px; }
+        .expertise-card li:before { content: "•"; position: absolute; left: 0; color: #2563eb; font-size: 24px; line-height: 1; }
+
+        /* Testimonials */
+        .testimonials { padding: 100px 0; background: #f8fafc; }
+        .testimonials h2 { font-size: 42px; font-weight: 800; text-align: center; margin-bottom: 70px; color: #1e293b; }
+        .testimonial-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+        .testimonial-card { background: white; padding: 40px; border-radius: 8px; }
+        .rating { color: #2563eb; font-size: 18px; margin-bottom: 15px; letter-spacing: 2px; }
+        .testimonial-text { font-size: 16px; line-height: 1.7; color: #1e293b; margin-bottom: 20px; font-style: italic; }
+        .testimonial-author { font-weight: 600; color: #1e293b; font-size: 15px; }
+        .testimonial-role { color: #64748b; font-size: 14px; }
+
+        /* CTA */
+        .cta { padding: 120px 0; text-align: center; background: white; }
+        .btn-primary { background: #2563eb; color: white; padding: 18px 40px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 16px; display: inline-block; transition: all 0.3s; }
         .btn-primary:hover { background: #1d4ed8; transform: translateY(-2px); }
-        .btn-secondary { background: white; color: #2563eb; border: 2px solid white; }
-        .btn-secondary:hover { background: #f8fafc; }
-
-        .stats { display: flex; justify-content: flex-start; gap: 60px; margin-top: 20px; flex-wrap: wrap; }
-        .stat h3 { font-size: 44px; font-weight: 800; color: #60a5fa; margin-bottom: 5px; }
-        .stat p { color: #e2e8f0; font-size: 16px; }
-
-        /* Showcase Section */
-        .image-showcase { padding: 120px 0; background: white; overflow: hidden; }
-        h2.section-title { font-size: 42px; font-weight: 800; text-align: center; margin-bottom: 70px; color: #1e293b; }
-        .showcase-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 60px; align-items: center; margin-bottom: 80px; }
-        .showcase-content h3 { font-size: 36px; margin-bottom: 20px; color: #1e293b; font-weight: 800; }
-        .showcase-content p { font-size: 18px; color: #64748b; line-height: 1.7; }
-        .showcase-image { border-radius: 12px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
-
-        /* Services Section */
-        .services-preview { padding: 120px 0; background: #f8fafc; position: relative; }
-        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
-        .service-card { background: white; padding: 45px; border-radius: 12px; transition: all 0.3s; position: relative; overflow: hidden; }
-        .service-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
-        .service-card h3 { font-size: 24px; margin-bottom: 15px; color: #1e293b; font-weight: 700; }
-        .service-card p { color: #64748b; line-height: 1.7; font-size: 16px; }
-        .service-card::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(to right, #2563eb, #ec4899); }
-
-        /* CTA Section */
-        .cta-section { padding: 100px 0; text-align: center; background: white; }
-        .cta-section h2 { font-size: 36px; font-weight: 800; margin-bottom: 20px; color: #1e293b; }
-        .cta-section p { font-size: 20px; color: #64748b; margin-bottom: 40px; }
 
         /* Footer */
         footer { background: #1e293b; color: white; padding: 60px 0 30px; }
@@ -83,22 +88,21 @@
         .footer-brand h3 { font-size: 24px; margin-bottom: 15px; color: #3b82f6; }
         .footer-brand p { color: #94a3b8; line-height: 1.7; font-size: 14px; }
         .footer-links h4 { font-size: 16px; margin-bottom: 20px; }
-        .footer-links a { display: block; color: #94a3b8; margin-bottom: 12px; font-size: 14px; }
+        .footer-links a { display: block; color: #94a3b8; text-decoration: none; margin-bottom: 12px; font-size: 14px; }
         .footer-links a:hover { color: #3b82f6; }
-        .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); color: #64748b; font-size: 14px; }
+        .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.1); color: #64748b; font-size: 14px; }
 
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .showcase-grid { grid-template-columns: 1fr; gap: 40px; }
-        }
         @media (max-width: 768px) {
             .container { padding: 0 20px; }
-            h1 { font-size: 36px; }
+            .page-header h1 { font-size: 32px; }
             .logo { font-size: 30px; }
             nav ul { display: none; }
-            .services-grid { grid-template-columns: 1fr; }
-            .stats { flex-direction: column; gap: 20px; }
-            .hero { flex-direction: column; gap: 40px; text-align: center; }
+            .service-categories { grid-template-columns: 1fr; }
+            .problems-grid { grid-template-columns: 1fr; }
+            .about-content { grid-template-columns: 1fr; }
+            .credentials { grid-template-columns: repeat(2, 1fr); }
+            .expertise-grid, .testimonial-grid { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -107,136 +111,236 @@
     <nav>
         <div class="container">
             <a href="index.html" class="logo">
-                <!-- Logo Icon -->
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" style="height: 60px; width: auto;">
-                    <defs>
-                        <linearGradient id="BrownAccent" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#ec4899;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#f0abfc;stop-opacity:1" />
-                        </linearGradient>
-                    </defs>
-                    <g transform="translate(10,10)">
-                        <rect x="0" y="25" width="10" height="25" fill="#1e3a8a" rx="2"/>
-                        <rect x="15" y="15" width="10" height="35" fill="#2563eb" rx="2"/>
-                        <rect x="30" y="10" width="10" height="40" fill="#3b82f6" rx="2"/>
-                        <rect x="45" y="18" width="10" height="32" fill="url(#pinkAccent)" rx="2"/>
-                        <path d="M 5 35 Q 20 25, 35 20 T 50 28" stroke="#ec4899" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.8"/>
-                        <circle cx="5" cy="35" r="3" fill="#ec4899"/>
-                        <circle cx="20" cy="25" r="3" fill="#ec4899"/>
-                        <circle cx="35" cy="20" r="3" fill="#ec4899"/>
-                        <circle cx="50" cy="28" r="3" fill="#ec4899"/>
-                    </g>
-                </svg>
-                <!-- Logo Text -->
-                <div style="display: flex; flex-direction: column; line-height: 1;">
-                    <span style="font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; font-size:36px; background:linear-gradient(to right,#1e3a8a,#3b82f6); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">DATASANJ</span>
-                    <span style="font-family:'Helvetica Neue',Arial,sans-serif; font-weight:100;font-size:11px; color:#64748b; letter-spacing:2px;">DATA ANALYTICS CONSULTANCY</span>
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" style="height: 60px; width: auto;">
+                        <g transform="translate(10,10)">
+                            <rect x="0" y="25" width="10" height="25" fill="#1e3a8a" rx="2"/>
+                            <rect x="15" y="15" width="10" height="35" fill="#2563eb" rx="2"/>
+                            <rect x="30" y="10" width="10" height="40" fill="#3b82f6" rx="2"/>
+                            <rect x="45" y="18" width="10" height="32" fill="transparent" rx="2"/>
+                            <path d="M 5 35 Q 20 25, 35 20 T 50 28" stroke="#ec4899" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.8"/>
+                            <circle cx="5" cy="35" r="3" fill="#ec4899"/>
+                            <circle cx="20" cy="25" r="3" fill="#ec4899"/>
+                            <circle cx="35" cy="20" r="3" fill="#ec4899"/>
+                            <circle cx="50" cy="28" r="3" fill="#ec4899"/>
+                        </g>
+                    </svg>
+                    <div style="display: flex; flex-direction: column; line-height: 1;">
+                        <span style="font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; font-size:36px; background:linear-gradient(to right,#1e3a8a,#3b82f6); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">
+                            DATASANJ
+                        </span>
+                        <span style="font-family:'Helvetica Neue',Arial,sans-serif; font-weight:100;font-size:11px; color:#64748b; letter-spacing:2px;">
+                            DATA ANALYTICS CONSULTANCY
+                        </span>
+                    </div>
                 </div>
             </a>
-
             <ul>
-                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="Portfolio.html">Portfolio</a></li>
-                <li><a href="About.html">About</a></li>
+                <li><a href="About.html" class="active">About</a></li>
                 <li><a href="Contact.html" class="cta-btn">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-image">
-            <img src="Stop_Guessing__Start_Growing__version_1.png" alt="Stop Guessing Start Growing">
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Power BI Dashboards & Excel Automation<br>That Actually Work</h1>
+            <p class="subtitle">Production-ready solutions that eliminate manual reporting and turn scattered data into automated systems</p>
+            <p class="location">Based in Canberra, Australia | Working with clients globally</p>
         </div>
-        <div class="hero-text">
-            <h1>Professional Data Analytics<br>for Business Growth</h1>
-            <p>Power BI dashboards, Excel automation, and data solutions that save time, eliminate errors, and drive better business decisions.</p>
-            <div class="hero-buttons">
-                <a href="Contact.html" class="btn btn-primary">Get Started</a>
-                <a href="Portfolio.html" class="btn btn-secondary">View Portfolio</a>
-            </div>
-            <div class="stats">
-                <div class="stat">
-                    <h3>70+</h3>
-                    <p>Projects Delivered</p>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="services-overview">
+        <div class="container">
+            <h2>What I Do</h2>
+            <div class="service-categories">
+                <div class="service-category">
+                    <h3>Power BI Solutions</h3>
+                    <p>Custom business intelligence dashboards and automated reporting systems that turn your data into actionable insights.</p>
+                    <ul>
+                        <li>Interactive Power BI dashboards with DAX measures</li>
+                        <li>Automated data refresh and pipeline setup</li>
+                        <li>Multi-source data integration (APIs, databases, Excel)</li>
+                        <li>Real-time KPI tracking and alerts</li>
+                        <li>Financial performance dashboards</li>
+                        <li>Operational metrics and reporting</li>
+                    </ul>
                 </div>
-                <div class="stat">
-                    <h3>100%</h3>
-                    <p>Success Rate</p>
-                </div>
-                <div class="stat">
-                    <h3>80%</h3>
-                    <p>Time Saved</p>
+                <div class="service-category">
+                    <h3>Excel Automation & Development</h3>
+                    <p>Production-grade Excel solutions with VBA macros and Python integration that eliminate manual data work.</p>
+                    <ul>
+                        <li>Custom VBA macros and automation scripts</li>
+                        <li>Automated report generation and PDF exports</li>
+                        <li>Financial modeling and forecasting tools</li>
+                        <li>Data validation and error checking systems</li>
+                        <li>Python integration for advanced processing</li>
+                        <li>Database connections and API integrations</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Showcase Section -->
-    <section class="image-showcase">
+    <!-- Problems I Solve -->
+    <section class="problems">
         <div class="container">
-            <h2 class="section-title">Data-Driven Excellence</h2>
-            <div class="showcase-grid">
-                <div class="showcase-content">
-                    <h3>Transform Data Into Decisions</h3>
-                    <p>Our advanced analytics solutions turn your raw data into actionable insights that drive immediate results. Save thousands annually with intelligent automation and real-time business intelligence.</p>
+            <h2>Problems I Solve</h2>
+            <div class="problems-grid">
+                <div class="problem-card">
+                    <h3>Manual Reporting</h3>
+                    <p>Hours spent copying data between systems, formatting reports, and updating spreadsheets. I automate these workflows to save time and eliminate errors.</p>
                 </div>
-                <div class="showcase-image">
-                    <img src="Data_Into_Decisions,_Fast_version_1.png" alt="Data Analytics Dashboard">
+                <div class="problem-card">
+                    <h3>Disconnected Data</h3>
+                    <p>Information scattered across multiple platforms with no single source of truth. I integrate your data sources into unified dashboards.</p>
                 </div>
-            </div>
-            <div class="showcase-grid" style="direction: rtl;">
-                <div class="showcase-content" style="direction: ltr;">
-                    <h3>We Model Clarity</h3>
-                    <p>Complex data modeling made simple. We transform your scattered data into comprehensive, fact-based reports that drive improved results and strategic decision-making.</p>
+                <div class="problem-card">
+                    <h3>Lack of Visibility</h3>
+                    <p>Making decisions based on outdated or incomplete information. I create real-time dashboards that give you current insights when you need them.</p>
                 </div>
-                <div class="showcase-image">
-                    <img src="We_Model_Clarity_version_1.png" alt="Data Modeling Services">
+                <div class="problem-card">
+                    <h3>Complex Excel Files</h3>
+                    <p>Spreadsheets that only one person understands and break when anything changes. I build robust, maintainable solutions with proper documentation.</p>
                 </div>
-            </div>
-            <div class="showcase-grid">
-                <div class="showcase-content">
-                    <h3>Your Data Is Talking</h3>
-                    <p>Are you listening? Raw metrics often hide the clear path to profit. Our operational demand analysis and forecasting tools reveal the insights you've been missing.</p>
+                <div class="problem-card">
+                    <h3>Scaling Challenges</h3>
+                    <p>Systems that worked for 10 clients now failing with 100. I design solutions that scale with your business growth.</p>
                 </div>
-                <div class="showcase-image">
-                    <img src="Your_Data_Is_Talking__version_1.png" alt="Business Intelligence Dashboard">
+                <div class="problem-card">
+                    <h3>Data Quality Issues</h3>
+                    <p>Unreliable data leading to incorrect decisions. I implement validation, cleaning, and quality control measures.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services-preview">
+    <!-- About Section -->
+    <section class="about">
         <div class="container">
-            <h2 class="section-title">Professional Data Solutions</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>Power BI Dashboards</h3>
-                    <p>Interactive business intelligence dashboards with real-time data visualization and automated reporting.</p>
+            <div class="about-content">
+                <div class="about-avatar">
+                    <img src="Zohal Zahir.jpg" alt="Zohal Zahir - Power BI and Excel Automation Specialist">
                 </div>
-                <div class="service-card">
-                    <h3>Excel Automation</h3>
-                    <p>VBA solutions that eliminate manual work and reduce errors by 90% through automation.</p>
+                <div class="about-text">
+                    <h2>Zohal Zahir</h2>
+                    <p>Founder & Principal Consultant at DATASANJ</p>
+                    
+                    <h3>Background</h3>
+                    <p>I bring an unconventional perspective to data analytics through my diverse background in medicine, data science, and accounting. This combination allows me to understand both the technical requirements and business context of every project.</p>
+                    
+                    <p>My medical training instilled precision and the critical importance of accurate data. My accounting certification provided deep insight into financial reporting and business metrics. My data science education gave me the technical tools to build production-grade solutions.</p>
+                    
+                    <h3>Work Approach</h3>
+                    <p>When you work with me, you work directly with me. No project managers, no miscommunication. I handle every aspect of your project from requirements gathering to deployment and training.</p>
+                    
+                    <p>I specialize in building solutions that work reliably in production environments. Every dashboard, automation, and integration I create is designed for long-term use with proper error handling, documentation, and scalability.</p>
+                    
+                    <div class="credentials">
+                        <span class="credential">Bachelor of Medicine</span>
+                        <span class="credential">Graduate Certificate Data Science</span>
+                        <span class="credential">Certificate III Accounting</span>
+                        <span class="credential">Xero Advisor Certified</span>
+                        <span class="credential">Upwork Top-Rated</span>
+                        <span class="credential">100% Job Success Rate</span>
+                        <span class="credential">70+ Projects Delivered</span>
+                        <span class="credential">University of Adelaide</span>
+                        <span class="credential">Working Globally</span>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <h3>Data Integration</h3>
-                    <p>Seamless API integration using Python and Power Automate for automated data flows.</p>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 50px;">
-                <a href="services.html" class="btn btn-primary">View All Services</a>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
+    <!-- Technical Expertise -->
+    <section class="expertise">
         <div class="container">
-            <h2>Ready to Transform Your Data?</h2>
-            <p>Schedule a free consultation to discuss your project requirements.</p>
-            <a href="Contact.html" class="btn btn-primary">Get In Touch</a>
+            <h2>Technical Capabilities</h2>
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <h3>Business Intelligence Tools</h3>
+                    <ul>
+                        <li>Microsoft Power BI (DAX, Power Query, M)</li>
+                        <li>Data modeling and star schema design</li>
+                        <li>Power BI Service and deployment</li>
+                        <li>Automated refresh and pipelines</li>
+                    </ul>
+                </div>
+                <div class="expertise-card">
+                    <h3>Data Analysis & Automation</h3>
+                    <ul>
+                        <li>Microsoft Excel (Advanced functions, pivot tables)</li>
+                        <li>VBA macro development and automation</li>
+                        <li>Python (Pandas, data processing, APIs)</li>
+                        <li>R (statistical analysis, modeling)</li>
+                    </ul>
+                </div>
+                <div class="expertise-card">
+                    <h3>Integration & Development</h3>
+                    <ul>
+                        <li>SQL database querying and optimization</li>
+                        <li>REST API integration and authentication</li>
+                        <li>Microsoft Fabric and cloud pipelines</li>
+                        <li>Power Automate workflow development</li>
+                    </ul>
+                </div>
+                <div class="expertise-card">
+                    <h3>Industry Experience</h3>
+                    <ul>
+                        <li>Financial services and accounting (Xero)</li>
+                        <li>Healthcare data and reporting systems</li>
+                        <li>SaaS metrics and operational analytics</li>
+                        <li>Small business and enterprise solutions</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>Client Results</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="rating">★★★★★</div>
+                    <div class="testimonial-text">"Zohal is such an asset to my company. This project required a large amount of back and forth communication for requirements and dashboard updates. Zohal handled these with grace and professionalism."</div>
+                    <div class="testimonial-author">Resident Services Manager</div>
+                    <div class="testimonial-role">Housing Organization</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="rating">★★★★★</div>
+                    <div class="testimonial-text">"Zohal was always very proficient with her resolutions. She was patient with me as I poorly tried to explain desired outcomes and she delivered solutions quickly and efficiently."</div>
+                    <div class="testimonial-author">Business Consultant</div>
+                    <div class="testimonial-role">Financial Services</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="rating">★★★★★</div>
+                    <div class="testimonial-text">"Zohal was amazing. The communication with her about what I needed and what was possible was effective and fast. I was very happy with what she provided."</div>
+                    <div class="testimonial-author">Financial Planner</div>
+                    <div class="testimonial-role">Mortgage Planning</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="rating">★★★★★</div>
+                    <div class="testimonial-text">"We were very happy with the completed project and the communication we received throughout. We look forward to working more with Zohal."</div>
+                    <div class="testimonial-author">Operations Manager</div>
+                    <div class="testimonial-role">Logistics Company</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Automate Your Data Processes?</h2>
+            <p style="font-size: 20px; margin-bottom: 40px; color: #64748b;">Let's discuss your specific requirements and build a solution that works.</p>
+            <a href="Contact.html" class="btn-primary">Get In Touch</a>
         </div>
     </section>
 
@@ -246,8 +350,8 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <h3>DATASANJ</h3>
-                    <p>Professional data analytics, Power BI consulting, and Excel automation services in Canberra, Australia.</p>
-                    <p style="margin-top: 20px;">Canberra, ACT, Australia<br>d_zohal@datasanj.com</p>
+                    <p>Power BI consulting and Excel automation services for businesses worldwide. Founded and operated by Zohal Zahir, specializing in production-grade data solutions that eliminate manual work.</p>
+                    <p style="margin-top: 20px;">Based in Canberra, Australia<br><a href="mailto:d_zohal@datasanj.com" style="color:#94a3b8;">d_zohal@datasanj.com</a></p>
                 </div>
                 <div class="footer-links">
                     <h4>Quick Links</h4>
@@ -259,13 +363,13 @@
                 </div>
                 <div class="footer-links">
                     <h4>Connect</h4>
-                    <a href="https://www.linkedin.com/in/zohal-zahir-46128697/" target="_blank">LinkedIn</a>
+                    <a href="https://www.linkedin.com/in/zohal-zahir-46128697" target="_blank">LinkedIn</a>
                     <a href="https://github.com/Zohal987654321" target="_blank">GitHub</a>
                     <a href="https://www.upwork.com/freelancers/zohalz" target="_blank">Upwork</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                2025 DATASANJ | Zohal Zahir | All Rights Reserved
+                © 2025 DATASANJ | Zohal Zahir | Power BI & Excel Automation Specialist
             </div>
         </div>
     </footer>

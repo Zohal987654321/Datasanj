@@ -3,209 +3,836 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contact DATASANJ for Power BI dashboards, Excel automation, and data analytics services. Free consultation available.">
-    <meta name="keywords" content="contact data analyst, hire Power BI consultant, data analytics consultation">
-    <title>Contact - Get Your Free Consultation | DATASANJ</title>
+    <meta name="description" content="Contact Zohal Zahir for Power BI dashboards, Excel automation, and data analytics services. Book a free 30-minute consultation. Based in Canberra, available globally.">
+    <meta name="keywords" content="contact data analyst Canberra, hire Power BI consultant, data analytics consultation, book consultation">
+    <meta name="author" content="Zohal Zahir">
+    <title>Contact & Book Consultation | Zohal Zahir - Data Analytics Consultant</title>
     <link rel="canonical" href="https://datasanj.com/Contact.html">
     
     <style>
+        /* Modern Professional Design System */
+        :root {
+            --navy: #1e3a8a;
+            --blue: #2563eb;
+            --light-blue: #3b82f6;
+            --pink: #ec4899;
+            --light-pink: #f0abfc;
+            --slate-900: #0f172a;
+            --slate-700: #334155;
+            --slate-500: #64748b;
+            --slate-100: #f1f5f9;
+            --white: #ffffff;
+            --success: #10b981;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; line-height: 1.6; color: #1e293b; background: white; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
-        nav { position: fixed; top: 0; width: 100%; background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.05); z-index: 1000; padding: 25px 0; }
-        nav .container { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 42px; font-weight: 800; color: #2563eb; text-decoration: none; letter-spacing: -1px; }
-        nav ul { display: flex; list-style: none; gap: 50px; align-items: center; }
-        nav a { text-decoration: none; color: #1e293b; font-weight: 500; font-size: 16px; transition: color 0.3s; }
-        nav a:hover, nav a.active { color: #2563eb; }
-        .cta-btn { background: #2563eb; color: white !important; padding: 14px 32px; border-radius: 6px; }
-        .page-header { margin-top: 100px; padding: 100px 0; text-align: center; background: white; }
-        .page-header h1 { font-size: 52px; font-weight: 800; color: #1e293b; margin-bottom: 25px; }
-        .page-header p { font-size: 20px; color: #64748b; max-width: 700px; margin: 0 auto; }
-        .contact { padding: 100px 0; background: #f8fafc; }
-        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
-        .contact-info h2 { font-size: 32px; color: #1e293b; margin-bottom: 25px; font-weight: 800; }
-        .contact-info p { font-size: 17px; line-height: 1.8; color: #64748b; margin-bottom: 30px; }
-        .contact-methods { display: flex; flex-direction: column; gap: 25px; }
-        .contact-method { background: white; padding: 30px; border-radius: 8px; }
-        .contact-method h3 { font-size: 18px; color: #1e293b; margin-bottom: 12px; font-weight: 600; }
-        .contact-method a { color: #2563eb; text-decoration: none; font-weight: 600; }
-        .contact-method p { font-size: 15px; color: #64748b; margin: 5px 0; }
-        .contact-form { background: white; padding: 50px; border-radius: 8px; }
-        .contact-form h2 { font-size: 28px; color: #1e293b; margin-bottom: 30px; font-weight: 800; }
-        .form-group { margin-bottom: 25px; }
-        .form-group label { display: block; font-size: 15px; font-weight: 600; color: #1e293b; margin-bottom: 8px; }
-        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 14px 18px; border: 2px solid #e2e8f0; border-radius: 6px; font-size: 15px; font-family: inherit; transition: all 0.3s; }
-        .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: #2563eb; }
-        .form-group textarea { resize: vertical; min-height: 150px; }
-        .submit-btn { background: #2563eb; color: white; padding: 16px 40px; border: none; border-radius: 6px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s; width: 100%; }
-        .submit-btn:hover { background: #1d4ed8; transform: translateY(-2px); }
-        .form-note { font-size: 14px; color: #64748b; margin-top: 15px; text-align: center; }
-        footer { background: #1e293b; color: white; padding: 60px 0 30px; }
-        .footer-content { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; margin-bottom: 40px; }
-        .footer-brand h3 { font-size: 24px; margin-bottom: 15px; color: #3b82f6; }
-        .footer-brand p { color: #94a3b8; line-height: 1.7; font-size: 14px; }
-        .footer-links h4 { font-size: 16px; margin-bottom: 20px; }
-        .footer-links a { display: block; color: #94a3b8; text-decoration: none; margin-bottom: 12px; font-size: 14px; }
-        .footer-links a:hover { color: #3b82f6; }
-        .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.1); color: #64748b; font-size: 14px; }
+        
+        body { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6; 
+            color: var(--slate-900); 
+            background: var(--white);
+        }
+        
+        a { text-decoration: none; color: inherit; }
+        img { display: block; max-width: 100%; height: auto; }
+        
+        .container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 0 24px; 
+        }
+
+        /* Navigation */
+        nav { 
+            position: fixed; 
+            top: 0; 
+            width: 100%; 
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            z-index: 1000; 
+            padding: 16px 0;
+        }
+        
+        nav .container { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+        
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .logo-icon {
+            height: 48px;
+            width: auto;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .logo-text .brand {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--navy);
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text .tagline {
+            font-size: 10px;
+            font-weight: 400;
+            color: var(--slate-500);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+        
+        nav ul { 
+            display: flex; 
+            list-style: none; 
+            gap: 32px; 
+            align-items: center; 
+        }
+        
+        nav a { 
+            color: var(--slate-700); 
+            font-weight: 500; 
+            font-size: 15px; 
+            transition: color 0.2s;
+            position: relative;
+        }
+        
+        nav a:hover { color: var(--blue); }
+        
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--blue);
+        }
+        
+        .nav-cta { 
+            background: var(--blue);
+            color: white !important; 
+            padding: 10px 24px; 
+            border-radius: 8px;
+            font-weight: 600;
+        }
+        
+        .nav-cta:hover { 
+            background: var(--navy);
+            transform: translateY(-1px);
+        }
+
+        /* Page Header */
+        .page-header {
+            margin-top: 80px;
+            padding: 80px 0 60px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 56px;
+            font-weight: 800;
+            color: var(--slate-900);
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .page-header .subtitle {
+            font-size: 22px;
+            color: var(--slate-700);
+            max-width: 700px;
+            margin: 0 auto 16px;
+            line-height: 1.6;
+        }
+
+        .page-header .description {
+            font-size: 18px;
+            color: var(--slate-500);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        /* Contact Info */
+        .contact-info h2 {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--slate-900);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .contact-info .intro-text {
+            font-size: 17px;
+            color: var(--slate-500);
+            line-height: 1.7;
+            margin-bottom: 40px;
+        }
+
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .contact-method {
+            background: var(--slate-100);
+            padding: 28px;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .contact-method:hover {
+            background: white;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        }
+
+        .contact-method h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--slate-900);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-method a {
+            color: var(--blue);
+            font-weight: 600;
+            font-size: 18px;
+            transition: color 0.2s;
+        }
+
+        .contact-method a:hover {
+            color: var(--navy);
+        }
+
+        .contact-method p {
+            font-size: 15px;
+            color: var(--slate-500);
+            margin-top: 8px;
+        }
+
+        .contact-method .social-links {
+            display: flex;
+            gap: 16px;
+            margin-top: 12px;
+        }
+
+        .contact-method .social-links a {
+            font-size: 15px;
+        }
+
+        /* Availability Badge */
+        .availability-badge {
+            background: linear-gradient(135deg, var(--success), #059669);
+            color: white;
+            padding: 16px 24px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 32px;
+        }
+
+        .availability-badge .status {
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .availability-badge .message {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: white;
+            padding: 48px;
+            border-radius: 16px;
+            border: 2px solid var(--slate-100);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+        }
+
+        .contact-form h2 {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--slate-900);
+            margin-bottom: 12px;
+        }
+
+        .contact-form .form-subtitle {
+            font-size: 16px;
+            color: var(--slate-500);
+            margin-bottom: 32px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--slate-900);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid var(--slate-100);
+            border-radius: 10px;
+            font-size: 15px;
+            font-family: inherit;
+            color: var(--slate-900);
+            transition: all 0.2s;
+            background: white;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 140px;
+        }
+
+        .form-group select {
+            cursor: pointer;
+        }
+
+        .submit-btn {
+            background: var(--blue);
+            color: white;
+            padding: 16px 40px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .submit-btn:hover {
+            background: var(--navy);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .form-note {
+            font-size: 14px;
+            color: var(--slate-500);
+            margin-top: 16px;
+            text-align: center;
+        }
+
+        /* Success Message */
+        .success-message {
+            background: linear-gradient(135deg, var(--success), #059669);
+            color: white;
+            padding: 20px 24px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            display: none;
+            text-align: center;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .success-message h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .success-message p {
+            font-size: 15px;
+            opacity: 0.9;
+        }
+
+        /* Expectations Section */
+        .expectations-section {
+            padding: 80px 0;
+            background: var(--slate-100);
+        }
+
+        .section-label {
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--pink);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--slate-900);
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 20px;
+            color: var(--slate-500);
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .step-card {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .step-number {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--blue), var(--pink));
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 800;
+            color: white;
+            margin: 0 auto 24px;
+        }
+
+        .step-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--slate-900);
+            margin-bottom: 12px;
+        }
+
+        .step-card p {
+            font-size: 15px;
+            color: var(--slate-500);
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--slate-900);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            color: var(--light-blue);
+        }
+
+        .footer-brand p {
+            color: var(--slate-500);
+            line-height: 1.7;
+            font-size: 15px;
+            margin-bottom: 24px;
+        }
+
+        .footer-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-contact a {
+            color: var(--slate-500);
+            font-size: 14px;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-contact a::before {
+            content: '';
+            width: 4px;
+            height: 4px;
+            background: var(--pink);
+            border-radius: 50%;
+        }
+
+        .footer-contact a:hover {
+            color: var(--light-blue);
+        }
+
+        .footer-links h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-links a {
+            display: block;
+            color: var(--slate-500);
+            margin-bottom: 12px;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--light-blue);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: var(--slate-500);
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
         @media (max-width: 768px) {
             .container { padding: 0 20px; }
-            .page-header h1 { font-size: 36px; }
-            .logo { font-size: 30px; }
+            
             nav ul { display: none; }
-            .contact-grid { grid-template-columns: 1fr; }
-            .contact-form { padding: 30px; }
-            .footer-content { grid-template-columns: 1fr; }
+            
+            .page-header h1 { font-size: 36px; }
+            .section-title { font-size: 32px; }
+            
+            .contact-form {
+                padding: 32px 24px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Navigation -->
     <nav>
         <div class="container">
-             <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px;">
-  <!-- The graphic icon -->
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" style="height: 60px; width: auto;">
-    <defs>
-      <linearGradient id="brownAccent" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" style="stop-color:#ec4899;stop-opacity:1" />
-        <stop offset="100%" style="stop-color:#f0abfc;stop-opacity:1" />
-      </linearGradient>
-    </defs>
-    <g transform="translate(10,10)">
-      <rect x="0" y="25" width="10" height="25" fill="#1e3a8a" rx="2"/>
-      <rect x="15" y="15" width="10" height="35" fill="#2563eb" rx="2"/>
-      <rect x="30" y="10" width="10" height="40" fill="#3b82f6" rx="2"/>
-      <rect x="45" y="18" width="10" height="32" fill="url(#pinkAccent)" rx="2"/>
-      <path d="M 5 35 Q 20 25, 35 20 T 50 28" stroke="#ec4899" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.8"/>
-      <circle cx="5" cy="35" r="3" fill="#ec4899"/>
-      <circle cx="20" cy="25" r="3" fill="#ec4899"/>
-      <circle cx="35" cy="20" r="3" fill="#ec4899"/>
-      <circle cx="50" cy="28" r="3" fill="#ec4899"/>
-    </g>
-  </svg>
+            <a href="index.html" class="logo-wrapper">
+                <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
+                    <defs>
+                        <linearGradient id="pinkAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#ec4899;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#f0abfc;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <g transform="translate(10,10)">
+                        <rect x="0" y="25" width="10" height="25" fill="#1e3a8a" rx="2"/>
+                        <rect x="15" y="15" width="10" height="35" fill="#2563eb" rx="2"/>
+                        <rect x="30" y="10" width="10" height="40" fill="#3b82f6" rx="2"/>
+                        <rect x="45" y="18" width="10" height="32" fill="url(#pinkAccent)" rx="2"/>
+                        <path d="M 5 35 Q 20 25, 35 20 T 50 28" stroke="#ec4899" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.8"/>
+                        <circle cx="5" cy="35" r="3" fill="#ec4899"/>
+                        <circle cx="20" cy="25" r="3" fill="#ec4899"/>
+                        <circle cx="35" cy="20" r="3" fill="#ec4899"/>
+                        <circle cx="50" cy="28" r="3" fill="#ec4899"/>
+                    </g>
+                </svg>
+                <div class="logo-text">
+                    <span class="brand">DATASANJ</span>
+                    <span class="tagline">Data Analytics</span>
+                </div>
+            </a>
 
-  <!-- The writing beside it -->
-  <div style="display: flex; flex-direction: column; line-height: 1;">
-    <span style="font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; font-size:36px; background:linear-gradient(to right,#1e3a8a,#3b82f6); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">
-      DATASANJ
-    </span>
-    <span style="font-family:'Helvetica Neue',Arial,sans-serif; font-weight:100;font-size:11px; color:#64748b; letter-spacing:2px;">
-      DATA ANALYTICS CONSULTANCY
-    </span>
-  </div>
-</a>
             <ul>
                 <li><a href="index.html">Home</a></li>
+                <li><a href="About.html">About</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="Portfolio.html">Portfolio</a></li>
-                <li><a href="Blog.html">Blog</a></li>
-                <li><a href="About.html">About</a></li>
-                <li><a href="Contact.html" class="active cta-btn">Contact</a></li>
+                <li><a href="Blog.html">Insights</a></li>
+                <li><a href="Contact.html" class="active nav-cta">Let's Talk</a></li>
             </ul>
         </div>
     </nav>
 
+    <!-- Page Header -->
     <section class="page-header">
         <div class="container">
-            <h1>Get In Touch</h1>
-            <p>Ready to transform your data processes? Let's discuss how I can help your business.</p>
+            <h1>Let's Work Together</h1>
+            <p class="subtitle">
+                Ready to transform your data into actionable insights?
+            </p>
+            <p class="description">
+                Book a free 30-minute consultation or send me a message about your project
+            </p>
         </div>
     </section>
 
-    <section class="contact">
+    <!-- Contact Section -->
+    <section class="contact-section">
         <div class="container">
             <div class="contact-grid">
+                <!-- Contact Info -->
                 <div class="contact-info">
-                    <h2>Let's Start a Conversation</h2>
-                    <p>Whether you need a Power BI dashboard, Excel automation, or custom data solution, I'm here to help. Schedule a free 15-minute consultation to discuss your project.</p>
+                    <h2>Get in Touch</h2>
+                    <p class="intro-text">
+                        I respond to all inquiries within 24 hours. Whether you have a specific project in mind or just want to explore what's possible with your data, I'm here to help.
+                    </p>
+
                     <div class="contact-methods">
                         <div class="contact-method">
                             <h3>Email</h3>
                             <a href="mailto:d_zohal@datasanj.com">d_zohal@datasanj.com</a>
-                            <p>Response within 24 hours</p>
+                            <p>Best for detailed project inquiries</p>
                         </div>
+
                         <div class="contact-method">
                             <h3>Location</h3>
-                            <p>Canberra, ACT, Australia</p>
-                            <p>Serving clients globally</p>
+                            <p><strong>Canberra, ACT, Australia</strong></p>
+                            <p>Available for local meetings and remote work globally</p>
                         </div>
+
                         <div class="contact-method">
-                            <h3>Connect</h3>
-                            <p><a href="https://www.linkedin.com/in/zohal-zahir-46128697/" target="_blank">LinkedIn</a> | <a href="https://www.upwork.com/freelancers/zohalz" target="_blank">Upwork</a> | <a href="https://github.com/Zohal987654321" target="_blank">GitHub</a></p>
+                            <h3>Connect Online</h3>
+                            <div class="social-links">
+                                <a href="https://www.linkedin.com/in/zohal-zahir-46128697/" target="_blank">LinkedIn</a>
+                                <span style="color: var(--slate-500);">|</span>
+                                <a href="https://www.upwork.com/freelancers/zohalz" target="_blank">Upwork</a>
+                                <span style="color: var(--slate-500);">|</span>
+                                <a href="https://github.com/Zohal987654321" target="_blank">GitHub</a>
+                            </div>
                         </div>
                     </div>
+
+                    <div class="availability-badge">
+                        <div class="status">Currently Available</div>
+                        <div class="message">Accepting new projects for 2025</div>
+                    </div>
                 </div>
+
+                <!-- Contact Form -->
                 <div class="contact-form">
-                    <h2>Send a Message</h2>
-                    <form action="https://api.web3forms.com/submit" method="POST">
+                    <div id="successMessage" class="success-message">
+                        <h3>Message Sent Successfully!</h3>
+                        <p>Thank you for reaching out. I'll respond within 24 hours.</p>
+                    </div>
+
+                    <h2>Send Me a Message</h2>
+                    <p class="form-subtitle">Tell me about your project and I'll get back to you with next steps</p>
+
+                    <form action="https://api.web3forms.com/submit" method="POST" id="contactForm">
                         <input type="hidden" name="access_key" value="95adfa3f-1006-4078-b16d-94180cd5a505">
-                        <input type="hidden" name="subject" value="New Contact Form Submission from DATASANJ">
-                        <input type="hidden" name="redirect" value="https://zohal987654321.github.io/Datasanj/Contact.html?success=true">
+                        <input type="hidden" name="subject" value="New Project Inquiry from DATASANJ">
+                        <input type="hidden" name="from_name" value="DATASANJ Contact Form">
                         
                         <div class="form-group">
                             <label for="name">Your Name *</label>
-                            <input type="text" id="name" name="name" required>
+                            <input type="text" id="name" name="name" required placeholder="John Smith">
                         </div>
+
                         <div class="form-group">
                             <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="email" required placeholder="john@example.com">
                         </div>
+
                         <div class="form-group">
                             <label for="service">Service Interested In *</label>
                             <select id="service" name="service" required>
                                 <option value="">Select a service...</option>
                                 <option value="power-bi">Power BI Dashboard</option>
                                 <option value="excel">Excel & VBA Automation</option>
-                                <option value="api">API Integration</option>
+                                <option value="data-integration">Data Integration & APIs</option>
                                 <option value="financial">Financial Modeling</option>
-                                <option value="google">Google Sheets Solution</option>
-                                <option value="custom">Custom Business Tool</option>
+                                <option value="google-sheets">Google Sheets Solution</option>
+                                <option value="retainer">Monthly Retainer</option>
                                 <option value="consultation">General Consultation</option>
+                                <option value="other">Other / Not Sure</option>
                             </select>
                         </div>
+
                         <div class="form-group">
                             <label for="message">Project Details *</label>
-                            <textarea id="message" name="message" required placeholder="Please describe your project and what you're looking to achieve..."></textarea>
+                            <textarea id="message" name="message" required placeholder="Please describe:&#10;• What challenge are you trying to solve?&#10;• What does success look like?&#10;• Any timeline or budget considerations?"></textarea>
                         </div>
-                        <button type="submit" class="submit-btn">Send Message</button>
-                        <p class="form-note">I'll respond within 24 hours to schedule a free consultation.</p>
+
+                        <button type="submit" class="submit-btn">
+                            Send Message
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </button>
+
+                        <p class="form-note">
+                            I'll respond within 24 hours to discuss your project and schedule a free consultation call.
+                        </p>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer>
+    <!-- What to Expect Section -->
+    <section class="expectations-section">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <h3>DATASANJ</h3>
-                    <p>Professional data analytics, Power BI consulting, and Excel automation services in Canberra, Australia.</p>
-                    <p style="margin-top: 20px;">Canberra, ACT, Australia<br>d_zohal@datasanj.com</p>
+            <div class="section-label">What Happens Next</div>
+            <h2 class="section-title">Simple Process</h2>
+            <p class="section-subtitle">
+                Here's what you can expect after you reach out
+            </p>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>I'll Respond</h3>
+                    <p>Within 24 hours, I'll email you to confirm I received your message and suggest some times for a quick call.</p>
                 </div>
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <a href="index.html">Home</a>
-                    <a href="services.html">Services</a>
-                    <a href="Portfolio.html">Portfolio</a>
-                    <a href="Blog.html">Blog</a>
-                    <a href="About.html">About</a>
-                    <a href="Contact.html">Contact</a>
+
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Discovery Call</h3>
+                    <p>We'll have a 30-minute consultation to discuss your needs, challenges, and what success looks like for you.</p>
                 </div>
-                <div class="footer-links">
-                    <h4>Connect</h4>
-                    <a href="https://www.linkedin.com/in/zohal-zahir" target="_blank">LinkedIn</a>
-                    <a href="https://github.com/Zohal987654321" target="_blank">GitHub</a>
-                    <a href="https://www.upwork.com/freelancers/zohalz" target="_blank">Upwork</a>
+
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Proposal</h3>
+                    <p>If we're a good fit, I'll send you a detailed proposal with scope, timeline, and fixed pricing within 48 hours.</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>DATASANJ</h3>
+                    <p>Professional data analytics consulting by Zohal Zahir. Based in Canberra, serving businesses locally and internationally.</p>
+                    <div class="footer-contact">
+                        <a href="mailto:d_zohal@datasanj.com">d_zohal@datasanj.com</a>
+                        <a href="#">Canberra, ACT, Australia</a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <a href="index.html">Home</a>
+                    <a href="About.html">About</a>
+                    <a href="services.html">Services</a>
+                    <a href="Portfolio.html">Portfolio</a>
+                    <a href="Blog.html">Insights</a>
+                    <a href="Contact.html">Contact</a>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <a href="services.html">Power BI Dashboards</a>
+                    <a href="services.html">Excel Automation</a>
+                    <a href="services.html">Data Integration</a>
+                    <a href="services.html">Financial Modeling</a>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Connect</h4>
+                    <a href="https://www.linkedin.com/in/zohal-zahir-46128697/" target="_blank">LinkedIn</a>
+                    <a href="https://github.com/Zohal987654321" target="_blank">GitHub</a>
+                    <a href="https://www.upwork.com/freelancers/zohalz" target="_blank">Upwork Profile</a>
+                </div>
+            </div>
+
             <div class="footer-bottom">
-                2025 DATASANJ | Zohal Zahir | All Rights Reserved
+                © 2025 DATASANJ | Zohal Zahir | All Rights Reserved
             </div>
         </div>
     </footer>
+
+    <script>
+        // Handle form submission success
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('success') === 'true') {
+            document.getElementById('successMessage').classList.add('show');
+            document.getElementById('contactForm').style.display = 'none';
+            
+            // Scroll to success message
+            document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Remove success parameter from URL
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
+    </script>
 </body>
 </html>
-
-

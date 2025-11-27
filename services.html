@@ -3,216 +3,938 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Professional data analytics services: Power BI dashboards, Excel VBA automation, API integration, and custom business intelligence solutions.">
-    <meta name="keywords" content="Power BI consulting, Excel automation services, VBA development, API integration">
-    <title>Services - Data Analytics & Automation | DATASANJ</title>
+    <meta name="description" content="Professional Power BI, Excel automation, and data analytics services. Clear pricing, proven results. Based in Canberra, available globally.">
+    <meta name="keywords" content="Power BI consultant pricing, Excel automation services, data analytics Canberra">
+    <meta name="author" content="Zohal Zahir">
+    <title>Services & Pricing | Zohal Zahir - Data Analytics Consultant</title>
     <link rel="canonical" href="https://datasanj.com/services.html">
     
     <style>
+        /* Modern Professional Design System */
+        :root {
+            --navy: #1e3a8a;
+            --blue: #2563eb;
+            --light-blue: #3b82f6;
+            --pink: #ec4899;
+            --light-pink: #f0abfc;
+            --slate-900: #0f172a;
+            --slate-700: #334155;
+            --slate-500: #64748b;
+            --slate-100: #f1f5f9;
+            --white: #ffffff;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; line-height: 1.6; color: #1e293b; background: white; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
-        nav { position: fixed; top: 0; width: 100%; background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.05); z-index: 1000; padding: 25px 0; }
-        nav .container { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 42px; font-weight: 800; color: #2563eb; text-decoration: none; letter-spacing: -1px; }
-        nav ul { display: flex; list-style: none; gap: 50px; align-items: center; }
-        nav a { text-decoration: none; color: #1e293b; font-weight: 500; font-size: 16px; transition: color 0.3s; }
-        nav a:hover, nav a.active { color: #2563eb; }
-        .cta-btn { background: #2563eb; color: white !important; padding: 14px 32px; border-radius: 6px; }
-        .page-header { margin-top: 100px; padding: 120px 0; text-align: center; background: white; }
-        .page-header h1 { font-size: 52px; font-weight: 800; color: #1e293b; margin-bottom: 25px; }
-        .page-header p { font-size: 20px; color: #64748b; max-width: 700px; margin: 0 auto; }
-        .services { padding: 120px 0; background: #f8fafc; }
-        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
-        .service-card { background: white; padding: 45px; border-radius: 8px; transition: all 0.3s; }
-        .service-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
-        .service-card h3 { font-size: 24px; margin-bottom: 15px; color: #1e293b; font-weight: 700; }
-        .service-card p { color: #64748b; line-height: 1.7; font-size: 16px; margin-bottom: 20px; }
-        .service-features { list-style: none; margin-bottom: 0; }
-        .service-features li { padding: 8px 0; color: #1e293b; position: relative; padding-left: 25px; font-size: 15px; }
-        .service-features li:before { content: "✓"; position: absolute; left: 0; color: #2563eb; font-weight: 700; }
-        .cta-section { padding: 120px 0; text-align: center; background: white; }
-        .cta-section h2 { font-size: 42px; font-weight: 800; margin-bottom: 25px; color: #1e293b; }
-        .cta-section p { font-size: 20px; color: #64748b; margin-bottom: 40px; }
-        .btn-primary { background: #2563eb; color: white; padding: 18px 40px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 16px; display: inline-block; transition: all 0.3s; }
-        .btn-primary:hover { background: #1d4ed8; transform: translateY(-2px); }
-        footer { background: #1e293b; color: white; padding: 60px 0 30px; }
-        .footer-content { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; margin-bottom: 40px; }
-        .footer-brand h3 { font-size: 24px; margin-bottom: 15px; color: #3b82f6; }
-        .footer-brand p { color: #94a3b8; line-height: 1.7; font-size: 14px; }
-        .footer-links h4 { font-size: 16px; margin-bottom: 20px; }
-        .footer-links a { display: block; color: #94a3b8; text-decoration: none; margin-bottom: 12px; font-size: 14px; }
-        .footer-links a:hover { color: #3b82f6; }
-        .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.1); color: #64748b; font-size: 14px; }
+        
+        body { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6; 
+            color: var(--slate-900); 
+            background: var(--white);
+        }
+        
+        a { text-decoration: none; color: inherit; }
+        img { display: block; max-width: 100%; height: auto; }
+        
+        .container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 0 24px; 
+        }
+
+        /* Navigation */
+        nav { 
+            position: fixed; 
+            top: 0; 
+            width: 100%; 
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            z-index: 1000; 
+            padding: 16px 0;
+        }
+        
+        nav .container { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+        
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .logo-icon {
+            height: 48px;
+            width: auto;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .logo-text .brand {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--navy);
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text .tagline {
+            font-size: 10px;
+            font-weight: 400;
+            color: var(--slate-500);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+        
+        nav ul { 
+            display: flex; 
+            list-style: none; 
+            gap: 32px; 
+            align-items: center; 
+        }
+        
+        nav a { 
+            color: var(--slate-700); 
+            font-weight: 500; 
+            font-size: 15px; 
+            transition: color 0.2s;
+            position: relative;
+        }
+        
+        nav a:hover { color: var(--blue); }
+        
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--blue);
+        }
+        
+        .nav-cta { 
+            background: var(--blue);
+            color: white !important; 
+            padding: 10px 24px; 
+            border-radius: 8px;
+            font-weight: 600;
+        }
+        
+        .nav-cta:hover { 
+            background: var(--navy);
+            transform: translateY(-1px);
+        }
+
+        /* Page Header */
+        .page-header {
+            margin-top: 80px;
+            padding: 100px 0 80px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 56px;
+            font-weight: 800;
+            color: var(--slate-900);
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .page-header .subtitle {
+            font-size: 22px;
+            color: var(--slate-700);
+            max-width: 700px;
+            margin: 0 auto 32px;
+            line-height: 1.6;
+        }
+
+        .page-header .description {
+            font-size: 18px;
+            color: var(--slate-500);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .section-label {
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--pink);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--slate-900);
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 20px;
+            color: var(--slate-500);
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-bottom: 80px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            border: 2px solid var(--slate-100);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+            border-color: var(--blue);
+        }
+
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--blue), var(--light-blue));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+
+        .service-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: white;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .service-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--slate-900);
+            margin-bottom: 12px;
+        }
+
+        .service-card .description {
+            font-size: 15px;
+            color: var(--slate-500);
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+
+        .service-features li {
+            font-size: 14px;
+            color: var(--slate-700);
+            padding: 8px 0;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--pink);
+            font-weight: 700;
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            padding: 100px 0;
+            background: var(--slate-100);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-top: 60px;
+        }
+
+        .pricing-card {
+            background: white;
+            padding: 48px;
+            border-radius: 16px;
+            border: 2px solid var(--slate-100);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--blue);
+            box-shadow: 0 12px 40px rgba(37, 99, 235, 0.15);
+            transform: scale(1.05);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-8px);
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--blue), var(--pink));
+            color: white;
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .pricing-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--slate-900);
+            margin-bottom: 12px;
+        }
+
+        .pricing-card .price-tag {
+            font-size: 16px;
+            color: var(--slate-500);
+            margin-bottom: 8px;
+        }
+
+        .pricing-card .price {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--slate-900);
+            margin-bottom: 8px;
+        }
+
+        .pricing-card .price-note {
+            font-size: 14px;
+            color: var(--slate-500);
+            margin-bottom: 32px;
+        }
+
+        .pricing-card .features-list {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .pricing-card .features-list li {
+            font-size: 15px;
+            color: var(--slate-700);
+            padding: 12px 0;
+            padding-left: 28px;
+            position: relative;
+            border-bottom: 1px solid var(--slate-100);
+        }
+
+        .pricing-card .features-list li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-card .features-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--blue);
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px 32px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+        }
+
+        .btn-primary {
+            background: var(--blue);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--navy);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--blue);
+            border: 2px solid var(--blue);
+        }
+
+        .btn-secondary:hover {
+            background: var(--blue);
+            color: white;
+        }
+
+        /* Process Section */
+        .process-section {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            margin-top: 60px;
+        }
+
+        .process-step {
+            text-align: center;
+        }
+
+        .step-number {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--blue), var(--pink));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 800;
+            color: white;
+            margin: 0 auto 20px;
+        }
+
+        .process-step h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--slate-900);
+            margin-bottom: 12px;
+        }
+
+        .process-step p {
+            font-size: 14px;
+            color: var(--slate-500);
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--navy), var(--blue));
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .cta-section .btn-primary {
+            background: white;
+            color: var(--blue);
+        }
+
+        .cta-section .btn-primary:hover {
+            background: var(--slate-100);
+            color: var(--navy);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--slate-900);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            color: var(--light-blue);
+        }
+
+        .footer-brand p {
+            color: var(--slate-500);
+            line-height: 1.7;
+            font-size: 15px;
+            margin-bottom: 24px;
+        }
+
+        .footer-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-contact a {
+            color: var(--slate-500);
+            font-size: 14px;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-contact a::before {
+            content: '';
+            width: 4px;
+            height: 4px;
+            background: var(--pink);
+            border-radius: 50%;
+        }
+
+        .footer-contact a:hover {
+            color: var(--light-blue);
+        }
+
+        .footer-links h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-links a {
+            display: block;
+            color: var(--slate-500);
+            margin-bottom: 12px;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--light-blue);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: var(--slate-500);
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .process-steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
         @media (max-width: 768px) {
             .container { padding: 0 20px; }
-            .page-header h1 { font-size: 36px; }
-            .logo { font-size: 30px; }
+            
             nav ul { display: none; }
-            .services-grid { grid-template-columns: 1fr; }
-            .footer-content { grid-template-columns: 1fr; }
+            
+            .page-header h1 { font-size: 36px; }
+            .section-title { font-size: 32px; }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Navigation -->
     <nav>
         <div class="container">
-            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px;">
-  <!-- The graphic icon -->
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" style="height: 60px; width: auto;">
-    <defs>
-      <linearGradient id="brownAccent" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" style="stop-color:#ec4899;stop-opacity:1" />
-        <stop offset="100%" style="stop-color:#f0abfc;stop-opacity:1" />
-      </linearGradient>
-    </defs>
-    <g transform="translate(10,10)">
-      <rect x="0" y="25" width="10" height="25" fill="#1e3a8a" rx="2"/>
-      <rect x="15" y="15" width="10" height="35" fill="#2563eb" rx="2"/>
-      <rect x="30" y="10" width="10" height="40" fill="#3b82f6" rx="2"/>
-      <rect x="45" y="18" width="10" height="32" fill="url(#pinkAccent)" rx="2"/>
-      <path d="M 5 35 Q 20 25, 35 20 T 50 28" stroke="#ec4899" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.8"/>
-      <circle cx="5" cy="35" r="3" fill="#ec4899"/>
-      <circle cx="20" cy="25" r="3" fill="#ec4899"/>
-      <circle cx="35" cy="20" r="3" fill="#ec4899"/>
-      <circle cx="50" cy="28" r="3" fill="#ec4899"/>
-    </g>
-  </svg>
+            <a href="index.html" class="logo-wrapper">
+                <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
+                    <defs>
+                        <linearGradient id="pinkAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#ec4899;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#f0abfc;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <g transform="translate(10,10)">
+                        <rect x="0" y="25" width="10" height="25" fill="#1e3a8a" rx="2"/>
+                        <rect x="15" y="15" width="10" height="35" fill="#2563eb" rx="2"/>
+                        <rect x="30" y="10" width="10" height="40" fill="#3b82f6" rx="2"/>
+                        <rect x="45" y="18" width="10" height="32" fill="url(#pinkAccent)" rx="2"/>
+                        <path d="M 5 35 Q 20 25, 35 20 T 50 28" stroke="#ec4899" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.8"/>
+                        <circle cx="5" cy="35" r="3" fill="#ec4899"/>
+                        <circle cx="20" cy="25" r="3" fill="#ec4899"/>
+                        <circle cx="35" cy="20" r="3" fill="#ec4899"/>
+                        <circle cx="50" cy="28" r="3" fill="#ec4899"/>
+                    </g>
+                </svg>
+                <div class="logo-text">
+                    <span class="brand">DATASANJ</span>
+                    <span class="tagline">Data Analytics</span>
+                </div>
+            </a>
 
-  <!-- The writing beside it -->
-  <div style="display: flex; flex-direction: column; line-height: 1;">
-    <span style="font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; font-size:36px; background:linear-gradient(to right,#1e3a8a,#3b82f6); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">
-      DATASANJ
-    </span>
-    <span style="font-family:'Helvetica Neue',Arial,sans-serif; font-weight:100;font-size:11px; color:#64748b; letter-spacing:2px;">
-      DATA ANALYTICS CONSULTANCY
-    </span>
-  </div>
-</a>
             <ul>
                 <li><a href="index.html">Home</a></li>
+                <li><a href="About.html">About</a></li>
                 <li><a href="services.html" class="active">Services</a></li>
                 <li><a href="Portfolio.html">Portfolio</a></li>
-                <li><a href="Blog.html">Blog</a></li>
-                <li><a href="About.html">About</a></li>
-                <li><a href="Contact.html" class="cta-btn">Contact</a></li>
+                <li><a href="Blog.html">Insights</a></li>
+                <li><a href="Contact.html" class="nav-cta">Let's Talk</a></li>
             </ul>
         </div>
     </nav>
 
+    <!-- Page Header -->
     <section class="page-header">
         <div class="container">
-            <h1>Professional Services</h1>
-            <p>Enterprise-grade data solutions that automate reporting, eliminate errors, and transform your data into actionable insights.</p>
+            <h1>Services & Solutions</h1>
+            <p class="subtitle">
+                Practical data solutions that save time, reduce errors, and help you make confident business decisions
+            </p>
+            <p class="description">
+                Fixed-price projects with clear deliverables. No surprises, just results.
+            </p>
         </div>
     </section>
 
-    <section class="services">
+    <!-- Services Overview -->
+    <section class="services-section">
         <div class="container">
+            <div class="section-label">What I Offer</div>
+            <h2 class="section-title">Core Services</h2>
+            <p class="section-subtitle">
+                Specialized in Power BI, Excel automation, and data integration for small to medium businesses
+            </p>
+
             <div class="services-grid">
                 <div class="service-card">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/></svg>
+                    </div>
                     <h3>Power BI Dashboards</h3>
-                    <p>Interactive business intelligence dashboards with real-time data visualization and automated KPI tracking.</p>
+                    <p class="description">Interactive dashboards that turn your data into clear insights with automated updates and real-time KPI tracking.</p>
                     <ul class="service-features">
                         <li>Custom dashboard design</li>
-                        <li>DAX calculations</li>
-                        <li>Data modeling</li>
-                        <li>Automated refresh</li>
+                        <li>DAX calculations & measures</li>
+                        <li>Data modeling & relationships</li>
+                        <li>Automated data refresh</li>
+                        <li>Mobile-responsive reports</li>
                     </ul>
                 </div>
 
                 <div class="service-card">
-                    <h3>Excel & VBA Automation</h3>
-                    <p>Custom Excel solutions with VBA macros that eliminate repetitive manual tasks.</p>
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/></svg>
+                    </div>
+                    <h3>Excel Automation</h3>
+                    <p class="description">Custom VBA solutions that eliminate repetitive tasks, reduce errors by 90%, and save hours every week.</p>
                     <ul class="service-features">
                         <li>VBA macro development</li>
-                        <li>Automated reporting</li>
+                        <li>Automated report generation</li>
                         <li>Data validation systems</li>
-                        <li>Custom functions</li>
+                        <li>Custom formulas & functions</li>
+                        <li>Template optimization</li>
                     </ul>
                 </div>
 
                 <div class="service-card">
-                    <h3>API Integration</h3>
-                    <p>Seamless system integration using Python and Power Automate for automated data pipelines.</p>
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"/></svg>
+                    </div>
+                    <h3>Data Integration</h3>
+                    <p class="description">Connect your systems seamlessly with Python, Power Automate, and API integrations for smooth data flow.</p>
                     <ul class="service-features">
                         <li>REST API integration</li>
-                        <li>Python automation</li>
+                        <li>Python automation scripts</li>
                         <li>Power Automate workflows</li>
-                        <li>Data pipelines</li>
+                        <li>Cloud data connections</li>
+                        <li>System synchronization</li>
                     </ul>
                 </div>
 
                 <div class="service-card">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z"/></svg>
+                    </div>
                     <h3>Financial Modeling</h3>
-                    <p>Comprehensive financial planning tools including budget tracking and forecasting models.</p>
+                    <p class="description">Budget tracking, forecasting models, and financial analysis tools designed for clarity and accuracy.</p>
                     <ul class="service-features">
-                        <li>Budget models</li>
+                        <li>Budget & forecast models</li>
                         <li>Variance analysis</li>
                         <li>P&L automation</li>
                         <li>Cash flow projections</li>
+                        <li>Financial dashboards</li>
                     </ul>
                 </div>
 
                 <div class="service-card">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"/></svg>
+                    </div>
                     <h3>Google Sheets Solutions</h3>
-                    <p>Cloud-based reporting systems with Apps Script automation for collaborative teams.</p>
+                    <p class="description">Cloud-based collaborative dashboards with Apps Script automation for teams that work together.</p>
                     <ul class="service-features">
                         <li>Apps Script development</li>
                         <li>Dynamic dashboards</li>
                         <li>Automated reports</li>
                         <li>Real-time collaboration</li>
+                        <li>Custom functions</li>
                     </ul>
                 </div>
 
                 <div class="service-card">
-                    <h3>Custom Business Tools</h3>
-                    <p>Bespoke data solutions designed for your unique business processes and workflows.</p>
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    </div>
+                    <h3>Custom Solutions</h3>
+                    <p class="description">Bespoke data tools designed specifically for your unique business processes and workflows.</p>
                     <ul class="service-features">
-                        <li>Custom development</li>
+                        <li>Custom tool development</li>
                         <li>Workflow optimization</li>
                         <li>Process automation</li>
-                        <li>Integration solutions</li>
+                        <li>Legacy system integration</li>
+                        <li>Ongoing maintenance</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="cta-section">
+    <!-- Pricing Section -->
+    <section class="pricing-section">
         <div class="container">
-            <h2>Ready to Get Started?</h2>
-            <p>Schedule a free consultation to discuss your project.</p>
-            <a href="contact.html" class="btn-primary">Contact Me</a>
+            <div class="section-label">Clear Pricing</div>
+            <h2 class="section-title">Project Packages</h2>
+            <p class="section-subtitle">
+                Fixed-price packages with no hidden costs. All projects include training and documentation.
+            </p>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Starter Dashboard</h3>
+                    <p class="price-tag">From</p>
+                    <div class="price">$1,500</div>
+                    <p class="price-note">Single dashboard solution</p>
+                    <ul class="features-list">
+                        <li>Single Power BI dashboard</li>
+                        <li>3-5 key metrics & visuals</li>
+                        <li>Connect 1-2 data sources</li>
+                        <li>Basic training session</li>
+                        <li>2 weeks delivery</li>
+                        <li>Documentation included</li>
+                    </ul>
+                    <a href="Contact.html" class="btn btn-secondary">Get Started</a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <span class="featured-badge">Most Popular</span>
+                    <h3>Business Intelligence</h3>
+                    <p class="price-tag">From</p>
+                    <div class="price">$4,000</div>
+                    <p class="price-note">Complete BI solution</p>
+                    <ul class="features-list">
+                        <li>Multiple connected dashboards</li>
+                        <li>Advanced DAX calculations</li>
+                        <li>Connect 3-5 data sources</li>
+                        <li>Automated data refresh</li>
+                        <li>4-6 weeks delivery</li>
+                        <li>Comprehensive training</li>
+                        <li>30 days support</li>
+                    </ul>
+                    <a href="Contact.html" class="btn btn-primary">Get Started</a>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Monthly Retainer</h3>
+                    <p class="price-tag">From</p>
+                    <div class="price">$1,200</div>
+                    <p class="price-note">Per month</p>
+                    <ul class="features-list">
+                        <li>Ongoing dashboard maintenance</li>
+                        <li>Monthly report updates</li>
+                        <li>Ad-hoc data analysis</li>
+                        <li>Priority support</li>
+                        <li>10-15 hours per month</li>
+                        <li>Flexible scope</li>
+                        <li>Cancel anytime</li>
+                    </ul>
+                    <a href="Contact.html" class="btn btn-secondary">Get Started</a>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 60px; color: var(--slate-500);">
+                <p style="font-size: 16px; margin-bottom: 12px;">
+                    <strong>Excel Automation Projects:</strong> $1,000 - $3,000 depending on complexity
+                </p>
+                <p style="font-size: 16px;">
+                    <strong>Custom Integrations:</strong> $2,000 - $5,000 based on requirements
+                </p>
+            </div>
         </div>
     </section>
 
-    <footer>
+    <!-- Process Section -->
+    <section class="process-section">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <h3>DATASANJ</h3>
-                    <p>Professional data analytics, Power BI consulting, and Excel automation services in Canberra, Australia.</p>
-                    <p style="margin-top: 20px;">Canberra, ACT, Australia<br><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="fe9d91908a9f9d8abe9a9f8a9f8d9f9094d09d9193">[email&#160;protected]</a></p>
+            <div class="section-label">How It Works</div>
+            <h2 class="section-title">Simple, Transparent Process</h2>
+            <p class="section-subtitle">
+                From discovery to delivery, here's exactly what to expect when working with me
+            </p>
+
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Discovery Call</h3>
+                    <p>Free 30-minute consultation to understand your challenges and goals.</p>
                 </div>
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <a href="index.html">Home</a>
-                    <a href="services.html">Services</a>
-                    <a href="Portfolio.html">Portfolio</a>
-                    <a href="About.html">About</a>
-                    <a href="Blog.html">Blog</a>
-                    <a href="Contact.html">Contact</a>
+
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Proposal</h3>
+                    <p>Detailed proposal with scope, timeline, and fixed pricing within 24 hours.</p>
                 </div>
-                <div class="footer-links">
-                    <h4>Connect</h4>
-                    <a href="https://www.linkedin.com/in/zohal-zahir" target="_blank">LinkedIn</a>
-                    <a href="https://github.com/zohalizahir" target="_blank">GitHub</a>
-                    <a href="https://www.upwork.com/freelancers/zohalz" target="_blank">Upwork</a>
+
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Development</h3>
+                    <p>Regular updates and feedback sessions as I build your solution.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Delivery</h3>
+                    <p>Full training, documentation, and handover with ongoing support.</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Get Started?</h2>
+            <p>Book a free consultation to discuss your project. No obligation, just an honest conversation.</p>
+            <a href="Contact.html" class="btn btn-primary">Book Free Consultation →</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>DATASANJ</h3>
+                    <p>Professional data analytics consulting by Zohal Zahir. Based in Canberra, serving businesses locally and internationally.</p>
+                    <div class="footer-contact">
+                        <a href="mailto:d_zohal@datasanj.com">d_zohal@datasanj.com</a>
+                        <a href="#">Canberra, ACT, Australia</a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <a href="index.html">Home</a>
+                    <a href="About.html">About</a>
+                    <a href="services.html">Services</a>
+                    <a href="Portfolio.html">Portfolio</a>
+                    <a href="Blog.html">Insights</a>
+                    <a href="Contact.html">Contact</a>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <a href="services.html">Power BI Dashboards</a>
+                    <a href="services.html">Excel Automation</a>
+                    <a href="services.html">Data Integration</a>
+                    <a href="services.html">Financial Modeling</a>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Connect</h4>
+                    <a href="https://www.linkedin.com/in/zohal-zahir-46128697/" target="_blank">LinkedIn</a>
+                    <a href="https://github.com/Zohal987654321" target="_blank">GitHub</a>
+                    <a href="https://www.upwork.com/freelancers/zohalz" target="_blank">Upwork Profile</a>
+                </div>
+            </div>
+
             <div class="footer-bottom">
-
-           
-
-
+                © 2025 DATASANJ | Zohal Zahir | All Rights Reserved
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

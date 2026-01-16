@@ -8,50 +8,63 @@
     <meta name="author" content="Zohal Zahir">
     <title>Portfolio & Case Studies | Zohal Zahir - Data Analytics Consultant</title>
     <link rel="canonical" href="https://datasanj.com/Portfolio.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* Modern Professional Design System */
+        /* Ultra-Premium Brand Design System */
         :root {
-            --navy: #1e3a8a;
-            --blue: #2563eb;
-            --light-blue: #3b82f6;
-            --pink: #ec4899;
-            --light-pink: #f0abfc;
-            --slate-900: #0f172a;
-            --slate-700: #334155;
-            --slate-500: #64748b;
-            --slate-100: #f1f5f9;
-            --white: #ffffff;
+            /* Primary Palette - Luxury Consulting */
+            --charcoal: #2B2B2B;
+            --charcoal-light: #3D3D3D;
+            --charcoal-dark: #1A1A1A;
+            --copper: #C46A3D;
+            --copper-light: #D4845A;
+            --copper-dark: #A85A32;
+            
+            /* Neutrals */
+            --warm-white: #FAFAF8;
+            --cream: #F5F4F2;
+            --stone: #E8E6E3;
+            --grey-400: #9A9A9A;
+            --grey-500: #6B6B6B;
+            --grey-600: #4A4A4A;
+            
+            /* Typography */
+            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body { 
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6; 
-            color: var(--slate-900); 
-            background: var(--white);
+            font-family: var(--font-primary);
+            line-height: 1.7; 
+            color: var(--charcoal); 
+            background: var(--warm-white);
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
         }
         
         a { text-decoration: none; color: inherit; }
         img { display: block; max-width: 100%; height: auto; }
         
         .container { 
-            max-width: 1200px; 
+            max-width: 1140px; 
             margin: 0 auto; 
-            padding: 0 24px; 
+            padding: 0 32px; 
         }
 
-        /* Navigation */
+        /* Navigation - Ultra Premium */
         nav { 
             position: fixed; 
             top: 0; 
             width: 100%; 
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            background: rgba(250, 250, 248, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--stone);
             z-index: 1000; 
-            padding: 16px 0;
+            padding: 20px 0;
         }
         
         nav .container { 
@@ -63,139 +76,154 @@
         .logo-wrapper {
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 14px;
+            text-decoration: none;
         }
 
         .logo-icon {
-            height: 48px;
-            width: auto;
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
         }
 
         .logo-text {
             display: flex;
             flex-direction: column;
-            line-height: 1.2;
+            line-height: 1.1;
         }
 
         .logo-text .brand {
-            font-size: 24px;
-            font-weight: 800;
-            color: var(--navy);
-            letter-spacing: -0.5px;
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            color: var(--charcoal);
         }
 
         .logo-text .tagline {
-            font-size: 10px;
+            font-size: 9px;
             font-weight: 400;
-            color: var(--slate-500);
-            letter-spacing: 1.5px;
+            letter-spacing: 0.22em;
             text-transform: uppercase;
+            color: var(--grey-500);
+            margin-top: 3px;
         }
         
         nav ul { 
             display: flex; 
             list-style: none; 
-            gap: 32px; 
+            gap: 40px; 
             align-items: center; 
         }
         
         nav a { 
-            color: var(--slate-700); 
+            color: var(--grey-600); 
             font-weight: 500; 
-            font-size: 15px; 
-            transition: color 0.2s;
+            font-size: 14px; 
+            letter-spacing: 0.02em;
+            transition: color 0.3s ease;
             position: relative;
         }
         
-        nav a:hover { color: var(--blue); }
+        nav a:hover { color: var(--copper); }
         
+        nav a.active {
+            color: var(--charcoal);
+        }
+
         nav a.active::after {
             content: '';
             position: absolute;
-            bottom: -4px;
+            bottom: -6px;
             left: 0;
             right: 0;
             height: 2px;
-            background: var(--blue);
+            background: var(--copper);
         }
         
         .nav-cta { 
-            background: var(--blue);
-            color: white !important; 
-            padding: 10px 24px; 
-            border-radius: 8px;
-            font-weight: 600;
+            background: var(--charcoal);
+            color: var(--warm-white) !important; 
+            padding: 12px 28px; 
+            border-radius: 6px;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+            transition: all 0.3s ease;
         }
         
         .nav-cta:hover { 
-            background: var(--navy);
+            background: var(--copper);
             transform: translateY(-1px);
+        }
+
+        .nav-cta::after {
+            display: none !important;
         }
 
         /* Page Header */
         .page-header {
-            margin-top: 80px;
+            margin-top: 84px;
             padding: 100px 0 80px;
-            background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+            background: var(--cream);
             text-align: center;
         }
 
         .page-header h1 {
-            font-size: 56px;
-            font-weight: 800;
-            color: var(--slate-900);
+            font-size: 48px;
+            font-weight: 600;
+            color: var(--charcoal);
             margin-bottom: 20px;
-            letter-spacing: -1px;
+            letter-spacing: -0.02em;
         }
 
         .page-header .subtitle {
-            font-size: 22px;
-            color: var(--slate-700);
-            max-width: 700px;
-            margin: 0 auto 16px;
-            line-height: 1.6;
+            font-size: 18px;
+            color: var(--grey-500);
+            max-width: 600px;
+            margin: 0 auto 12px;
+            line-height: 1.7;
         }
 
         .page-header .description {
-            font-size: 18px;
-            color: var(--slate-500);
-            max-width: 600px;
+            font-size: 15px;
+            color: var(--grey-400);
+            max-width: 550px;
             margin: 0 auto;
         }
 
         /* Case Studies Section */
         .case-studies-section {
             padding: 100px 0;
-            background: white;
+            background: var(--warm-white);
         }
 
         .section-label {
             text-align: center;
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--pink);
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--copper);
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 0.2em;
             margin-bottom: 16px;
         }
 
         .section-title {
             text-align: center;
-            font-size: 42px;
-            font-weight: 800;
-            color: var(--slate-900);
-            margin-bottom: 20px;
-            letter-spacing: -0.5px;
+            font-size: 36px;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
         }
 
         .section-subtitle {
             text-align: center;
-            font-size: 20px;
-            color: var(--slate-500);
+            font-size: 16px;
+            color: var(--grey-500);
             margin-bottom: 60px;
-            max-width: 700px;
+            max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+            line-height: 1.7;
         }
 
         /* Case Study Card */
@@ -216,26 +244,16 @@
         }
 
         .case-study-image {
-            background: linear-gradient(135deg, var(--slate-100), #e0e7ff);
-            border-radius: 16px;
+            background: var(--cream);
+            border: 1px solid var(--stone);
+            border-radius: 12px;
             padding: 40px;
-            min-height: 400px;
+            min-height: 380px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
             position: relative;
             overflow: hidden;
-        }
-
-        .case-study-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(236, 72, 153, 0.05));
         }
 
         .placeholder-content {
@@ -244,29 +262,29 @@
         }
 
         .placeholder-icon {
-            width: 80px;
-            height: 80px;
-            background: white;
-            border-radius: 16px;
+            width: 72px;
+            height: 72px;
+            background: var(--charcoal);
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
         .placeholder-icon svg {
-            width: 40px;
-            height: 40px;
-            stroke: var(--blue);
+            width: 36px;
+            height: 36px;
+            stroke: var(--copper-light);
             fill: none;
             stroke-width: 2;
         }
 
         .placeholder-text {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--slate-700);
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--grey-500);
+            letter-spacing: 0.02em;
         }
 
         .case-study-content {
@@ -275,29 +293,31 @@
 
         .case-tag {
             display: inline-block;
-            background: linear-gradient(135deg, var(--blue), var(--pink));
-            color: white;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 700;
+            background: var(--charcoal);
+            color: var(--copper-light);
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.15em;
             margin-bottom: 20px;
         }
 
         .case-study-content h3 {
-            font-size: 32px;
-            font-weight: 800;
-            color: var(--slate-900);
-            margin-bottom: 16px;
-            line-height: 1.2;
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 12px;
+            line-height: 1.25;
+            letter-spacing: -0.01em;
         }
 
         .case-study-content .client-info {
-            font-size: 16px;
-            color: var(--slate-500);
-            margin-bottom: 24px;
+            font-size: 14px;
+            color: var(--grey-500);
+            margin-bottom: 28px;
+            letter-spacing: 0.02em;
         }
 
         .case-study-content .challenge {
@@ -305,18 +325,18 @@
         }
 
         .case-study-content .challenge h4 {
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--slate-900);
-            margin-bottom: 8px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--copper);
+            margin-bottom: 10px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.15em;
         }
 
         .case-study-content .challenge p {
-            font-size: 16px;
-            color: var(--slate-700);
-            line-height: 1.7;
+            font-size: 15px;
+            color: var(--grey-600);
+            line-height: 1.75;
         }
 
         .case-study-content .solution {
@@ -324,100 +344,93 @@
         }
 
         .case-study-content .solution h4 {
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--slate-900);
-            margin-bottom: 8px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--copper);
+            margin-bottom: 10px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.15em;
         }
 
         .case-study-content .solution p {
-            font-size: 16px;
-            color: var(--slate-700);
-            line-height: 1.7;
+            font-size: 15px;
+            color: var(--grey-600);
+            line-height: 1.75;
         }
 
         /* Results Grid */
         .results-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            gap: 16px;
             margin-top: 32px;
         }
 
         .result-card {
-            background: var(--slate-100);
-            padding: 24px;
-            border-radius: 12px;
+            background: var(--cream);
+            padding: 24px 20px;
+            border-radius: 8px;
             text-align: center;
+            border: 1px solid var(--stone);
         }
 
         .result-value {
-            font-size: 36px;
-            font-weight: 800;
-            color: var(--blue);
-            margin-bottom: 8px;
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--copper);
+            margin-bottom: 6px;
+            letter-spacing: -0.02em;
         }
 
         .result-label {
-            font-size: 14px;
-            color: var(--slate-700);
+            font-size: 12px;
+            color: var(--grey-500);
             font-weight: 500;
+            letter-spacing: 0.02em;
         }
 
         /* Additional Projects Grid */
         .projects-grid-section {
             padding: 100px 0;
-            background: var(--slate-100);
+            background: var(--cream);
         }
 
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
+            gap: 28px;
             margin-top: 60px;
         }
 
         .project-card {
-            background: white;
-            border-radius: 16px;
+            background: var(--warm-white);
+            border-radius: 12px;
             overflow: hidden;
-            transition: all 0.3s;
-            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            border: 1px solid var(--stone);
         }
 
         .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.1);
-            border-color: var(--blue);
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(43, 43, 43, 0.08);
+            border-color: var(--copper);
         }
 
         .project-image {
-            height: 200px;
-            background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+            height: 180px;
+            background: var(--cream);
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
-            overflow: hidden;
-        }
-
-        .project-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(236, 72, 153, 0.1));
+            border-bottom: 1px solid var(--stone);
         }
 
         .project-icon {
-            width: 60px;
-            height: 60px;
-            background: white;
-            border-radius: 12px;
+            width: 56px;
+            height: 56px;
+            background: var(--charcoal);
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -425,27 +438,28 @@
         }
 
         .project-icon svg {
-            width: 30px;
-            height: 30px;
-            stroke: var(--blue);
+            width: 28px;
+            height: 28px;
+            stroke: var(--copper-light);
             fill: none;
             stroke-width: 2;
         }
 
         .project-content {
-            padding: 32px;
+            padding: 28px;
         }
 
         .project-content h3 {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--slate-900);
-            margin-bottom: 12px;
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 10px;
+            letter-spacing: -0.01em;
         }
 
         .project-content p {
-            font-size: 15px;
-            color: var(--slate-500);
+            font-size: 14px;
+            color: var(--grey-500);
             line-height: 1.7;
             margin-bottom: 20px;
         }
@@ -457,32 +471,35 @@
         }
 
         .tech-tag {
-            background: var(--slate-100);
-            color: var(--slate-700);
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
+            background: var(--cream);
+            color: var(--grey-600);
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            border: 1px solid var(--stone);
         }
 
         /* CTA Section */
         .cta-section {
             padding: 100px 0;
-            background: linear-gradient(135deg, var(--navy), var(--blue));
-            color: white;
+            background: var(--charcoal);
+            color: var(--warm-white);
             text-align: center;
         }
 
         .cta-section h2 {
-            font-size: 42px;
-            font-weight: 800;
-            margin-bottom: 20px;
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
         }
 
         .cta-section p {
-            font-size: 20px;
+            font-size: 17px;
             margin-bottom: 40px;
-            opacity: 0.9;
+            color: rgba(255, 255, 255, 0.75);
         }
 
         .btn {
@@ -490,51 +507,53 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            padding: 14px 32px;
-            border-radius: 10px;
-            font-weight: 600;
-            font-size: 16px;
-            transition: all 0.3s;
+            padding: 16px 36px;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 15px;
+            letter-spacing: 0.02em;
+            transition: all 0.3s ease;
             cursor: pointer;
             border: none;
         }
 
         .btn-primary {
-            background: white;
-            color: var(--blue);
+            background: var(--copper);
+            color: var(--warm-white);
         }
 
         .btn-primary:hover {
-            background: var(--slate-100);
-            color: var(--navy);
+            background: var(--copper-light);
             transform: translateY(-2px);
         }
 
         /* Footer */
         footer {
-            background: var(--slate-900);
-            color: white;
-            padding: 60px 0 30px;
+            background: var(--charcoal);
+            color: var(--warm-white);
+            padding: 80px 0 40px;
+            border-top: 1px solid var(--charcoal-light);
         }
 
         .footer-grid {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr 1fr;
             gap: 60px;
-            margin-bottom: 40px;
+            margin-bottom: 60px;
         }
 
         .footer-brand h3 {
-            font-size: 24px;
-            font-weight: 800;
+            font-size: 20px;
+            font-weight: 600;
             margin-bottom: 16px;
-            color: var(--light-blue);
+            color: var(--warm-white);
+            letter-spacing: 0.05em;
         }
 
         .footer-brand p {
-            color: var(--slate-500);
+            color: var(--grey-400);
             line-height: 1.7;
-            font-size: 15px;
+            font-size: 14px;
             margin-bottom: 24px;
         }
 
@@ -545,51 +564,54 @@
         }
 
         .footer-contact a {
-            color: var(--slate-500);
+            color: var(--grey-400);
             font-size: 14px;
-            transition: color 0.2s;
+            transition: color 0.3s ease;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
 
         .footer-contact a::before {
             content: '';
             width: 4px;
             height: 4px;
-            background: var(--pink);
+            background: var(--copper);
             border-radius: 50%;
         }
 
         .footer-contact a:hover {
-            color: var(--light-blue);
+            color: var(--copper-light);
         }
 
         .footer-links h4 {
-            font-size: 16px;
+            font-size: 12px;
             font-weight: 600;
-            margin-bottom: 20px;
-            color: white;
+            margin-bottom: 24px;
+            color: var(--warm-white);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
         }
 
         .footer-links a {
             display: block;
-            color: var(--slate-500);
-            margin-bottom: 12px;
+            color: var(--grey-400);
+            margin-bottom: 14px;
             font-size: 14px;
-            transition: color 0.2s;
+            transition: color 0.3s ease;
         }
 
         .footer-links a:hover {
-            color: var(--light-blue);
+            color: var(--copper-light);
         }
 
         .footer-bottom {
             text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: var(--slate-500);
-            font-size: 14px;
+            padding-top: 40px;
+            border-top: 1px solid var(--charcoal-light);
+            color: var(--grey-500);
+            font-size: 13px;
+            letter-spacing: 0.02em;
         }
 
         /* Responsive Design */
@@ -617,14 +639,14 @@
         }
 
         @media (max-width: 768px) {
-            .container { padding: 0 20px; }
+            .container { padding: 0 24px; }
             
             nav ul { display: none; }
             
-            .page-header h1 { font-size: 36px; }
-            .section-title { font-size: 32px; }
+            .page-header h1 { font-size: 32px; }
+            .section-title { font-size: 28px; }
             
-            .case-study-content h3 { font-size: 24px; }
+            .case-study-content h3 { font-size: 22px; }
             
             .projects-grid {
                 grid-template-columns: 1fr;
@@ -632,6 +654,7 @@
 
             .footer-grid {
                 grid-template-columns: 1fr;
+                gap: 40px;
             }
         }
     </style>
@@ -641,28 +664,24 @@
     <nav>
         <div class="container">
             <a href="index.html" class="logo-wrapper">
+                <!-- Icon -->
                 <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
-                    <defs>
-                        <linearGradient id="pinkAccent" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#ec4899;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#f0abfc;stop-opacity:1" />
-                        </linearGradient>
-                    </defs>
-                    <g transform="translate(10,10)">
-                        <rect x="0" y="25" width="10" height="25" fill="#1e3a8a" rx="2"/>
-                        <rect x="15" y="15" width="10" height="35" fill="#2563eb" rx="2"/>
-                        <rect x="30" y="10" width="10" height="40" fill="#3b82f6" rx="2"/>
-                        <rect x="45" y="18" width="10" height="32" fill="url(#pinkAccent)" rx="2"/>
-                        <path d="M 5 35 Q 20 25, 35 20 T 50 28" stroke="#ec4899" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.8"/>
-                        <circle cx="5" cy="35" r="3" fill="#ec4899"/>
-                        <circle cx="20" cy="25" r="3" fill="#ec4899"/>
-                        <circle cx="35" cy="20" r="3" fill="#ec4899"/>
-                        <circle cx="50" cy="28" r="3" fill="#ec4899"/>
+                    <g transform="translate(20,18)">
+                        <rect x="0"  y="36" width="9" height="26" rx="2" fill="#2B2B2B"/>
+                        <rect x="19" y="24" width="9" height="38" rx="2" fill="#2B2B2B"/>
+                        <rect x="38" y="12" width="9" height="50" rx="2" fill="#2B2B2B"/>
+                        <path d="M 1 50 Q 26 30, 47 15"
+                              stroke="#C46A3D"
+                              stroke-width="2"
+                              fill="none"
+                              stroke-linecap="round"/>
                     </g>
                 </svg>
+
+                <!-- Text -->
                 <div class="logo-text">
                     <span class="brand">DATASANJ</span>
-                    <span class="tagline">Data Analytics</span>
+                    <span class="tagline">DATA ANALYTICS &amp; AUTOMATION</span>
                 </div>
             </a>
 
@@ -680,7 +699,7 @@
     <!-- Page Header -->
     <section class="page-header">
         <div class="container">
-            <h1>Portfolio & Case Studies</h1>
+            <h1>Portfolio &amp; Case Studies</h1>
             <p class="subtitle">
                 Real projects with measurable results for businesses in Canberra and internationally
             </p>
@@ -712,7 +731,7 @@
                 <div class="case-study-content">
                     <span class="case-tag">Power BI Dashboard</span>
                     <h3>Multi-Location Retail Sales Dashboard</h3>
-                    <p class="client-info">Retail Business | 3 Locations | Canberra</p>
+                    <p class="client-info">Retail Business · 3 Locations · Canberra</p>
                     
                     <div class="challenge">
                         <h4>The Challenge</h4>
@@ -754,7 +773,7 @@
                 <div class="case-study-content">
                     <span class="case-tag">Excel VBA Automation</span>
                     <h3>Automated Quote Generation System</h3>
-                    <p class="client-info">Professional Services Firm | 15 Staff | Sydney</p>
+                    <p class="client-info">Professional Services Firm · 15 Staff · Sydney</p>
                     
                     <div class="challenge">
                         <h4>The Challenge</h4>
@@ -795,8 +814,8 @@
                 </div>
                 <div class="case-study-content">
                     <span class="case-tag">Financial Modeling</span>
-                    <h3>Multi-Year Budget & Forecast System</h3>
-                    <p class="client-info">Healthcare Practice | 25 Staff | Melbourne</p>
+                    <h3>Multi-Year Budget &amp; Forecast System</h3>
+                    <p class="client-info">Healthcare Practice · 25 Staff · Melbourne</p>
                     
                     <div class="challenge">
                         <h4>The Challenge</h4>
@@ -990,7 +1009,7 @@
             </div>
 
             <div class="footer-bottom">
-                © 2025 DATASANJ | Zohal Zahir | All Rights Reserved
+                <p>&copy; 2025 DATASANJ. All rights reserved.</p>
             </div>
         </div>
     </footer>

@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Meet Zohal Zahir - Data analytics consultant with a unique background in medicine, data science, and accounting. Based in Canberra, helping businesses globally with Power BI and Excel automation.">
-    <meta name="keywords" content="Zohal Zahir, Power BI consultant Canberra, data science, Excel automation, business intelligence consultant">
+    <meta name="description" content="Meet Zohal Zahir - Microsoft Certified Power BI Data Analyst with 70+ successful projects. Top Rated consultant combining technical expertise with real business understanding.">
+    <meta name="keywords" content="Zohal Zahir, Power BI consultant, Microsoft certified, data analyst Canberra">
     <meta name="author" content="Zohal Zahir">
-    <title>About Zohal Zahir | Data Analytics Consultant Canberra</title>
+    <title>About Zohal Zahir | Microsoft Certified Power BI Consultant</title>
     <link rel="canonical" href="https://datasanj.com/About.html">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,22 +15,17 @@
     <style>
         /* Ultra-Premium Brand Design System */
         :root {
-            /* Primary Palette - Luxury Consulting */
             --charcoal: #2B2B2B;
             --charcoal-light: #3D3D3D;
             --copper: #C46A3D;
             --copper-light: #D4845A;
             --copper-dark: #A85A32;
-            
-            /* Neutrals */
             --warm-white: #FAFAF8;
             --cream: #F5F4F2;
             --stone: #E8E6E3;
             --grey-400: #9A9A9A;
             --grey-500: #6B6B6B;
             --grey-600: #4A4A4A;
-            
-            /* Typography */
             --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }
 
@@ -54,7 +49,7 @@
             padding: 0 32px; 
         }
 
-        /* Navigation - Ultra Premium */
+        /* Navigation */
         nav { 
             position: fixed; 
             top: 0; 
@@ -158,7 +153,7 @@
             display: none !important;
         }
 
-        /* Hero Section - Premium */
+        /* Hero Section */
         .hero-about {
             margin-top: 84px;
             padding: 100px 0 120px;
@@ -233,7 +228,13 @@
             border: 1px solid var(--stone);
         }
 
-        /* Section Styling - Premium */
+        .badge.featured {
+            background: var(--charcoal);
+            color: var(--copper-light);
+            border-color: var(--charcoal);
+        }
+
+        /* Section Styling */
         .section-label {
             text-align: center;
             font-size: 11px;
@@ -322,64 +323,45 @@
             margin-bottom: 0;
         }
 
-        /* Values Section */
-        .values-section {
+        /* Results Section */
+        .results-section {
             padding: 100px 0;
             background: var(--warm-white);
         }
 
-        .values-grid {
+        .results-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
+            gap: 28px;
             margin-top: 60px;
         }
 
-        .value-card {
+        .result-card {
             background: var(--cream);
-            padding: 40px 32px;
+            padding: 32px 28px;
             border-radius: 8px;
             text-align: center;
             border: 1px solid var(--stone);
-            transition: all 0.3s ease;
         }
 
-        .value-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(43, 43, 43, 0.06);
+        .result-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--copper);
+            margin-bottom: 8px;
+            line-height: 1;
         }
 
-        .value-icon {
-            width: 56px;
-            height: 56px;
-            background: var(--charcoal);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 24px;
-        }
-
-        .value-icon svg {
-            width: 26px;
-            height: 26px;
-            stroke: var(--copper-light);
-            fill: none;
-            stroke-width: 2;
-        }
-
-        .value-card h3 {
-            font-size: 17px;
+        .result-label {
+            font-size: 14px;
             font-weight: 600;
             color: var(--charcoal);
-            margin-bottom: 12px;
-            letter-spacing: 0.01em;
+            margin-bottom: 8px;
         }
 
-        .value-card p {
-            font-size: 14px;
+        .result-detail {
+            font-size: 12px;
             color: var(--grey-500);
-            line-height: 1.7;
         }
 
         /* Expertise Section */
@@ -636,7 +618,7 @@
                 justify-content: center;
             }
 
-            .values-grid {
+            .results-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -655,25 +637,19 @@
 
         @media (max-width: 768px) {
             .container { padding: 0 24px; }
-            
             nav ul { display: none; }
-            
             .hero-content h1 { font-size: 32px; }
             .section-title { font-size: 28px; }
-            
             .story-content h3 {
                 font-size: 20px;
             }
-
             .story-content p {
                 font-size: 15px;
             }
-
             .footer-grid {
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
-
             .highlight-box {
                 padding: 32px;
             }
@@ -685,21 +661,14 @@
     <nav>
         <div class="container">
             <a href="index.html" class="logo-wrapper">
-                <!-- Icon -->
                 <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
                     <g transform="translate(20,18)">
                         <rect x="0"  y="36" width="9" height="26" rx="2" fill="#2B2B2B"/>
                         <rect x="19" y="24" width="9" height="38" rx="2" fill="#2B2B2B"/>
                         <rect x="38" y="12" width="9" height="50" rx="2" fill="#2B2B2B"/>
-                        <path d="M 1 50 Q 26 30, 47 15"
-                              stroke="#C46A3D"
-                              stroke-width="2"
-                              fill="none"
-                              stroke-linecap="round"/>
+                        <path d="M 1 50 Q 26 30, 47 15" stroke="#C46A3D" stroke-width="2" fill="none" stroke-linecap="round"/>
                     </g>
                 </svg>
-
-                <!-- Text -->
                 <div class="logo-text">
                     <span class="brand">DATASANJ</span>
                     <span class="tagline">DATA ANALYTICS &amp; AUTOMATION</span>
@@ -722,22 +691,50 @@
         <div class="container">
             <div class="hero-image-wrapper">
                 <div class="hero-image">
-                    <img src="Zohal Zahir.jpg" alt="Zohal Zahir - Data Analytics Consultant">
+                    <img src="Zohal Zahir.jpg" alt="Zohal Zahir - Microsoft Certified Power BI Data Analyst">
                 </div>
             </div>
             <div class="hero-content">
                 <h1>Hi, I'm Zohal Zahir</h1>
-                <p class="title">Data Analytics Consultant · Canberra</p>
+                <p class="title">Microsoft Certified Power BI Data Analyst · Canberra</p>
                 <p class="intro">
-                    I help businesses transform messy data into automated systems that save time and drive better decisions. With a unique background spanning medicine, data science, and accounting, I bring a different perspective to solving data challenges.
+                    I've delivered 70+ successful projects with 100% client satisfaction on Upwork. I build automated Power BI dashboards, Excel solutions, and API integrations that actually work—helping businesses save time and make smarter decisions with their data.
                 </p>
                 <div class="credentials-badges">
-                    <span class="badge">University of Adelaide</span>
-                    <span class="badge">Data Science Graduate</span>
-                    <span class="badge">Medical Background</span>
-                    <span class="badge">Accounting Certified</span>
-                    <span class="badge">100% Success Rate</span>
+                    <span class="badge featured">Microsoft Certified (PL-300)</span>
+                    <span class="badge">Top Rated on Upwork</span>
                     <span class="badge">70+ Projects</span>
+                    <span class="badge">100% Success Rate</span>
+                    <span class="badge">University of Adelaide</span>
+                    <span class="badge">Cert IV Accounting</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results-section">
+        <div class="container">
+            <div class="section-label">My Track Record</div>
+            <h2 class="section-title">What I've Actually Delivered</h2>
+
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-number">70+</div>
+                    <div class="result-label">Projects Delivered</div>
+                    <p class="result-detail">Finance, Healthcare, Government</p>
+                </div>
+
+                <div class="result-card">
+                    <div class="result-number">100%</div>
+                    <div class="result-label">Client Success</div>
+                    <p class="result-detail">Top Rated on Upwork</p>
+                </div>
+
+                <div class="result-card">
+                    <div class="result-number">83%</div>
+                    <div class="result-label">Revenue Growth</div>
+                    <p class="result-detail">2024 vs. Previous 19 Months</p>
                 </div>
             </div>
         </div>
@@ -746,88 +743,63 @@
     <!-- Story Section -->
     <section class="story-section">
         <div class="container">
-            <div class="section-label">My Journey</div>
-            <h2 class="section-title">From Medicine to Data Science</h2>
+            <div class="section-label">My Story</div>
+            <h2 class="section-title">The Unconventional Path</h2>
             <p class="section-subtitle">
-                An unconventional path that gives me a unique perspective on solving business problems
+                From medicine to accounting to data science—here's how I got here
             </p>
 
             <div class="story-content">
-                <h3>How I Got Here</h3>
+                <h3>How I Work Differently</h3>
                 <p>
-                    My journey into data analytics wasn't traditional. I started in <strong>medicine</strong>, where I learned the critical importance of precision, systematic thinking, and making decisions based on evidence—not guesswork. In healthcare, getting the data right isn't just about efficiency; it's about outcomes that matter.
+                    I didn't take the traditional path into data analytics, and honestly, that's become my biggest advantage. My background in <strong>medicine</strong> taught me precision and systematic thinking. My <strong>accounting certification</strong> gave me deep insight into business metrics and financial reporting. My <strong>Graduate Certificate in Data Science from the University of Adelaide</strong> provided the technical tools to build production-grade solutions.
                 </p>
 
                 <p>
-                    After my medical training, I discovered a passion for understanding <strong>financial data and business operations</strong>. I earned my accounting certification and worked with small businesses, helping them make sense of their numbers. This is where I first saw how much time people waste on manual data entry, copying between spreadsheets, and creating reports that nobody actually uses.
-                </p>
-
-                <p>
-                    That frustration led me to the <strong>University of Adelaide</strong>, where I got a Postgraduate certification in Data Science. I learned Python, R, statistical modeling, and machine learning. But more importantly, I learned how to build systems that work reliably in the real world—not just in notebooks or demos.
+                    This combination means I don't just understand the tech—I understand what business problems you're actually trying to solve. I know what "month-end close" means. I understand P&L statements. I've seen how businesses actually operate, not just how they're supposed to operate in theory.
                 </p>
 
                 <div class="highlight-box">
-                    <h4>Why This Combination Matters</h4>
+                    <h4>What Sets Me Apart</h4>
                     <p>
-                        My medical background taught me precision and systematic problem-solving. My accounting experience gave me deep insight into business metrics and financial reporting. My data science education provided the technical tools to automate and scale solutions. This combination means I don't just build dashboards—I build solutions that actually solve business problems.
+                        When you work with me, you get someone who speaks both languages—business and tech. I can build you a Power BI dashboard with complex DAX measures AND explain why your gross margin calculation matters for decision-making. That's rare in this field.
                     </p>
                 </div>
 
-                <h3>My Approach to Data Consulting</h3>
+                <h3>Real Projects, Real Results</h3>
                 <p>
-                    When you work with me, you're working directly with me—not a project manager or a team. I handle everything from understanding your requirements to building, testing, documenting, and training you on the final solution.
+                    I've built <strong>municipal waste management dashboards</strong> for the City of Melbourne tracking 25+ KPIs across CBD laneways. I've created <strong>mental health 911 response dashboards</strong> for healthcare organizations in Austin. I've automated <strong>month-end reporting that saved a finance team 80% of their time</strong>—5 days down to 3 hours.
                 </p>
 
                 <p>
-                    I specialize in creating <strong>production-grade solutions</strong>. That means dashboards that refresh reliably, automations that handle errors gracefully, and systems that scale as your business grows. I've seen too many "quick fixes" that break the moment something changes. I build for the long term.
+                    I've also built plenty of "boring" but essential business tools: <strong>payroll systems, pricing calculators, inventory trackers, budget forecasts</strong>. The stuff that actually keeps businesses running but nobody talks about on LinkedIn because it's not sexy. I take pride in solving those problems too.
+                </p>
+
+                <h3>How I Actually Work</h3>
+                <p>
+                    When you hire me, you get <strong>me</strong>. Not a team, not junior developers, not offshore contractors. I handle everything—requirements gathering, building, testing, documenting, training, and support.
                 </p>
 
                 <p>
-                    I'm based in <strong>Canberra</strong> but work with clients globally. Whether you're a local business looking for in-person collaboration or an international company needing remote support, I'm equipped to deliver results.
-                </p>
-
-                <h3>What Drives Me</h3>
-                <p>
-                    I get genuine satisfaction from turning someone's "I spend 8 hours a week on this manual process" into "Now it takes 10 minutes and it's more accurate." That's the magic of good data automation—it gives people their time back to focus on what actually matters.
+                    I work mostly with <strong>Power BI</strong> (where I'm Microsoft certified), <strong>Excel/VBA</strong>, <strong>Python</strong> for data pipelines, and <strong>APIs</strong> for integration work. I specialize in connecting systems that don't want to talk to each other—like getting live Xero data into Power BI, or automating Spotify data into lakehouse storage with Microsoft Fabric.
                 </p>
 
                 <p>
-                    I also love the challenge of making complex data simple. Whether it's building a financial dashboard for executives or automating payroll calculations for HR, the goal is always the same: make it clear, make it reliable, make it useful.
+                    I'm based in <strong>Canberra</strong>, but most of my clients are remote. I've worked with startups in the US, municipal governments in Melbourne, healthcare organizations in Texas, and small businesses across Australia. Geography doesn't matter much when you're building dashboards.
                 </p>
-            </div>
-        </div>
-    </section>
 
-    <!-- Values Section -->
-    <section class="values-section">
-        <div class="container">
-            <div class="section-label">How I Work</div>
-            <h2 class="section-title">My Core Values</h2>
+                <h3>Why This Matters to You</h3>
+                <p>
+                    Look, you probably don't care that I studied medicine or accounting. What you care about is: Can I solve your problem?
+                </p>
 
-            <div class="values-grid">
-                <div class="value-card">
-                    <div class="value-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                    </div>
-                    <h3>Quality Over Speed</h3>
-                    <p>I'd rather take an extra day to build it right than deliver something that breaks in production. Every solution includes proper error handling and documentation.</p>
-                </div>
+                <p>
+                    The answer is yes—if your problem involves <strong>messy data, manual processes, disconnected systems, or unclear reporting</strong>. Those are the problems I solve best. I turn chaos into clarity. I automate the boring stuff so you can focus on the important stuff.
+                </p>
 
-                <div class="value-card">
-                    <div class="value-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                    </div>
-                    <h3>Transparency</h3>
-                    <p>Clear communication about timelines, costs, and what's realistic. I'll tell you if something's not feasible rather than overpromise and underdeliver.</p>
-                </div>
-
-                <div class="value-card">
-                    <div class="value-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5"/></svg>
-                    </div>
-                    <h3>Continuous Learning</h3>
-                    <p>Technology evolves fast. I stay current with new tools and techniques to ensure I'm delivering modern, efficient solutions to every client.</p>
-                </div>
+                <p>
+                    If that sounds like what you need, let's talk. No sales pitch, just an honest conversation about whether I can help.
+                </p>
             </div>
         </div>
     </section>
@@ -835,51 +807,51 @@
     <!-- Expertise Section -->
     <section class="expertise-section">
         <div class="container">
-            <div class="section-label">Technical Capabilities</div>
-            <h2 class="section-title">What I Can Build</h2>
+            <div class="section-label">Technical Skills</div>
+            <h2 class="section-title">What I Actually Build</h2>
 
             <div class="expertise-grid">
                 <div class="expertise-card">
-                    <h3>Business Intelligence &amp; Dashboards</h3>
+                    <h3>Power BI & Business Intelligence</h3>
                     <ul>
-                        <li>Power BI dashboard design and development</li>
-                        <li>DAX measures and calculated columns</li>
-                        <li>Data modeling and relationships</li>
-                        <li>Automated refresh and deployment</li>
-                        <li>Power BI Service administration</li>
+                        <li>Microsoft Certified: Power BI Data Analyst (PL-300)</li>
+                        <li>Custom DAX measures & calculated columns</li>
+                        <li>Data modeling & star schema design</li>
+                        <li>Automated refresh & Power BI Service deployment</li>
+                        <li>DirectQuery & import mode optimization</li>
                     </ul>
                 </div>
 
                 <div class="expertise-card">
-                    <h3>Excel &amp; VBA Automation</h3>
+                    <h3>Excel & Automation</h3>
                     <ul>
-                        <li>Custom VBA macros and automation</li>
-                        <li>Advanced Excel formulas and functions</li>
-                        <li>Automated report generation</li>
-                        <li>Data validation and error checking</li>
-                        <li>Financial modeling and forecasting</li>
+                        <li>VBA macro development & automation</li>
+                        <li>Advanced formulas & Power Pivot</li>
+                        <li>Payroll systems & financial models</li>
+                        <li>Pricing tools & quote generators</li>
+                        <li>Template design & optimization</li>
                     </ul>
                 </div>
 
                 <div class="expertise-card">
-                    <h3>Data Integration &amp; APIs</h3>
+                    <h3>Data Integration & APIs</h3>
                     <ul>
-                        <li>Python data processing and automation</li>
-                        <li>REST API integration and authentication</li>
-                        <li>SQL database queries and optimization</li>
-                        <li>Power Automate workflows</li>
-                        <li>Cloud data pipelines (Azure, AWS)</li>
+                        <li>Python (pandas, PySpark) for data processing</li>
+                        <li>REST API integration & OAuth 2.0</li>
+                        <li>Microsoft Fabric & lakehouse architecture</li>
+                        <li>Xero, Salesforce, Google Analytics APIs</li>
+                        <li>SQL queries & database optimization</li>
                     </ul>
                 </div>
 
                 <div class="expertise-card">
-                    <h3>Industry Experience</h3>
+                    <h3>Industries I've Worked In</h3>
                     <ul>
-                        <li>Healthcare data and reporting systems</li>
-                        <li>Financial services and accounting (Xero)</li>
-                        <li>Retail and e-commerce analytics</li>
-                        <li>Professional services operations</li>
-                        <li>Small business to enterprise solutions</li>
+                        <li>Finance & accounting (primary focus)</li>
+                        <li>Government & municipal services</li>
+                        <li>Healthcare & mental health</li>
+                        <li>Manufacturing & supply chain</li>
+                        <li>Retail & e-commerce</li>
                     </ul>
                 </div>
             </div>
@@ -914,10 +886,10 @@
                 <div class="testimonial-card">
                     <div class="rating">★★★★★</div>
                     <p class="testimonial-text">
-                        "Zohal was amazing. The communication with her about what I needed and what was possible was effective and fast. I was very happy with what she provided."
+                        "Excellent job with professionalism and great responsiveness!! Turn around time is surely very good and overall work quality is as requested."
                     </p>
-                    <div class="testimonial-author">Financial Planner</div>
-                    <div class="testimonial-role">Mortgage Planning</div>
+                    <div class="testimonial-author">Supply Chain Manager</div>
+                    <div class="testimonial-role">Manufacturing Company</div>
                 </div>
 
                 <div class="testimonial-card">
@@ -936,7 +908,7 @@
     <section class="cta-section">
         <div class="container">
             <h2>Let's Work Together</h2>
-            <p>Ready to automate your data workflows and save time? Let's discuss your project.</p>
+            <p>Ready to automate your data workflows? Let's have an honest conversation about your challenges.</p>
             <a href="Contact.html" class="btn btn-primary">Book Free Consultation →</a>
         </div>
     </section>
@@ -947,7 +919,7 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <h3>DATASANJ</h3>
-                    <p>Professional data analytics consulting by Zohal Zahir. Based in Canberra, serving businesses locally and internationally.</p>
+                    <p>Microsoft Certified Power BI consultant by Zohal Zahir. Based in Canberra, delivering results globally.</p>
                     <div class="footer-contact">
                         <a href="mailto:d_zohal@datasanj.com">d_zohal@datasanj.com</a>
                         <a href="#">Canberra, ACT, Australia</a>
@@ -981,10 +953,9 @@
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2024 DATASANJ. All rights reserved.</p>
+                © 2025 DATASANJ | Zohal Zahir | Microsoft Certified Power BI Data Analyst
             </div>
         </div>
     </footer>
 </body>
 </html>
-

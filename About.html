@@ -616,30 +616,63 @@
     <nav>
         <div class="container">
             <a href="index.html" class="logo-wrapper">
-                <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
-                    <defs>
-                        <linearGradient id="pinkAccent" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#ec4899;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#f0abfc;stop-opacity:1" />
-                        </linearGradient>
-                    </defs>
-                    <g transform="translate(10,10)">
-                        <rect x="0" y="25" width="10" height="25" fill="#1e3a8a" rx="2"/>
-                        <rect x="15" y="15" width="10" height="35" fill="#2563eb" rx="2"/>
-                        <rect x="30" y="10" width="10" height="40" fill="#3b82f6" rx="2"/>
-                        <rect x="45" y="18" width="10" height="32" fill="url(#pinkAccent)" rx="2"/>
-                        <path d="M 5 35 Q 20 25, 35 20 T 50 28" stroke="#ec4899" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.8"/>
-                        <circle cx="5" cy="35" r="3" fill="#ec4899"/>
-                        <circle cx="20" cy="25" r="3" fill="#ec4899"/>
-                        <circle cx="35" cy="20" r="3" fill="#ec4899"/>
-                        <circle cx="50" cy="28" r="3" fill="#ec4899"/>
-                    </g>
-                </svg>
-                <div class="logo-text">
-                    <span class="brand">DATASANJ</span>
-                    <span class="tagline">Data Analytics</span>
-                </div>
-            </a>
+  <!-- Icon -->
+  <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
+    <g transform="translate(20,18)">
+      <rect x="0"  y="36" width="9" height="26" rx="2" fill="#2B2B2B"/>
+      <rect x="19" y="24" width="9" height="38" rx="2" fill="#2B2B2B"/>
+      <rect x="38" y="12" width="9" height="50" rx="2" fill="#2B2B2B"/>
+      <path d="M 1 50 Q 26 30, 47 15"
+            stroke="#C46A3D"
+            stroke-width="2"
+            fill="none"
+            stroke-linecap="round"/>
+    </g>
+  </svg>
+
+  <!-- Text -->
+  <div class="logo-text">
+    <span class="brand">DATASANJ</span>
+    <span class="tagline">DATA ANALYTICS &amp; AUTOMATION</span>
+  </div>
+</a>
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 14px; /* intentional breathing room */
+  text-decoration: none;
+}
+
+.logo-icon {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.brand {
+  font-family: "Inter", "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #2B2B2B;
+}
+
+.tagline {
+  font-family: "Inter", "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #6B6B6B;
+  margin-top: 2px;
+}
+
 
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -916,4 +949,5 @@
             </div>
 
             <div class="footer-botto
+
 

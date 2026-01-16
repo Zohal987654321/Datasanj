@@ -3,773 +3,711 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Stop Guessing, Start Growing. I help business owners automate reporting and build data systems that scale. Microsoft Certified Power BI & Xero Advisor.">
-    <meta name="keywords" content="Power BI consultant Canberra, Xero Power BI integration, automated reporting, business intelligence">
-    <meta name="author" content="Zohal Zahir">
-    <title>DATASANJ | Stop Guessing, Start Growing | Zohal Zahir</title>
-    <link rel="canonical" href="https://datasanj.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+    <meta name="description" content="DATASANJ - Excel VBA & Power BI systems for growing businesses. Streamline month-end reporting, connect APIs, and get clarity without complexity.">
+    <title>DATASANJ | Stop Guessing, Start Growing | Excel VBA & Power BI Systems</title>
+    
+    <!-- Add your existing CSS links here -->
     <style>
-        :root {
-            --charcoal: #2B2B2B;
-            --charcoal-light: #3D3D3D;
-            --copper: #C46A3D;
-            --copper-light: #D4845A;
-            --copper-dark: #A85A32;
-            --warm-white: #FAFAF8;
-            --cream: #F5F4F2;
-            --stone: #E8E6E3;
-            --grey-400: #9A9A9A;
-            --grey-500: #6B6B6B;
-            --grey-600: #4A4A4A;
-            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body { 
-            font-family: var(--font-primary);
-            line-height: 1.7; 
-            color: var(--charcoal); 
-            background: var(--warm-white);
-            font-weight: 400;
-            -webkit-font-smoothing: antialiased;
+        /* Basic reset and structure - replace with your existing stylesheet */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         
-        a { text-decoration: none; color: inherit; }
-        img { display: block; max-width: 100%; height: auto; }
-        
-        .container { 
-            max-width: 1140px; 
-            margin: 0 auto; 
-            padding: 0 32px; 
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
         }
-
-        /* Navigation */
-        nav { 
-            position: fixed; 
-            top: 0; 
-            width: 100%; 
-            background: rgba(250, 250, 248, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--stone);
-            z-index: 1000; 
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: #fff;
             padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
         
-        nav .container { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-        }
-        
-        .logo-wrapper {
+        nav {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 14px;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
             text-decoration: none;
         }
-
-        .logo-icon { width: 40px; height: 40px; flex-shrink: 0; }
-
-        .logo-text {
+        
+        nav ul {
             display: flex;
-            flex-direction: column;
-            line-height: 1.1;
-        }
-
-        .logo-text .brand {
-            font-size: 18px;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            color: var(--charcoal);
-        }
-
-        .logo-text .tagline {
-            font-size: 9px;
-            font-weight: 400;
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
-            color: var(--grey-500);
-            margin-top: 3px;
+            list-style: none;
+            gap: 30px;
         }
         
-        nav ul { 
-            display: flex; 
-            list-style: none; 
-            gap: 40px; 
-            align-items: center; 
-        }
-        
-        nav a { 
-            color: var(--grey-600); 
-            font-weight: 500; 
-            font-size: 14px; 
-            letter-spacing: 0.02em;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-        
-        nav a:hover { color: var(--copper); }
-        nav a.active { color: var(--charcoal); }
-
-        nav a.active::after {
-            content: '';
-            position: absolute;
-            bottom: -6px;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: var(--copper);
-        }
-        
-        .nav-cta { 
-            background: var(--charcoal);
-            color: var(--warm-white) !important; 
-            padding: 12px 28px; 
-            border-radius: 6px;
+        nav a {
+            text-decoration: none;
+            color: #2c3e50;
             font-weight: 500;
-            letter-spacing: 0.03em;
-            transition: all 0.3s ease;
         }
         
-        .nav-cta:hover { 
-            background: var(--copper);
-            transform: translateY(-1px);
+        nav a:hover {
+            color: #3498db;
         }
-
-        .nav-cta::after { display: none !important; }
-
-        /* Hero Section */
+        
         .hero {
-            margin-top: 84px;
-            padding: 100px 0 120px;
-            background: var(--warm-white);
+            padding: 80px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
         }
-
-        .hero .container {
-            display: grid;
-            grid-template-columns: 1.1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .hero-content { max-width: 600px; }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: var(--copper);
-            color: var(--warm-white);
-            padding: 10px 20px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            margin-bottom: 28px;
-        }
-
-        .hero-badge::before {
-            content: '✓';
-            font-size: 16px;
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
             font-weight: 700;
         }
-
-        .hero h1 {
-            font-size: 48px;
-            font-weight: 600;
-            line-height: 1.15;
-            color: var(--charcoal);
-            margin-bottom: 20px;
-            letter-spacing: -0.02em;
-        }
-
-        .hero h1 .highlight { color: var(--copper); }
-
+        
         .hero .subtitle {
-            font-size: 20px;
-            color: var(--charcoal);
-            margin-bottom: 16px;
-            font-weight: 500;
-            line-height: 1.4;
-        }
-
-        .hero .description {
-            font-size: 16px;
-            color: var(--grey-600);
-            line-height: 1.8;
-            margin-bottom: 36px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 14px;
-            margin-bottom: 48px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 16px 36px;
-            border-radius: 6px;
-            font-weight: 500;
-            font-size: 15px;
-            letter-spacing: 0.02em;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
-        }
-
-        .btn-primary {
-            background: var(--charcoal);
-            color: var(--warm-white);
-        }
-
-        .btn-primary:hover {
-            background: var(--copper);
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background: var(--cream);
-            color: var(--charcoal);
-            border: 1px solid var(--stone);
-        }
-
-        .btn-secondary:hover { background: var(--stone); }
-
-        .trust-indicators {
-            display: flex;
-            gap: 32px;
-            flex-wrap: wrap;
-        }
-
-        .trust-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-        }
-
-        .trust-icon {
-            width: 36px;
-            height: 36px;
-            background: var(--cream);
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid var(--stone);
-            flex-shrink: 0;
-        }
-
-        .trust-icon svg {
-            width: 18px;
-            height: 18px;
-            stroke: var(--copper);
-            fill: none;
-            stroke-width: 2;
-        }
-
-        .trust-text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .trust-text strong {
-            font-size: 15px;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
             font-weight: 600;
-            color: var(--charcoal);
-            line-height: 1.3;
         }
-
-        .trust-text span {
-            font-size: 12px;
-            color: var(--grey-500);
-            margin-top: 2px;
-        }
-
-        /* Hero Image */
-        .hero-image { position: relative; }
-
-        .hero-image-wrapper {
-            position: relative;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 30px 60px rgba(43, 43, 43, 0.12);
-            background: var(--cream);
-            padding: 16px;
-        }
-
-        .hero-image img {
-            width: 100%;
-            border-radius: 6px;
-        }
-
-        /* Section Styling */
-        .section-label {
-            text-align: center;
-            font-size: 11px;
-            font-weight: 500;
-            color: var(--copper);
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            margin-bottom: 16px;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 36px;
-            font-weight: 600;
-            color: var(--charcoal);
-            margin-bottom: 20px;
-            letter-spacing: -0.02em;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 17px;
-            color: var(--grey-500);
-            margin-bottom: 60px;
-            max-width: 600px;
+        
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            max-width: 800px;
             margin-left: auto;
             margin-right: auto;
-            line-height: 1.7;
         }
-
-        /* Problem Section */
-        .problem-section {
-            padding: 100px 0;
-            background: var(--cream);
+        
+        .hero .tools {
+            font-size: 1rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            font-weight: 500;
         }
-
-        .problem-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 28px;
-            margin-top: 60px;
-        }
-
-        .problem-card {
-            background: var(--warm-white);
-            padding: 36px 32px;
-            border-radius: 8px;
-            border: 1px solid var(--stone);
-        }
-
-        .problem-card h3 {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--charcoal);
-            margin-bottom: 12px;
-        }
-
-        .problem-card p {
-            font-size: 14px;
-            color: var(--grey-600);
-            line-height: 1.7;
-        }
-
-        /* Results Section */
-        .results-section {
-            padding: 100px 0;
-            background: var(--warm-white);
-        }
-
-        .results-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 28px;
-        }
-
-        .result-card {
-            background: var(--cream);
-            padding: 40px 32px;
-            border-radius: 8px;
-            border: 1px solid var(--stone);
-            text-align: center;
-        }
-
-        .result-number {
-            font-size: 42px;
-            font-weight: 700;
-            color: var(--copper);
-            margin-bottom: 12px;
-            letter-spacing: -0.02em;
-        }
-
-        .result-label {
-            font-size: 15px;
-            font-weight: 600;
-            color: var(--charcoal);
-            margin-bottom: 8px;
-        }
-
-        .result-description {
-            font-size: 13px;
-            color: var(--grey-500);
-            line-height: 1.6;
-        }
-
-        /* How I Work Section */
-        .work-section {
-            padding: 100px 0;
-            background: var(--cream);
-        }
-
-        .work-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 28px;
-            margin-top: 60px;
-        }
-
-        .work-card {
-            background: var(--warm-white);
-            padding: 40px 32px;
-            border-radius: 8px;
-            border: 1px solid var(--stone);
-        }
-
-        .work-number {
-            display: inline-flex;
-            align-items: center;
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
             justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: var(--charcoal);
-            color: var(--copper-light);
-            border-radius: 6px;
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-
-        .work-card h3 {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--charcoal);
-            margin-bottom: 12px;
-        }
-
-        .work-card p {
-            font-size: 14px;
-            color: var(--grey-600);
-            line-height: 1.7;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            padding: 100px 0;
-            background: var(--charcoal);
-            color: var(--warm-white);
-            text-align: center;
-        }
-
-        .cta-section h2 {
-            font-size: 36px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            letter-spacing: -0.02em;
-        }
-
-        .cta-section p {
-            font-size: 17px;
             margin-bottom: 40px;
-            color: rgba(255, 255, 255, 0.95);
         }
-
-        .cta-section .btn-primary {
-            background: var(--copper);
-            color: var(--warm-white);
+        
+        .btn {
+            padding: 15px 35px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
         }
-
-        .cta-section .btn-primary:hover {
-            background: var(--copper-light);
+        
+        .btn-primary {
+            background: white;
+            color: #667eea;
         }
-
-        /* Footer */
-        footer {
-            background: var(--charcoal);
-            color: var(--warm-white);
-            padding: 80px 0 40px;
-            border-top: 1px solid var(--charcoal-light);
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 60px;
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-secondary:hover {
+            background: white;
+            color: #667eea;
+        }
+        
+        .credentials {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+        }
+        
+        .credentials span {
+            font-weight: 600;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-header {
+            text-align: center;
             margin-bottom: 60px;
         }
-
-        .footer-brand h3 {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            color: var(--warm-white);
-            letter-spacing: 0.05em;
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
         }
-
-        .footer-brand p {
-            color: rgba(255, 255, 255, 0.85);
-            line-height: 1.7;
-            font-size: 14px;
-            margin-bottom: 24px;
+        
+        .section-header .subtitle {
+            font-size: 1.3rem;
+            color: #666;
         }
-
-        .footer-contact {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
+        
+        .problems-grid, .solutions-grid, .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
         }
-
-        .footer-contact a {
-            color: rgba(255, 255, 255, 0.85);
-            font-size: 14px;
-            transition: color 0.3s ease;
+        
+        .card {
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .card p {
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        .icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .bg-light {
+            background: #f8f9fa;
+        }
+        
+        .scope-section {
+            background: white;
+        }
+        
+        .service-category {
+            margin-bottom: 50px;
+        }
+        
+        .service-category h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        .service-category ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .service-category li {
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        .service-category li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        .dont-do {
+            background: #fff3cd;
+            padding: 40px;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .dont-do h3 {
+            color: #856404;
+            margin-bottom: 20px;
+        }
+        
+        .dont-do ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .dont-do li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #856404;
+        }
+        
+        .dont-do li:before {
+            content: "✗";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .fit-checklist ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .fit-checklist li {
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 1.1rem;
+        }
+        
+        .fit-checklist li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .step {
+            text-align: center;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: #667eea;
+            color: white;
+            border-radius: 50%;
             display: flex;
             align-items: center;
-            gap: 10px;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 20px;
         }
-
-        .footer-contact a::before {
-            content: '';
-            width: 4px;
-            height: 4px;
-            background: var(--copper);
-            border-radius: 50%;
+        
+        .step h3 {
+            margin-bottom: 15px;
+            color: #2c3e50;
         }
-
-        .footer-contact a:hover {
-            color: var(--copper-light);
+        
+        .outcome-list {
+            list-style: none;
+            padding: 0;
+            max-width: 600px;
+            margin: 0 auto;
         }
-
-        .footer-links h4 {
-            font-size: 12px;
+        
+        .outcome-list li {
+            padding: 15px 0;
+            padding-left: 40px;
+            position: relative;
+            font-size: 1.2rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .outcome-list li:before {
+            content: "✔";
+            position: absolute;
+            left: 0;
+            color: #28a745;
+            font-weight: bold;
+            font-size: 1.4rem;
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .result-card {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .result-card .metric {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .result-card .label {
+            font-size: 1.1rem;
             font-weight: 600;
-            margin-bottom: 24px;
-            color: var(--warm-white);
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
+            margin-bottom: 10px;
+            color: #2c3e50;
         }
-
-        .footer-links a {
+        
+        .result-card .description {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .why-section ul {
+            list-style: none;
+            padding: 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .why-section li {
+            padding: 15px 0;
+            padding-left: 40px;
+            position: relative;
+            font-size: 1.1rem;
+        }
+        
+        .why-section li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.4rem;
+        }
+        
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h4 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-section a {
+            color: #ecf0f1;
+            text-decoration: none;
             display: block;
-            color: rgba(255, 255, 255, 0.85);
-            margin-bottom: 14px;
-            font-size: 14px;
-            transition: color 0.3s ease;
+            padding: 5px 0;
         }
-
-        .footer-links a:hover {
-            color: var(--copper-light);
+        
+        .footer-section a:hover {
+            color: #3498db;
         }
-
+        
         .footer-bottom {
             text-align: center;
-            padding-top: 40px;
-            border-top: 1px solid var(--charcoal-light);
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 13px;
-            letter-spacing: 0.02em;
+            padding-top: 30px;
+            border-top: 1px solid #34495e;
+            color: #95a5a6;
         }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .hero .container { grid-template-columns: 1fr; gap: 60px; }
-            .problem-grid, .results-grid, .work-grid { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr 1fr; }
-        }
-
+        
         @media (max-width: 768px) {
-            .container { padding: 0 24px; }
-            nav ul { display: none; }
-            .hero h1 { font-size: 36px; }
-            .section-title { font-size: 28px; }
-            .trust-indicators { flex-direction: column; gap: 20px; }
-            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+            }
+            
+            .credentials {
+                flex-direction: column;
+                gap: 15px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="container">
-            <a href="index.html" class="logo-wrapper">
-                <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
-                    <g transform="translate(20,18)">
-                        <rect x="0"  y="36" width="9" height="26" rx="2" fill="#2B2B2B"/>
-                        <rect x="19" y="24" width="9" height="38" rx="2" fill="#2B2B2B"/>
-                        <rect x="38" y="12" width="9" height="50" rx="2" fill="#2B2B2B"/>
-                        <path d="M 1 50 Q 26 30, 47 15" stroke="#C46A3D" stroke-width="2" fill="none" stroke-linecap="round"/>
-                    </g>
-                </svg>
-                <div class="logo-text">
-                    <span class="brand">DATASANJ</span>
-                    <span class="tagline">ANALYTICS CONSULTANCY</span>
-                </div>
-            </a>
 
+    <!-- Navigation -->
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">DATASANJ</a>
             <ul>
-                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="About.html">About</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="Portfolio.html">Portfolio</a></li>
                 <li><a href="Blog.html">Insights</a></li>
-                <li><a href="Contact.html" class="nav-cta">Let's Talk</a></li>
+                <li><a href="Contact.html">Let's Talk</a></li>
             </ul>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge">Microsoft Certified Power BI Data Analyst</div>
-                
-                <h1>Stop Guessing. <span class="highlight">Start Growing.</span></h1>
-                
-                <p class="subtitle">I Turn Scattered Business Data Into Clear, Governed Systems</p>
-                
-                <p class="description">
-                   As your business grows, data spreads across spreadsheets, systems, and people. I clean and centralise your data, define meaningful KPIs, and build secure dashboards so your team sees the right information—at the right level—to make confident decisions.
-                </p>
-
-                <div class="hero-buttons">
-                    <a href="Contact.html" class="btn btn-primary">
-                        Let's Talk →
-                    </a>
-                    <a href="Portfolio.html" class="btn btn-secondary">
-                        See My Work
-                    </a>
-                </div>
-
-                <div class="trust-indicators">
-                    <div class="trust-item">
-                        <div class="trust-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                        </div>
-                        <div class="trust-text">
-                            <strong>Microsoft Certified</strong>
-                            <span>Power BI Data Analyst</span>
-                        </div>
-                    </div>
-                    <div class="trust-item">
-                        <div class="trust-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg>
-                        </div>
-                        <div class="trust-text">
-                            <strong>70+ Projects</strong>
-                            <span>100% Success Rate</span>
-                        </div>
-                    </div>
-                    <div class="trust-item">
-                        <div class="trust-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z"/></svg>
-                        </div>
-                        <div class="trust-text">
-                            <strong>Xero Advisor</strong>
-                            <span>Financial Integration</span>
-                        </div>
-                    </div>
-                </div>
+            <h1>Stop Guessing. Start Growing.</h1>
+            <p class="subtitle">I build Excel VBA systems and Power BI dashboards that turn reporting chaos into clear, reliable insights.</p>
+            <p>I specialize in <strong>streamlining month-end reporting</strong>, eliminating manual errors, and connecting APIs directly to your spreadsheets and dashboards—so you can make decisions with full knowledge of your business.</p>
+            <p class="tools"><strong>Microsoft Excel | Visual Basic for Applications | Power BI | API Integration</strong></p>
+            <div class="cta-buttons">
+                <a href="Contact.html" class="btn btn-primary">Let's Talk →</a>
+                <a href="Portfolio.html" class="btn btn-secondary">See My Work</a>
             </div>
+            <div class="credentials">
+                <span>✓ Microsoft Certified Power BI Data Analyst</span>
+                <span>✓ 70+ Projects, 100% Success Rate</span>
+                <span>✓ Xero Advisor</span>
+            </div>
+        </div>
+    </section>
 
-            <div class="hero-image">
-                <div class="hero-image-wrapper">
-                    <img src="Stop_Guessing__Start_Growing__version_1.png" alt="Data Dashboard Automation">
+    <!-- Problems Section -->
+    <section class="bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>Sound Familiar?</h2>
+                <p class="subtitle">Growth creates reporting chaos most businesses aren't prepared for</p>
+            </div>
+            <div class="problems-grid">
+                <div class="card">
+                    <div class="icon">📄</div>
+                    <h3>Month-end takes forever</h3>
+                    <p>You're manually copying data between spreadsheets for 2-3 days. One mistake and you're reconciling all weekend.</p>
+                </div>
+                <div class="card">
+                    <div class="icon">⌛</div>
+                    <h3>Data lives everywhere</h3>
+                    <p>Finance is in Excel, sales in your CRM, operations in another system—and nothing talks to each other.</p>
+                </div>
+                <div class="card">
+                    <div class="icon">🔴</div>
+                    <h3>Reports don't reconcile</h3>
+                    <p>Different teams see different numbers because there's no single source of truth.</p>
+                </div>
+                <div class="card">
+                    <div class="icon">🚫</div>
+                    <h3>Too much access, or not enough</h3>
+                    <p>People see data they shouldn't—or can't access what they need to do their job.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Problem Section -->
-    <section class="problem-section">
+    <!-- Solutions Section -->
+    <section>
         <div class="container">
-            <div class="section-label">Sound Familiar?</div>
-            <h2 class="section-title">Growth creates complexity most businesses aren’t prepared for</h2>
-            <p class="section-subtitle">Business owners hit the same wall when scaling</p>
-
-            <div class="problem-grid">
-                <div class="problem-card">
-                    <h3>📄 Drowning in Spreadsheets</h3>
-                    <p>You're copying data between five different Excel files every week. One wrong formula and your whole report is off.</p>
+            <div class="section-header">
+                <h2>From Chaos to Clarity</h2>
+                <p class="subtitle">What properly designed Excel VBA and Power BI systems do</p>
+            </div>
+            <div class="solutions-grid">
+                <div class="card">
+                    <h3>Automate month-end reporting</h3>
+                    <p>Cut your reporting time from days to hours—with fewer errors and full audit trails.</p>
                 </div>
-
-                <div class="problem-card">
-                    <h3>⌛ No Time for Strategy</h3>
-                    <p>You spend so much time pulling reports that you can't actually use the data to make decisions.</p>
-
-                <div class="problem-card">
-                    <h3>💬 Systems Don't Talk</h3>
-                    <p>our finance, CRM, and operations systems all tell different stories—with no single source of truth.</p>
+                <div class="card">
+                    <h3>Connect APIs to dashboards and spreadsheets</h3>
+                    <p>Pull data directly from Xero, your CRM, or operations systems into Excel or Power BI—no more manual exports.</p>
+                </div>
+                <div class="card">
+                    <h3>Advanced UI design</h3>
+                    <p>Excel systems that feel simple to use, with clean interfaces, hidden complexity, and role-based access.</p>
+                </div>
+                <div class="card">
+                    <h3>Dashboards built for decisions</h3>
+                    <p>Power BI reports focused on what actually drives your business—not just pretty charts.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Results Section -->
-    <section class="results-section">
+    <!-- What I Do Section -->
+    <section class="scope-section bg-light">
         <div class="container">
-            <div class="section-label">From Chaos to Clarity</div>
-            <h2 class="section-title">What Good Data Systems Actually Do</h2>
-            <p class="section-subtitle">What happens when data is clean, trusted, and well-governed</p>
+            <div class="section-header">
+                <h2>What I Do</h2>
+                <p class="subtitle">Clear Scope</p>
+            </div>
+            
+            <div class="service-category">
+                <h3>Excel VBA Systems</h3>
+                <ul>
+                    <li>Custom Excel applications for finance and operations</li>
+                    <li>VBA automation to eliminate manual month-end processes</li>
+                    <li>API connections that pull live data into spreadsheets</li>
+                    <li>Advanced user interfaces—simple to use, robust under the hood</li>
+                    <li>Controlled templates used consistently across teams</li>
+                </ul>
+            </div>
 
-            <div class="results-grid">
-                <div class="result-card">
-                    <div class="result-number">5 days → 3 hrs</div>
-                    <div class="result-label">Month-End Close</div>
-                    <p class="result-description">SaaS company automated financial reporting completely</p>
-                </div>
+            <div class="service-category">
+                <h3>Power BI Dashboards</h3>
+                <ul>
+                    <li>Management and operational dashboards</li>
+                    <li>API integrations from Xero, CRMs, and other systems</li>
+                    <li>Clean data models built from Excel or connected sources</li>
+                    <li>KPI frameworks aligned to how your business actually runs</li>
+                    <li>Reports designed for CFOs—not data analysts</li>
+                </ul>
+            </div>
 
-                <div class="result-card">
-                    <div class="result-number">12+ months</div>
-                    <div class="result-label">Extended Runway</div>
-                    <p class="result-description">Startup used real-time data to make smarter spend decisions</p>
-                </div>
+            <div class="service-category">
+                <h3>Governance Without Complexity</h3>
+                <ul>
+                    <li>Role-based access so the right people see the right data</li>
+                    <li>Clear ownership of calculations and data sources</li>
+                    <li>Audit trails and error-checking built in</li>
+                    <li>Systems that scale as your business grows</li>
+                </ul>
+            </div>
 
-                <div class="result-card">
-                    <div class="result-number">25+ KPIs</div>
-                    <div class="result-label">City Dashboard</div>
-                    <p class="result-description">City of Melbourne tracks waste management in real-time</p>
-                </div>
+            <div class="dont-do">
+                <h3>What I Don't Do (On Purpose)</h3>
+                <ul>
+                    <li>Enterprise data warehouse projects</li>
+                    <li>Multi-year IT transformation programs</li>
+                    <li>Heavy cloud engineering</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>If you need those, I'll tell you. Most growing businesses don't—yet.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who This Is For Section -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2>Who This Is For</h2>
+            </div>
+            <div class="fit-checklist">
+                <ul>
+                    <li>Your business is growing and reporting hasn't kept up</li>
+                    <li>Month-end takes too long and has too many errors</li>
+                    <li>Excel is still core to how you operate</li>
+                    <li>You need systems that connect to APIs but don't want to rebuild everything</li>
+                    <li>Leadership needs clearer visibility without enterprise complexity</li>
+                </ul>
             </div>
         </div>
     </section>
 
     <!-- How I Work Section -->
-    <section class="work-section">
+    <section class="bg-light">
         <div class="container">
-            <div class="section-label">How I Work</div>
-            <h2 class="section-title">Simple Process, Real Results</h2>
-            <p class="section-subtitle">I'm your analytics partner. You focus on growth, I handle the data.</p>
-
-            <div class="work-grid">
-                <div class="work-card">
-                    <div class="work-number">1</div>
+            <div class="section-header">
+                <h2>How I Work</h2>
+                <p class="subtitle">Simple Process, Real Results</p>
+            </div>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
                     <h3>Understand Your Business</h3>
-                    <p>I dig into how you actually work—not just what data you have. What decisions keep you up at night?</p>
+                    <p>I dig into how you actually work—not just what data you have. What keeps you up at night?</p>
                 </div>
-
-                <div class="work-card">
-                    <div class="work-number">2</div>
+                <div class="step">
+                    <div class="step-number">2</div>
                     <h3>Build Systems That Scale</h3>
-                    <p><p>Clean data models, clear KPIs, and dashboards with role-based access—built to scale without losing control.</p>
-
+                    <p>Clean data models, automated workflows, API connections, and dashboards with role-based access—built to scale without losing control.</p>
                 </div>
-
-                <div class="work-card">
-                    <div class="work-number">3</div>
+                <div class="step">
+                    <div class="step-number">3</div>
                     <h3>Stay Your Partner</h3>
                     <p>I build things that don't break. When you need changes or support, I'm here—not ghosting you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Outcome Section -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2>The Outcome</h2>
+            </div>
+            <ul class="outcome-list">
+                <li>Month-end reporting cut from days to hours</li>
+                <li>Fewer errors, better decisions</li>
+                <li>APIs connected to Excel and Power BI</li>
+                <li>Clear visibility into business drivers</li>
+                <li>Systems that actually work</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Real Results Section -->
+    <section class="bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>Real Results</h2>
+            </div>
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="metric">5 days → 3 hrs</div>
+                    <div class="label">Month-End Close</div>
+                    <div class="description">SaaS company automated financial reporting completely</div>
+                </div>
+                <div class="result-card">
+                    <div class="metric">12+ months</div>
+                    <div class="label">Extended Runway</div>
+                    <div class="description">Startup used real-time data to make smarter spend decisions</div>
+                </div>
+                <div class="result-card">
+                    <div class="metric">25+ KPIs</div>
+                    <div class="label">City Dashboard</div>
+                    <div class="description">City of Melbourne tracks waste management in real-time</div>
                 </div>
             </div>
         </div>
@@ -779,26 +717,43 @@
     <section class="cta-section">
         <div class="container">
             <h2>Ready to Stop Guessing?</h2>
-            <p>Let’s talk about where your data is holding you back—and what clean, governed systems would unlock.</p>
+            <p>If your reporting feels fragile, manual, or disconnected—let's fix it.</p>
             <a href="Contact.html" class="btn btn-primary">Schedule a Call →</a>
+            <p style="margin-top: 20px; font-size: 1rem;">Talk to me about how Excel VBA and Power BI systems can work better—without unnecessary complexity.</p>
+        </div>
+    </section>
+
+    <!-- Why Work With Me Section -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Work With Me</h2>
+            </div>
+            <div class="why-section">
+                <ul>
+                    <li>Deep expertise in Excel VBA and Power BI</li>
+                    <li>API integration experience (Xero, CRMs, operations systems)</li>
+                    <li>Focus on execution, not theory</li>
+                    <li>Strong understanding of finance and operational reporting</li>
+                    <li>Solutions designed for real teams, not ideal scenarios</li>
+                </ul>
+                <p style="text-align: center; margin-top: 30px; font-size: 1.2rem; font-weight: 600;">I work with the tools you already have—and make them work properly.</p>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <h3>DATASANJ</h3>
-                    <p>Analytics consultancy helping growing businesses bring order, clarity, and governance to their data. 
-Microsoft Certified Power BI Analyst & Xero Advisor. Based in Canberra.</p>
-                    <div class="footer-contact">
-                         <a href="mailto:d_zohal@datasanj.com">d_zohal@datasanj.com</a>
-                        <a href="#">Canberra, ACT, Australia</a>
-                    </div>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>DATASANJ</h4>
+                    <p>Analytics consultancy helping growing businesses bring order, clarity, and governance to their data.</p>
+                    <p>Microsoft Certified Power BI Analyst & Xero Advisor. Based in Canberra.</p>
+                    <p><a href="mailto:d_zohal@datasanj.com">d_zohal@datasanj.com</a></p>
                 </div>
-
-                <div class="footer-links">
+                
+                <div class="footer-section">
                     <h4>Navigation</h4>
                     <a href="index.html">Home</a>
                     <a href="About.html">About</a>
@@ -807,21 +762,29 @@ Microsoft Certified Power BI Analyst & Xero Advisor. Based in Canberra.</p>
                     <a href="Blog.html">Insights</a>
                     <a href="Contact.html">Contact</a>
                 </div>
-
-                <div class="footer-links">
+                
+                <div class="footer-section">
                     <h4>What I Do</h4>
+                    <a href="services.html">Excel VBA Systems</a>
                     <a href="services.html">Power BI Dashboards</a>
-                    <a href="services.html">Excel Automation</a>
-                    <a href="services.html">System Integration</a>
+                    <a href="services.html">API Integration</a>
+                    <a href="services.html">Month-End Automation</a>
                     <a href="services.html">Xero to Power BI</a>
                 </div>
-
-                <div class="footer-links">
+                
+                <div class="footer-section">
                     <h4>Connect</h4>
                     <a href="https://www.linkedin.com/in/zohal-zahir-46128697/" target="_blank">LinkedIn</a>
                     <a href="https://github.com/Zohal987654321" target="_blank">GitHub</a>
                     <a href="https://www.upwork.com/freelancers/zohalz" target="_blank">Upwork Profile</a>
                 </div>
             </div>
-
+            
             <div class="footer-bottom">
+                <p>&copy; 2025 DATASANJ. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

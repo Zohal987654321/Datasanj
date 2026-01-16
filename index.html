@@ -3,17 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Zohal Zahir - Microsoft Certified Power BI Data Analyst. Top Rated consultant with 70+ successful projects. I turn data chaos into automated insights that save time and drive growth.">
-    <meta name="keywords" content="Power BI consultant Canberra, Microsoft certified data analyst, Excel automation, business intelligence">
+    <meta name="description" content="Stop Guessing, Start Growing. I help business owners automate reporting and build data systems that scale. Microsoft Certified Power BI & Xero Advisor.">
+    <meta name="keywords" content="Power BI consultant Canberra, Xero Power BI integration, automated reporting, business intelligence">
     <meta name="author" content="Zohal Zahir">
-    <title>Zohal Zahir | Microsoft Certified Power BI Consultant | DATASANJ</title>
+    <title>DATASANJ | Stop Guessing, Start Growing | Zohal Zahir</title>
     <link rel="canonical" href="https://datasanj.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* Ultra-Premium Brand Design System */
         :root {
             --charcoal: #2B2B2B;
             --charcoal-light: #3D3D3D;
@@ -74,11 +73,7 @@
             text-decoration: none;
         }
 
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            flex-shrink: 0;
-        }
+        .logo-icon { width: 40px; height: 40px; flex-shrink: 0; }
 
         .logo-text {
             display: flex;
@@ -119,10 +114,7 @@
         }
         
         nav a:hover { color: var(--copper); }
-        
-        nav a.active {
-            color: var(--charcoal);
-        }
+        nav a.active { color: var(--charcoal); }
 
         nav a.active::after {
             content: '';
@@ -149,9 +141,7 @@
             transform: translateY(-1px);
         }
 
-        .nav-cta::after {
-            display: none !important;
-        }
+        .nav-cta::after { display: none !important; }
 
         /* Hero Section */
         .hero {
@@ -167,9 +157,7 @@
             align-items: center;
         }
 
-        .hero-content {
-            max-width: 600px;
-        }
+        .hero-content { max-width: 600px; }
 
         .hero-badge {
             display: inline-flex;
@@ -201,9 +189,7 @@
             letter-spacing: -0.02em;
         }
 
-        .hero h1 .highlight {
-            color: var(--copper);
-        }
+        .hero h1 .highlight { color: var(--copper); }
 
         .hero .subtitle {
             font-size: 20px;
@@ -258,9 +244,7 @@
             border: 1px solid var(--stone);
         }
 
-        .btn-secondary:hover {
-            background: var(--stone);
-        }
+        .btn-secondary:hover { background: var(--stone); }
 
         .trust-indicators {
             display: flex;
@@ -313,9 +297,7 @@
         }
 
         /* Hero Image */
-        .hero-image {
-            position: relative;
-        }
+        .hero-image { position: relative; }
 
         .hero-image-wrapper {
             position: relative;
@@ -350,9 +332,7 @@
             margin-bottom: 12px;
         }
 
-        .stats-badge .stat-row:last-child {
-            margin-bottom: 0;
-        }
+        .stats-badge .stat-row:last-child { margin-bottom: 0; }
 
         .stats-badge .stat-label {
             font-size: 12px;
@@ -398,10 +378,43 @@
             line-height: 1.7;
         }
 
+        /* Problem Section */
+        .problem-section {
+            padding: 100px 0;
+            background: var(--cream);
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            margin-top: 60px;
+        }
+
+        .problem-card {
+            background: var(--warm-white);
+            padding: 36px 32px;
+            border-radius: 8px;
+            border: 1px solid var(--stone);
+        }
+
+        .problem-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 12px;
+        }
+
+        .problem-card p {
+            font-size: 14px;
+            color: var(--grey-600);
+            line-height: 1.7;
+        }
+
         /* Results Section */
         .results-section {
             padding: 100px 0;
-            background: var(--cream);
+            background: var(--warm-white);
         }
 
         .results-grid {
@@ -411,7 +424,7 @@
         }
 
         .result-card {
-            background: var(--warm-white);
+            background: var(--cream);
             padding: 40px 32px;
             border-radius: 8px;
             border: 1px solid var(--stone);
@@ -439,87 +452,51 @@
             line-height: 1.6;
         }
 
-        /* Services Section */
-        .services-section {
+        /* How I Work Section */
+        .work-section {
             padding: 100px 0;
-            background: var(--warm-white);
+            background: var(--cream);
         }
 
-        .services-grid {
+        .work-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 28px;
+            margin-top: 60px;
         }
 
-        .service-card {
-            background: var(--cream);
+        .work-card {
+            background: var(--warm-white);
             padding: 40px 32px;
             border-radius: 8px;
-            transition: all 0.3s ease;
             border: 1px solid var(--stone);
         }
 
-        .service-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 40px rgba(43, 43, 43, 0.08);
-        }
-
-        .service-icon {
-            width: 52px;
-            height: 52px;
-            background: var(--charcoal);
-            border-radius: 8px;
-            display: flex;
+        .work-number {
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 24px;
-        }
-
-        .service-icon svg {
-            width: 26px;
-            height: 26px;
-            stroke: var(--copper-light);
-            fill: none;
-            stroke-width: 2;
-        }
-
-        .service-card h3 {
-            font-size: 19px;
-            font-weight: 600;
-            color: var(--charcoal);
-            margin-bottom: 12px;
-            letter-spacing: 0.01em;
-        }
-
-        .service-card p {
-            font-size: 14px;
-            color: var(--grey-500);
-            line-height: 1.7;
+            width: 40px;
+            height: 40px;
+            background: var(--charcoal);
+            color: var(--copper-light);
+            border-radius: 6px;
+            font-size: 18px;
+            font-weight: 700;
             margin-bottom: 20px;
         }
 
-        .service-features {
-            list-style: none;
+        .work-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 12px;
         }
 
-        .service-features li {
-            font-size: 13px;
+        .work-card p {
+            font-size: 14px;
             color: var(--grey-600);
-            padding: 8px 0;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .service-features li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 5px;
-            height: 5px;
-            background: var(--copper);
-            border-radius: 50%;
+            line-height: 1.7;
         }
 
         /* CTA Section */
@@ -540,7 +517,6 @@
         .cta-section p {
             font-size: 17px;
             margin-bottom: 40px;
-            opacity: 1;
             color: rgba(255, 255, 255, 0.95);
         }
 
@@ -640,20 +616,11 @@
             letter-spacing: 0.02em;
         }
 
-        /* Responsive Design */
+        /* Responsive */
         @media (max-width: 1024px) {
-            .hero .container {
-                grid-template-columns: 1fr;
-                gap: 60px;
-            }
-
-            .results-grid, .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-            }
+            .hero .container { grid-template-columns: 1fr; gap: 60px; }
+            .problem-grid, .results-grid, .work-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
         }
 
         @media (max-width: 768px) {
@@ -661,18 +628,9 @@
             nav ul { display: none; }
             .hero h1 { font-size: 36px; }
             .section-title { font-size: 28px; }
-            .stats-badge {
-                position: static;
-                margin-top: 20px;
-            }
-            .trust-indicators {
-                flex-direction: column;
-                gap: 20px;
-            }
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
+            .stats-badge { position: static; margin-top: 20px; }
+            .trust-indicators { flex-direction: column; gap: 20px; }
+            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
         }
     </style>
 </head>
@@ -691,7 +649,7 @@
                 </svg>
                 <div class="logo-text">
                     <span class="brand">DATASANJ</span>
-                    <span class="tagline">DATA ANALYTICS &amp; AUTOMATION</span>
+                    <span class="tagline">ANALYTICS CONSULTANCY</span>
                 </div>
             </a>
 
@@ -712,17 +670,17 @@
             <div class="hero-content">
                 <div class="hero-badge">Microsoft Certified Power BI Data Analyst</div>
                 
-                <h1>I Turn Data Chaos Into <span class="highlight">Automated Insights</span></h1>
+                <h1>Stop Guessing. <span class="highlight">Start Growing.</span></h1>
                 
-                <p class="subtitle">Top Rated Consultant • 70+ Projects Delivered • 100% Success Rate</p>
+                <p class="subtitle">I Build Data Systems That Scale With Your Business</p>
                 
                 <p class="description">
-                    I help businesses stop drowning in spreadsheets. From messy data to automated dashboards that actually get used—I build solutions that save time, reduce errors, and drive smart decisions. Based in Canberra, working globally.
+                    You're growing fast, but your spreadsheets can't keep up. I automate your reporting, connect your systems, and build dashboards that actually help you make decisions—not just look pretty.
                 </p>
 
                 <div class="hero-buttons">
                     <a href="Contact.html" class="btn btn-primary">
-                        Book Free Consultation →
+                        Let's Talk →
                     </a>
                     <a href="Portfolio.html" class="btn btn-secondary">
                         See My Work
@@ -736,7 +694,7 @@
                         </div>
                         <div class="trust-text">
                             <strong>Microsoft Certified</strong>
-                            <span>Power BI Data Analyst (PL-300)</span>
+                            <span>Power BI Data Analyst</span>
                         </div>
                     </div>
                     <div class="trust-item">
@@ -744,17 +702,17 @@
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg>
                         </div>
                         <div class="trust-text">
-                            <strong>Top Rated on Upwork</strong>
-                            <span>100% Job Success Rate</span>
+                            <strong>70+ Projects</strong>
+                            <span>100% Success Rate</span>
                         </div>
                     </div>
                     <div class="trust-item">
                         <div class="trust-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0M12 12.75h.008v.008H12v-.008z"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z"/></svg>
                         </div>
                         <div class="trust-text">
-                            <strong>70+ Projects</strong>
-                            <span>Finance, Healthcare, Government</span>
+                            <strong>Xero Advisor</strong>
+                            <span>Financial Integration</span>
                         </div>
                     </div>
                 </div>
@@ -762,18 +720,18 @@
 
             <div class="hero-image">
                 <div class="hero-image-wrapper">
-                    <img src="Stop_Guessing__Start_Growing__version_1.png" alt="Power BI Dashboard Analytics">
+                    <img src="Stop_Guessing__Start_Growing__version_1.png" alt="Data Dashboard Automation">
                     <div class="stats-badge">
                         <div class="stat-row">
                             <span class="stat-label">Time Saved</span>
                             <span class="stat-value">80%</span>
                         </div>
                         <div class="stat-row">
-                            <span class="stat-label">Projects Delivered</span>
+                            <span class="stat-label">Projects</span>
                             <span class="stat-value">70+</span>
                         </div>
                         <div class="stat-row">
-                            <span class="stat-label">Client Success</span>
+                            <span class="stat-label">Success Rate</span>
                             <span class="stat-value">100%</span>
                         </div>
                     </div>
@@ -782,92 +740,86 @@
         </div>
     </section>
 
-    <!-- Results Section -->
-    <section class="results-section">
+    <!-- Problem Section -->
+    <section class="problem-section">
         <div class="container">
-            <div class="section-label">Real Impact</div>
-            <h2 class="section-title">Recent Client Results</h2>
-            <p class="section-subtitle">
-                These aren't just projects—they're measurable outcomes that changed how businesses operate
-            </p>
+            <div class="section-label">Sound Familiar?</div>
+            <h2 class="section-title">You're Growing, But Your Data Isn't</h2>
+            <p class="section-subtitle">Business owners hit the same wall when scaling</p>
 
-            <div class="results-grid">
-                <div class="result-card">
-                    <div class="result-number">5 days → 3 hrs</div>
-                    <div class="result-label">Month-End Reporting</div>
-                    <p class="result-description">Automated Power BI dashboard eliminated 80% of manual work for SaaS company</p>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <h3>📊 Drowning in Spreadsheets</h3>
+                    <p>You're copying data between five different Excel files every week. One wrong formula and your whole report is off.</p>
                 </div>
 
-                <div class="result-card">
-                    <div class="result-number">12+ months</div>
-                    <div class="result-label">Runway Extended</div>
-                    <p class="result-description">Real-time financial dashboard enabled data-driven decisions that saved a startup</p>
+                <div class="problem-card">
+                    <h3>⏰ No Time for Strategy</h3>
+                    <p>You spend so much time pulling reports that you can't actually use the data to make decisions.</p>
                 </div>
 
-                <div class="result-card">
-                    <div class="result-number">25+ KPIs</div>
-                    <div class="result-label">City of Melbourne</div>
-                    <p class="result-description">Municipal waste management dashboard tracking compliance across CBD laneways</p>
+                <div class="problem-card">
+                    <h3>🔗 Systems Don't Talk</h3>
+                    <p>Xero, Salesforce, Google Sheets—they all have pieces of the puzzle, but nothing connects.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services-section">
+    <!-- Results Section -->
+    <section class="results-section">
         <div class="container">
-            <div class="section-label">What I Do</div>
-            <h2 class="section-title">Services That Deliver Results</h2>
-            <p class="section-subtitle">
-                Specialized in Power BI, Excel automation, and API integrations that actually work
-            </p>
+            <div class="section-label">From Chaos to Clarity</div>
+            <h2 class="section-title">What Good Data Systems Actually Do</h2>
+            <p class="section-subtitle">Real results from real businesses</p>
 
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/></svg>
-                    </div>
-                    <h3>Power BI Dashboards</h3>
-                    <p>Automated dashboards that update themselves. No more manual exports or Excel nightmares.</p>
-                    <ul class="service-features">
-                        <li>Custom DAX measures & calculations</li>
-                        <li>Real-time data refresh automation</li>
-                        <li>Multi-source integration (APIs, SQL, Excel)</li>
-                        <li>Mobile-responsive designs</li>
-                    </ul>
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-number">5 days → 3 hrs</div>
+                    <div class="result-label">Month-End Close</div>
+                    <p class="result-description">SaaS company automated financial reporting completely</p>
                 </div>
 
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/></svg>
-                    </div>
-                    <h3>Excel Automation</h3>
-                    <p>VBA macros and smart formulas that turn hours of work into one-click operations.</p>
-                    <ul class="service-features">
-                        <li>Custom VBA automation scripts</li>
-                        <li>Pricing tools & quote generators</li>
-                        <li>Payroll & financial models</li>
-                        <li>Template optimization</li>
-                    </ul>
+                <div class="result-card">
+                    <div class="result-number">12+ months</div>
+                    <div class="result-label">Extended Runway</div>
+                    <p class="result-description">Startup used real-time data to make smarter spend decisions</p>
                 </div>
 
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"/></svg>
-                    </div>
-                    <h3>API & Data Integration</h3>
-                    <p>Connect your systems with Python, Microsoft Fabric, and OAuth 2.0 automation.</p>
-                    <ul class="service-features">
-                        <li>Xero, Salesforce, Google Analytics APIs</li>
-                        <li>Python data pipelines (PySpark)</li>
-                        <li>Microsoft Fabric orchestration</li>
-                        <li>Automated token refresh</li>
-                    </ul>
+                <div class="result-card">
+                    <div class="result-number">25+ KPIs</div>
+                    <div class="result-label">City Dashboard</div>
+                    <p class="result-description">City of Melbourne tracks waste management in real-time</p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div style="text-align: center; margin-top: 50px;">
-                <a href="services.html" class="btn btn-primary">View All Services & Pricing</a>
+    <!-- How I Work Section -->
+    <section class="work-section">
+        <div class="container">
+            <div class="section-label">How I Work</div>
+            <h2 class="section-title">Simple Process, Real Results</h2>
+            <p class="section-subtitle">I'm your analytics partner. You focus on growth, I handle the data.</p>
+
+            <div class="work-grid">
+                <div class="work-card">
+                    <div class="work-number">1</div>
+                    <h3>Understand Your Business</h3>
+                    <p>I dig into how you actually work—not just what data you have. What decisions keep you up at night?</p>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-number">2</div>
+                    <h3>Build Systems That Scale</h3>
+                    <p>Automated dashboards, connected systems, real-time data. Everything designed to grow with you.</p>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-number">3</div>
+                    <h3>Stay Your Partner</h3>
+                    <p>I build things that don't break. When you need changes or support, I'm here—not ghosting you.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -875,9 +827,9 @@
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
-            <h2>Let's Talk About Your Data Challenges</h2>
-            <p>Free 30-minute consultation. I'll tell you honestly if I can help—no sales pitch, just real talk.</p>
-            <a href="Contact.html" class="btn btn-primary">Book Free Consultation →</a>
+            <h2>Ready to Stop Guessing?</h2>
+            <p>Let's talk about your data challenges. No sales pitch—just an honest conversation about what you need.</p>
+            <a href="Contact.html" class="btn btn-primary">Schedule a Call →</a>
         </div>
     </section>
 
@@ -887,7 +839,7 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <h3>DATASANJ</h3>
-                    <p>Microsoft Certified Power BI consultancy by Zohal Zahir. Based in Canberra, delivering results globally.</p>
+                    <p>Analytics consultancy helping business owners scale with automated reporting and reliable data systems. Microsoft Certified & Xero Advisor. Based in Canberra.</p>
                     <div class="footer-contact">
                         <a href="mailto:d_zohal@datasanj.com">d_zohal@datasanj.com</a>
                         <a href="#">Canberra, ACT, Australia</a>
@@ -905,11 +857,11 @@
                 </div>
 
                 <div class="footer-links">
-                    <h4>Services</h4>
+                    <h4>What I Do</h4>
                     <a href="services.html">Power BI Dashboards</a>
                     <a href="services.html">Excel Automation</a>
-                    <a href="services.html">API Integration</a>
-                    <a href="services.html">Financial Modeling</a>
+                    <a href="services.html">System Integration</a>
+                    <a href="services.html">Xero to Power BI</a>
                 </div>
 
                 <div class="footer-links">
@@ -921,4 +873,9 @@
             </div>
 
             <div class="footer-bottom">
-                ©
+                © 2025 DATASANJ | Analytics Consultancy by Zohal Zahir
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

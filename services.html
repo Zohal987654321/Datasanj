@@ -3,34 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Professional Power BI, Excel automation, and data analytics services. Clear pricing, proven results. Based in Canberra, available globally.">
-    <meta name="keywords" content="Power BI consultant pricing, Excel automation services, data analytics Canberra">
+    <meta name="description" content="Power BI dashboards, Excel automation, Xero integration. I build data systems that scale with your business. Clear pricing, no surprises.">
+    <meta name="keywords" content="Power BI consultant, Excel automation, Xero Power BI integration, data automation services">
     <meta name="author" content="Zohal Zahir">
-    <title>Services & Pricing | Zohal Zahir - Data Analytics Consultant</title>
+    <title>Services & Pricing | DATASANJ | Zohal Zahir</title>
     <link rel="canonical" href="https://datasanj.com/services.html">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* Ultra-Premium Brand Design System */
         :root {
-            /* Primary Palette - Luxury Consulting */
             --charcoal: #2B2B2B;
             --charcoal-light: #3D3D3D;
             --copper: #C46A3D;
             --copper-light: #D4845A;
             --copper-dark: #A85A32;
-            
-            /* Neutrals */
             --warm-white: #FAFAF8;
             --cream: #F5F4F2;
             --stone: #E8E6E3;
             --grey-400: #9A9A9A;
             --grey-500: #6B6B6B;
             --grey-600: #4A4A4A;
-            
-            /* Typography */
             --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }
 
@@ -54,7 +48,7 @@
             padding: 0 32px; 
         }
 
-        /* Navigation - Ultra Premium */
+        /* Navigation */
         nav { 
             position: fixed; 
             top: 0; 
@@ -79,11 +73,7 @@
             text-decoration: none;
         }
 
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            flex-shrink: 0;
-        }
+        .logo-icon { width: 40px; height: 40px; flex-shrink: 0; }
 
         .logo-text {
             display: flex;
@@ -124,10 +114,7 @@
         }
         
         nav a:hover { color: var(--copper); }
-        
-        nav a.active {
-            color: var(--charcoal);
-        }
+        nav a.active { color: var(--charcoal); }
 
         nav a.active::after {
             content: '';
@@ -154,42 +141,32 @@
             transform: translateY(-1px);
         }
 
-        .nav-cta::after {
-            display: none !important;
-        }
+        .nav-cta::after { display: none !important; }
 
-        /* Page Header */
+        /* Header */
         .page-header {
             margin-top: 84px;
-            padding: 100px 0 80px;
+            padding: 80px 0;
             background: var(--cream);
             text-align: center;
         }
 
         .page-header h1 {
-            font-size: 48px;
+            font-size: 42px;
             font-weight: 600;
             color: var(--charcoal);
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             letter-spacing: -0.02em;
         }
 
-        .page-header .subtitle {
-            font-size: 19px;
+        .page-header p {
+            font-size: 18px;
             color: var(--grey-600);
-            max-width: 700px;
-            margin: 0 auto 20px;
-            line-height: 1.7;
-        }
-
-        .page-header .description {
-            font-size: 16px;
-            color: var(--grey-500);
             max-width: 600px;
             margin: 0 auto;
         }
 
-        /* Section Styling - Premium */
+        /* Section Styling */
         .section-label {
             text-align: center;
             font-size: 11px;
@@ -230,7 +207,6 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 28px;
-            margin-bottom: 80px;
         }
 
         .service-card {
@@ -273,7 +249,7 @@
             letter-spacing: 0.01em;
         }
 
-        .service-card .description {
+        .service-card p {
             font-size: 14px;
             color: var(--grey-500);
             line-height: 1.7;
@@ -282,6 +258,7 @@
 
         .service-features {
             list-style: none;
+            margin-bottom: 24px;
         }
 
         .service-features li {
@@ -304,6 +281,19 @@
             border-radius: 50%;
         }
 
+        .service-price {
+            font-size: 13px;
+            color: var(--grey-500);
+            padding-top: 20px;
+            border-top: 1px solid var(--stone);
+        }
+
+        .service-price strong {
+            font-size: 16px;
+            color: var(--copper);
+            font-weight: 600;
+        }
+
         /* Pricing Section */
         .pricing-section {
             padding: 100px 0;
@@ -319,100 +309,75 @@
 
         .pricing-card {
             background: var(--warm-white);
-            padding: 44px 36px;
+            padding: 48px 40px;
             border-radius: 8px;
             border: 1px solid var(--stone);
-            transition: all 0.3s ease;
             position: relative;
         }
 
         .pricing-card.featured {
             border: 2px solid var(--copper);
-            box-shadow: 0 20px 40px rgba(196, 106, 61, 0.12);
-            transform: scale(1.03);
+            transform: scale(1.05);
         }
 
-        .pricing-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 40px rgba(43, 43, 43, 0.08);
-        }
-
-        .pricing-card.featured:hover {
-            transform: scale(1.03) translateY(-6px);
-        }
-
-        .featured-badge {
+        .pricing-badge {
             position: absolute;
             top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
+            right: 24px;
             background: var(--copper);
             color: var(--warm-white);
-            padding: 6px 18px;
+            padding: 6px 16px;
             border-radius: 4px;
             font-size: 11px;
             font-weight: 600;
+            letter-spacing: 0.05em;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
         }
 
         .pricing-card h3 {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 600;
             color: var(--charcoal);
             margin-bottom: 12px;
-            letter-spacing: 0.01em;
-        }
-
-        .pricing-card .price-tag {
-            font-size: 14px;
-            color: var(--grey-500);
-            margin-bottom: 6px;
-            font-weight: 500;
         }
 
         .pricing-card .price {
             font-size: 42px;
             font-weight: 700;
-            color: var(--charcoal);
-            margin-bottom: 6px;
-            letter-spacing: -0.02em;
+            color: var(--copper);
+            margin-bottom: 8px;
         }
 
         .pricing-card .price-note {
             font-size: 13px;
             color: var(--grey-500);
-            margin-bottom: 32px;
+            margin-bottom: 28px;
         }
 
-        .pricing-card .features-list {
+        .pricing-features {
             list-style: none;
             margin-bottom: 32px;
         }
 
-        .pricing-card .features-list li {
+        .pricing-features li {
             font-size: 14px;
             color: var(--grey-600);
             padding: 12px 0;
-            padding-left: 24px;
+            padding-left: 28px;
             position: relative;
             border-bottom: 1px solid var(--stone);
         }
 
-        .pricing-card .features-list li:last-child {
-            border-bottom: none;
-        }
+        .pricing-features li:last-child { border-bottom: none; }
 
-        .pricing-card .features-list li::before {
-            content: '';
+        .pricing-features li::before {
+            content: '✓';
             position: absolute;
             left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 6px;
-            height: 6px;
-            background: var(--copper);
-            border-radius: 50%;
+            top: 12px;
+            color: var(--copper);
+            font-weight: 700;
+            font-size: 16px;
         }
 
         .btn {
@@ -447,70 +412,7 @@
             border: 1px solid var(--stone);
         }
 
-        .btn-secondary:hover {
-            background: var(--stone);
-        }
-
-        .pricing-note {
-            text-align: center;
-            margin-top: 60px;
-            color: var(--grey-500);
-        }
-
-        .pricing-note p {
-            font-size: 15px;
-            margin-bottom: 12px;
-        }
-
-        .pricing-note strong {
-            color: var(--charcoal);
-            font-weight: 600;
-        }
-
-        /* Process Section */
-        .process-section {
-            padding: 100px 0;
-            background: var(--warm-white);
-        }
-
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 28px;
-            margin-top: 60px;
-        }
-
-        .process-step {
-            text-align: center;
-        }
-
-        .step-number {
-            width: 60px;
-            height: 60px;
-            background: var(--charcoal);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 26px;
-            font-weight: 700;
-            color: var(--copper-light);
-            margin: 0 auto 20px;
-        }
-
-        .process-step h3 {
-            font-size: 17px;
-            font-weight: 600;
-            color: var(--charcoal);
-            margin-bottom: 12px;
-            letter-spacing: 0.01em;
-        }
-
-        .process-step p {
-            font-size: 13px;
-            color: var(--grey-500);
-            line-height: 1.7;
-        }
+        .btn-secondary:hover { background: var(--stone); }
 
         /* CTA Section */
         .cta-section {
@@ -530,13 +432,12 @@
         .cta-section p {
             font-size: 17px;
             margin-bottom: 40px;
-            opacity: 1;
             color: rgba(255, 255, 255, 0.95);
         }
 
         .cta-section .btn-primary {
             background: var(--copper);
-            color: var(--warm-white);
+            width: auto;
         }
 
         .cta-section .btn-primary:hover {
@@ -630,49 +531,20 @@
             letter-spacing: 0.02em;
         }
 
-        /* Responsive Design */
+        /* Responsive */
         @media (max-width: 1024px) {
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .pricing-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .pricing-card.featured {
-                transform: scale(1);
-            }
-
-            .process-steps {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-            }
+            .services-grid { grid-template-columns: 1fr; }
+            .pricing-grid { grid-template-columns: 1fr; }
+            .pricing-card.featured { transform: none; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
         }
 
         @media (max-width: 768px) {
             .container { padding: 0 24px; }
-            
             nav ul { display: none; }
-            
-            .page-header h1 { font-size: 36px; }
+            .page-header h1 { font-size: 32px; }
             .section-title { font-size: 28px; }
-            
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .process-steps {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
+            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
         }
     </style>
 </head>
@@ -681,24 +553,17 @@
     <nav>
         <div class="container">
             <a href="index.html" class="logo-wrapper">
-                <!-- Icon -->
                 <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
                     <g transform="translate(20,18)">
                         <rect x="0"  y="36" width="9" height="26" rx="2" fill="#2B2B2B"/>
                         <rect x="19" y="24" width="9" height="38" rx="2" fill="#2B2B2B"/>
                         <rect x="38" y="12" width="9" height="50" rx="2" fill="#2B2B2B"/>
-                        <path d="M 1 50 Q 26 30, 47 15"
-                              stroke="#C46A3D"
-                              stroke-width="2"
-                              fill="none"
-                              stroke-linecap="round"/>
+                        <path d="M 1 50 Q 26 30, 47 15" stroke="#C46A3D" stroke-width="2" fill="none" stroke-linecap="round"/>
                     </g>
                 </svg>
-
-                <!-- Text -->
                 <div class="logo-text">
                     <span class="brand">DATASANJ</span>
-                    <span class="tagline">DATA ANALYTICS &amp; AUTOMATION</span>
+                    <span class="tagline">ANALYTICS CONSULTANCY</span>
                 </div>
             </a>
 
@@ -716,24 +581,17 @@
     <!-- Page Header -->
     <section class="page-header">
         <div class="container">
-            <h1>Services & Solutions</h1>
-            <p class="subtitle">
-                Practical data solutions that save time, reduce errors, and help you make confident business decisions
-            </p>
-            <p class="description">
-                Fixed-price projects with clear deliverables. No surprises, just results.
-            </p>
+            <h1>What I Build</h1>
+            <p>Systems that scale with your business. Clear pricing, no surprises.</p>
         </div>
     </section>
 
-    <!-- Services Overview -->
+    <!-- Services Section -->
     <section class="services-section">
         <div class="container">
-            <div class="section-label">What I Offer</div>
-            <h2 class="section-title">Core Services</h2>
-            <p class="section-subtitle">
-                Specialized in Power BI, Excel automation, and data integration for small to medium businesses
-            </p>
+            <div class="section-label">Services</div>
+            <h2 class="section-title">How I Help You Scale</h2>
+            <p class="section-subtitle">Automated systems that save time and drive growth</p>
 
             <div class="services-grid">
                 <div class="service-card">
@@ -741,14 +599,14 @@
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/></svg>
                     </div>
                     <h3>Power BI Dashboards</h3>
-                    <p class="description">Interactive dashboards that turn your data into clear insights with automated updates and real-time KPI tracking.</p>
+                    <p>Live dashboards that update automatically. Stop copying data between spreadsheets.</p>
                     <ul class="service-features">
-                        <li>Custom dashboard design</li>
-                        <li>DAX calculations & measures</li>
-                        <li>Data modeling & relationships</li>
-                        <li>Automated data refresh</li>
-                        <li>Mobile-responsive reports</li>
+                        <li>Automated daily/weekly refresh</li>
+                        <li>Custom calculations (DAX)</li>
+                        <li>Multi-source integration</li>
+                        <li>Mobile-friendly design</li>
                     </ul>
+                    <div class="service-price">Starting at <strong>$1,500</strong></div>
                 </div>
 
                 <div class="service-card">
@@ -756,74 +614,74 @@
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/></svg>
                     </div>
                     <h3>Excel Automation</h3>
-                    <p class="description">Custom VBA solutions that eliminate repetitive tasks, reduce errors by 90%, and save hours every week.</p>
+                    <p>Turn hours of manual work into one-click operations with VBA macros and smart templates.</p>
                     <ul class="service-features">
-                        <li>VBA macro development</li>
-                        <li>Automated report generation</li>
-                        <li>Data validation systems</li>
-                        <li>Custom formulas & functions</li>
+                        <li>Custom VBA macros</li>
+                        <li>Pricing calculators</li>
+                        <li>Automated workflows</li>
                         <li>Template optimization</li>
                     </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"/></svg>
-                    </div>
-                    <h3>Data Integration</h3>
-                    <p class="description">Connect your systems seamlessly with Python, Power Automate, and API integrations for smooth data flow.</p>
-                    <ul class="service-features">
-                        <li>REST API integration</li>
-                        <li>Python automation scripts</li>
-                        <li>Power Automate workflows</li>
-                        <li>Cloud data connections</li>
-                        <li>System synchronization</li>
-                    </ul>
+                    <div class="service-price">Starting at <strong>$1,000</strong></div>
                 </div>
 
                 <div class="service-card">
                     <div class="service-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z"/></svg>
                     </div>
+                    <h3>Xero to Power BI</h3>
+                    <p>Live financial dashboards pulling directly from Xero. Real-time P&L, cash flow, and KPIs.</p>
+                    <ul class="service-features">
+                        <li>OAuth 2.0 integration</li>
+                        <li>Automated token refresh</li>
+                        <li>Real-time financial data</li>
+                        <li>Custom financial reports</li>
+                    </ul>
+                    <div class="service-price">Starting at <strong>$2,500</strong></div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"/></svg>
+                    </div>
+                    <h3>API Integration</h3>
+                    <p>Connect your systems. Salesforce, Google Analytics, custom APIs—make everything talk.</p>
+                    <ul class="service-features">
+                        <li>REST API connections</li>
+                        <li>Python data pipelines</li>
+                        <li>Microsoft Fabric setup</li>
+                        <li>Automated data sync</li>
+                    </ul>
+                    <div class="service-price">Starting at <strong>$2,000</strong></div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 15.75V18m-7.5-6.75h.008v.008H8.25v-.008zm0 2.25h.008v.008H8.25V13.5zm0 2.25h.008v.008H8.25v-.008zm0 2.25h.008v.008H8.25V18zm2.498-6.75h.007v.008h-.007v-.008zm0 2.25h.007v.008h-.007V13.5zm0 2.25h.007v.008h-.007v-.008zm0 2.25h.007v.008h-.007V18zm2.504-6.75h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V13.5zm0 2.25h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V18zm2.498-6.75h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V13.5zM8.25 6h7.5v2.25h-7.5V6zM12 2.25c-1.892 0-3.758.11-5.593.322C5.307 2.7 4.5 3.65 4.5 4.757V19.5a2.25 2.25 0 002.25 2.25h10.5a2.25 2.25 0 002.25-2.25V4.757c0-1.108-.806-2.057-1.907-2.185A48.507 48.507 0 0012 2.25z"/></svg>
+                    </div>
                     <h3>Financial Modeling</h3>
-                    <p class="description">Budget tracking, forecasting models, and financial analysis tools designed for clarity and accuracy.</p>
+                    <p>Scenario planning, forecasts, budget trackers. Models that help you make decisions.</p>
                     <ul class="service-features">
-                        <li>Budget & forecast models</li>
-                        <li>Variance analysis</li>
-                        <li>P&L automation</li>
-                        <li>Cash flow projections</li>
-                        <li>Financial dashboards</li>
+                        <li>Cash flow forecasts</li>
+                        <li>Scenario planning</li>
+                        <li>Budget vs actuals</li>
+                        <li>Runway analysis</li>
                     </ul>
+                    <div class="service-price">Starting at <strong>$1,500</strong></div>
                 </div>
 
                 <div class="service-card">
                     <div class="service-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
                     </div>
-                    <h3>Google Sheets Solutions</h3>
-                    <p class="description">Cloud-based collaborative dashboards with Apps Script automation for teams that work together.</p>
+                    <h3>Ongoing Support</h3>
+                    <p>I stay your partner. Monthly retainer for updates, fixes, and new features as you grow.</p>
                     <ul class="service-features">
-                        <li>Apps Script development</li>
-                        <li>Dynamic dashboards</li>
-                        <li>Automated reports</li>
-                        <li>Real-time collaboration</li>
-                        <li>Custom functions</li>
+                        <li>Priority response time</li>
+                        <li>Regular updates</li>
+                        <li>New feature requests</li>
+                        <li>System maintenance</li>
                     </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                    </div>
-                    <h3>Custom Solutions</h3>
-                    <p class="description">Bespoke data tools designed specifically for your unique business processes and workflows.</p>
-                    <ul class="service-features">
-                        <li>Custom tool development</li>
-                        <li>Workflow optimization</li>
-                        <li>Process automation</li>
-                        <li>Legacy system integration</li>
-                        <li>Ongoing maintenance</li>
-                    </ul>
+                    <div class="service-price">Starting at <strong>$1,200/mo</strong></div>
                 </div>
             </div>
         </div>
@@ -832,108 +690,53 @@
     <!-- Pricing Section -->
     <section class="pricing-section">
         <div class="container">
-            <div class="section-label">Clear Pricing</div>
-            <h2 class="section-title">Project Packages</h2>
-            <p class="section-subtitle">
-                Fixed-price packages with no hidden costs. All projects include training and documentation.
-            </p>
+            <div class="section-label">Pricing</div>
+            <h2 class="section-title">Simple, Clear Pricing</h2>
+            <p class="section-subtitle">No surprises. Fixed project pricing or monthly retainer.</p>
 
             <div class="pricing-grid">
                 <div class="pricing-card">
-                    <h3>Starter Dashboard</h3>
-                    <p class="price-tag">From</p>
-                    <div class="price">AUD 1,500</div>
-                    <p class="price-note">Single dashboard solution</p>
-                    <ul class="features-list">
-                        <li>Single Power BI dashboard</li>
-                        <li>3-5 key metrics & visuals</li>
-                        <li>Connect 1-2 data sources</li>
-                        <li>Basic training session</li>
-                        <li>2 weeks delivery</li>
-                        <li>Documentation included</li>
+                    <h3>Quick Start</h3>
+                    <div class="price">$1,500</div>
+                    <div class="price-note">One-time project</div>
+                    <ul class="pricing-features">
+                        <li>Single dashboard or automation</li>
+                        <li>Up to 3 data sources</li>
+                        <li>Basic calculations</li>
+                        <li>2 rounds of revisions</li>
+                        <li>30 days support</li>
                     </ul>
                     <a href="Contact.html" class="btn btn-secondary">Get Started</a>
                 </div>
 
                 <div class="pricing-card featured">
-                    <span class="featured-badge">Most Popular</span>
-                    <h3>Business Intelligence</h3>
-                    <p class="price-tag">From</p>
-                    <div class="price">AUD 4,000</div>
-                    <p class="price-note">Complete BI solution</p>
-                    <ul class="features-list">
-                        <li>Multiple connected dashboards</li>
-                        <li>Advanced DAX calculations</li>
-                        <li>Connect 3-5 data sources</li>
-                        <li>Automated data refresh</li>
-                        <li>4-6 weeks delivery</li>
-                        <li>Comprehensive training</li>
-                        <li>30 days support</li>
+                    <div class="pricing-badge">Most Popular</div>
+                    <h3>Full System</h3>
+                    <div class="price">$4,000</div>
+                    <div class="price-note">One-time project</div>
+                    <ul class="pricing-features">
+                        <li>Complete BI solution</li>
+                        <li>Multiple dashboards</li>
+                        <li>API integrations</li>
+                        <li>Advanced DAX & automation</li>
+                        <li>Training & documentation</li>
+                        <li>90 days support</li>
                     </ul>
-                    <a href="Contact.html" class="btn btn-primary">Get Started</a>
+                    <a href="Contact.html" class="btn btn-primary">Let's Talk</a>
                 </div>
 
                 <div class="pricing-card">
-                    <h3>Monthly Retainer</h3>
-                    <p class="price-tag">From</p>
-                    <div class="price">AUD 1,200</div>
-                    <p class="price-note">Per month</p>
-                    <ul class="features-list">
-                        <li>Ongoing dashboard maintenance</li>
-                        <li>Monthly report updates</li>
-                        <li>Ad-hoc data analysis</li>
+                    <h3>Monthly Partner</h3>
+                    <div class="price">$1,200</div>
+                    <div class="price-note">Per month</div>
+                    <ul class="pricing-features">
+                        <li>Ongoing updates</li>
                         <li>Priority support</li>
-                        <li>10-15 hours per month</li>
-                        <li>Flexible scope</li>
-                        <li>Cancel anytime</li>
+                        <li>New features</li>
+                        <li>System maintenance</li>
+                        <li>Monthly strategy call</li>
                     </ul>
-                    <a href="Contact.html" class="btn btn-secondary">Get Started</a>
-                </div>
-            </div>
-
-            <div class="pricing-note">
-                <p>
-                    <strong>Excel Automation Projects:</strong> AUD 1,000 - AUD 3,000 depending on complexity
-                </p>
-                <p>
-                    <strong>Custom Integrations:</strong> AUD 2,000 - AUD 5,000 based on requirements
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Process Section -->
-    <section class="process-section">
-        <div class="container">
-            <div class="section-label">How It Works</div>
-            <h2 class="section-title">Simple, Transparent Process</h2>
-            <p class="section-subtitle">
-                From discovery to delivery, here's exactly what to expect when working with me
-            </p>
-
-            <div class="process-steps">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <h3>Discovery Call</h3>
-                    <p>Free 30-minute consultation to understand your challenges and goals.</p>
-                </div>
-
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <h3>Proposal</h3>
-                    <p>Detailed proposal with scope, timeline, and fixed pricing within 24 hours.</p>
-                </div>
-
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <h3>Development</h3>
-                    <p>Regular updates and feedback sessions as I build your solution.</p>
-                </div>
-
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <h3>Delivery</h3>
-                    <p>Full training, documentation, and handover with ongoing support.</p>
+                    <a href="Contact.html" class="btn btn-secondary">Schedule Call</a>
                 </div>
             </div>
         </div>
@@ -942,9 +745,9 @@
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
-            <h2>Ready to Get Started?</h2>
-            <p>Book a free consultation to discuss your project. No obligation, just an honest conversation.</p>
-            <a href="Contact.html" class="btn btn-primary">Book Free Consultation →</a>
+            <h2>Not Sure What You Need?</h2>
+            <p>Let's talk through your challenges. I'll tell you honestly what makes sense.</p>
+            <a href="Contact.html" class="btn btn-primary">Schedule a Call →</a>
         </div>
     </section>
 
@@ -954,7 +757,7 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <h3>DATASANJ</h3>
-                    <p>Professional data analytics consultancy by Zohal Zahir. Based in Canberra, serving businesses locally and internationally.</p>
+                    <p>Analytics consultancy helping business owners scale with automated reporting and reliable data systems. Microsoft Certified & Xero Advisor. Based in Canberra.</p>
                     <div class="footer-contact">
                         <a href="mailto:d_zohal@datasanj.com">d_zohal@datasanj.com</a>
                         <a href="#">Canberra, ACT, Australia</a>
@@ -972,11 +775,11 @@
                 </div>
 
                 <div class="footer-links">
-                    <h4>Services</h4>
+                    <h4>What I Do</h4>
                     <a href="services.html">Power BI Dashboards</a>
                     <a href="services.html">Excel Automation</a>
-                    <a href="services.html">Data Integration</a>
-                    <a href="services.html">Financial Modeling</a>
+                    <a href="services.html">System Integration</a>
+                    <a href="services.html">Xero to Power BI</a>
                 </div>
 
                 <div class="footer-links">
@@ -987,5 +790,10 @@
                 </div>
             </div>
 
-            <div class="footer-botto
-
+            <div class="footer-bottom">
+                © 2025 DATASANJ | Analytics Consultancy by Zohal Zahir
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

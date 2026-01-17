@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Power BI dashboards, Excel automation, Xero integration. I build data systems that scale with your business. Clear pricing, no surprises.">
-    <meta name="keywords" content="Power BI consultant, Excel automation, Xero Power BI integration, data automation services">
+    <meta name="description" content="Power BI dashboards, Excel automation, Xero integration, MCP Server setup. I build data systems that scale with your business. Clear pricing, no surprises.">
+    <meta name="keywords" content="Power BI consultant, Excel automation, Xero Power BI integration, MCP server setup, data automation services">
     <meta name="author" content="Zohal Zahir">
     <title>Services & Pricing | DATASANJ | Zohal Zahir</title>
     <link rel="canonical" href="https://datasanj.com/services.html">
@@ -222,6 +222,24 @@
             box-shadow: 0 20px 40px rgba(43, 43, 43, 0.08);
         }
 
+        .service-card.new-badge {
+            position: relative;
+        }
+
+        .service-card.new-badge::before {
+            content: 'NEW';
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: var(--copper);
+            color: var(--warm-white);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
         .service-icon {
             width: 52px;
             height: 52px;
@@ -414,6 +432,84 @@
 
         .btn-secondary:hover { background: var(--stone); }
 
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 100px 0;
+            background: var(--warm-white);
+        }
+
+        .testimonial-form-wrapper {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--cream);
+            padding: 48px;
+            border-radius: 8px;
+            border: 1px solid var(--stone);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--charcoal);
+            margin-bottom: 8px;
+            letter-spacing: 0.01em;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid var(--stone);
+            border-radius: 6px;
+            font-family: var(--font-primary);
+            font-size: 15px;
+            color: var(--charcoal);
+            background: var(--warm-white);
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--copper);
+            box-shadow: 0 0 0 3px rgba(196, 106, 61, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-note {
+            font-size: 12px;
+            color: var(--grey-500);
+            margin-top: 6px;
+        }
+
+        .form-submit {
+            margin-top: 32px;
+        }
+
+        .success-message {
+            display: none;
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 16px;
+            border-radius: 6px;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
         /* CTA Section */
         .cta-section {
             padding: 100px 0;
@@ -545,6 +641,7 @@
             .page-header h1 { font-size: 32px; }
             .section-title { font-size: 28px; }
             .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+            .testimonial-form-wrapper { padding: 32px 24px; }
         }
     </style>
 </head>
@@ -636,6 +733,25 @@
                     </ul>
                 </div>
 
+                <!-- NEW MCP Server Integration Service -->
+                <div class="service-card new-badge">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z"/></svg>
+                    </div>
+                    <h3>MCP Server Integration</h3>
+                    <p>AI-powered Power BI workflows. Professional MCP (Model Context Protocol) server setup and configuration.</p>
+                    <ul class="service-features">
+                        <li>Complete MCP server configuration</li>
+                        <li>Power BI Desktop integration & testing</li>
+                        <li>Custom prompt library for your workflows</li>
+                        <li>Implementation support call (30 min)</li>
+                        <li>One week of email support</li>
+                    </ul>
+                    <div class="service-price">
+                        From <strong>$400 AUD</strong> • 48-hour delivery
+                    </div>
+                </div>
+
                 <div class="service-card">
                     <div class="service-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"/></svg>
@@ -685,7 +801,7 @@
     <section class="pricing-section">
         <div class="container">
             <div class="section-label">Investment Guide</div>
-            <h2 class="section-title">Flexible Pricing for Every Business.</h2>
+            <h2 class="section-title">Flexible Pricing for Every Business</h2>
             <p class="section-subtitle">From simple dashboards to enterprise systems. Projects scoped to your needs and budget. All prices in AUD.</p>
 
             <div class="pricing-grid">
@@ -747,6 +863,61 @@
         </div>
     </section>
 
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-label">Client Feedback</div>
+            <h2 class="section-title">Share Your Experience</h2>
+            <p class="section-subtitle">Worked with me? I'd love to hear about your experience. Your feedback helps others make informed decisions.</p>
+
+            <div class="testimonial-form-wrapper">
+                <div id="successMessage" class="success-message">
+                    Thank you! Your testimonial has been submitted successfully. I appreciate your feedback!
+                </div>
+
+                <form id="testimonialForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <div class="form-group">
+                        <label for="name">Your Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="John Smith">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required placeholder="john@example.com">
+                        <div class="form-note">Your email will not be published publicly</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="company">Company / Role (Optional)</label>
+                        <input type="text" id="company" name="company" placeholder="ABC Corp, CFO">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="project">Project Type (Optional)</label>
+                        <input type="text" id="project" name="project" placeholder="e.g., Power BI Dashboard, Excel Automation">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="testimonial">Your Testimonial *</label>
+                        <textarea id="testimonial" name="testimonial" required placeholder="Share your experience working with Zohal... What problem did we solve? What was the outcome?"></textarea>
+                        <div class="form-note">Please be specific about the value you received</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" name="consent" required style="width: auto; margin-right: 8px;">
+                            I consent to my testimonial being published on this website and marketing materials
+                        </label>
+                    </div>
+
+                    <div class="form-submit">
+                        <button type="submit" class="btn btn-primary">Submit Testimonial</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
@@ -762,9 +933,9 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <h3>DATASANJ</h3>
-                    <p>Power BI and Excel Consultant based in Canberra,Australia. Microsoft Certified & Xero Advisor. </p>
+                    <p>Power BI and Excel Consultant based in Canberra, Australia. Microsoft Certified & Xero Advisor.</p>
                     <div class="footer-contact">
-                         <a href="mailto:d_zohal@datasanj.com">d_zohal@datasanj.com</a>
+                        <a href="mailto:d_zohal@datasanj.com">d_zohal@datasanj.com</a>
                         <a href="#">Canberra, ACT, Australia</a>
                     </div>
                 </div>
@@ -785,6 +956,7 @@
                     <a href="services.html">Excel Automation</a>
                     <a href="services.html">System Integration</a>
                     <a href="services.html">Xero to Power BI</a>
+                    <a href="services.html">MCP Server Setup</a>
                 </div>
 
                 <div class="footer-links">
@@ -796,8 +968,48 @@
             </div>
 
             <div class="footer-bottom">
+                © 2025 DATASANJ. All rights reserved.
+            </div>
+        </div>
+    </footer>
 
-
-
-
-
+    <script>
+        // Testimonial form handling
+        document.getElementById('testimonialForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const form = e.target;
+            const formData = new FormData(form);
+            
+            // Submit to Formspree (or your chosen form handler)
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Show success message
+                    document.getElementById('successMessage').classList.add('show');
+                    // Reset form
+                    form.reset();
+                    // Scroll to success message
+                    document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
+                    // Hide message after 5 seconds
+                    setTimeout(() => {
+                        document.getElementById('successMessage').classList.remove('show');
+                    }, 5000);
+                } else {
+                    alert('Oops! There was a problem submitting your testimonial. Please try again or email me directly.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Oops! There was a problem submitting your testimonial. Please try again or email me directly.');
+            });
+        });
+    </script>
+</body>
+</html>

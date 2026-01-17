@@ -283,7 +283,7 @@
         /* Cards Grid */
         .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 32px;
             margin-top: 60px;
         }
@@ -329,19 +329,26 @@
 
         /* Scope Section */
         .scope-content {
-            max-width: 900px;
-            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 60px;
         }
 
         .service-category {
-            margin-bottom: 50px;
+            background: var(--warm-white);
+            border: 1px solid var(--stone);
+            border-radius: 8px;
+            padding: 32px;
         }
 
         .service-category h3 {
-            font-size: 24px;
+            font-size: 20px;
             font-weight: 600;
             color: var(--charcoal);
             margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid var(--copper);
         }
 
         .service-category ul {
@@ -353,7 +360,7 @@
             padding: 12px 0 12px 30px;
             position: relative;
             color: var(--grey-600);
-            font-size: 15px;
+            font-size: 14px;
             line-height: 1.7;
         }
 
@@ -366,12 +373,12 @@
         }
 
         .dont-do-box {
+            grid-column: 1 / -1;
             background: #FFF9E6;
             border: 1px solid #F0E5C0;
             border-left: 4px solid var(--copper);
             border-radius: 8px;
             padding: 32px;
-            margin-top: 40px;
         }
 
         .dont-do-box h3 {
@@ -709,6 +716,7 @@
         /* Responsive */
         @media (max-width: 1024px) {
             .footer-grid { grid-template-columns: 1fr 1fr; }
+            .scope-content { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 768px) {
@@ -720,6 +728,7 @@
             .hero-buttons { flex-direction: column; }
             .credentials { flex-direction: column; gap: 12px; }
             .cards-grid { grid-template-columns: 1fr; }
+            .scope-content { grid-template-columns: 1fr; }
             .process-grid { grid-template-columns: 1fr; }
             .results-grid { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -794,12 +803,12 @@
                     <p>Finance is in Excel, sales in your CRM, operations in another system—and nothing talks to each other.</p>
                 </div>
                 <div class="card">
-                    <div class="icon">👎🏾</div>
+                    <div class="icon">🔴</div>
                     <h3>Reports don't reconcile</h3>
                     <p>Different teams see different numbers because there's no single source of truth.</p>
                 </div>
                 <div class="card">
-                    <div class="icon">⛔</div>
+                    <div class="icon">🚫</div>
                     <h3>Too much access, or not enough</h3>
                     <p>People see data they shouldn't—or can't access what they need to do their job.</p>
                 </div>
@@ -816,22 +825,22 @@
 
             <div class="cards-grid">
                 <div class="card">
-                    <div class="icon">✔️</div>
+                    <div class="icon">⚡</div>
                     <h3>Automate month-end reporting</h3>
                     <p>Cut your reporting time from days to hours—with fewer errors and full audit trails.</p>
                 </div>
                 <div class="card">
-                     <div class="icon">✔️</div>
+                    <div class="icon">🔗</div>
                     <h3>Connect APIs to dashboards and spreadsheets</h3>
                     <p>Pull data directly from Xero, your CRM, or operations systems into Excel or Power BI—no more manual exports.</p>
                 </div>
                 <div class="card">
-                     <div class="icon">✔️</div>
+                    <div class="icon">🎨</div>
                     <h3>Advanced UI design</h3>
                     <p>Excel systems that feel simple to use, with clean interfaces, hidden complexity, and role-based access.</p>
                 </div>
                 <div class="card">
-                     <div class="icon">✔️</div>
+                    <div class="icon">📊</div>
                     <h3>Dashboards built for decisions</h3>
                     <p>Power BI reports focused on what actually drives your business—not just pretty charts.</p>
                 </div>
@@ -879,15 +888,7 @@
                     </ul>
                 </div>
 
-                <div class="dont-do-box">
-                    <h3>What I Don't Do (On Purpose)</h3>
-                    <ul>
-                        <li>Enterprise data warehouse projects</li>
-                        <li>Multi-year IT transformation programs</li>
-                        <li>Heavy cloud engineering</li>
-                    </ul>
-                    <p>If you need those, I'll tell you. Most growing businesses don't—yet.</p>
-                </div>
+
             </div>
         </div>
     </section>

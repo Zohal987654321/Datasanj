@@ -3,497 +3,758 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="DATASANJ - Excel VBA & Power BI systems for growing businesses. Streamline month-end reporting, connect APIs, and get clarity without complexity.">
+    <meta name="description" content="Excel VBA & Power BI systems for growing businesses. Streamline month-end reporting, connect APIs, and get clarity without complexity.">
+    <meta name="keywords" content="Excel VBA, Power BI, month-end automation, API integration, business reporting">
+    <meta name="author" content="Zohal Zahir">
     <title>DATASANJ | Stop Guessing, Start Growing | Excel VBA & Power BI Systems</title>
-    
-    <!-- Add your existing CSS links here -->
+    <link rel="canonical" href="https://datasanj.com/index.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
-        /* Basic reset and structure - replace with your existing stylesheet */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --charcoal: #2B2B2B;
+            --charcoal-light: #3D3D3D;
+            --copper: #C46A3D;
+            --copper-light: #D4845A;
+            --copper-dark: #A85A32;
+            --warm-white: #FAFAF8;
+            --cream: #F5F4F2;
+            --stone: #E8E6E3;
+            --grey-400: #9A9A9A;
+            --grey-500: #6B6B6B;
+            --grey-600: #4A4A4A;
+            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: var(--font-primary);
+            line-height: 1.7; 
+            color: var(--charcoal); 
+            background: var(--warm-white);
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
         }
         
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
+        a { text-decoration: none; color: inherit; }
+        img { display: block; max-width: 100%; height: auto; }
         
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+        .container { 
+            max-width: 1140px; 
+            margin: 0 auto; 
+            padding: 0 32px; 
         }
-        
-        header {
-            background: #fff;
+
+        /* Navigation */
+        nav { 
+            position: fixed; 
+            top: 0; 
+            width: 100%; 
+            background: rgba(250, 250, 248, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--stone);
+            z-index: 1000; 
             padding: 20px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
         }
         
-        nav {
+        nav .container { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+        
+        .logo-wrapper {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-        }
-        
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #2c3e50;
+            gap: 14px;
             text-decoration: none;
         }
-        
-        nav ul {
+
+        .logo-icon { width: 40px; height: 40px; flex-shrink: 0; }
+
+        .logo-text {
             display: flex;
-            list-style: none;
-            gap: 30px;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .logo-text .brand {
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            color: var(--charcoal);
+        }
+
+        .logo-text .tagline {
+            font-size: 9px;
+            font-weight: 400;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--grey-500);
+            margin-top: 3px;
         }
         
-        nav a {
-            text-decoration: none;
-            color: #2c3e50;
+        nav ul { 
+            display: flex; 
+            list-style: none; 
+            gap: 40px; 
+            align-items: center; 
+        }
+        
+        nav a { 
+            color: var(--grey-600); 
+            font-weight: 500; 
+            font-size: 14px; 
+            letter-spacing: 0.02em;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        nav a:hover { color: var(--copper); }
+        nav a.active { color: var(--charcoal); }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--copper);
+        }
+        
+        .nav-cta { 
+            background: var(--charcoal);
+            color: var(--warm-white) !important; 
+            padding: 12px 28px; 
+            border-radius: 6px;
             font-weight: 500;
+            letter-spacing: 0.03em;
+            transition: all 0.3s ease;
         }
         
-        nav a:hover {
-            color: #3498db;
+        .nav-cta:hover { 
+            background: var(--copper);
+            transform: translateY(-1px);
         }
-        
+
+        .nav-cta::after { display: none !important; }
+
+        /* Hero Section */
         .hero {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            margin-top: 84px;
+            padding: 120px 0;
+            background: linear-gradient(135deg, var(--charcoal) 0%, var(--charcoal-light) 100%);
+            color: var(--warm-white);
             text-align: center;
         }
-        
+
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-        
-        .hero .subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
+            font-size: 52px;
             font-weight: 600;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
         }
-        
+
+        .hero .subtitle {
+            font-size: 22px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
         .hero p {
-            font-size: 1.1rem;
-            margin-bottom: 30px;
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 20px;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
+            color: rgba(255, 255, 255, 0.9);
         }
-        
+
         .hero .tools {
-            font-size: 1rem;
-            margin-bottom: 30px;
-            opacity: 0.95;
-            font-weight: 500;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 40px;
+            color: var(--copper-light);
+            letter-spacing: 0.05em;
         }
-        
-        .cta-buttons {
+
+        .hero-buttons {
             display: flex;
             gap: 20px;
             justify-content: center;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
-        
+
         .btn {
-            padding: 15px 35px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 16px 36px;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 15px;
+            letter-spacing: 0.02em;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
         }
-        
+
         .btn-primary {
-            background: white;
-            color: #667eea;
+            background: var(--copper);
+            color: var(--warm-white);
         }
-        
+
         .btn-primary:hover {
+            background: var(--copper-light);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
-        
+
         .btn-secondary {
             background: transparent;
-            color: white;
-            border: 2px solid white;
+            color: var(--warm-white);
+            border: 2px solid var(--warm-white);
         }
-        
+
         .btn-secondary:hover {
-            background: white;
-            color: #667eea;
+            background: var(--warm-white);
+            color: var(--charcoal);
         }
-        
+
         .credentials {
             display: flex;
             justify-content: center;
             gap: 40px;
             flex-wrap: wrap;
-            font-size: 0.9rem;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.8);
         }
-        
-        .credentials span {
+
+        .credentials span::before {
+            content: '✓ ';
+            color: var(--copper-light);
             font-weight: 600;
         }
-        
-        section {
-            padding: 80px 0;
+
+        /* Section Styling */
+        .section {
+            padding: 100px 0;
         }
-        
-        .section-header {
+
+        .section.bg-cream {
+            background: var(--cream);
+        }
+
+        .section-label {
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--copper);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--grey-600);
             text-align: center;
             margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
-        
-        .section-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            color: #2c3e50;
-        }
-        
-        .section-header .subtitle {
-            font-size: 1.3rem;
-            color: #666;
-        }
-        
-        .problems-grid, .solutions-grid, .services-grid {
+
+        /* Cards Grid */
+        .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            margin-top: 60px;
         }
-        
+
         .card {
-            padding: 30px;
-            background: #f8f9fa;
+            background: var(--warm-white);
+            border: 1px solid var(--stone);
             border-radius: 8px;
-            border-left: 4px solid #667eea;
+            padding: 32px;
+            transition: all 0.3s ease;
         }
-        
+
+        .section.bg-cream .card {
+            background: var(--warm-white);
+        }
+
+        .section:not(.bg-cream) .card {
+            background: var(--cream);
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(43, 43, 43, 0.08);
+        }
+
+        .card .icon {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
         .card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            color: #2c3e50;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 12px;
         }
-        
+
         .card p {
-            color: #666;
-            line-height: 1.8;
+            font-size: 15px;
+            color: var(--grey-600);
+            line-height: 1.7;
         }
-        
-        .icon {
-            font-size: 2rem;
-            margin-bottom: 15px;
+
+        /* Scope Section */
+        .scope-content {
+            max-width: 900px;
+            margin: 0 auto;
         }
-        
-        .bg-light {
-            background: #f8f9fa;
-        }
-        
-        .scope-section {
-            background: white;
-        }
-        
+
         .service-category {
             margin-bottom: 50px;
         }
-        
+
         .service-category h3 {
-            font-size: 1.8rem;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--charcoal);
             margin-bottom: 20px;
-            color: #2c3e50;
         }
-        
+
         .service-category ul {
             list-style: none;
-            padding-left: 0;
+            padding: 0;
         }
-        
+
         .service-category li {
-            padding: 12px 0;
-            padding-left: 30px;
+            padding: 12px 0 12px 30px;
             position: relative;
-            color: #666;
-            line-height: 1.8;
+            color: var(--grey-600);
+            font-size: 15px;
+            line-height: 1.7;
         }
-        
-        .service-category li:before {
-            content: "✓";
+
+        .service-category li::before {
+            content: '→';
             position: absolute;
             left: 0;
-            color: #667eea;
-            font-weight: bold;
+            color: var(--copper);
+            font-weight: 600;
         }
-        
-        .dont-do {
-            background: #fff3cd;
-            padding: 40px;
+
+        .dont-do-box {
+            background: #FFF9E6;
+            border: 1px solid #F0E5C0;
+            border-left: 4px solid var(--copper);
             border-radius: 8px;
-            border-left: 4px solid #ffc107;
+            padding: 32px;
+            margin-top: 40px;
         }
-        
-        .dont-do h3 {
-            color: #856404;
-            margin-bottom: 20px;
+
+        .dont-do-box h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 16px;
         }
-        
-        .dont-do ul {
+
+        .dont-do-box ul {
             list-style: none;
-            padding-left: 0;
+            padding: 0;
         }
-        
-        .dont-do li {
-            padding: 8px 0;
-            padding-left: 25px;
+
+        .dont-do-box li {
+            padding: 8px 0 8px 25px;
             position: relative;
-            color: #856404;
+            color: var(--grey-600);
         }
-        
-        .dont-do li:before {
-            content: "✗";
+
+        .dont-do-box li::before {
+            content: '✗';
             position: absolute;
             left: 0;
-            font-weight: bold;
+            color: var(--copper);
+            font-weight: 600;
         }
-        
-        .fit-checklist ul {
+
+        .dont-do-box p {
+            margin-top: 16px;
+            font-weight: 500;
+            color: var(--charcoal);
+        }
+
+        /* Who For Section */
+        .checklist {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .checklist ul {
             list-style: none;
-            padding-left: 0;
+            padding: 0;
         }
-        
-        .fit-checklist li {
-            padding: 12px 0;
-            padding-left: 30px;
+
+        .checklist li {
+            padding: 16px 0 16px 40px;
             position: relative;
-            font-size: 1.1rem;
+            font-size: 17px;
+            color: var(--charcoal);
+            border-bottom: 1px solid var(--stone);
         }
-        
-        .fit-checklist li:before {
-            content: "✓";
+
+        .checklist li:last-child {
+            border-bottom: none;
+        }
+
+        .checklist li::before {
+            content: '✓';
             position: absolute;
             left: 0;
-            color: #667eea;
-            font-weight: bold;
-            font-size: 1.2rem;
+            color: var(--copper);
+            font-weight: 700;
+            font-size: 20px;
         }
-        
-        .process-steps {
+
+        /* Process Steps */
+        .process-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
-            margin-top: 40px;
+            margin-top: 60px;
         }
-        
-        .step {
+
+        .process-step {
             text-align: center;
         }
-        
+
         .step-number {
-            width: 60px;
-            height: 60px;
-            background: #667eea;
-            color: white;
+            width: 70px;
+            height: 70px;
+            background: var(--copper);
+            color: var(--warm-white);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin: 0 auto 20px;
+            font-size: 28px;
+            font-weight: 700;
+            margin: 0 auto 24px;
         }
-        
-        .step h3 {
-            margin-bottom: 15px;
-            color: #2c3e50;
+
+        .process-step h3 {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 12px;
         }
-        
+
+        .process-step p {
+            font-size: 15px;
+            color: var(--grey-600);
+            line-height: 1.7;
+        }
+
+        /* Outcome List */
         .outcome-list {
-            list-style: none;
-            padding: 0;
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
         }
-        
-        .outcome-list li {
-            padding: 15px 0;
-            padding-left: 40px;
-            position: relative;
-            font-size: 1.2rem;
-            border-bottom: 1px solid #eee;
+
+        .outcome-list ul {
+            list-style: none;
+            padding: 0;
         }
-        
-        .outcome-list li:before {
-            content: "✔";
+
+        .outcome-list li {
+            padding: 18px 0 18px 45px;
+            position: relative;
+            font-size: 18px;
+            color: var(--charcoal);
+            font-weight: 500;
+            border-bottom: 1px solid var(--stone);
+        }
+
+        .outcome-list li:last-child {
+            border-bottom: none;
+        }
+
+        .outcome-list li::before {
+            content: '✔';
             position: absolute;
             left: 0;
             color: #28a745;
-            font-weight: bold;
-            font-size: 1.4rem;
+            font-weight: 700;
+            font-size: 22px;
         }
-        
+
+        /* Results Grid */
         .results-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            margin-top: 60px;
         }
-        
+
         .result-card {
-            text-align: center;
-            padding: 30px;
-            background: white;
+            background: var(--warm-white);
+            border: 1px solid var(--stone);
             border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .result-card .metric {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #667eea;
-            margin-bottom: 10px;
-        }
-        
-        .result-card .label {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: #2c3e50;
-        }
-        
-        .result-card .description {
-            color: #666;
-            font-size: 0.9rem;
-        }
-        
-        .cta-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            padding: 40px 32px;
             text-align: center;
-            padding: 80px 0;
+            transition: all 0.3s ease;
         }
-        
+
+        .result-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(43, 43, 43, 0.08);
+        }
+
+        .result-card .metric {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--copper);
+            margin-bottom: 12px;
+        }
+
+        .result-card .label {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 12px;
+        }
+
+        .result-card .description {
+            font-size: 14px;
+            color: var(--grey-600);
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: var(--charcoal);
+            color: var(--warm-white);
+            text-align: center;
+        }
+
         .cta-section h2 {
-            font-size: 2.5rem;
+            font-size: 40px;
+            font-weight: 600;
             margin-bottom: 20px;
+            letter-spacing: -0.02em;
         }
-        
+
         .cta-section p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
+            font-size: 18px;
+            margin-bottom: 40px;
+            color: rgba(255, 255, 255, 0.9);
         }
-        
-        .why-section ul {
-            list-style: none;
-            padding: 0;
+
+        .cta-section .note {
+            font-size: 15px;
+            margin-top: 20px;
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        /* Why Section */
+        .why-list {
             max-width: 800px;
             margin: 0 auto;
         }
-        
-        .why-section li {
-            padding: 15px 0;
-            padding-left: 40px;
-            position: relative;
-            font-size: 1.1rem;
+
+        .why-list ul {
+            list-style: none;
+            padding: 0;
         }
-        
-        .why-section li:before {
-            content: "→";
+
+        .why-list li {
+            padding: 16px 0 16px 40px;
+            position: relative;
+            font-size: 17px;
+            color: var(--charcoal);
+            border-bottom: 1px solid var(--stone);
+        }
+
+        .why-list li:last-child {
+            border-bottom: none;
+        }
+
+        .why-list li::before {
+            content: '→';
             position: absolute;
             left: 0;
-            color: #667eea;
-            font-weight: bold;
-            font-size: 1.4rem;
+            color: var(--copper);
+            font-weight: 700;
+            font-size: 20px;
         }
-        
+
+        .why-footer-text {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 19px;
+            font-weight: 600;
+            color: var(--charcoal);
+        }
+
+        /* Footer */
         footer {
-            background: #2c3e50;
-            color: white;
-            padding: 60px 0 30px;
+            background: var(--charcoal);
+            color: var(--warm-white);
+            padding: 80px 0 40px;
+            border-top: 1px solid var(--charcoal-light);
         }
-        
-        .footer-content {
+
+        .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
         }
-        
-        .footer-section h4 {
-            margin-bottom: 20px;
-            font-size: 1.2rem;
+
+        .footer-brand h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--warm-white);
+            letter-spacing: 0.05em;
         }
-        
-        .footer-section a {
-            color: #ecf0f1;
-            text-decoration: none;
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.7;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .footer-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-contact a {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 14px;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-contact a::before {
+            content: '';
+            width: 4px;
+            height: 4px;
+            background: var(--copper);
+            border-radius: 50%;
+        }
+
+        .footer-contact a:hover {
+            color: var(--copper-light);
+        }
+
+        .footer-links h4 {
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: var(--warm-white);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        .footer-links a {
             display: block;
-            padding: 5px 0;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 14px;
+            font-size: 14px;
+            transition: color 0.3s ease;
         }
-        
-        .footer-section a:hover {
-            color: #3498db;
+
+        .footer-links a:hover {
+            color: var(--copper-light);
         }
-        
+
         .footer-bottom {
             text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid #34495e;
-            color: #95a5a6;
+            padding-top: 40px;
+            border-top: 1px solid var(--charcoal-light);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 13px;
+            letter-spacing: 0.02em;
         }
-        
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero .subtitle {
-                font-size: 1.2rem;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-            }
-            
-            .credentials {
-                flex-direction: column;
-                gap: 15px;
-            }
+            .container { padding: 0 24px; }
+            nav ul { display: none; }
+            .hero h1 { font-size: 36px; }
+            .hero .subtitle { font-size: 18px; }
+            .section-title { font-size: 28px; }
+            .hero-buttons { flex-direction: column; }
+            .credentials { flex-direction: column; gap: 12px; }
+            .cards-grid { grid-template-columns: 1fr; }
+            .process-grid { grid-template-columns: 1fr; }
+            .results-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
         }
     </style>
 </head>
 <body>
-
     <!-- Navigation -->
-    <header>
-        <nav class="container">
-            <a href="index.html" class="logo">DATASANJ</a>
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo-wrapper">
+                <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
+                    <g transform="translate(20,18)">
+                        <rect x="0"  y="36" width="9" height="26" rx="2" fill="#2B2B2B"/>
+                        <rect x="19" y="24" width="9" height="38" rx="2" fill="#2B2B2B"/>
+                        <rect x="38" y="12" width="9" height="50" rx="2" fill="#2B2B2B"/>
+                        <path d="M 1 50 Q 26 30, 47 15" stroke="#C46A3D" stroke-width="2" fill="none" stroke-linecap="round"/>
+                    </g>
+                </svg>
+                <div class="logo-text">
+                    <span class="brand">DATASANJ</span>
+                    <span class="tagline">ANALYTICS CONSULTANCY</span>
+                </div>
+            </a>
+
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="About.html">About</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="Portfolio.html">Portfolio</a></li>
                 <li><a href="Blog.html">Insights</a></li>
-                <li><a href="Contact.html">Let's Talk</a></li>
+                <li><a href="Contact.html" class="nav-cta">Let's Talk</a></li>
             </ul>
-        </nav>
-    </header>
+        </div>
+    </nav>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -501,44 +762,44 @@
             <h1>Stop Guessing. Start Growing.</h1>
             <p class="subtitle">I build Excel VBA systems and Power BI dashboards that turn reporting chaos into clear, reliable insights.</p>
             <p>I specialize in <strong>streamlining month-end reporting</strong>, eliminating manual errors, and connecting APIs directly to your spreadsheets and dashboards—so you can make decisions with full knowledge of your business.</p>
-            <p class="tools"><strong>Microsoft Excel | Visual Basic for Applications | Power BI | API Integration</strong></p>
-            <div class="cta-buttons">
+            <p class="tools">Microsoft Excel | Visual Basic for Applications | Power BI | API Integration</p>
+            <div class="hero-buttons">
                 <a href="Contact.html" class="btn btn-primary">Let's Talk →</a>
                 <a href="Portfolio.html" class="btn btn-secondary">See My Work</a>
             </div>
             <div class="credentials">
-                <span>✓ Microsoft Certified Power BI Data Analyst</span>
-                <span>✓ 70+ Projects, 100% Success Rate</span>
-                <span>✓ Xero Advisor</span>
+                <span>Microsoft Certified Power BI Data Analyst</span>
+                <span>70+ Projects, 100% Success Rate</span>
+                <span>Xero Advisor</span>
             </div>
         </div>
     </section>
 
     <!-- Problems Section -->
-    <section class="bg-light">
+    <section class="section bg-cream">
         <div class="container">
-            <div class="section-header">
-                <h2>Sound Familiar?</h2>
-                <p class="subtitle">Growth creates reporting chaos most businesses aren't prepared for</p>
-            </div>
-            <div class="problems-grid">
+            <div class="section-label">The Problem</div>
+            <h2 class="section-title">Sound Familiar?</h2>
+            <p class="section-subtitle">Growth creates reporting chaos most businesses aren't prepared for</p>
+
+            <div class="cards-grid">
                 <div class="card">
-                    <div class="icon">📄</div>
+                    <div class="icon"></div>
                     <h3>Month-end takes forever</h3>
                     <p>You're manually copying data between spreadsheets for 2-3 days. One mistake and you're reconciling all weekend.</p>
                 </div>
                 <div class="card">
-                    <div class="icon">⌛</div>
+                    <div class="icon"></div>
                     <h3>Data lives everywhere</h3>
                     <p>Finance is in Excel, sales in your CRM, operations in another system—and nothing talks to each other.</p>
                 </div>
                 <div class="card">
-                    <div class="icon">🔴</div>
+                    <div class="icon"></div>
                     <h3>Reports don't reconcile</h3>
                     <p>Different teams see different numbers because there's no single source of truth.</p>
                 </div>
                 <div class="card">
-                    <div class="icon">🚫</div>
+                    <div class="icon"></div>
                     <h3>Too much access, or not enough</h3>
                     <p>People see data they shouldn't—or can't access what they need to do their job.</p>
                 </div>
@@ -547,13 +808,13 @@
     </section>
 
     <!-- Solutions Section -->
-    <section>
+    <section class="section">
         <div class="container">
-            <div class="section-header">
-                <h2>From Chaos to Clarity</h2>
-                <p class="subtitle">What properly designed Excel VBA and Power BI systems do</p>
-            </div>
-            <div class="solutions-grid">
+            <div class="section-label">The Solution</div>
+            <h2 class="section-title">From Chaos to Clarity</h2>
+            <p class="section-subtitle">What properly designed Excel VBA and Power BI systems do</p>
+
+            <div class="cards-grid">
                 <div class="card">
                     <h3>Automate month-end reporting</h3>
                     <p>Cut your reporting time from days to hours—with fewer errors and full audit trails.</p>
@@ -575,64 +836,65 @@
     </section>
 
     <!-- What I Do Section -->
-    <section class="scope-section bg-light">
+    <section class="section bg-cream">
         <div class="container">
-            <div class="section-header">
-                <h2>What I Do</h2>
-                <p class="subtitle">Clear Scope</p>
-            </div>
-            
-            <div class="service-category">
-                <h3>Excel VBA Systems</h3>
-                <ul>
-                    <li>Custom Excel applications for finance and operations</li>
-                    <li>VBA automation to eliminate manual month-end processes</li>
-                    <li>API connections that pull live data into spreadsheets</li>
-                    <li>Advanced user interfaces—simple to use, robust under the hood</li>
-                    <li>Controlled templates used consistently across teams</li>
-                </ul>
-            </div>
+            <div class="section-label">My Services</div>
+            <h2 class="section-title">What I Do</h2>
+            <p class="section-subtitle">Clear Scope</p>
 
-            <div class="service-category">
-                <h3>Power BI Dashboards</h3>
-                <ul>
-                    <li>Management and operational dashboards</li>
-                    <li>API integrations from Xero, CRMs, and other systems</li>
-                    <li>Clean data models built from Excel or connected sources</li>
-                    <li>KPI frameworks aligned to how your business actually runs</li>
-                    <li>Reports designed for CFOs—not data analysts</li>
-                </ul>
-            </div>
+            <div class="scope-content">
+                <div class="service-category">
+                    <h3>Excel VBA Systems</h3>
+                    <ul>
+                        <li>Custom Excel applications for finance and operations</li>
+                        <li>VBA automation to eliminate manual month-end processes</li>
+                        <li>API connections that pull live data into spreadsheets</li>
+                        <li>Advanced user interfaces—simple to use, robust under the hood</li>
+                        <li>Controlled templates used consistently across teams</li>
+                    </ul>
+                </div>
 
-            <div class="service-category">
-                <h3>Governance Without Complexity</h3>
-                <ul>
-                    <li>Role-based access so the right people see the right data</li>
-                    <li>Clear ownership of calculations and data sources</li>
-                    <li>Audit trails and error-checking built in</li>
-                    <li>Systems that scale as your business grows</li>
-                </ul>
-            </div>
+                <div class="service-category">
+                    <h3>Power BI Dashboards</h3>
+                    <ul>
+                        <li>Management and operational dashboards</li>
+                        <li>API integrations from Xero, CRMs, and other systems</li>
+                        <li>Clean data models built from Excel or connected sources</li>
+                        <li>KPI frameworks aligned to how your business actually runs</li>
+                        <li>Reports designed for CFOs—not data analysts</li>
+                    </ul>
+                </div>
 
-            <div class="dont-do">
-                <h3>What I Don't Do (On Purpose)</h3>
-                <ul>
-                    <li>Enterprise data warehouse projects</li>
-                    <li>Multi-year IT transformation programs</li>
-                    <li>Heavy cloud engineering</li>
-                </ul>
-                <p style="margin-top: 15px;"><strong>If you need those, I'll tell you. Most growing businesses don't—yet.</strong></p>
+                <div class="service-category">
+                    <h3>Governance Without Complexity</h3>
+                    <ul>
+                        <li>Role-based access so the right people see the right data</li>
+                        <li>Clear ownership of calculations and data sources</li>
+                        <li>Audit trails and error-checking built in</li>
+                        <li>Systems that scale as your business grows</li>
+                    </ul>
+                </div>
+
+                <div class="dont-do-box">
+                    <h3>What I Don't Do (On Purpose)</h3>
+                    <ul>
+                        <li>Enterprise data warehouse projects</li>
+                        <li>Multi-year IT transformation programs</li>
+                        <li>Heavy cloud engineering</li>
+                    </ul>
+                    <p>If you need those, I'll tell you. Most growing businesses don't—yet.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Who This Is For Section -->
-    <section>
+    <section class="section">
         <div class="container">
-            <div class="section-header">
-                <h2>Who This Is For</h2>
-            </div>
-            <div class="fit-checklist">
+            <div class="section-label">Is This For You?</div>
+            <h2 class="section-title">Who This Is For</h2>
+
+            <div class="checklist">
                 <ul>
                     <li>Your business is growing and reporting hasn't kept up</li>
                     <li>Month-end takes too long and has too many errors</li>
@@ -645,24 +907,24 @@
     </section>
 
     <!-- How I Work Section -->
-    <section class="bg-light">
+    <section class="section bg-cream">
         <div class="container">
-            <div class="section-header">
-                <h2>How I Work</h2>
-                <p class="subtitle">Simple Process, Real Results</p>
-            </div>
-            <div class="process-steps">
-                <div class="step">
+            <div class="section-label">My Process</div>
+            <h2 class="section-title">How I Work</h2>
+            <p class="section-subtitle">Simple Process, Real Results</p>
+
+            <div class="process-grid">
+                <div class="process-step">
                     <div class="step-number">1</div>
                     <h3>Understand Your Business</h3>
                     <p>I dig into how you actually work—not just what data you have. What keeps you up at night?</p>
                 </div>
-                <div class="step">
+                <div class="process-step">
                     <div class="step-number">2</div>
                     <h3>Build Systems That Scale</h3>
                     <p>Clean data models, automated workflows, API connections, and dashboards with role-based access—built to scale without losing control.</p>
                 </div>
-                <div class="step">
+                <div class="process-step">
                     <div class="step-number">3</div>
                     <h3>Stay Your Partner</h3>
                     <p>I build things that don't break. When you need changes or support, I'm here—not ghosting you.</p>
@@ -672,27 +934,29 @@
     </section>
 
     <!-- The Outcome Section -->
-    <section>
+    <section class="section">
         <div class="container">
-            <div class="section-header">
-                <h2>The Outcome</h2>
+            <div class="section-label">What You Get</div>
+            <h2 class="section-title">The Outcome</h2>
+
+            <div class="outcome-list">
+                <ul>
+                    <li>Month-end reporting cut from days to hours</li>
+                    <li>Fewer errors, better decisions</li>
+                    <li>APIs connected to Excel and Power BI</li>
+                    <li>Clear visibility into business drivers</li>
+                    <li>Systems that actually work</li>
+                </ul>
             </div>
-            <ul class="outcome-list">
-                <li>Month-end reporting cut from days to hours</li>
-                <li>Fewer errors, better decisions</li>
-                <li>APIs connected to Excel and Power BI</li>
-                <li>Clear visibility into business drivers</li>
-                <li>Systems that actually work</li>
-            </ul>
         </div>
     </section>
 
     <!-- Real Results Section -->
-    <section class="bg-light">
+    <section class="section bg-cream">
         <div class="container">
-            <div class="section-header">
-                <h2>Real Results</h2>
-            </div>
+            <div class="section-label">Proven Track Record</div>
+            <h2 class="section-title">Real Results</h2>
+
             <div class="results-grid">
                 <div class="result-card">
                     <div class="metric">5 days → 3 hrs</div>
@@ -719,17 +983,17 @@
             <h2>Ready to Stop Guessing?</h2>
             <p>If your reporting feels fragile, manual, or disconnected—let's fix it.</p>
             <a href="Contact.html" class="btn btn-primary">Schedule a Call →</a>
-            <p style="margin-top: 20px; font-size: 1rem;">Talk to me about how Excel VBA and Power BI systems can work better—without unnecessary complexity.</p>
+            <p class="note">Talk to me about how Excel VBA and Power BI systems can work better—without unnecessary complexity.</p>
         </div>
     </section>
 
     <!-- Why Work With Me Section -->
-    <section>
+    <section class="section">
         <div class="container">
-            <div class="section-header">
-                <h2>Why Work With Me</h2>
-            </div>
-            <div class="why-section">
+            <div class="section-label">Your Partner</div>
+            <h2 class="section-title">Why Work With Me</h2>
+
+            <div class="why-list">
                 <ul>
                     <li>Deep expertise in Excel VBA and Power BI</li>
                     <li>API integration experience (Xero, CRMs, operations systems)</li>
@@ -737,23 +1001,25 @@
                     <li>Strong understanding of finance and operational reporting</li>
                     <li>Solutions designed for real teams, not ideal scenarios</li>
                 </ul>
-                <p style="text-align: center; margin-top: 30px; font-size: 1.2rem; font-weight: 600;">I work with the tools you already have—and make them work properly.</p>
             </div>
+            <p class="why-footer-text">I work with the tools you already have—and make them work properly.</p>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>DATASANJ</h4>
-                    <p>Analytics consultancy helping growing businesses bring order, clarity, and governance to their data.</p>
-                    <p>Microsoft Certified Power BI Analyst & Xero Advisor. Based in Canberra.</p>
-                    <p><a href="mailto:d_zohal@datasanj.com">d_zohal@datasanj.com</a></p>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>DATASANJ</h3>
+                    <p>Analytics consultancy helping growing businesses bring order, clarity, and governance to their data. Microsoft Certified Power BI Analyst & Xero Advisor. Based in Canberra.</p>
+                    <div class="footer-contact">
+                        <a href="mailto:d_zohal@datasanj.com">d_zohal@datasanj.com</a>
+                        <a href="#">Canberra, ACT, Australia</a>
+                    </div>
                 </div>
-                
-                <div class="footer-section">
+
+                <div class="footer-links">
                     <h4>Navigation</h4>
                     <a href="index.html">Home</a>
                     <a href="About.html">About</a>
@@ -762,8 +1028,8 @@
                     <a href="Blog.html">Insights</a>
                     <a href="Contact.html">Contact</a>
                 </div>
-                
-                <div class="footer-section">
+
+                <div class="footer-links">
                     <h4>What I Do</h4>
                     <a href="services.html">Excel VBA Systems</a>
                     <a href="services.html">Power BI Dashboards</a>
@@ -771,15 +1037,15 @@
                     <a href="services.html">Month-End Automation</a>
                     <a href="services.html">Xero to Power BI</a>
                 </div>
-                
-                <div class="footer-section">
+
+                <div class="footer-links">
                     <h4>Connect</h4>
                     <a href="https://www.linkedin.com/in/zohal-zahir-46128697/" target="_blank">LinkedIn</a>
                     <a href="https://github.com/Zohal987654321" target="_blank">GitHub</a>
                     <a href="https://www.upwork.com/freelancers/zohalz" target="_blank">Upwork Profile</a>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <p>&copy; 2025 DATASANJ. All rights reserved.</p>
             </div>

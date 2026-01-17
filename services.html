@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Targeted reporting and analytics services for organisations that depend on accurate, defensible data. Custom, responsibility-driven work.">
-    <meta name="keywords" content="Excel VBA, Power BI, financial reporting, operational reporting, business intelligence, reporting diagnostics">
+    <meta name="description" content="Microsoft Certified Power BI Data Analyst. Excel VBA automation, API integration, Xero to Power BI, financial reporting systems.">
+    <meta name="keywords" content="Power BI consultant, Excel VBA, API integration, Xero Power BI, financial reporting">
     <meta name="author" content="Zohal Zahir">
     <title>Services | DATASANJ</title>
     <link rel="canonical" href="https://datasanj.com/services.html">
@@ -163,14 +163,24 @@
             font-size: 19px;
             line-height: 1.7;
             max-width: 800px;
-            margin: 0 auto 16px;
+            margin: 0 auto 24px;
             color: rgba(255, 255, 255, 0.92);
         }
 
-        .page-header .note {
-            font-size: 17px;
-            color: rgba(255, 255, 255, 0.8);
-            font-weight: 500;
+        .page-header .credentials {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.85);
+            margin-top: 32px;
+        }
+
+        .page-header .credentials span::before {
+            content: '✓ ';
+            color: var(--copper-light);
+            font-weight: 600;
         }
 
         /* Section Styling */
@@ -196,20 +206,31 @@
             font-size: 36px;
             font-weight: 600;
             color: var(--charcoal);
-            margin-bottom: 60px;
+            margin-bottom: 20px;
             letter-spacing: -0.02em;
             text-align: center;
         }
 
-        /* Core Engagements */
-        .engagements-grid {
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--grey-600);
+            line-height: 1.8;
+            text-align: center;
+            margin-bottom: 60px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Services Grid */
+        .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 40px;
+            gap: 32px;
             margin-top: 60px;
         }
 
-        .engagement-card {
+        .service-card {
             background: var(--warm-white);
             border: 1px solid var(--stone);
             border-radius: 8px;
@@ -217,37 +238,36 @@
             transition: all 0.3s ease;
         }
 
-        .section.bg-cream .engagement-card {
+        .section.bg-cream .service-card {
             background: var(--warm-white);
         }
 
-        .engagement-card:hover {
+        .service-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 12px 32px rgba(43, 43, 43, 0.08);
         }
 
-        .engagement-card h3 {
+        .service-card h3 {
             font-size: 22px;
             font-weight: 600;
             color: var(--charcoal);
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             line-height: 1.3;
         }
 
-        .engagement-card p {
+        .service-card p {
             font-size: 16px;
             color: var(--grey-600);
             line-height: 1.7;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
 
-        .engagement-card ul {
+        .service-card ul {
             list-style: none;
             padding: 0;
-            margin-bottom: 20px;
         }
 
-        .engagement-card li {
+        .service-card li {
             padding: 10px 0 10px 28px;
             position: relative;
             font-size: 15px;
@@ -255,132 +275,8 @@
             line-height: 1.6;
         }
 
-        .engagement-card li::before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            color: var(--copper);
-            font-weight: 700;
-            font-size: 24px;
-        }
-
-        .engagement-card .note {
-            font-size: 15px;
-            color: var(--charcoal);
-            font-weight: 500;
-            font-style: italic;
-        }
-
-        /* Content Box Styling */
-        .content-box {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .content-box h3 {
-            font-size: 24px;
-            font-weight: 600;
-            color: var(--charcoal);
-            margin-bottom: 24px;
-        }
-
-        .content-box p {
-            font-size: 17px;
-            color: var(--grey-600);
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
-
-        .content-box ul {
-            list-style: none;
-            padding: 0;
-            margin-bottom: 24px;
-        }
-
-        .content-box li {
-            padding: 12px 0 12px 30px;
-            position: relative;
-            font-size: 16px;
-            color: var(--grey-600);
-            line-height: 1.7;
-        }
-
-        .content-box li::before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            color: var(--copper);
-            font-weight: 700;
-            font-size: 24px;
-        }
-
-        /* Minimum Engagement Box */
-        .minimum-box {
-            background: #FFF9E6;
-            border: 1px solid #F0E5C0;
-            border-left: 4px solid var(--copper);
-            border-radius: 8px;
-            padding: 40px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .minimum-box h3 {
-            font-size: 22px;
-            font-weight: 600;
-            color: var(--charcoal);
-            margin-bottom: 16px;
-        }
-
-        .minimum-box p {
-            font-size: 17px;
-            color: var(--grey-600);
-            line-height: 1.7;
-        }
-
-        /* Pricing Philosophy Box */
-        .pricing-box {
-            background: var(--warm-white);
-            border: 1px solid var(--stone);
-            border-radius: 8px;
-            padding: 40px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .section.bg-cream .pricing-box {
-            background: var(--warm-white);
-        }
-
-        .pricing-box h3 {
-            font-size: 22px;
-            font-weight: 600;
-            color: var(--charcoal);
-            margin-bottom: 20px;
-        }
-
-        .pricing-box p {
-            font-size: 17px;
-            color: var(--grey-600);
-            line-height: 1.7;
-            margin-bottom: 20px;
-        }
-
-        .pricing-box ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .pricing-box li {
-            padding: 10px 0 10px 28px;
-            position: relative;
-            font-size: 16px;
-            color: var(--grey-600);
-            line-height: 1.7;
-        }
-
-        .pricing-box li::before {
-            content: '✓';
+        .service-card li::before {
+            content: '→';
             position: absolute;
             left: 0;
             color: var(--copper);
@@ -388,21 +284,78 @@
             font-size: 18px;
         }
 
+        /* Approach Section */
+        .approach-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .approach-content p {
+            font-size: 17px;
+            color: var(--grey-600);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .approach-content ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 32px;
+        }
+
+        .approach-content li {
+            padding: 14px 0 14px 32px;
+            position: relative;
+            font-size: 16px;
+            color: var(--grey-600);
+            line-height: 1.7;
+        }
+
+        .approach-content li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--copper);
+            font-weight: 700;
+            font-size: 24px;
+        }
+
+        /* Engagement Box */
+        .engagement-box {
+            background: var(--warm-white);
+            border: 1px solid var(--stone);
+            border-radius: 8px;
+            padding: 40px;
+            max-width: 800px;
+            margin: 60px auto 0;
+        }
+
+        .section.bg-cream .engagement-box {
+            background: var(--warm-white);
+        }
+
+        .engagement-box h3 {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 20px;
+        }
+
+        .engagement-box p {
+            font-size: 17px;
+            color: var(--grey-600);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .engagement-box p:last-child {
+            margin-bottom: 0;
+        }
+
         /* Testimonials Section */
         .testimonials-section {
             padding: 100px 0;
             background: var(--warm-white);
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 17px;
-            color: var(--grey-500);
-            margin-bottom: 60px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.7;
         }
 
         .testimonial-form-wrapper {
@@ -632,7 +585,7 @@
 
         /* Responsive */
         @media (max-width: 1024px) {
-            .engagements-grid { grid-template-columns: 1fr; }
+            .services-grid { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr 1fr; }
         }
 
@@ -641,12 +594,11 @@
             nav ul { display: none; }
             .page-header { padding: 80px 0 60px; }
             .page-header h1 { font-size: 32px; }
+            .page-header .credentials { flex-direction: column; gap: 12px; }
             .section-title { font-size: 28px; }
-            .engagements-grid { grid-template-columns: 1fr; }
+            .services-grid { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr; gap: 40px; }
             .testimonial-form-wrapper { padding: 32px 24px; }
-            .minimum-box { padding: 28px; }
-            .pricing-box { padding: 28px; }
         }
     </style>
 </head>
@@ -684,66 +636,119 @@
     <section class="page-header">
         <div class="container">
             <h1>Services</h1>
-            <p class="intro">I provide targeted reporting and analytics services for organisations that depend on accurate, defensible data.</p>
-            <p class="note">This is custom, responsibility-driven work — not off-the-shelf dashboards.</p>
+            <p class="intro">I provide targeted reporting and analytics services for organisations that depend on accurate, defensible data. This is custom, responsibility-driven work — not off-the-shelf dashboards.</p>
+            <div class="credentials">
+                <span>Microsoft Certified Power BI Data Analyst</span>
+                <span>Excel VBA Specialist</span>
+                <span>Xero Advisor</span>
+            </div>
         </div>
     </section>
 
-    <!-- Core Engagements Section -->
+    <!-- Core Services Section -->
     <section class="section">
         <div class="container">
             <div class="section-label">What I Do</div>
-            <h2 class="section-title">Core Engagements</h2>
+            <h2 class="section-title">Core Services</h2>
 
-            <div class="engagements-grid">
-                <div class="engagement-card">
-                    <h3>Reporting Diagnostics & Data Review</h3>
-                    <p>A structured assessment of existing reporting to identify:</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Power BI Dashboards & Reporting</h3>
+                    <p>Management and executive dashboards built for decisions, not decoration. Real-time data connections, clean models, and reporting you can trust.</p>
                     <ul>
-                        <li>Data integrity issues</li>
-                        <li>Broken or implicit business logic</li>
-                        <li>Structural risks in Excel or Power BI models</li>
+                        <li>Financial and operational dashboards</li>
+                        <li>Budget vs actual reporting</li>
+                        <li>Multi-entity or multi-site models</li>
+                        <li>Custom DAX calculations</li>
+                        <li>Row-level security implementation</li>
+                        <li>Automated refresh schedules</li>
                     </ul>
-                    <p class="note">Often used as a first step before any redesign or rebuild.</p>
                 </div>
 
-                <div class="engagement-card">
-                    <h3>Financial & Operational Reporting</h3>
+                <div class="service-card">
+                    <h3>Excel VBA Systems</h3>
+                    <p>Stabilising and modernising business-critical spreadsheets. Automation that reduces manual effort, eliminates errors, and makes complex workflows sustainable.</p>
                     <ul>
-                        <li>Budget vs actual and performance reporting</li>
-                        <li>Management and executive dashboards</li>
-                        <li>Multi-entity or multi-site reporting models</li>
-                    </ul>
-                    <p class="note">Built for consistency, reconciliation, and long-term use.</p>
-                </div>
-
-                <div class="engagement-card">
-                    <h3>Excel System Stabilisation</h3>
-                    <ul>
+                        <li>Month-end reporting automation</li>
+                        <li>Custom Excel applications and tools</li>
                         <li>Refactoring fragile or undocumented files</li>
-                        <li>Reducing manual effort and failure risk</li>
-                        <li>Making critical spreadsheets safer and more transparent</li>
+                        <li>Advanced UI design and user forms</li>
+                        <li>Template standardisation</li>
+                        <li>Error handling and audit trails</li>
                     </ul>
-                    <p class="note">Designed for organisations where Excel still matters.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>API Integration</h3>
+                    <p>Connecting your systems so data flows automatically. No more manual exports, copy-paste errors, or version control nightmares.</p>
+                    <ul>
+                        <li>Xero to Power BI integration</li>
+                        <li>CRM and operations system connections</li>
+                        <li>REST API data pipelines</li>
+                        <li>OAuth 2.0 authentication setup</li>
+                        <li>Automated token refresh</li>
+                        <li>Python and Power Query solutions</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <h3>Reporting Diagnostics & Data Review</h3>
+                    <p>A structured assessment of existing reporting to identify what's broken, what's risky, and what needs fixing before you invest further.</p>
+                    <ul>
+                        <li>Data integrity audits</li>
+                        <li>Broken or implicit business logic review</li>
+                        <li>Structural risk assessment</li>
+                        <li>Performance and scalability analysis</li>
+                        <li>Recommendations for improvement</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <h3>Financial & Operational Reporting Systems</h3>
+                    <p>End-to-end reporting solutions designed for consistency, reconciliation, and long-term use by organisations that can't afford reporting failures.</p>
+                    <ul>
+                        <li>Complete BI implementation</li>
+                        <li>Multi-department reporting models</li>
+                        <li>KPI framework development</li>
+                        <li>Governance and access controls</li>
+                        <li>Documentation and training</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <h3>Ongoing Support & Advisory</h3>
+                    <p>Retainer-based partnership for organisations that need continuous improvement, regular updates, and priority support as their business evolves.</p>
+                    <ul>
+                        <li>Monthly reporting system maintenance</li>
+                        <li>New feature development</li>
+                        <li>Priority response times</li>
+                        <li>Strategic advisory</li>
+                        <li>Ad-hoc analysis and troubleshooting</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Engagement Model Section -->
+    <!-- How I Work Section -->
     <section class="section bg-cream">
         <div class="container">
-            <div class="section-label">How I Work</div>
-            <h2 class="section-title">Engagement Model</h2>
+            <div class="section-label">My Approach</div>
+            <h2 class="section-title">How I Work</h2>
 
-            <div class="content-box">
-                <p>Work is typically delivered as:</p>
+            <div class="approach-content">
+                <p>My work follows a deliberate, low-noise approach designed to avoid rework, broken models, and confidence erosion:</p>
                 <ul>
-                    <li>Fixed-scope engagements</li>
-                    <li>Phased implementations</li>
-                    <li>Ongoing advisory or reporting support</li>
+                    <li>Understand the business logic and what your reporting actually needs to deliver</li>
+                    <li>Fix the data foundation with sound models and structures</li>
+                    <li>Deliver reporting that can be trusted, maintained, and scaled</li>
                 </ul>
-                <p style="font-weight: 500; color: var(--charcoal); margin-top: 24px;">All work begins with a structured discovery to ensure scope, risks, and outcomes are clearly defined.</p>
+
+                <div class="engagement-box">
+                    <h3>Engagement Model</h3>
+                    <p>Work is typically delivered as fixed-scope engagements, phased implementations, or ongoing advisory support.</p>
+                    <p style="font-weight: 500; color: var(--charcoal);">All work begins with a structured discovery to ensure scope, risks, and outcomes are clearly defined.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -752,31 +757,35 @@
     <section class="section">
         <div class="container">
             <div class="section-label">Clear Expectations</div>
-            <h2 class="section-title">Minimum Engagement</h2>
+            <h2 class="section-title">Who This Is For</h2>
 
-            <div class="minimum-box">
-                <h3>Minimum Engagement</h3>
-                <p>I work on engagements that require proper scoping, accountability, and ownership of outcomes.</p>
-                <p style="margin-top: 16px; font-weight: 500;">If you are seeking quick, low-cost dashboards or ad-hoc builds, this will not be the right fit.</p>
+            <div class="approach-content">
+                <p>I work on engagements that require proper scoping, accountability, and ownership of outcomes. This means working with organisations where:</p>
+                <ul>
+                    <li>Reporting is already critical to decision-making</li>
+                    <li>Accuracy and reliability are non-negotiable</li>
+                    <li>The cost of failure exceeds the cost of doing it properly</li>
+                    <li>There's appetite for structured discovery and implementation</li>
+                </ul>
+                <p style="font-weight: 500; color: var(--charcoal); margin-top: 24px;">If you are seeking quick, low-cost dashboards or ad-hoc builds, this will not be the right fit.</p>
             </div>
         </div>
     </section>
 
-    <!-- Pricing Philosophy Section -->
+    <!-- Pricing Section -->
     <section class="section bg-cream">
         <div class="container">
             <div class="section-label">Investment</div>
             <h2 class="section-title">Pricing Philosophy</h2>
 
-            <div class="pricing-box">
-                <h3>Pricing Philosophy</h3>
-                <p>Fees are determined after discovery, once complexity and responsibility are understood.</p>
-                <p>This ensures:</p>
+            <div class="approach-content">
+                <p>Fees are determined after discovery, once complexity and responsibility are understood. This ensures:</p>
                 <ul>
-                    <li>Accurate scoping</li>
-                    <li>Sustainable solutions</li>
+                    <li>Accurate scoping that accounts for real requirements</li>
+                    <li>Sustainable solutions built for long-term use</li>
                     <li>No shortcuts that compromise trust in the numbers</li>
                 </ul>
+                <p style="font-weight: 500; color: var(--charcoal); margin-top: 24px;">Typical engagements range from focused diagnostic reviews to complete reporting system implementations. Ongoing support is available via monthly retainer.</p>
             </div>
         </div>
     </section>
@@ -869,10 +878,10 @@
 
                 <div class="footer-links">
                     <h4>What I Do</h4>
-                    <a href="services.html">Financial Reporting</a>
                     <a href="services.html">Power BI Dashboards</a>
-                    <a href="services.html">Excel Systems</a>
-                    <a href="services.html">Reporting Diagnostics</a>
+                    <a href="services.html">Excel VBA Systems</a>
+                    <a href="services.html">API Integration</a>
+                    <a href="services.html">Xero to Power BI</a>
                 </div>
 
                 <div class="footer-links">
@@ -897,7 +906,6 @@
             const form = e.target;
             const formData = new FormData(form);
             
-            // Submit to Formspree (or your chosen form handler)
             fetch(form.action, {
                 method: 'POST',
                 body: formData,
@@ -907,13 +915,9 @@
             })
             .then(response => {
                 if (response.ok) {
-                    // Show success message
                     document.getElementById('successMessage').classList.add('show');
-                    // Reset form
                     form.reset();
-                    // Scroll to success message
                     document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
-                    // Hide message after 5 seconds
                     setTimeout(() => {
                         document.getElementById('successMessage').classList.remove('show');
                     }, 5000);

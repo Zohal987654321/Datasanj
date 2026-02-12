@@ -1,861 +1,356 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Reliable reporting for decisions that matter. Excel VBA & Power BI systems for organisations where accuracy and trust are non-negotiable.">
-    <meta name="keywords" content="Excel VBA, Power BI, financial reporting, operational reporting, business intelligence">
-    <meta name="author" content="Zohal Zahir">
-    <title>DATASANJ | Reliable Reporting for Decisions That Matter</title>
-    <link rel="canonical" href="https://datasanj.com/index.html">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DATASANJ | Data & BI Consulting</title>
 
-    <style>
-        :root {
-            --charcoal: #2B2B2B;
-            --charcoal-light: #3D3D3D;
-            --copper: #C46A3D;
-            --copper-light: #D4845A;
-            --copper-dark: #A85A32;
-            --warm-white: #FAFAF8;
-            --cream: #F5F4F2;
-            --stone: #E8E6E3;
-            --grey-400: #9A9A9A;
-            --grey-500: #6B6B6B;
-            --grey-600: #4A4A4A;
-            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-        }
+<style>
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body { 
-            font-family: var(--font-primary);
-            line-height: 1.7; 
-            color: var(--charcoal); 
-            background: var(--warm-white);
-            font-weight: 400;
-            -webkit-font-smoothing: antialiased;
-        }
-        
-        a { text-decoration: none; color: inherit; }
-        img { display: block; max-width: 100%; height: auto; }
-        
-        .container { 
-            max-width: 1140px; 
-            margin: 0 auto; 
-            padding: 0 32px; 
-        }
+/* ===== GLOBAL ===== */
 
-        /* Navigation */
-        nav { 
-            position: fixed; 
-            top: 0; 
-            width: 100%; 
-            background: rgba(250, 250, 248, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--stone);
-            z-index: 1000; 
-            padding: 20px 0;
-        }
-        
-        nav .container { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-        }
-        
-        .logo-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            text-decoration: none;
-        }
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #0f172a;
+    color: white;
+    line-height: 1.6;
+}
 
-        .logo-icon { width: 40px; height: 40px; flex-shrink: 0; }
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 32px;
+}
 
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-            line-height: 1.1;
-        }
+a {
+    text-decoration: none;
+}
 
-        .logo-text .brand {
-            font-size: 18px;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            color: var(--charcoal);
-        }
+/* ===== HEADER ===== */
 
-        .logo-text .tagline {
-            font-size: 9px;
-            font-weight: 400;
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
-            color: var(--grey-500);
-            margin-top: 3px;
-        }
-        
-        nav ul { 
-            display: flex; 
-            list-style: none; 
-            gap: 40px; 
-            align-items: center; 
-        }
-        
-        nav a { 
-            color: var(--grey-600); 
-            font-weight: 500; 
-            font-size: 14px; 
-            letter-spacing: 0.02em;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-        
-        nav a:hover { color: var(--copper); }
-        nav a.active { color: var(--charcoal); }
+header {
+    padding: 24px 0;
+}
 
-        nav a.active::after {
-            content: '';
-            position: absolute;
-            bottom: -6px;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: var(--copper);
-        }
-        
-        .nav-cta { 
-            background: var(--charcoal);
-            color: var(--warm-white) !important; 
-            padding: 12px 28px; 
-            border-radius: 6px;
-            font-weight: 500;
-            letter-spacing: 0.03em;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-cta:hover { 
-            background: var(--copper);
-            transform: translateY(-1px);
-        }
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        .nav-cta::after { display: none !important; }
+.logo {
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
 
-        /* Hero Section */
-        .hero {
-            margin-top: 84px;
-            padding: 140px 0 100px;
-            background: linear-gradient(135deg, var(--charcoal) 0%, var(--charcoal-light) 100%);
-            color: var(--warm-white);
-        }
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 28px;
+    margin: 0;
+    padding: 0;
+}
 
-        .hero-content {
+nav a {
+    color: white;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+nav a:hover {
+    opacity: 1;
+}
+
+/* ===== HERO ===== */
+
+.hero {
+    padding: 100px 0 80px;
+}
+
+.hero-content {
     display: grid;
     grid-template-columns: 1.2fr 0.8fr;
     gap: 50px;
     align-items: center;
-    max-width: 1100px;
-    margin: 0 auto;
+}
+
+.hero h1 {
+    font-size: 40px;
+    line-height: 1.25;
+    margin-bottom: 24px;
+}
+
+.subtitle {
+    font-size: 20px;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 32px;
+}
+
+.hero-cta {
+    display: inline-block;
+    background: #2563eb;
+    color: white;
+    padding: 14px 26px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.hero-cta:hover {
+    background: #1e4ed8;
+}
+
+/* HERO IMAGE */
+
+.hero-image {
+    text-align: right;
 }
 
 .hero-image img {
-    border-radius: 10px;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    border-radius: 12px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+    max-width: 320px;
+    width: 100%;
 }
 
+.hero-name {
+    margin-top: 12px;
+    font-size: 15px;
+    color: rgba(255,255,255,0.9);
+}
 
-        .hero h1 {
-            font-size: 48px;
-            font-weight: 600;
-            margin-bottom: 28px;
-            letter-spacing: -0.02em;
-            line-height: 1.2;
-        }
+.hero-name span {
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+}
 
-        .hero .subtitle {
-            font-size: 20px;
-            font-weight: 400;
-            line-height: 1.7;
-            margin-bottom: 40px;
-            color: rgba(255, 255, 255, 0.92);
-        }
+/* ===== SECTIONS ===== */
 
-        .hero-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 16px 36px;
-            border-radius: 6px;
-            font-weight: 500;
-            font-size: 15px;
-            letter-spacing: 0.02em;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            background: var(--copper);
-            color: var(--warm-white);
-        }
+.section {
+    padding: 80px 0;
+}
 
-        .hero-cta:hover {
-            background: var(--copper-light);
-            transform: translateY(-2px);
-        }
+.section-title {
+    font-size: 30px;
+    margin-bottom: 16px;
+}
 
-        /* Section Styling */
-        .section {
-            padding: 100px 0;
-        }
+.section-intro {
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 40px;
+    max-width: 650px;
+}
 
-        .section.bg-cream {
-            background: var(--cream);
-        }
+/* SERVICES */
 
-        .section-label {
-            font-size: 11px;
-            font-weight: 500;
-            color: var(--copper);
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            margin-bottom: 16px;
-            text-align: center;
-        }
+.focus-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
 
-        .section-title {
-            font-size: 36px;
-            font-weight: 600;
-            color: var(--charcoal);
-            margin-bottom: 20px;
-            letter-spacing: -0.02em;
-            text-align: center;
-        }
+.focus-card {
+    background: #1e293b;
+    padding: 28px;
+    border-radius: 12px;
+}
 
-        .section-intro {
-            font-size: 18px;
-            color: var(--grey-600);
-            line-height: 1.8;
-            text-align: center;
-            margin-bottom: 60px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+.focus-card h3 {
+    margin-top: 0;
+    margin-bottom: 14px;
+}
 
-        /* What I Do Section */
-        .what-i-do-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
+/* PROCESS */
 
-        .what-i-do-content p {
-            font-size: 18px;
-            line-height: 1.8;
-            color: var(--grey-600);
-            margin-bottom: 20px;
-        }
+.process-step {
+    margin-bottom: 30px;
+}
 
-        .what-i-do-content p:last-child {
-            margin-bottom: 0;
-        }
+.process-step h4 {
+    margin-bottom: 6px;
+}
 
-        /* Who This Is For Section */
-        .who-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
+/* CTA SECTION */
 
-        .who-intro {
-            font-size: 18px;
-            line-height: 1.8;
-            color: var(--grey-600);
-            margin-bottom: 32px;
-        }
+.cta-section {
+    background: #1e293b;
+    text-align: center;
+    padding: 70px 0;
+}
 
-        .who-list {
-            margin-bottom: 40px;
-        }
+.cta-section h2 {
+    margin-bottom: 20px;
+}
 
-        .who-list ul {
-            list-style: none;
-            padding: 0;
-        }
+/* FOOTER */
 
-        .who-list li {
-            padding: 14px 0 14px 35px;
-            position: relative;
-            font-size: 17px;
-            color: var(--charcoal);
-            line-height: 1.7;
-        }
+footer {
+    padding: 50px 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+}
 
-        .who-list li::before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            color: var(--copper);
-            font-weight: 700;
-            font-size: 24px;
-        }
+/* ===== RESPONSIVE ===== */
 
-        .who-subheading {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--charcoal);
-            margin-top: 40px;
-            margin-bottom: 20px;
-        }
+@media (max-width: 900px) {
+    .focus-grid {
+        grid-template-columns: 1fr;
+    }
+}
 
-        .who-closing {
-            font-size: 18px;
-            line-height: 1.8;
-            color: var(--charcoal);
-            font-weight: 500;
-            margin-top: 32px;
-        }
+@media (max-width: 768px) {
 
-        /* Areas of Focus */
-        .focus-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
-        }
+    nav ul {
+        display: none;
+    }
 
-        .focus-card {
-            background: var(--warm-white);
-            border: 1px solid var(--stone);
-            border-radius: 8px;
-            padding: 36px;
-            transition: all 0.3s ease;
-        }
-
-        .section.bg-cream .focus-card {
-            background: var(--warm-white);
-        }
-
-        .focus-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 32px rgba(43, 43, 43, 0.08);
-        }
-
-        .focus-card h3 {
-            font-size: 20px;
-            font-weight: 600;
-            color: var(--charcoal);
-            margin-bottom: 14px;
-            line-height: 1.4;
-        }
-
-        .focus-card p {
-            font-size: 16px;
-            color: var(--grey-600);
-            line-height: 1.7;
-        }
-
-        /* Process Section */
-        .process-intro {
-            font-size: 18px;
-            color: var(--grey-600);
-            line-height: 1.8;
-            text-align: center;
-            margin-bottom: 60px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .process-steps {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .process-step {
-            display: flex;
-            gap: 24px;
-            margin-bottom: 40px;
-        }
-
-        .process-step:last-child {
-            margin-bottom: 0;
-        }
-
-        .step-number {
-            width: 50px;
-            height: 50px;
-            background: var(--copper);
-            color: var(--warm-white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            font-weight: 700;
-            flex-shrink: 0;
-        }
-
-        .step-content h3 {
-            font-size: 20px;
-            font-weight: 600;
-            color: var(--charcoal);
-            margin-bottom: 10px;
-        }
-
-        .step-content p {
-            font-size: 16px;
-            color: var(--grey-600);
-            line-height: 1.7;
-        }
-
-        .process-closing {
-            font-size: 18px;
-            line-height: 1.8;
-            color: var(--grey-600);
-            text-align: center;
-            margin-top: 50px;
-        }
-
-        /* Why Choose Section */
-        .why-content {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .why-content ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .why-content li {
-            padding: 14px 0 14px 35px;
-            position: relative;
-            font-size: 17px;
-            color: var(--charcoal);
-            line-height: 1.7;
-        }
-
-        .why-content li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--copper);
-            font-weight: 700;
-            font-size: 20px;
-        }
-
-        .why-closing {
-            font-size: 18px;
-            line-height: 1.8;
-            color: var(--charcoal);
-            font-weight: 500;
-            text-align: center;
-            margin-top: 40px;
-        }
-
-        /* Location Section */
-        .location-content {
-            max-width: 700px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .location-content p {
-            font-size: 18px;
-            line-height: 1.8;
-            color: var(--grey-600);
-        }
-
-        /* CTA Section */
-        .cta-section {
-            padding: 100px 0;
-            background: var(--charcoal);
-            color: var(--warm-white);
-            text-align: center;
-        }
-
-        .cta-section .container {
-            max-width: 700px;
-        }
-
-        .cta-section p {
-            font-size: 20px;
-            margin-bottom: 40px;
-            color: rgba(255, 255, 255, 0.92);
-            line-height: 1.7;
-        }
-
-        .cta-section .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 16px 36px;
-            border-radius: 6px;
-            font-weight: 500;
-            font-size: 15px;
-            letter-spacing: 0.02em;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            background: var(--copper);
-            color: var(--warm-white);
-        }
-
-        .cta-section .btn:hover {
-            background: var(--copper-light);
-            transform: translateY(-2px);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--charcoal);
-            color: var(--warm-white);
-            padding: 80px 0 40px;
-            border-top: 1px solid var(--charcoal-light);
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 60px;
-            margin-bottom: 60px;
-        }
-
-        .footer-brand h3 {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            color: var(--warm-white);
-            letter-spacing: 0.05em;
-        }
-
-        .footer-brand p {
-            color: rgba(255, 255, 255, 0.85);
-            line-height: 1.7;
-            font-size: 14px;
-            margin-bottom: 24px;
-        }
-
-        .footer-contact {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .footer-contact a {
-            color: rgba(255, 255, 255, 0.85);
-            font-size: 14px;
-            transition: color 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .footer-contact a::before {
-            content: '';
-            width: 4px;
-            height: 4px;
-            background: var(--copper);
-            border-radius: 50%;
-        }
-
-        .footer-contact a:hover {
-            color: var(--copper-light);
-        }
-
-        .footer-links h4 {
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 24px;
-            color: var(--warm-white);
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-        }
-
-        .footer-links a {
-            display: block;
-            color: rgba(255, 255, 255, 0.85);
-            margin-bottom: 14px;
-            font-size: 14px;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--copper-light);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 40px;
-            border-top: 1px solid var(--charcoal-light);
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 13px;
-            letter-spacing: 0.02em;
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .footer-grid { grid-template-columns: 1fr 1fr; }
-            .focus-grid { grid-template-columns: 1fr; }
-        }
-
-        @media (max-width: 768px) {
-            .container { padding: 0 24px; }
-            nav ul { display: none; }
-            .hero { padding: 100px 0 80px; }
-            .hero h1 { font-size: 32px; }
-            .hero .subtitle { font-size: 18px; }
-            .section-title { font-size: 28px; }
-            .section-intro { font-size: 16px; }
-            .focus-grid { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
-            .process-step { flex-direction: column; }
-            @media (max-width: 768px) {
     .hero-content {
         grid-template-columns: 1fr;
         text-align: center;
     }
 
     .hero-image {
-        margin-top: 20px;
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .subtitle {
+        font-size: 18px;
     }
 }
 
-        }
-    </style>
+</style>
 </head>
+
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="container">
-            <a href="index.html" class="logo-wrapper">
-                <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
-                    <g transform="translate(20,18)">
-                        <rect x="0"  y="36" width="9" height="26" rx="2" fill="#2B2B2B"/>
-                        <rect x="19" y="24" width="9" height="38" rx="2" fill="#2B2B2B"/>
-                        <rect x="38" y="12" width="9" height="50" rx="2" fill="#2B2B2B"/>
-                        <path d="M 1 50 Q 26 30, 47 15" stroke="#C46A3D" stroke-width="2" fill="none" stroke-linecap="round"/>
-                    </g>
-                </svg>
-                <div class="logo-text">
-                    <span class="brand">DATASANJ</span>
-                    <span class="tagline">ANALYTICS CONSULTANCY</span>
-                </div>
-            </a>
 
+<!-- ===== HEADER ===== -->
+
+<header>
+    <div class="container navbar">
+        <div class="logo">DATASANJ</div>
+        <nav>
             <ul>
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="About.html">About</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="Portfolio.html">Portfolio</a></li>
-                <li><a href="Blog.html">Insights</a></li>
-                <li><a href="Contact.html" class="nav-cta">Let's Talk</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Contact</a></li>
             </ul>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-
-    <div>
-        <h1>I help finance and operations teams turn fragile Excel & Power BI reporting into accurate, automated dashboards—saving hours and building trust in every number.</h1>
-        <p class="subtitle">Microsoft-Certified Power BI Analyst & Data Science Graduate. I stabilise high-risk reporting systems, automate manual processes, and deliver insights businesses can rely on—without unnecessary rebuilds or disruption.</p>
-        <a href="Contact.html" class="hero-cta">Book a Free Consultation →</a>
+        </nav>
     </div>
+</header>
 
-    <div class="hero-image">
-        <img src="zohheadshot_Cropped.JPG" alt="Zohal Zahir headshot">
+<!-- ===== HERO ===== -->
+
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+
+            <div>
+                <h1>
+                    I help finance and operations teams turn fragile Excel & Power BI reporting into accurate, automated dashboards—saving hours and building trust in every number.
+                </h1>
+
+                <p class="subtitle">
+                    Microsoft-Certified Power BI Analyst & Data Science Graduate. I stabilise high-risk reporting systems, automate manual processes, and deliver insights businesses can rely on—without unnecessary rebuilds or disruption.
+                </p>
+
+                <a href="Contact.html" class="hero-cta">
+                    Book a Free Consultation →
+                </a>
+            </div>
+
+            <div class="hero-image">
+                <img src="zohheadshot_Cropped.JPG" alt="Zohal Zahir headshot">
+                <div class="hero-name">
+                    Zohal Zahir<br>
+                    <span>Power BI & Excel Consultant</span>
+                </div>
+            </div>
+
+        </div>
     </div>
+</section>
 
-</div>
+<!-- ===== SERVICES ===== -->
 
-        </div>
-    </section>
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">What I Focus On</h2>
+        <p class="section-intro">
+            I specialise in stabilising and improving reporting environments where accuracy, governance and automation matter.
+        </p>
 
-    <!-- What I Do Section -->
-    <section class="section">
-        <div class="container">
-            <div class="section-label">What I Do</div>
-            <h2 class="section-title">What I Do</h2>
+        <div class="focus-grid">
 
-            <div class="what-i-do-content">
-                <p>Most organisations don't struggle with a lack of data. They struggle with inconsistent numbers, fragile systems, and reporting no one fully trusts.</p>
-                <p>I work with businesses where reporting is already critical — and needs to be dependable.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Who This Is For Section -->
-    <section class="section bg-cream">
-        <div class="container">
-            <div class="section-label">Is This For You?</div>
-            <h2 class="section-title">Who This Is For</h2>
-
-            <div class="who-content">
-                <p class="who-intro">I typically work with:</p>
-                
-                <div class="who-list">
-                    <ul>
-                        <li>Finance leaders and business owners</li>
-                        <li>Operations and performance teams</li>
-                        <li>Organisations using Excel, accounting systems, or Power BI at scale</li>
-                    </ul>
-                </div>
-
-                <h3 class="who-subheading">Clients usually come to me when:</h3>
-                
-                <div class="who-list">
-                    <ul>
-                        <li>Financial reports don't reconcile</li>
-                        <li>Dashboards exist but aren't trusted</li>
-                        <li>Manual reporting is slow, risky, or opaque</li>
-                    </ul>
-                </div>
-
-                <p class="who-closing">If accuracy and accountability matter, this work is a fit.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Areas of Focus Section -->
-    <section class="section">
-        <div class="container">
-            <div class="section-label">My Focus</div>
-            <h2 class="section-title">Areas of Focus</h2>
-
-            <div class="focus-grid">
-                <div class="focus-card">
-                    <h3>Financial Reporting & Performance Insight</h3>
-                    <p>Clear, reconcilable reporting built on sound data models — not cosmetic dashboards.</p>
-                </div>
-                <div class="focus-card">
-                    <h3>Scalable Dashboards & KPI Frameworks</h3>
-                    <p>Reporting designed to hold up as teams, sites, and requirements change.</p>
-                </div>
-                <div class="focus-card">
-                    <h3>Excel Systems That Carry Real Risk</h3>
-                    <p>Stabilising and modernising business-critical spreadsheets without losing essential logic.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- How I Work Section -->
-    <section class="section bg-cream">
-        <div class="container">
-            <div class="section-label">My Approach</div>
-            <h2 class="section-title">How I Work</h2>
-            <p class="process-intro">My work follows a deliberate, low-noise approach:</p>
-
-            <div class="process-steps">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>Understand the business logic</h3>
-                        <p>I take the time to understand how your business actually operates and what your reporting needs to deliver.</p>
-                    </div>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>Fix the data foundation</h3>
-                        <p>Build sound data models and structures that can be trusted and maintained over time.</p>
-                    </div>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>Deliver reporting that can be trusted and maintained</h3>
-                        <p>Create reporting systems that work reliably and can be confidently used for decision-making.</p>
-                    </div>
-                </div>
+            <div class="focus-card">
+                <h3>Power BI Architecture</h3>
+                <p>Clean data models, scalable dashboards, row-level security, and tenant governance for growing organisations.</p>
             </div>
 
-            <p class="process-closing">This avoids rework, broken models, and confidence erosion later.</p>
-        </div>
-    </section>
-
-    <!-- Why Clients Choose Me Section -->
-    <section class="section">
-        <div class="container">
-            <div class="section-label">Why Me</div>
-            <h2 class="section-title">Why Clients Choose Me</h2>
-
-            <div class="why-content">
-                <ul>
-                    <li>Strong background in financial and operational reporting</li>
-                    <li>Deep experience with Excel and Power BI in real-world environments</li>
-                    <li>Calm, methodical handling of complex and high-risk reporting problems</li>
-                </ul>
+            <div class="focus-card">
+                <h3>Advanced Excel Systems</h3>
+                <p>Robust financial models, automated workflows, Power Query solutions and secure back-end logic separation.</p>
             </div>
 
-            <p class="why-closing">Clients engage me when they need reporting done properly.</p>
-        </div>
-    </section>
-
-    <!-- Location Section -->
-    <section class="section bg-cream">
-        <div class="container">
-            <div class="section-label">Location</div>
-            <h2 class="section-title">Where I Work</h2>
-
-            <div class="location-content">
-                <p>Based in Canberra, Australia, working remotely with clients across Australia and internationally.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <p>If your reporting feels unreliable, fragile, or harder to manage than it should be, we should talk.</p>
-            <a href="Contact.html" class="btn">Request a discovery call →</a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <h3>DATASANJ</h3>
-                    <p>Analytics consultancy helping organisations bring order, accuracy, and trust to their financial and operational reporting. Microsoft Certified Power BI Analyst & Xero Advisor. Based in Canberra.</p>
-                    <div class="footer-contact">
-                        <a href="mailto:d_zohal@datasanj.com">d_zohal@datasanj.com</a>
-                        <a href="#">Canberra, ACT, Australia</a>
-                    </div>
-                </div>
-
-                <div class="footer-links">
-                    <h4>Navigation</h4>
-                    <a href="index.html">Home</a>
-                    <a href="About.html">About</a>
-                    <a href="services.html">Services</a>
-                    <a href="Portfolio.html">Portfolio</a>
-                    <a href="Blog.html">Insights</a>
-                    <a href="Contact.html">Contact</a>
-                </div>
-
-                <div class="footer-links">
-                    <h4>What I Do</h4>
-                    <a href="services.html">Financial Reporting</a>
-                    <a href="services.html">Power BI Dashboards</a>
-                    <a href="services.html">Excel Systems</a>
-                    <a href="services.html">KPI Frameworks</a>
-                </div>
-
-                <div class="footer-links">
-                    <h4>Connect</h4>
-                    <a href="https://www.linkedin.com/in/zohal-zahir-46128697/" target="_blank">LinkedIn</a>
-                    <a href="https://github.com/Zohal987654321" target="_blank">GitHub</a>
-                    <a href="https://www.upwork.com/freelancers/zohalz" target="_blank">Upwork Profile</a>
-                </div>
+            <div class="focus-card">
+                <h3>Reporting Optimisation</h3>
+                <p>Transform fragmented reporting into structured, reliable systems that leadership can trust.</p>
             </div>
 
-            <div class="footer-bottom">
-                <p>&copy; 2025 DATASANJ. All rights reserved.</p>
-            </div>
         </div>
-    </footer>
+    </div>
+</section>
+
+<!-- ===== PROCESS ===== -->
+
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">How I Work</h2>
+
+        <div class="process-step">
+            <h4>1. Assess</h4>
+            <p>Review your existing reports, models and data flows to identify risks and inefficiencies.</p>
+        </div>
+
+        <div class="process-step">
+            <h4>2. Stabilise</h4>
+            <p>Fix structural weaknesses without disrupting your daily operations.</p>
+        </div>
+
+        <div class="process-step">
+            <h4>3. Optimise</h4>
+            <p>Automate repetitive tasks and improve performance and usability.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- ===== CTA ===== -->
+
+<section class="cta-section">
+    <div class="container">
+        <h2>Let’s Build Reporting You Can Trust</h2>
+        <a href="Contact.html" class="hero-cta">
+            Schedule a Consultation →
+        </a>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+
+<footer>
+    <div class="container">
+        &copy; 2026 DATASANJ. All rights reserved.
+    </div>
+</footer>
 
 </body>
 </html>

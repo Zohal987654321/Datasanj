@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="How I built a fully interactive human body injury map inside Power BI using Deneb (Vega) and SVG mapping — no custom visual development, no Synoptic Panel, no external dependencies.">
+    <meta name="keywords" content="Power BI body map, Deneb Vega body visual, interactive injury map Power BI, SVG mapping Power BI, workplace safety dashboard, healthcare analytics Power BI">
+    <meta name="author" content="Zohal Zahir">
+    <title>Building an Interactive Human Body Injury Map in Power BI Using Deneb | DATASANJ</title>
+    <link rel="canonical" href="https://datasanj.com/blog-deneb-bodymap.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Ultra-Premium Brand Design System */
+        :root {
+            /* Primary Palette - Luxury Consulting */
+            --charcoal: #2B2B2B;
+            --charcoal-light: #3D3D3D;
+            --charcoal-dark: #1A1A1A;
+            --copper: #C46A3D;
+            --copper-light: #D4845A;
+            --copper-dark: #A85A32;
+            
+            /* Neutrals */
+            --warm-white: #FAFAF8;
+            --cream: #F5F4F2;
+            --stone: #E8E6E3;
+            --grey-400: #9A9A9A;
+            --grey-500: #6B6B6B;
+            --grey-600: #4A4A4A;
+            
+            /* Typography */
+            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: var(--font-primary);
+            line-height: 1.7; 
+            color: var(--charcoal); 
+            background: var(--warm-white);
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        a { text-decoration: none; color: inherit; }
+        
+        .container { 
+            max-width: 1140px; 
+            margin: 0 auto; 
+            padding: 0 32px; 
+        }
+
+        /* Navigation - Ultra Premium */
+        nav { 
+            position: fixed; 
+            top: 0; 
+            width: 100%; 
+            background: rgba(250, 250, 248, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--stone);
+            z-index: 1000; 
+            padding: 20px 0;
+        }
+        
+        nav .container { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+        
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .logo-text .brand {
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            color: var(--charcoal);
+        }
+
+        .logo-text .tagline {
+            font-size: 9px;
+            font-weight: 400;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--grey-500);
+            margin-top: 3px;
+        }
+        
+        nav ul { 
+            display: flex; 
+            list-style: none; 
+            gap: 40px; 
+            align-items: center; 
+        }
+        
+        nav a { 
+            color: var(--grey-600); 
+            font-weight: 500; 
+            font-size: 14px; 
+            letter-spacing: 0.02em;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        nav a:hover { color: var(--copper); }
+        
+        nav a.active {
+            color: var(--charcoal);
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--copper);
+        }
+        
+        .nav-cta { 
+            background: var(--charcoal);
+            color: var(--warm-white) !important; 
+            padding: 12px 28px; 
+            border-radius: 6px;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-cta:hover { 
+            background: var(--copper);
+            transform: translateY(-1px);
+        }
+
+        .nav-cta::after {
+            display: none !important;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            margin-top: 84px;
+            padding: 20px 0;
+            background: var(--warm-white);
+            border-bottom: 1px solid var(--stone);
+        }
+
+        .breadcrumb-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: var(--grey-400);
+        }
+
+        .breadcrumb-links a {
+            color: var(--grey-500);
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb-links a:hover {
+            color: var(--copper);
+        }
+
+        .breadcrumb-links .separator {
+            font-size: 10px;
+        }
+
+        .breadcrumb-links .current {
+            color: var(--charcoal);
+            font-weight: 500;
+        }
+
+        /* Blog Container */
+        .blog-container {
+            padding: 0 0 100px;
+            background: var(--warm-white);
+        }
+
+        /* Featured Article */
+        .featured-article {
+            background: var(--warm-white);
+            border-radius: 0 0 12px 12px;
+            overflow: hidden;
+            margin-bottom: 80px;
+            border: 1px solid var(--stone);
+            border-top: none;
+            box-shadow: 0 8px 32px rgba(43, 43, 43, 0.06);
+        }
+
+        .featured-header {
+            background: var(--charcoal);
+            padding: 60px;
+            color: var(--warm-white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 50%;
+            height: 200%;
+            background: linear-gradient(135deg, rgba(196, 106, 61, 0.15), transparent);
+            transform: rotate(-15deg);
+        }
+
+        .featured-badge {
+            display: inline-block;
+            background: rgba(196, 106, 61, 0.3);
+            color: var(--copper-light);
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 24px;
+        }
+
+        .featured-meta {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 24px;
+            font-size: 13px;
+            color: var(--grey-400);
+            letter-spacing: 0.02em;
+        }
+
+        .featured-title {
+            font-size: 40px;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .featured-subtitle {
+            font-size: 17px;
+            color: rgba(255, 255, 255, 0.75);
+            line-height: 1.7;
+        }
+
+        .featured-body {
+            padding: 60px;
+        }
+
+        .article-content {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .article-content h2 {
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin: 56px 0 20px;
+            line-height: 1.3;
+            letter-spacing: -0.01em;
+        }
+
+        .article-content h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin: 40px 0 16px;
+        }
+
+        .article-content p {
+            font-size: 16px;
+            color: var(--grey-600);
+            line-height: 1.85;
+            margin-bottom: 20px;
+        }
+
+        .article-content ul {
+            margin: 24px 0 24px 0;
+            list-style: none;
+        }
+
+        .article-content li {
+            font-size: 16px;
+            color: var(--grey-600);
+            line-height: 1.85;
+            margin-bottom: 12px;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .article-content li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 6px;
+            height: 6px;
+            background: var(--copper);
+            border-radius: 50%;
+        }
+
+        .article-content strong {
+            color: var(--charcoal);
+            font-weight: 600;
+        }
+
+        .callout-box {
+            background: var(--cream);
+            border-left: 3px solid var(--copper);
+            padding: 28px 32px;
+            margin: 36px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .callout-box h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--copper);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .callout-box p {
+            font-size: 15px;
+            margin-bottom: 0;
+            color: var(--grey-600);
+        }
+
+        /* Video Placeholder */
+        .video-embed {
+            background: var(--charcoal-dark);
+            border-radius: 8px;
+            margin: 36px 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .video-embed video {
+            width: 100%;
+            display: block;
+            border-radius: 8px;
+        }
+
+        .video-caption {
+            font-size: 13px;
+            color: var(--grey-400);
+            text-align: center;
+            margin-top: 12px;
+            font-style: italic;
+        }
+
+        /* Specs Grid */
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin: 36px 0;
+        }
+
+        .spec-card {
+            background: var(--cream);
+            padding: 24px 20px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid var(--stone);
+        }
+
+        .spec-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--copper);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .spec-label {
+            font-size: 13px;
+            color: var(--grey-500);
+            font-weight: 500;
+        }
+
+        /* Use Cases Grid */
+        .use-cases-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin: 28px 0;
+        }
+
+        .use-case-card {
+            background: var(--cream);
+            padding: 24px;
+            border-radius: 8px;
+            border: 1px solid var(--stone);
+        }
+
+        .use-case-card h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 8px;
+        }
+
+        .use-case-card p {
+            font-size: 14px;
+            color: var(--grey-500);
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+
+        /* CTA Section */
+        .article-cta {
+            background: var(--charcoal);
+            padding: 48px;
+            border-radius: 8px;
+            text-align: center;
+            color: var(--warm-white);
+            margin-top: 60px;
+        }
+
+        .article-cta h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            letter-spacing: -0.01em;
+        }
+
+        .article-cta p {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.75);
+            margin-bottom: 32px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 16px 36px;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 15px;
+            letter-spacing: 0.02em;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--copper);
+            color: var(--warm-white);
+        }
+
+        .btn-primary:hover {
+            background: var(--copper-light);
+            transform: translateY(-2px);
+        }
+
+        /* Related Articles */
+        .related-section {
+            margin-top: 60px;
+            padding-top: 48px;
+            border-top: 1px solid var(--stone);
+        }
+
+        .related-section h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--copper);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 20px;
+        }
+
+        .related-card {
+            background: var(--cream);
+            padding: 28px;
+            border-radius: 8px;
+            border: 1px solid var(--stone);
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        .related-card:hover {
+            background: var(--warm-white);
+            box-shadow: 0 8px 24px rgba(43, 43, 43, 0.06);
+        }
+
+        .related-card h4 {
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 8px;
+        }
+
+        .related-card p {
+            font-size: 14px;
+            color: var(--grey-500);
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+
+        /* Author Bio */
+        .author-bio {
+            background: var(--cream);
+            padding: 40px;
+            border-radius: 8px;
+            margin-top: 60px;
+            display: flex;
+            gap: 32px;
+            align-items: center;
+            border: 1px solid var(--stone);
+        }
+
+        .author-avatar {
+            width: 90px;
+            height: 90px;
+            background: var(--charcoal);
+            border-radius: 8px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--copper-light);
+            letter-spacing: 0.05em;
+        }
+
+        .author-info h4 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 6px;
+        }
+
+        .author-info .author-title {
+            font-size: 13px;
+            color: var(--copper);
+            font-weight: 500;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .author-info p {
+            font-size: 14px;
+            color: var(--grey-600);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .author-links {
+            display: flex;
+            gap: 16px;
+        }
+
+        .author-links a {
+            color: var(--copper);
+            font-weight: 500;
+            font-size: 13px;
+            transition: color 0.3s ease;
+        }
+
+        .author-links a:hover {
+            color: var(--copper-dark);
+        }
+
+        .author-links span {
+            color: var(--stone);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: var(--warm-white);
+            padding: 80px 0 40px;
+            border-top: 1px solid var(--charcoal-light);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--warm-white);
+            letter-spacing: 0.05em;
+        }
+
+        .footer-brand p {
+            color: var(--grey-400);
+            line-height: 1.7;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .footer-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-contact a {
+            color: var(--grey-400);
+            font-size: 14px;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-contact a::before {
+            content: '';
+            width: 4px;
+            height: 4px;
+            background: var(--copper);
+            border-radius: 50%;
+        }
+
+        .footer-contact a:hover {
+            color: var(--copper-light);
+        }
+
+        .footer-links h4 {
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: var(--warm-white);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        .footer-links a {
+            display: block;
+            color: var(--grey-400);
+            margin-bottom: 14px;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--copper-light);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid var(--charcoal-light);
+            color: var(--grey-500);
+            font-size: 13px;
+            letter-spacing: 0.02em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .featured-header {
+                padding: 48px;
+            }
+
+            .featured-body {
+                padding: 48px;
+            }
+
+            .featured-title {
+                font-size: 32px;
+            }
+
+            .specs-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .use-cases-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .author-bio {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .author-links {
+                justify-content: center;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 0 24px; }
+            
+            nav ul { display: none; }
+            
+            .featured-header {
+                padding: 32px 24px;
+            }
+
+            .featured-title {
+                font-size: 26px;
+            }
+
+            .featured-subtitle {
+                font-size: 15px;
+            }
+
+            .featured-body {
+                padding: 32px 24px;
+            }
+
+            .article-content h2 {
+                font-size: 22px;
+            }
+
+            .article-content p,
+            .article-content li {
+                font-size: 15px;
+            }
+
+            .specs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo-wrapper">
+                <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
+                    <g transform="translate(20,18)">
+                        <rect x="0"  y="36" width="9" height="26" rx="2" fill="#2B2B2B"/>
+                        <rect x="19" y="24" width="9" height="38" rx="2" fill="#2B2B2B"/>
+                        <rect x="38" y="12" width="9" height="50" rx="2" fill="#2B2B2B"/>
+                        <path d="M 1 50 Q 26 30, 47 15"
+                              stroke="#C46A3D"
+                              stroke-width="2"
+                              fill="none"
+                              stroke-linecap="round"/>
+                    </g>
+                </svg>
+                <div class="logo-text">
+                    <span class="brand">DATASANJ</span>
+                    <span class="tagline">DATA ANALYTICS &amp; AUTOMATION</span>
+                </div>
+            </a>
+
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="Portfolio.html">Portfolio</a></li>
+                <li><a href="Blog.html" class="active">Insights</a></li>
+                <li><a href="Contact.html" class="nav-cta">Let's Talk</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <div class="breadcrumb-links">
+                <a href="index.html">Home</a>
+                <span class="separator">›</span>
+                <a href="Blog.html">Insights</a>
+                <span class="separator">›</span>
+                <span class="current">Interactive Body Map in Power BI</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Blog Container -->
+    <section class="blog-container">
+        <div class="container">
+            <!-- Article -->
+            <article class="featured-article">
+                <div class="featured-header">
+                    <span class="featured-badge">Power BI Case Study</span>
+                    <div class="featured-meta">
+                        <span>March 2026</span>
+                        <span>•</span>
+                        <span>7 min read</span>
+                        <span>•</span>
+                        <span>Custom Visuals &amp; Deneb</span>
+                    </div>
+                    <h1 class="featured-title">Building an Interactive Human Body Injury Map in Power BI Using Deneb</h1>
+                    <p class="featured-subtitle">
+                        22 interactive body regions, heat-mapped by injury count, with full cross-filtering and tooltips — built entirely inside Power BI with no external dependencies.
+                    </p>
+                </div>
+
+                <div class="featured-body">
+                    <div class="article-content">
+
+                        <p>
+                            <strong>"Can you map injuries to a human body inside Power BI?"</strong>
+                        </p>
+
+                        <p>
+                            That was the question. Instead of settling for a workaround, I built it from scratch — a fully interactive body map where clicking any region filters every visual on the page, hovering reveals injury details, and colour intensity shows which areas are most affected.
+                        </p>
+
+                        <!-- Video Section -->
+                        <div class="video-embed">
+                            <video controls preload="metadata">
+                                <source src="Injuries_Body_Parts_Visual.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <p class="video-caption">Interactive body map — click any region to filter the entire report</p>
+
+                        <!-- Specs -->
+                        <div class="specs-grid">
+                            <div class="spec-card">
+                                <div class="spec-number">22+</div>
+                                <div class="spec-label">Mapped Body Regions</div>
+                            </div>
+                            <div class="spec-card">
+                                <div class="spec-number">0</div>
+                                <div class="spec-label">External Dependencies</div>
+                            </div>
+                            <div class="spec-card">
+                                <div class="spec-number">100%</div>
+                                <div class="spec-label">Native Power BI Filtering</div>
+                            </div>
+                        </div>
+
+                        <h2>Why I Built This</h2>
+
+                        <p>
+                            Safety teams and healthcare analysts deal with injury data every day. But when it comes to reporting, they're stuck with tables and bar charts that don't answer the most natural question: <strong>where on the body are injuries actually happening?</strong>
+                        </p>
+
+                        <p>
+                            Existing options in Power BI don't solve this well. Static images with overlays can't filter or interact with anything. The Synoptic Panel has flexibility and scaling limitations. Custom .pbiviz visuals require separate development and ongoing maintenance.
+                        </p>
+
+                        <p>
+                            None of these give you what you actually need — a visual that works like any other Power BI element. Click, filter, drill through. No extra tools, no extra licences.
+                        </p>
+
+                        <div class="callout-box">
+                            <h4>What Makes This Different</h4>
+                            <p>
+                                This visual is built with Deneb (Vega) and custom SVG mapping. It sits inside your Power BI report like any native visual. No Synoptic Panel, no custom .pbiviz files, no external dependencies. It just works.
+                            </p>
+                        </div>
+
+                        <h2>The Approach</h2>
+
+                        <p>
+                            The solution uses <strong>Deneb (Vega)</strong> — a certified custom visual in Power BI — combined with hand-traced SVG paths for each body region. Every region is individually mapped and dynamically linked to the dataset so it responds to selections, slicers, and cross-filtering in real time.
+                        </p>
+
+                        <p>
+                            The colour scale responds to injury frequency — regions with more incidents show warmer colours, giving you an instant visual read on where the problems are concentrated. Hover over any region for detailed metrics. Click to filter the entire page.
+                        </p>
+
+                        <h2>Where the Real Complexity Is</h2>
+
+                        <p>
+                            The concept is straightforward. The execution is not.
+                        </p>
+
+                        <p>
+                            Each body region needs to be <strong>individually traced as an SVG path</strong> — precise coordinates, clean boundaries, no overlaps. With 22+ regions across front and back views, that's significant manual work before the visual even touches the data model.
+                        </p>
+
+                        <p>
+                            Then there's the Deneb specification itself — binding each path to the right data category, setting up the colour scales, configuring the tooltip behaviour, and making sure cross-filtering works cleanly with every other visual on the page.
+                        </p>
+
+                        <p>
+                            Getting a version that looks right takes effort. Getting a version that works reliably in a production report — with real data, real users, and real performance requirements — takes experience.
+                        </p>
+
+                        <div class="callout-box">
+                            <h4>The Hardest Part</h4>
+                            <p>
+                                It's not the Power BI side. It's the SVG path tracing and the precision required to make every region align correctly with data categories. One misaligned path and the interaction breaks. This is where most of the build time goes.
+                            </p>
+                        </div>
+
+                        <h2>Where This Is Valuable</h2>
+
+                        <p>
+                            This type of visual turns raw injury data into something decision-makers can immediately act on. Instead of scanning a table of body part names and counts, they see exactly where incidents are concentrated — and they can click to drill into the details.
+                        </p>
+
+                        <div class="use-cases-grid">
+                            <div class="use-case-card">
+                                <h4>Workplace Safety</h4>
+                                <p>Track injury patterns across body regions to identify recurring hazards and target safety interventions.</p>
+                            </div>
+                            <div class="use-case-card">
+                                <h4>Healthcare Analytics</h4>
+                                <p>Map patient injury or symptom data to body regions for clinical reporting and trend analysis.</p>
+                            </div>
+                            <div class="use-case-card">
+                                <h4>Insurance Claims</h4>
+                                <p>Visualise claim distributions by body part to spot patterns and assess risk across portfolios.</p>
+                            </div>
+                            <div class="use-case-card">
+                                <h4>Incident Reporting</h4>
+                                <p>Give operations teams instant visibility into where incidents are concentrated across the workforce.</p>
+                            </div>
+                        </div>
+
+                        <h2>Final Thoughts</h2>
+
+                        <p>
+                            This project shows what Power BI can do when you push past default visuals. The tools are there — Deneb is a certified visual, SVG is an open standard. The difference is in the execution.
+                        </p>
+
+                        <p>
+                            If your organisation tracks injury or incident data and you want your team to see it mapped directly to the human body — inside the same Power BI reports they already use — this is how it's done.
+                        </p>
+
+                        <!-- CTA -->
+                        <div class="article-cta">
+                            <h3>Want This in Your Dashboard?</h3>
+                            <p>
+                                If you need an interactive body map built into your Power BI report — send me a message. I'll tailor it to your data.
+                            </p>
+                            <a href="Contact.html" class="btn btn-primary">Send Me a Message →</a>
+                        </div>
+
+                        <!-- Related Article -->
+                        <div class="related-section">
+                            <h3>Continue Reading</h3>
+                            <a href="blog-mcp-analytics.html" class="related-card">
+                                <h4>How Model Context Protocol (MCP) Will Transform Data Analytics Workflows</h4>
+                                <p>Understanding Anthropic's new standard for connecting AI assistants to data sources — and what it means for Power BI and analytics professionals.</p>
+                            </a>
+                        </div>
+
+                        <!-- Author Bio -->
+                        <div class="author-bio">
+                            <div class="author-avatar">ZZ</div>
+                            <div class="author-info">
+                                <h4>Zohal Zahir</h4>
+                                <p class="author-title">Power BI Consultant · DataSanj</p>
+                                <p>
+                                    I help businesses implement advanced Power BI solutions — from custom Deneb visuals to automated financial reporting. Microsoft Certified, 80+ projects delivered, based in Canberra and working with clients globally.
+                                </p>
+                                <div class="author-links">
+                                    <a href="https://www.linkedin.com/in/zohal-zahir-46128697/" target="_blank">LinkedIn</a>
+                                    <span>|</span>
+                                    <a href="Contact.html">Get in Touch</a>
+                                    <span>|</span>
+                                    <a href="Portfolio.html">View Portfolio</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>DATASANJ</h3>
+                    <p>Power BI and Excel Consultant based in Canberra, Australia. Microsoft Certified &amp; Xero Advisor.</p>
+                    <div class="footer-contact">
+                        <a href="mailto:d_zohal@datasanj.com">d_zohal@datasanj.com</a>
+                        <a href="#">Canberra, ACT, Australia</a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <a href="index.html">Home</a>
+                    <a href="About.html">About</a>
+                    <a href="services.html">Services</a>
+                    <a href="Portfolio.html">Portfolio</a>
+                    <a href="Blog.html">Insights</a>
+                    <a href="Contact.html">Contact</a>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <a href="services.html">Power BI Dashboards</a>
+                    <a href="services.html">Excel Automation</a>
+                    <a href="services.html">Data Integration</a>
+                    <a href="services.html">Financial Modeling</a>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Connect</h4>
+                    <a href="https://www.linkedin.com/in/zohal-zahir-46128697/" target="_blank">LinkedIn</a>
+                    <a href="https://github.com/Zohal987654321" target="_blank">GitHub</a>
+                    <a href="https://www.upwork.com/freelancers/zohalz" target="_blank">Upwork Profile</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 DATASANJ. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

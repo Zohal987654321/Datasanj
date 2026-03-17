@@ -8,6 +8,25 @@
     <meta name="author" content="Zohal Zahir">
     <title>Building an Interactive Human Body Injury Map in Power BI Using Deneb | DATASANJ</title>
     <link rel="canonical" href="https://datasanj.com/blog-deneb-bodymap.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Crect width='80' height='80' rx='12' fill='%232B2B2B'/%3E%3Cg transform='translate(20,18)'%3E%3Crect x='0' y='36' width='9' height='26' rx='2' fill='%23FAFAF8'/%3E%3Crect x='19' y='24' width='9' height='38' rx='2' fill='%23FAFAF8'/%3E%3Crect x='38' y='12' width='9' height='50' rx='2' fill='%23FAFAF8'/%3E%3Cpath d='M 1 50 Q 26 30, 47 15' stroke='%23C46A3D' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/g%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Crect width='80' height='80' rx='12' fill='%232B2B2B'/%3E%3Cg transform='translate(20,18)'%3E%3Crect x='0' y='36' width='9' height='26' rx='2' fill='%23FAFAF8'/%3E%3Crect x='19' y='24' width='9' height='38' rx='2' fill='%23FAFAF8'/%3E%3Crect x='38' y='12' width='9' height='50' rx='2' fill='%23FAFAF8'/%3E%3Cpath d='M 1 50 Q 26 30, 47 15' stroke='%23C46A3D' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/g%3E%3C/svg%3E">
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Building an Interactive Human Body Injury Map in Power BI Using Deneb">
+    <meta property="og:description" content="22 interactive body regions, heat-mapped by injury count, with full cross-filtering and tooltips — built entirely inside Power BI with no external dependencies.">
+    <meta property="og:url" content="https://datasanj.com/blog-deneb-bodymap.html">
+    <meta property="og:image" content="https://datasanj.com/Data_Into_Decisions,_Fast_version_1.png">
+    <meta property="og:site_name" content="DATASANJ">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Building an Interactive Human Body Injury Map in Power BI Using Deneb">
+    <meta name="twitter:description" content="22 interactive body regions, heat-mapped by injury count, with full cross-filtering and tooltips — built entirely inside Power BI with no external dependencies.">
+    <meta name="twitter:image" content="https://datasanj.com/Data_Into_Decisions,_Fast_version_1.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -156,6 +175,59 @@
 
         .nav-cta::after {
             display: none !important;
+        }
+
+        /* Mobile Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            width: 28px;
+            height: 28px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+            z-index: 1010;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background: var(--charcoal);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        .mobile-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(26, 26, 26, 0.5);
+            z-index: 999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .mobile-overlay.active {
+            opacity: 1;
         }
 
         /* Breadcrumb */
@@ -719,7 +791,60 @@
         @media (max-width: 768px) {
             .container { padding: 0 24px; }
             
-            nav ul { display: none; }
+            /* Mobile Navigation */
+            .hamburger {
+                display: flex;
+            }
+
+            .mobile-overlay {
+                display: block;
+                pointer-events: none;
+            }
+
+            .mobile-overlay.active {
+                pointer-events: auto;
+            }
+
+            nav ul {
+                position: fixed;
+                top: 0;
+                right: -280px;
+                width: 280px;
+                height: 100vh;
+                background: var(--warm-white);
+                flex-direction: column;
+                padding: 100px 32px 40px;
+                gap: 0;
+                box-shadow: -4px 0 24px rgba(0, 0, 0, 0.1);
+                transition: right 0.3s ease;
+                z-index: 1005;
+                overflow-y: auto;
+            }
+
+            nav ul.active {
+                right: 0;
+            }
+
+            nav ul li {
+                width: 100%;
+            }
+
+            nav ul a {
+                display: block;
+                padding: 16px 0;
+                font-size: 16px;
+                border-bottom: 1px solid var(--stone);
+            }
+
+            nav ul a.active::after {
+                bottom: 0;
+            }
+
+            .nav-cta {
+                text-align: center;
+                margin-top: 16px;
+                padding: 16px 28px;
+            }
             
             .featured-header {
                 padding: 32px 24px;
@@ -748,6 +873,10 @@
 
             .specs-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .article-cta {
+                padding: 32px 24px;
             }
 
             .footer-grid {
@@ -779,6 +908,14 @@
                     <span class="tagline">DATA ANALYTICS &amp; AUTOMATION</span>
                 </div>
             </a>
+
+            <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="mobile-overlay"></div>
 
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -835,9 +972,9 @@
                             That was the question. Instead of settling for a workaround, I built it from scratch — a fully interactive body map where clicking any region filters every visual on the page, hovering reveals injury details, and colour intensity shows which areas are most affected.
                         </p>
 
-                        <!-- Video Section -->
+                        <!-- Video Section with poster -->
                         <div class="video-embed">
-                            <video controls preload="metadata">
+                            <video controls preload="metadata" poster="Data_Into_Decisions,_Fast_version_1.png">
                                 <source src="Injuries_Body_Parts_Visual.mp4.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
@@ -1038,5 +1175,32 @@
             </div>
         </div>
     </footer>
+
+    <!-- Mobile Navigation Script -->
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('nav ul');
+        const overlay = document.querySelector('.mobile-overlay');
+
+        function toggleMenu() {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+            hamburger.setAttribute('aria-expanded', navMenu.classList.contains('active'));
+        }
+
+        hamburger.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+
+        // Close menu when a nav link is clicked
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navMenu.classList.contains('active')) {
+                    toggleMenu();
+                }
+            });
+        });
+    </script>
 </body>
 </html>

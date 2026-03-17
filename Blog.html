@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Data analytics insights, Power BI tips, and Excel automation tutorials from Zohal Zahir. Learn about Model Context Protocol (MCP) and its impact on business intelligence.">
-    <meta name="keywords" content="Power BI tutorials, Excel automation, data analytics blog, MCP, Model Context Protocol, business intelligence">
+    <meta name="description" content="Data analytics insights, Power BI tips, and Excel automation tutorials from Zohal Zahir. Learn about custom Deneb visuals, MCP, and business intelligence.">
+    <meta name="keywords" content="Power BI tutorials, Excel automation, data analytics blog, Deneb, custom visuals, MCP, Model Context Protocol, business intelligence">
     <meta name="author" content="Zohal Zahir">
     <title>Insights - Data Analytics & AI | Zohal Zahir</title>
     <link rel="canonical" href="https://datasanj.com/Blog.html">
@@ -182,290 +182,124 @@
             line-height: 1.7;
         }
 
-        /* Blog Container */
-        .blog-container {
+        /* Blog Listing */
+        .blog-listing {
             padding: 80px 0 100px;
             background: var(--warm-white);
         }
 
-        /* Featured Article */
-        .featured-article {
+        .blog-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        .blog-card {
             background: var(--warm-white);
+            border: 1px solid var(--stone);
             border-radius: 12px;
             overflow: hidden;
-            margin-bottom: 80px;
-            border: 1px solid var(--stone);
-            box-shadow: 0 8px 32px rgba(43, 43, 43, 0.06);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
 
-        .featured-header {
+        .blog-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 48px rgba(43, 43, 43, 0.08);
+        }
+
+        .blog-card-header {
             background: var(--charcoal);
-            padding: 60px;
-            color: var(--warm-white);
+            padding: 40px 36px;
             position: relative;
             overflow: hidden;
+            flex-shrink: 0;
         }
 
-        .featured-header::before {
+        .blog-card-header::before {
             content: '';
             position: absolute;
             top: -50%;
-            right: -10%;
-            width: 50%;
+            right: -20%;
+            width: 60%;
             height: 200%;
-            background: linear-gradient(135deg, rgba(196, 106, 61, 0.15), transparent);
+            background: linear-gradient(135deg, rgba(196, 106, 61, 0.12), transparent);
             transform: rotate(-15deg);
         }
 
-        .featured-badge {
+        .blog-card-badge {
             display: inline-block;
             background: rgba(196, 106, 61, 0.3);
             color: var(--copper-light);
-            padding: 8px 20px;
+            padding: 6px 14px;
             border-radius: 4px;
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.15em;
-            margin-bottom: 24px;
+            letter-spacing: 0.12em;
+            margin-bottom: 16px;
         }
 
-        .featured-meta {
-            display: flex;
-            gap: 24px;
-            margin-bottom: 24px;
-            font-size: 13px;
-            color: var(--grey-400);
-            letter-spacing: 0.02em;
+        .blog-card-badge.new {
+            background: rgba(196, 106, 61, 0.5);
         }
 
-        .featured-title {
-            font-size: 40px;
+        .blog-card-title {
+            font-size: 22px;
             font-weight: 600;
-            line-height: 1.2;
-            margin-bottom: 20px;
-            letter-spacing: -0.02em;
-        }
-
-        .featured-subtitle {
-            font-size: 17px;
-            color: rgba(255, 255, 255, 0.75);
-            line-height: 1.7;
-        }
-
-        .featured-body {
-            padding: 60px;
-        }
-
-        .article-content {
-            max-width: 720px;
-            margin: 0 auto;
-        }
-
-        .article-content h2 {
-            font-size: 28px;
-            font-weight: 600;
-            color: var(--charcoal);
-            margin: 56px 0 20px;
+            color: var(--warm-white);
             line-height: 1.3;
             letter-spacing: -0.01em;
         }
 
-        .article-content h3 {
-            font-size: 20px;
-            font-weight: 600;
-            color: var(--charcoal);
-            margin: 40px 0 16px;
-        }
-
-        .article-content p {
-            font-size: 16px;
-            color: var(--grey-600);
-            line-height: 1.85;
-            margin-bottom: 20px;
-        }
-
-        .article-content ul {
-            margin: 24px 0 24px 0;
-            list-style: none;
-        }
-
-        .article-content li {
-            font-size: 16px;
-            color: var(--grey-600);
-            line-height: 1.85;
-            margin-bottom: 12px;
-            padding-left: 24px;
-            position: relative;
-        }
-
-        .article-content li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 10px;
-            width: 6px;
-            height: 6px;
-            background: var(--copper);
-            border-radius: 50%;
-        }
-
-        .article-content strong {
-            color: var(--charcoal);
-            font-weight: 600;
-        }
-
-        .callout-box {
-            background: var(--cream);
-            border-left: 3px solid var(--copper);
-            padding: 28px 32px;
-            margin: 36px 0;
-            border-radius: 0 8px 8px 0;
-        }
-
-        .callout-box h4 {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--copper);
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        .callout-box p {
-            font-size: 15px;
-            margin-bottom: 0;
-            color: var(--grey-600);
-        }
-
-        .code-block {
-            background: var(--charcoal-dark);
-            color: #e2e8f0;
-            padding: 24px;
-            border-radius: 8px;
-            margin: 24px 0;
-            overflow-x: auto;
-            font-family: 'Courier New', monospace;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        /* CTA Section */
-        .article-cta {
-            background: var(--charcoal);
-            padding: 48px;
-            border-radius: 8px;
-            text-align: center;
-            color: var(--warm-white);
-            margin-top: 60px;
-        }
-
-        .article-cta h3 {
-            font-size: 24px;
-            font-weight: 600;
-            margin-bottom: 12px;
-            letter-spacing: -0.01em;
-        }
-
-        .article-cta p {
-            font-size: 16px;
-            color: rgba(255, 255, 255, 0.75);
-            margin-bottom: 32px;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 16px 36px;
-            border-radius: 6px;
-            font-weight: 500;
-            font-size: 15px;
-            letter-spacing: 0.02em;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
-        }
-
-        .btn-primary {
-            background: var(--copper);
-            color: var(--warm-white);
-        }
-
-        .btn-primary:hover {
-            background: var(--copper-light);
-            transform: translateY(-2px);
-        }
-
-        /* Author Bio */
-        .author-bio {
-            background: var(--cream);
-            padding: 40px;
-            border-radius: 8px;
-            margin-top: 60px;
+        .blog-card-body {
+            padding: 32px 36px;
             display: flex;
-            gap: 32px;
-            align-items: center;
-            border: 1px solid var(--stone);
+            flex-direction: column;
+            flex-grow: 1;
         }
 
-        .author-avatar {
-            width: 90px;
-            height: 90px;
-            background: var(--charcoal);
-            border-radius: 8px;
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 32px;
-            font-weight: 600;
-            color: var(--copper-light);
-            letter-spacing: 0.05em;
-        }
-
-        .author-info h4 {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--charcoal);
-            margin-bottom: 6px;
-        }
-
-        .author-info .author-title {
-            font-size: 13px;
-            color: var(--copper);
-            font-weight: 500;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-        }
-
-        .author-info p {
-            font-size: 14px;
-            color: var(--grey-600);
-            line-height: 1.7;
-            margin-bottom: 16px;
-        }
-
-        .author-links {
+        .blog-card-meta {
             display: flex;
             gap: 16px;
+            margin-bottom: 16px;
+            font-size: 12px;
+            color: var(--grey-400);
+            letter-spacing: 0.02em;
         }
 
-        .author-links a {
+        .blog-card-excerpt {
+            font-size: 15px;
+            color: var(--grey-600);
+            line-height: 1.75;
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
+
+        .blog-card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 600;
             color: var(--copper);
-            font-weight: 500;
-            font-size: 13px;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
         }
 
-        .author-links a:hover {
+        .blog-card-link:hover {
             color: var(--copper-dark);
+            gap: 12px;
         }
 
-        .author-links span {
-            color: var(--stone);
+        .blog-card-link svg {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        .blog-card:hover .blog-card-link svg {
+            transform: translateX(4px);
         }
 
         /* Footer */
@@ -557,25 +391,8 @@
 
         /* Responsive Design */
         @media (max-width: 1024px) {
-            .featured-header {
-                padding: 48px;
-            }
-
-            .featured-body {
-                padding: 48px;
-            }
-
-            .featured-title {
-                font-size: 32px;
-            }
-
-            .author-bio {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .author-links {
-                justify-content: center;
+            .blog-grid {
+                grid-template-columns: 1fr;
             }
 
             .footer-grid {
@@ -589,30 +406,17 @@
             nav ul { display: none; }
             
             .page-header h1 { font-size: 32px; }
-            
-            .featured-header {
+
+            .blog-card-header {
                 padding: 32px 24px;
             }
 
-            .featured-title {
-                font-size: 26px;
+            .blog-card-title {
+                font-size: 19px;
             }
 
-            .featured-subtitle {
-                font-size: 15px;
-            }
-
-            .featured-body {
-                padding: 32px 24px;
-            }
-
-            .article-content h2 {
-                font-size: 22px;
-            }
-
-            .article-content p,
-            .article-content li {
-                font-size: 15px;
+            .blog-card-body {
+                padding: 24px;
             }
 
             .footer-grid {
@@ -669,153 +473,60 @@
         </div>
     </section>
 
-    <!-- Blog Container -->
-    <section class="blog-container">
+    <!-- Blog Listing -->
+    <section class="blog-listing">
         <div class="container">
-            <!-- Featured Article -->
-            <article class="featured-article">
-                <div class="featured-header">
-                    <span class="featured-badge">Featured Article</span>
-                    <div class="featured-meta">
-                        <span>December 2025</span>
-                        <span>•</span>
-                        <span>10 min read</span>
-                        <span>•</span>
-                        <span>Data Analytics</span>
+            <div class="blog-grid">
+
+                <!-- Card 1: Deneb Body Map (NEW) -->
+                <a href="blog-deneb-bodymap.html" class="blog-card">
+                    <div class="blog-card-header">
+                        <span class="blog-card-badge new">New — Case Study</span>
+                        <h2 class="blog-card-title">Building an Interactive Human Body Injury Map in Power BI Using Deneb</h2>
                     </div>
-                    <h1 class="featured-title">How Model Context Protocol (MCP) Will Transform Data Analytics Workflows</h1>
-                    <p class="featured-subtitle">Understanding Anthropic's new standard for connecting AI assistants to data sources—and what it means for Power BI and analytics professionals</p>
-                </div>
-
-                <div class="featured-body">
-                    <div class="article-content">
-                        <p>
-                            If you work with data—whether you're building Power BI dashboards, automating Excel reports, or managing business intelligence systems—you need to understand Model Context Protocol (MCP). Released by Anthropic in late 2024, MCP is quietly revolutionizing how AI assistants interact with data sources, and it has profound implications for analytics professionals.
-                        </p>
-
-                        <h2>What Is Model Context Protocol?</h2>
-                        
-                        <p>
-                            Model Context Protocol is an open standard that allows AI assistants (like Claude) to securely connect to your data sources, tools, and systems through a standardized interface. Think of it as a universal adapter that lets AI read your databases, query your APIs, access your files, and interact with your business tools—all while maintaining security and control.
-                        </p>
-
-                        <p>
-                            Before MCP, if you wanted an AI assistant to help with data analysis, you had to manually copy data, export files, or describe your datasets in natural language. With MCP, the AI can directly connect to your SQL databases, cloud storage, business intelligence tools, and more.
-                        </p>
-
-                        <div class="callout-box">
-                            <h4>Key Insight</h4>
-                            <p>MCP is not just about convenience—it's about fundamentally changing how we interact with data. Instead of building dashboards for humans to interpret, we're moving toward AI assistants that can query data sources directly and provide contextual insights on demand.</p>
+                    <div class="blog-card-body">
+                        <div class="blog-card-meta">
+                            <span>March 2026</span>
+                            <span>•</span>
+                            <span>7 min read</span>
+                            <span>•</span>
+                            <span>Custom Visuals</span>
                         </div>
-
-                        <h2>Why This Matters for Power BI and Analytics Professionals</h2>
-
-                        <h3>1. Faster Data Exploration</h3>
-                        <p>
-                            Instead of spending hours building exploratory queries or pivot tables to understand your data, you can ask an AI assistant: "What patterns do you see in last quarter's sales data?" The AI, connected via MCP to your database, can run complex queries, identify trends, and explain findings in natural language.
+                        <p class="blog-card-excerpt">
+                            22 interactive body regions, heat-mapped by injury count, with full cross-filtering and tooltips — built entirely inside Power BI with no external dependencies.
                         </p>
-
-                        <h3>2. Automated Dashboard Generation</h3>
-                        <p>
-                            Imagine describing what you need—"Create a sales performance dashboard showing regional trends, top products, and year-over-year growth"—and having an AI assistant build the DAX measures, design the layout, and even suggest the best visualizations based on your actual data structure. This isn't science fiction; with MCP-enabled tools, it's becoming reality.
-                        </p>
-
-                        <h3>3. Natural Language Data Queries</h3>
-                        <p>
-                            Business stakeholders often struggle to articulate exactly what data they need. With MCP, they can ask questions in plain English: "Which customers have decreased their orders by more than 20% in the last six months?" The AI can translate this into the appropriate SQL, DAX, or API query, execute it, and present the results with context.
-                        </p>
-
-                        <h3>4. Enhanced Data Quality Checks</h3>
-                        <p>
-                            MCP-enabled AI can proactively monitor your data sources for anomalies, missing values, or inconsistencies. Rather than manually writing data validation scripts, you can have an AI assistant continuously check data quality and alert you to issues—explaining what it found and why it matters.
-                        </p>
-
-                        <h2>Real-World Applications in Data Analytics</h2>
-
-                        <p><strong>Scenario 1: Financial Reporting</strong><br>
-                        A CFO needs monthly financial reports but wants different cuts each time. Instead of rebuilding reports manually, an MCP-connected AI can access the accounting system, generate custom reports based on natural language requests, and even explain variances automatically.</p>
-
-                        <p><strong>Scenario 2: Customer Analytics</strong><br>
-                        A marketing team wants to understand customer churn patterns. An AI assistant with MCP access to the CRM, transaction database, and support tickets can correlate data across systems, identify at-risk customers, and suggest retention strategies—tasks that would normally require a data analyst days to complete.</p>
-
-                        <p><strong>Scenario 3: Operational Dashboards</strong><br>
-                        Operations managers need real-time visibility into production metrics. An MCP-connected system can continuously monitor IoT sensors, ERP systems, and quality control databases, automatically updating dashboards and proactively alerting managers to potential issues before they become problems.</p>
-
-                        <h2>What This Means for Your Skills</h2>
-
-                        <p>
-                            If you're a data analyst or Power BI developer, MCP doesn't make your skills obsolete—it makes them more valuable. Here's what's changing:
-                        </p>
-
-                        <ul>
-                            <li><strong>From builder to architect:</strong> Less time creating basic dashboards, more time designing data strategies and governance frameworks</li>
-                            <li><strong>From query writer to insight translator:</strong> Less time writing SQL or DAX, more time interpreting results and providing business context</li>
-                            <li><strong>From report creator to automation designer:</strong> Focus shifts to building intelligent systems that can adapt to changing needs</li>
-                            <li><strong>From data analyst to AI orchestrator:</strong> Your role evolves to managing AI assistants that handle routine analysis while you focus on strategic decisions</li>
-                        </ul>
-
-                        <div class="callout-box">
-                            <h4>The Bottom Line</h4>
-                            <p>MCP isn't replacing data professionals—it's amplifying their capabilities. The analysts who understand both data and AI will be the most valuable, able to leverage MCP-enabled tools to deliver insights faster and more comprehensively than ever before.</p>
-                        </div>
-
-                        <h2>Getting Started with MCP</h2>
-
-                        <p>
-                            While MCP is still new, here's how you can start preparing:
-                        </p>
-
-                        <ul>
-                            <li><strong>Learn the fundamentals:</strong> Understand how MCP servers work and how they connect to data sources</li>
-                            <li><strong>Audit your data access:</strong> Identify which data sources would benefit from AI-powered querying</li>
-                            <li><strong>Experiment with Claude Desktop:</strong> If you have access, try connecting Claude to local data sources using MCP</li>
-                            <li><strong>Think about governance:</strong> Consider security, permissions, and data privacy implications</li>
-                            <li><strong>Upskill in AI collaboration:</strong> Learn how to effectively prompt and work alongside AI assistants</li>
-                        </ul>
-
-                        <h2>Looking Ahead</h2>
-
-                        <p>
-                            We're at the beginning of a fundamental shift in how businesses interact with data. MCP is the infrastructure layer that makes AI-powered analytics practical and secure at enterprise scale. Within the next few years, I predict:
-                        </p>
-
-                        <ul>
-                            <li>Most BI tools will have native MCP integration</li>
-                            <li>Natural language will become a primary interface for data analysis</li>
-                            <li>The role of "data analyst" will evolve into something closer to "AI-assisted insights specialist"</li>
-                            <li>Organizations will have AI assistants continuously monitoring and analyzing data, with humans focusing on strategic interpretation</li>
-                        </ul>
-
-                        <p>
-                            The professionals who embrace this change—who learn to work alongside AI rather than compete with it—will be the ones who thrive in the next era of data analytics.
-                        </p>
-
-                        <div class="article-cta">
-                            <h3>Want to Discuss MCP for Your Business?</h3>
-                            <p>I'm exploring how MCP can enhance data analytics workflows for clients. If you're curious about what this means for your organization, let's talk.</p>
-                            <a href="Contact.html" class="btn btn-primary">Book a Consultation →</a>
-                        </div>
-
-                        <div class="author-bio">
-                            <div class="author-avatar">ZZ</div>
-                            <div class="author-info">
-                                <h4>Zohal Zahir</h4>
-                                <p class="author-title">Data Analytics Consultant · Canberra</p>
-                                <p>
-                                    I help businesses transform their data into actionable insights through Power BI, Excel automation, and modern analytics tools. With a background in data science and medicine, I bring a unique perspective to solving complex data challenges.
-                                </p>
-                                <div class="author-links">
-                                    <a href="https://www.linkedin.com/in/zohal-zahir-46128697/" target="_blank">LinkedIn</a>
-                                    <span>|</span>
-                                    <a href="Contact.html">Get in Touch</a>
-                                    <span>|</span>
-                                    <a href="Portfolio.html">View Portfolio</a>
-                                </div>
-                            </div>
-                        </div>
+                        <span class="blog-card-link">
+                            Read Article
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </span>
                     </div>
-                </div>
-            </article>
+                </a>
+
+                <!-- Card 2: MCP Article -->
+                <a href="blog-mcp-analytics.html" class="blog-card">
+                    <div class="blog-card-header">
+                        <span class="blog-card-badge">Featured Article</span>
+                        <h2 class="blog-card-title">How Model Context Protocol (MCP) Will Transform Data Analytics Workflows</h2>
+                    </div>
+                    <div class="blog-card-body">
+                        <div class="blog-card-meta">
+                            <span>December 2025</span>
+                            <span>•</span>
+                            <span>10 min read</span>
+                            <span>•</span>
+                            <span>Data Analytics</span>
+                        </div>
+                        <p class="blog-card-excerpt">
+                            Understanding Anthropic's new standard for connecting AI assistants to data sources — and what it means for Power BI and analytics professionals.
+                        </p>
+                        <span class="blog-card-link">
+                            Read Article
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </span>
+                    </div>
+                </a>
+
+            </div>
         </div>
     </section>
 
@@ -825,7 +536,7 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <h3>DATASANJ</h3>
-                    <p>Power BI and Excel Consultant based in Canberra,Australia. Microsoft Certified & Xero Advisor.</p>
+                    <p>Power BI and Excel Consultant based in Canberra, Australia. Microsoft Certified &amp; Xero Advisor.</p>
                     <div class="footer-contact">
                         <a href="mailto:d_zohal@datasanj.com">d_zohal@datasanj.com</a>
                         <a href="#">Canberra, ACT, Australia</a>
@@ -859,7 +570,7 @@
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2025 DATASANJ. All rights reserved.</p>
+                <p>&copy; 2026 DATASANJ. All rights reserved.</p>
             </div>
         </div>
     </footer>

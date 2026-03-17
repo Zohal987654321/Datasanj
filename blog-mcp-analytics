@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Understanding Anthropic's Model Context Protocol (MCP) — the new standard for connecting AI assistants to data sources, and what it means for Power BI and analytics professionals.">
+    <meta name="keywords" content="MCP, Model Context Protocol, Power BI, data analytics, AI assistants, business intelligence, Anthropic">
+    <meta name="author" content="Zohal Zahir">
+    <title>How MCP Will Transform Data Analytics Workflows | DATASANJ</title>
+    <link rel="canonical" href="https://datasanj.com/blog-mcp-analytics.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --charcoal: #2B2B2B;
+            --charcoal-light: #3D3D3D;
+            --charcoal-dark: #1A1A1A;
+            --copper: #C46A3D;
+            --copper-light: #D4845A;
+            --copper-dark: #A85A32;
+            --warm-white: #FAFAF8;
+            --cream: #F5F4F2;
+            --stone: #E8E6E3;
+            --grey-400: #9A9A9A;
+            --grey-500: #6B6B6B;
+            --grey-600: #4A4A4A;
+            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: var(--font-primary);
+            line-height: 1.7; 
+            color: var(--charcoal); 
+            background: var(--warm-white);
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        a { text-decoration: none; color: inherit; }
+        
+        .container { 
+            max-width: 1140px; 
+            margin: 0 auto; 
+            padding: 0 32px; 
+        }
+
+        nav { 
+            position: fixed; 
+            top: 0; 
+            width: 100%; 
+            background: rgba(250, 250, 248, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--stone);
+            z-index: 1000; 
+            padding: 20px 0;
+        }
+        
+        nav .container { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+        
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+        }
+
+        .logo-icon { width: 40px; height: 40px; flex-shrink: 0; }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .logo-text .brand {
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            color: var(--charcoal);
+        }
+
+        .logo-text .tagline {
+            font-size: 9px;
+            font-weight: 400;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--grey-500);
+            margin-top: 3px;
+        }
+        
+        nav ul { 
+            display: flex; 
+            list-style: none; 
+            gap: 40px; 
+            align-items: center; 
+        }
+        
+        nav a { 
+            color: var(--grey-600); 
+            font-weight: 500; 
+            font-size: 14px; 
+            letter-spacing: 0.02em;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        nav a:hover { color: var(--copper); }
+        
+        nav a.active { color: var(--charcoal); }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--copper);
+        }
+        
+        .nav-cta { 
+            background: var(--charcoal);
+            color: var(--warm-white) !important; 
+            padding: 12px 28px; 
+            border-radius: 6px;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-cta:hover { 
+            background: var(--copper);
+            transform: translateY(-1px);
+        }
+
+        .nav-cta::after { display: none !important; }
+
+        .breadcrumb {
+            margin-top: 84px;
+            padding: 20px 0;
+            background: var(--warm-white);
+            border-bottom: 1px solid var(--stone);
+        }
+
+        .breadcrumb-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: var(--grey-400);
+        }
+
+        .breadcrumb-links a {
+            color: var(--grey-500);
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb-links a:hover { color: var(--copper); }
+
+        .breadcrumb-links .separator { font-size: 10px; }
+
+        .breadcrumb-links .current {
+            color: var(--charcoal);
+            font-weight: 500;
+        }
+
+        .blog-container {
+            padding: 0 0 100px;
+            background: var(--warm-white);
+        }
+
+        .featured-article {
+            background: var(--warm-white);
+            border-radius: 0 0 12px 12px;
+            overflow: hidden;
+            margin-bottom: 80px;
+            border: 1px solid var(--stone);
+            border-top: none;
+            box-shadow: 0 8px 32px rgba(43, 43, 43, 0.06);
+        }
+
+        .featured-header {
+            background: var(--charcoal);
+            padding: 60px;
+            color: var(--warm-white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 50%;
+            height: 200%;
+            background: linear-gradient(135deg, rgba(196, 106, 61, 0.15), transparent);
+            transform: rotate(-15deg);
+        }
+
+        .featured-badge {
+            display: inline-block;
+            background: rgba(196, 106, 61, 0.3);
+            color: var(--copper-light);
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 24px;
+        }
+
+        .featured-meta {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 24px;
+            font-size: 13px;
+            color: var(--grey-400);
+            letter-spacing: 0.02em;
+        }
+
+        .featured-title {
+            font-size: 40px;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .featured-subtitle {
+            font-size: 17px;
+            color: rgba(255, 255, 255, 0.75);
+            line-height: 1.7;
+        }
+
+        .featured-body { padding: 60px; }
+
+        .article-content {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .article-content h2 {
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin: 56px 0 20px;
+            line-height: 1.3;
+            letter-spacing: -0.01em;
+        }
+
+        .article-content h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin: 40px 0 16px;
+        }
+
+        .article-content p {
+            font-size: 16px;
+            color: var(--grey-600);
+            line-height: 1.85;
+            margin-bottom: 20px;
+        }
+
+        .article-content ul {
+            margin: 24px 0 24px 0;
+            list-style: none;
+        }
+
+        .article-content li {
+            font-size: 16px;
+            color: var(--grey-600);
+            line-height: 1.85;
+            margin-bottom: 12px;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .article-content li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 6px;
+            height: 6px;
+            background: var(--copper);
+            border-radius: 50%;
+        }
+
+        .article-content strong {
+            color: var(--charcoal);
+            font-weight: 600;
+        }
+
+        .callout-box {
+            background: var(--cream);
+            border-left: 3px solid var(--copper);
+            padding: 28px 32px;
+            margin: 36px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .callout-box h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--copper);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .callout-box p {
+            font-size: 15px;
+            margin-bottom: 0;
+            color: var(--grey-600);
+        }
+
+        .article-cta {
+            background: var(--charcoal);
+            padding: 48px;
+            border-radius: 8px;
+            text-align: center;
+            color: var(--warm-white);
+            margin-top: 60px;
+        }
+
+        .article-cta h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            letter-spacing: -0.01em;
+        }
+
+        .article-cta p {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.75);
+            margin-bottom: 32px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 16px 36px;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 15px;
+            letter-spacing: 0.02em;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--copper);
+            color: var(--warm-white);
+        }
+
+        .btn-primary:hover {
+            background: var(--copper-light);
+            transform: translateY(-2px);
+        }
+
+        .related-section {
+            margin-top: 60px;
+            padding-top: 48px;
+            border-top: 1px solid var(--stone);
+        }
+
+        .related-section h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--copper);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 20px;
+        }
+
+        .related-card {
+            background: var(--cream);
+            padding: 28px;
+            border-radius: 8px;
+            border: 1px solid var(--stone);
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        .related-card:hover {
+            background: var(--warm-white);
+            box-shadow: 0 8px 24px rgba(43, 43, 43, 0.06);
+        }
+
+        .related-card h4 {
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 8px;
+        }
+
+        .related-card p {
+            font-size: 14px;
+            color: var(--grey-500);
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+
+        .author-bio {
+            background: var(--cream);
+            padding: 40px;
+            border-radius: 8px;
+            margin-top: 60px;
+            display: flex;
+            gap: 32px;
+            align-items: center;
+            border: 1px solid var(--stone);
+        }
+
+        .author-avatar {
+            width: 90px;
+            height: 90px;
+            background: var(--charcoal);
+            border-radius: 8px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--copper-light);
+            letter-spacing: 0.05em;
+        }
+
+        .author-info h4 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 6px;
+        }
+
+        .author-info .author-title {
+            font-size: 13px;
+            color: var(--copper);
+            font-weight: 500;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .author-info p {
+            font-size: 14px;
+            color: var(--grey-600);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .author-links {
+            display: flex;
+            gap: 16px;
+        }
+
+        .author-links a {
+            color: var(--copper);
+            font-weight: 500;
+            font-size: 13px;
+            transition: color 0.3s ease;
+        }
+
+        .author-links a:hover { color: var(--copper-dark); }
+        .author-links span { color: var(--stone); }
+
+        footer {
+            background: var(--charcoal);
+            color: var(--warm-white);
+            padding: 80px 0 40px;
+            border-top: 1px solid var(--charcoal-light);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--warm-white);
+            letter-spacing: 0.05em;
+        }
+
+        .footer-brand p {
+            color: var(--grey-400);
+            line-height: 1.7;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .footer-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-contact a {
+            color: var(--grey-400);
+            font-size: 14px;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-contact a::before {
+            content: '';
+            width: 4px;
+            height: 4px;
+            background: var(--copper);
+            border-radius: 50%;
+        }
+
+        .footer-contact a:hover { color: var(--copper-light); }
+
+        .footer-links h4 {
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: var(--warm-white);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        .footer-links a {
+            display: block;
+            color: var(--grey-400);
+            margin-bottom: 14px;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover { color: var(--copper-light); }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid var(--charcoal-light);
+            color: var(--grey-500);
+            font-size: 13px;
+            letter-spacing: 0.02em;
+        }
+
+        @media (max-width: 1024px) {
+            .featured-header { padding: 48px; }
+            .featured-body { padding: 48px; }
+            .featured-title { font-size: 32px; }
+
+            .author-bio {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .author-links { justify-content: center; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 0 24px; }
+            nav ul { display: none; }
+            .featured-header { padding: 32px 24px; }
+            .featured-title { font-size: 26px; }
+            .featured-subtitle { font-size: 15px; }
+            .featured-body { padding: 32px 24px; }
+            .article-content h2 { font-size: 22px; }
+            .article-content p, .article-content li { font-size: 15px; }
+            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo-wrapper">
+                <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
+                    <g transform="translate(20,18)">
+                        <rect x="0"  y="36" width="9" height="26" rx="2" fill="#2B2B2B"/>
+                        <rect x="19" y="24" width="9" height="38" rx="2" fill="#2B2B2B"/>
+                        <rect x="38" y="12" width="9" height="50" rx="2" fill="#2B2B2B"/>
+                        <path d="M 1 50 Q 26 30, 47 15" stroke="#C46A3D" stroke-width="2" fill="none" stroke-linecap="round"/>
+                    </g>
+                </svg>
+                <div class="logo-text">
+                    <span class="brand">DATASANJ</span>
+                    <span class="tagline">DATA ANALYTICS &amp; AUTOMATION</span>
+                </div>
+            </a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="Portfolio.html">Portfolio</a></li>
+                <li><a href="Blog.html" class="active">Insights</a></li>
+                <li><a href="Contact.html" class="nav-cta">Let's Talk</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <div class="breadcrumb-links">
+                <a href="index.html">Home</a>
+                <span class="separator">›</span>
+                <a href="Blog.html">Insights</a>
+                <span class="separator">›</span>
+                <span class="current">MCP &amp; Data Analytics</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Blog Container -->
+    <section class="blog-container">
+        <div class="container">
+            <article class="featured-article">
+                <div class="featured-header">
+                    <span class="featured-badge">Industry Insight</span>
+                    <div class="featured-meta">
+                        <span>December 2025</span>
+                        <span>•</span>
+                        <span>7 min read</span>
+                        <span>•</span>
+                        <span>Analytics &amp; AI</span>
+                    </div>
+                    <h1 class="featured-title">What Is MCP — and Why Should Business Owners Care About It?</h1>
+                    <p class="featured-subtitle">Model Context Protocol is changing how businesses access and use their data. Here's what it actually means — without the jargon.</p>
+                </div>
+
+                <div class="featured-body">
+                    <div class="article-content">
+                        <p>
+                            If you run a business and you rely on data for decisions — sales reports, financial dashboards, operational tracking — there's a shift happening right now that's worth understanding.
+                        </p>
+
+                        <p>
+                            It's called <strong>Model Context Protocol (MCP)</strong>. It was released by Anthropic (the company behind Claude AI) in late 2024, and it's changing how businesses can access and interact with their own data.
+                        </p>
+
+                        <p>
+                            I'm not going to explain it in technical terms. I'm going to explain what it means for you as a business owner or decision-maker — and why it matters for your reporting and analytics.
+                        </p>
+
+                        <h2>What Is MCP? (Plain English)</h2>
+                        
+                        <p>
+                            Right now, most businesses have their data spread across multiple systems — accounting software, CRMs, spreadsheets, databases, cloud storage. Getting useful information out of those systems usually means exporting files, copying data around, and building reports manually.
+                        </p>
+
+                        <p>
+                            MCP is a standard that allows AI tools to <strong>read data directly from your business systems</strong> — securely, without moving it, without exporting it. Think of it as giving a tool controlled, read-only access to your data where it already lives.
+                        </p>
+
+                        <div class="callout-box">
+                            <h4>The Simple Version</h4>
+                            <p>Instead of pulling data out of your systems to analyse it, MCP lets the analysis come to where your data already is. No exporting. No emailing spreadsheets. No manual stitching.</p>
+                        </div>
+
+                        <h2>What This Means for Your Business</h2>
+
+                        <p>
+                            You don't need to understand how MCP works technically. But you should understand what it makes possible:
+                        </p>
+
+                        <p>
+                            <strong>Faster answers from your data.</strong> Today, if you want to know "which region had the biggest revenue drop this quarter," someone has to pull the data, clean it, build a query, and get back to you. With MCP-connected tools, that question can be answered directly from your data source — in minutes, not days.
+                        </p>
+
+                        <p>
+                            <strong>Less manual reporting work.</strong> Monthly financial reports, weekly sales summaries, operational dashboards — these are often rebuilt manually each cycle. MCP opens the door to workflows where the data is pulled and structured automatically, so the focus shifts to interpreting results and making decisions.
+                        </p>
+
+                        <p>
+                            <strong>Better data quality.</strong> One of the biggest hidden costs in reporting is bad data — missing values, duplicates, inconsistent naming. MCP-connected tools can scan your data at the source and flag issues before they end up in your reports.
+                        </p>
+
+                        <p>
+                            <strong>Your data stays secure.</strong> MCP reads data in place. Nothing gets exported to unknown locations. You control what gets accessed and what doesn't. For businesses with sensitive financial or customer data, this is a significant advantage over the current workflow of emailing CSVs around.
+                        </p>
+
+                        <h2>Real Examples of Where This Helps</h2>
+
+                        <p>
+                            <strong>Financial reporting.</strong> A business owner needs a P&L breakdown by department every month — but wants different views each time. Instead of starting from scratch, MCP-connected tools can pull the numbers directly from the accounting system, making it faster to build the specific report needed.
+                        </p>
+
+                        <p>
+                            <strong>Sales and customer analysis.</strong> A marketing team wants to know which customers are ordering less this quarter. Instead of waiting for a data analyst to run a manual query, the analysis can be run directly against the CRM and transaction data.
+                        </p>
+
+                        <p>
+                            <strong>Ongoing monitoring.</strong> Instead of discovering a problem at the end of the month, MCP-connected workflows can check your data regularly and alert you to anomalies — a spike in returns, a drop in orders from a key account, missing records in payroll.
+                        </p>
+
+                        <h2>What MCP Does NOT Do</h2>
+
+                        <p>
+                            There's a lot of hype around AI right now, so let me be direct about what MCP doesn't replace:
+                        </p>
+
+                        <p>
+                            <strong>It doesn't replace good data modelling.</strong> If your data structure is messy, MCP won't fix that. You still need someone who understands how to design a proper data model — with the right relationships, the right measures, and the right business logic.
+                        </p>
+
+                        <p>
+                            <strong>It doesn't replace business context.</strong> AI can pull numbers fast. But it doesn't know that your fiscal year starts in July, that certain product codes were deprecated last quarter, or that the "Revenue" column in your system excludes GST. That context comes from human expertise.
+                        </p>
+
+                        <p>
+                            <strong>It doesn't replace the design and strategy of reporting.</strong> Knowing which questions matter, how to present data so people actually act on it, which KPIs drive real decisions — that's not an AI task. That's the work of someone who understands your business.
+                        </p>
+
+                        <div class="callout-box">
+                            <h4>My Perspective</h4>
+                            <p>MCP is a powerful tool for accessing data faster. But the real value in analytics has never been the data pull — it's in the structure, the context, and the decisions it enables. MCP handles the plumbing. The expertise is in knowing what to build on top of it.</p>
+                        </div>
+
+                        <h2>Why I'm Paying Attention to This</h2>
+
+                        <p>
+                            As someone who builds Power BI dashboards, automates financial reports, and connects business systems for a living, I follow these developments closely. MCP changes the toolset available — it makes certain parts of the workflow faster and more efficient.
+                        </p>
+
+                        <p>
+                            But the core of what I do — understanding a client's data, designing the right model, building reports that actually help people make decisions — that doesn't change. If anything, tools like MCP make it more important to have someone who knows how to use them properly.
+                        </p>
+
+                        <p>
+                            I expect MCP (or something similar) to become standard in analytics workflows within the next few years. Businesses that understand this early will be better positioned to modernise their reporting without wasting time or money on the wrong approach.
+                        </p>
+
+                        <div class="article-cta">
+                            <h3>Need Help With Your Reporting?</h3>
+                            <p>
+                                I build Power BI dashboards, automate financial reports, and help businesses get more from their data. If you need a solution that actually works — send me a message.
+                            </p>
+                            <a href="Contact.html" class="btn btn-primary">Send Me a Message →</a>
+                        </div>
+
+                        <!-- Related Article -->
+                        <div class="related-section">
+                            <h3>Continue Reading</h3>
+                            <a href="blog-deneb-bodymap.html" class="related-card">
+                                <h4>Building an Interactive Human Body Injury Map in Power BI Using Deneb</h4>
+                                <p>22 interactive body regions, heat-mapped by injury count, with full cross-filtering and tooltips — no external dependencies.</p>
+                            </a>
+                        </div>
+
+                        <div class="author-bio">
+                            <div class="author-avatar">ZZ</div>
+                            <div class="author-info">
+                                <h4>Zohal Zahir</h4>
+                                <p class="author-title">Power BI Consultant · DataSanj</p>
+                                <p>
+                                    I help businesses turn messy data into clear, actionable reporting — using Power BI, Excel automation, and data integration. Microsoft Certified, 80+ projects delivered, based in Canberra and working with clients globally.
+                                </p>
+                                <div class="author-links">
+                                    <a href="https://www.linkedin.com/in/zohal-zahir-46128697/" target="_blank">LinkedIn</a>
+                                    <span>|</span>
+                                    <a href="Contact.html">Get in Touch</a>
+                                    <span>|</span>
+                                    <a href="Portfolio.html">View Portfolio</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>DATASANJ</h3>
+                    <p>Power BI and Excel Consultant based in Canberra, Australia. Microsoft Certified &amp; Xero Advisor.</p>
+                    <div class="footer-contact">
+                        <a href="mailto:d_zohal@datasanj.com">d_zohal@datasanj.com</a>
+                        <a href="#">Canberra, ACT, Australia</a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <a href="index.html">Home</a>
+                    <a href="About.html">About</a>
+                    <a href="services.html">Services</a>
+                    <a href="Portfolio.html">Portfolio</a>
+                    <a href="Blog.html">Insights</a>
+                    <a href="Contact.html">Contact</a>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <a href="services.html">Power BI Dashboards</a>
+                    <a href="services.html">Excel Automation</a>
+                    <a href="services.html">Data Integration</a>
+                    <a href="services.html">Financial Modeling</a>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Connect</h4>
+                    <a href="https://www.linkedin.com/in/zohal-zahir-46128697/" target="_blank">LinkedIn</a>
+                    <a href="https://github.com/Zohal987654321" target="_blank">GitHub</a>
+                    <a href="https://www.upwork.com/freelancers/zohalz" target="_blank">Upwork Profile</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 DATASANJ. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

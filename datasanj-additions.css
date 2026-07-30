@@ -7,15 +7,6 @@
    are needed here.
    ========================================================================== */
 
-/* ---------- Breadcrumbs (About, Work, Insights, Contact) ---------------- */
-.crumbs { max-width: 1140px; margin: 0 auto; padding: 18px 32px 0; }
-.crumbs ol { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; font-size: 12.5px; color: var(--grey-500); }
-.crumbs li { display: flex; align-items: center; gap: 8px; }
-.crumbs li + li::before { content: '/'; color: var(--stone); }
-.crumbs a { color: var(--grey-500); transition: color .3s ease; }
-.crumbs a:hover { color: var(--copper); }
-.crumbs [aria-current] { color: var(--charcoal); font-weight: 500; }
-
 /* ---------- Productised offer card (Contact) ---------------------------- */
 .offer { max-width: 760px; margin: 0 auto; background: var(--warm-white); border: 1px solid var(--stone); border-top: 3px solid var(--copper); border-radius: 8px; padding: 36px 34px; text-align: left; }
 .bg-cream .offer { background: var(--warm-white); }
@@ -101,7 +92,6 @@
 
 /* ---------- Responsive --------------------------------------------------- */
 @media (max-width: 768px) {
-  .crumbs { padding: 16px 24px 0; }
   .offer { padding: 28px 22px; }
   .offer h3 { font-size: 21px; }
   .offer-price { font-size: 23px; }

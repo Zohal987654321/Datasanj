@@ -1,18 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-AU">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Field notes on Microsoft Fabric, Power BI and data governance from Zohal Zahir — practical write-ups of things built and tested, not vendor summaries.">
-<meta name="keywords" content="Microsoft Fabric blog, Power BI insights, Fabric Apps, Deneb custom visuals, MCP, data governance, BI engineering">
+
+<title>Field Notes on Microsoft Fabric &amp; Power BI | DATASANJ</title>
+<meta name="description" content="Practical write-ups of Microsoft Fabric and Power BI work I have actually built and tested, including what I would fix before putting it near production.">
 <meta name="author" content="Zohal Zahir">
-<meta name="robots" content="index, follow">
-<meta property="og:title" content="Insights | DATASANJ">
-<meta property="og:description" content="Field notes on Microsoft Fabric, Power BI and data governance — things built and tested.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://www.datasanj.com/Blog.html">
-<title>Insights | Microsoft Fabric &amp; Power BI Field Notes | DATASANJ</title>
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <link rel="canonical" href="https://www.datasanj.com/Blog.html">
+
+<!-- Open Graph -->
+<meta property="og:site_name" content="DATASANJ">
+<meta property="og:locale" content="en_AU">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Field Notes on Microsoft Fabric &amp; Power BI | DATASANJ">
+<meta property="og:description" content="Write-ups of things actually built and tested — including the parts I'd want fixed before putting them near production.">
+<meta property="og:url" content="https://www.datasanj.com/Blog.html">
+<meta property="og:image" content="https://www.datasanj.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="DATASANJ — every site reports its numbers differently. I fix that at the source.">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Field Notes on Microsoft Fabric &amp; Power BI | DATASANJ">
+<meta name="twitter:description" content="Write-ups of things actually built and tested, by Zohal Zahir.">
+<meta name="twitter:image" content="https://www.datasanj.com/og-image.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -22,14 +37,104 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="theme-color" content="#2B2B2B">
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="datasanj-additions.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://www.datasanj.com/#organization",
+      "name": "DATASANJ",
+      "url": "https://www.datasanj.com/",
+      "image": "https://www.datasanj.com/og-image.png",
+      "email": "d_zohal@datasanj.com",
+      "telephone": "+61435916536",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Canberra",
+        "addressRegion": "ACT",
+        "addressCountry": "AU"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/zohal-zahir-46128697/",
+        "https://github.com/Zohal987654321",
+        "https://www.upwork.com/freelancers/zohalz"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.datasanj.com/About.html#zohal-zahir",
+      "name": "Zohal Zahir",
+      "url": "https://www.datasanj.com/About.html",
+      "jobTitle": "Enterprise Business Intelligence Consultant"
+    },
+    {
+      "@type": "Blog",
+      "@id": "https://www.datasanj.com/Blog.html#blog",
+      "url": "https://www.datasanj.com/Blog.html",
+      "name": "DATASANJ Field Notes",
+      "description": "Field notes on Microsoft Fabric, Power BI and data governance — write-ups of things built and tested.",
+      "inLanguage": "en-AU",
+      "publisher": { "@id": "https://www.datasanj.com/#organization" },
+      "author": { "@id": "https://www.datasanj.com/About.html#zohal-zahir" },
+      "blogPost": [
+        {
+          "@type": "BlogPost",
+          "headline": "One Model, Two Jobs: Testing Write-Back Workflows in Microsoft Fabric Apps",
+          "url": "https://www.datasanj.com/blog-fabric-apps.html",
+          "datePublished": "2026-07-01",
+          "description": "Can an operational process live on the same governed semantic model as the reporting? I built an employee leave tracker to find out — and row-level security held across both.",
+          "keywords": "Microsoft Fabric, Fabric Apps, write-back, row-level security, semantic model",
+          "author": { "@id": "https://www.datasanj.com/About.html#zohal-zahir" },
+          "publisher": { "@id": "https://www.datasanj.com/#organization" },
+          "image": "https://www.datasanj.com/og-fabric-apps.png",
+          "mainEntityOfPage": "https://www.datasanj.com/blog-fabric-apps.html"
+        },
+        {
+          "@type": "BlogPost",
+          "headline": "Building an Interactive Human Body Injury Map in Power BI Using Deneb",
+          "url": "https://www.datasanj.com/blog-deneb-bodymap.html",
+          "datePublished": "2026-03-01",
+          "description": "22 interactive body regions, heat-mapped by injury count, with full cross-filtering and tooltips — built entirely inside Power BI with no external dependencies.",
+          "keywords": "Power BI, Deneb, Vega-Lite, custom visuals, cross-filtering",
+          "author": { "@id": "https://www.datasanj.com/About.html#zohal-zahir" },
+          "publisher": { "@id": "https://www.datasanj.com/#organization" },
+          "mainEntityOfPage": "https://www.datasanj.com/blog-deneb-bodymap.html"
+        },
+        {
+          "@type": "BlogPost",
+          "headline": "What Is MCP \u2014 and Why Should Business Owners Care About It?",
+          "url": "https://www.datasanj.com/blog-mcp-analytics.html",
+          "datePublished": "2025-12-01",
+          "description": "Model Context Protocol lets tools read business data where it already lives, without exporting it. What that changes for reporting, and what it does not replace.",
+          "keywords": "Model Context Protocol, MCP, AI, data analytics, Power BI",
+          "author": { "@id": "https://www.datasanj.com/About.html#zohal-zahir" },
+          "publisher": { "@id": "https://www.datasanj.com/#organization" },
+          "image": "https://www.datasanj.com/og-mcp.png",
+          "mainEntityOfPage": "https://www.datasanj.com/blog-mcp-analytics.html"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.datasanj.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Insights", "item": "https://www.datasanj.com/Blog.html" }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 
 <nav>
   <div class="container">
-    <a href="index.html" class="logo-wrapper">
-      <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" aria-hidden="true">
+    <a href="/" class="logo-wrapper" aria-label="DATASANJ — home">
+      <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" aria-hidden="true" focusable="false">
         <g transform="translate(20,18)">
           <rect x="0" y="36" width="9" height="26" rx="2" fill="#2B2B2B"/>
           <rect x="19" y="24" width="9" height="38" rx="2" fill="#2B2B2B"/>
@@ -46,11 +151,11 @@
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-menu" id="nav-menu">
-      <li><a href="index.html">Home</a></li>
+      <li><a href="/">Home</a></li>
       <li><a href="About.html">About</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="Portfolio.html">Work</a></li>
-      <li><a href="Blog.html" class="active">Insights</a></li>
+      <li><a href="Blog.html" class="active" aria-current="page">Insights</a></li>
       <li><a href="Contact.html" class="nav-cta">Let's Talk</a></li>
     </ul>
   </div>
@@ -58,10 +163,11 @@
 
 <main id="main">
 
+
 <header class="page-header page-header--cream">
   <div class="container">
     <h1>Field notes</h1>
-    <p class="intro">Write-ups of things I've actually built and tested — including what I'd want fixed before putting any of it near a client's production process. Published so you can judge the reasoning rather than take my word for it.</p>
+    <p class="intro">Write-ups of things I've actually built and tested &mdash; including what I'd want fixed before putting any of it near a client's production process. Published so you can judge the reasoning rather than take my word for it.</p>
   </div>
 </header>
 
@@ -76,11 +182,11 @@
         </div>
         <div class="blog-card-body">
           <div class="blog-card-meta">
-            <span>July 2026</span><span>&bull;</span><span>5 min read</span><span>&bull;</span><span>Microsoft Fabric</span>
+            <time datetime="2026-07">July 2026</time><span>&bull;</span><span>5 min read</span><span>&bull;</span><span>Microsoft Fabric</span>
           </div>
-          <p class="blog-card-excerpt">Can an operational process live on the same governed semantic model as the reporting? I built an employee leave tracker to find out — and row-level security held across both.</p>
+          <p class="blog-card-excerpt">Can an operational process live on the same governed semantic model as the reporting? I built an employee leave tracker to find out &mdash; and row-level security held across both.</p>
           <span class="blog-card-link">Read article
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </span>
         </div>
       </a>
@@ -92,31 +198,53 @@
         </div>
         <div class="blog-card-body">
           <div class="blog-card-meta">
-            <span>March 2026</span><span>&bull;</span><span>7 min read</span><span>&bull;</span><span>Custom Visuals</span>
+            <time datetime="2026-03">March 2026</time><span>&bull;</span><span>7 min read</span><span>&bull;</span><span>Custom Visuals</span>
           </div>
-          <p class="blog-card-excerpt">22 interactive body regions, heat-mapped by injury count, with full cross-filtering and tooltips — built entirely inside Power BI with no external dependencies.</p>
+          <p class="blog-card-excerpt">22 interactive body regions, heat-mapped by injury count, with full cross-filtering and tooltips &mdash; built entirely inside Power BI with no external dependencies.</p>
           <span class="blog-card-link">Read article
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </span>
         </div>
       </a>
 
       <a href="blog-mcp-analytics.html" class="blog-card">
         <div class="blog-card-header">
-          <span class="blog-card-badge">Featured Article</span>
-          <h2 class="blog-card-title">How Model Context Protocol (MCP) Will Transform Data Analytics Workflows</h2>
+          <span class="blog-card-badge">Industry Insight</span>
+          <h2 class="blog-card-title">What Is MCP &mdash; and Why Should Business Owners Care?</h2>
         </div>
         <div class="blog-card-body">
           <div class="blog-card-meta">
-            <span>December 2025</span><span>&bull;</span><span>10 min read</span><span>&bull;</span><span>Data Analytics</span>
+            <time datetime="2025-12">December 2025</time><span>&bull;</span><span>7 min read</span><span>&bull;</span><span>Data &amp; AI</span>
           </div>
-          <p class="blog-card-excerpt">A standard for connecting AI assistants to data sources — and what it means in practice for Power BI and analytics professionals.</p>
+          <p class="blog-card-excerpt">Model Context Protocol lets tools read your data where it already lives, without exporting it. What that changes for your reporting &mdash; and what it doesn't.</p>
           <span class="blog-card-link">Read article
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </span>
         </div>
       </a>
 
+    </div>
+
+    <!--
+      EMAIL CAPTURE — create a second Formspree form for this and paste its
+      ID below, replacing YOUR_SUBSCRIBE_FORM_ID. Don't reuse the enquiry
+      form ID or subscribers will land in the same inbox thread as leads.
+      An owned email list is the highest-value asset on this page: LinkedIn
+      followers are rented, subscribers are not.
+    -->
+    <div class="subscribe">
+      <h3>New field notes by email</h3>
+      <p>One email when I publish something new. Usually monthly, sometimes less. No newsletter template, no roundups of other people's links, and no sales sequence.</p>
+      <form action="https://formspree.io/f/YOUR_SUBSCRIBE_FORM_ID" method="POST">
+        <input type="hidden" name="_subject" value="New field-note subscriber">
+        <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="subscribe-row">
+          <label for="sub-email" class="visually-hidden">Your email address</label>
+          <input type="email" id="sub-email" name="email" required autocomplete="email" inputmode="email" placeholder="you@company.com.au">
+          <button type="submit" class="btn btn-dark">Subscribe</button>
+        </div>
+        <small>Unsubscribe in one click. I don't share the list.</small>
+      </form>
     </div>
 
     <div class="project-links" style="justify-content:center;border-top:0;margin-top:44px">
@@ -130,6 +258,11 @@
     <h2>Recognise the problem in your own reporting?</h2>
     <p>Tell me what decision your team is trying to make and where the numbers stop being trusted. I'll give you an honest read on what it would take to fix.</p>
     <a href="Contact.html" class="btn btn-primary">Start a conversation &rarr;</a>
+    <ul class="trust-strip">
+      <li>Reply within two business days</li>
+      <li>Fixed-scope diagnostic before any build</li>
+      <li>Microsoft Certified DP-600 &amp; PL-300</li>
+    </ul>
   </div>
 </section>
 
@@ -143,12 +276,13 @@
         <p>Enterprise BI consultancy based in Canberra, Australia. Microsoft Certified (DP-600, PL-300) and Certified Xero Advisor. Remote across Australia, New Zealand and the US.</p>
         <div class="footer-contact">
           <a href="mailto:d_zohal@datasanj.com">d_zohal@datasanj.com</a>
+          <a href="tel:+61435916536">+61 435 916 536</a>
           <a href="Contact.html">Canberra, ACT, Australia</a>
         </div>
       </div>
       <div class="footer-links">
         <h4>Navigation</h4>
-        <a href="index.html">Home</a>
+        <a href="/">Home</a>
         <a href="About.html">About</a>
         <a href="services.html">Services</a>
         <a href="Portfolio.html">Work</a>
@@ -158,7 +292,7 @@
       <div class="footer-links">
         <h4>Practice Areas</h4>
         <a href="services.html">Data Platform Architecture</a>
-        <a href="services.html">Semantic Modelling</a>
+        <a href="services.html">Multi-Site Modelling</a>
         <a href="services.html">Governance &amp; BI Engineering</a>
         <a href="services.html">Compliance Reporting</a>
         <a href="services.html">Financial Automation</a>

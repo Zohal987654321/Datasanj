@@ -1,810 +1,512 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Real projects, real results. Power BI dashboards, Excel automation, and system integrations for finance, government, healthcare, and more.">
-    <meta name="keywords" content="Power BI portfolio, data analytics projects, dashboard examples, automation case studies">
-    <meta name="author" content="Zohal Zahir">
-    <title>Portfolio | Real Projects & Results | DATASANJ</title>
-    <link rel="canonical" href="https://datasanj.com/Portfolio.html">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            --charcoal: #2B2B2B;
-            --charcoal-light: #3D3D3D;
-            --copper: #C46A3D;
-            --copper-light: #D4845A;
-            --copper-dark: #A85A32;
-            --warm-white: #FAFAF8;
-            --cream: #F5F4F2;
-            --stone: #E8E6E3;
-            --grey-400: #9A9A9A;
-            --grey-500: #6B6B6B;
-            --grey-600: #4A4A4A;
-            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body { 
-            font-family: var(--font-primary);
-            line-height: 1.7; 
-            color: var(--charcoal); 
-            background: var(--warm-white);
-            font-weight: 400;
-            -webkit-font-smoothing: antialiased;
-        }
-        
-        a { text-decoration: none; color: inherit; }
-        img { display: block; max-width: 100%; height: auto; }
-        
-        .container { 
-            max-width: 1140px; 
-            margin: 0 auto; 
-            padding: 0 32px; 
-        }
-
-        /* Navigation */
-        nav { 
-            position: fixed; 
-            top: 0; 
-            width: 100%; 
-            background: rgba(250, 250, 248, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--stone);
-            z-index: 1000; 
-            padding: 20px 0;
-        }
-        
-        nav .container { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-        }
-        
-        .logo-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            text-decoration: none;
-        }
-
-        .logo-icon { width: 40px; height: 40px; flex-shrink: 0; }
-
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-            line-height: 1.1;
-        }
-
-        .logo-text .brand {
-            font-size: 18px;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            color: var(--charcoal);
-        }
-
-        .logo-text .tagline {
-            font-size: 9px;
-            font-weight: 400;
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
-            color: var(--grey-500);
-            margin-top: 3px;
-        }
-        
-        nav ul { 
-            display: flex; 
-            list-style: none; 
-            gap: 40px; 
-            align-items: center; 
-        }
-        
-        nav a { 
-            color: var(--grey-600); 
-            font-weight: 500; 
-            font-size: 14px; 
-            letter-spacing: 0.02em;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-        
-        nav a:hover { color: var(--copper); }
-        nav a.active { color: var(--charcoal); }
-
-        nav a.active::after {
-            content: '';
-            position: absolute;
-            bottom: -6px;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: var(--copper);
-        }
-        
-        .nav-cta { 
-            background: var(--charcoal);
-            color: var(--warm-white) !important; 
-            padding: 12px 28px; 
-            border-radius: 6px;
-            font-weight: 500;
-            letter-spacing: 0.03em;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-cta:hover { 
-            background: var(--copper);
-            transform: translateY(-1px);
-        }
-
-        .nav-cta::after { display: none !important; }
-
-        /* Header */
-        .page-header {
-            margin-top: 84px;
-            padding: 80px 0;
-            background: var(--cream);
-            text-align: center;
-        }
-
-        .page-header h1 {
-            font-size: 42px;
-            font-weight: 600;
-            color: var(--charcoal);
-            margin-bottom: 16px;
-            letter-spacing: -0.02em;
-        }
-
-        .page-header p {
-            font-size: 18px;
-            color: var(--grey-600);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Section Styling */
-        .section-label {
-            font-size: 11px;
-            font-weight: 500;
-            color: var(--copper);
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            margin-bottom: 16px;
-        }
-
-        .section-title {
-            font-size: 28px;
-            font-weight: 600;
-            color: var(--charcoal);
-            margin-bottom: 48px;
-            letter-spacing: -0.02em;
-        }
-
-        /* Category Sections */
-        .category-section {
-            padding: 80px 0;
-        }
-
-        .category-section:nth-child(even) {
-            background: var(--cream);
-        }
-
-        .category-section:nth-child(odd) {
-            background: var(--warm-white);
-        }
-
-        .projects-grid {
-            display: grid;
-            gap: 32px;
-        }
-
-        /* Project Cards */
-        .project-card {
-            background: var(--warm-white);
-            border: 1px solid var(--stone);
-            border-radius: 8px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .category-section:nth-child(odd) .project-card {
-            background: var(--cream);
-        }
-
-        .project-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 32px rgba(43, 43, 43, 0.08);
-        }
-
-        .project-header {
-            padding: 32px 32px 24px;
-        }
-
-        .project-tag {
-            display: inline-block;
-            background: var(--copper);
-            color: var(--warm-white);
-            padding: 6px 14px;
-            border-radius: 4px;
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            margin-bottom: 16px;
-        }
-
-        .project-card h3 {
-            font-size: 22px;
-            font-weight: 600;
-            color: var(--charcoal);
-            margin-bottom: 12px;
-            letter-spacing: -0.01em;
-        }
-
-        .project-card .problem {
-            font-size: 15px;
-            color: var(--grey-600);
-            line-height: 1.7;
-            margin-bottom: 20px;
-        }
-
-        .project-body {
-            padding: 0 32px 32px;
-        }
-
-        .project-solution {
-            margin-bottom: 24px;
-        }
-
-        .project-solution h4 {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--charcoal);
-            margin-bottom: 12px;
-        }
-
-        .project-solution p {
-            font-size: 14px;
-            color: var(--grey-600);
-            line-height: 1.7;
-        }
-
-        .project-result {
-            background: var(--cream);
-            padding: 20px 24px;
-            border-radius: 6px;
-            margin-bottom: 24px;
-            border: 1px solid var(--stone);
-        }
-
-        .project-result strong {
-            color: var(--copper);
-            font-size: 13px;
-            font-weight: 600;
-            display: block;
-            margin-bottom: 8px;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-        }
-
-        .project-result p {
-            color: var(--charcoal);
-            font-size: 15px;
-            line-height: 1.6;
-        }
-
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .tech-tag {
-            background: var(--stone);
-            padding: 6px 12px;
-            border-radius: 4px;
-            font-size: 11px;
-            font-weight: 500;
-            color: var(--grey-600);
-        }
-
-        /* CTA Section */
-        .cta-section {
-            padding: 100px 0;
-            background: var(--charcoal);
-            color: var(--warm-white);
-            text-align: center;
-        }
-
-        .cta-section h2 {
-            font-size: 36px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            letter-spacing: -0.02em;
-        }
-
-        .cta-section p {
-            font-size: 17px;
-            margin-bottom: 40px;
-            color: rgba(255, 255, 255, 0.95);
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 16px 36px;
-            border-radius: 6px;
-            font-weight: 500;
-            font-size: 15px;
-            letter-spacing: 0.02em;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
-        }
-
-        .btn-primary {
-            background: var(--copper);
-            color: var(--warm-white);
-        }
-
-        .btn-primary:hover {
-            background: var(--copper-light);
-            transform: translateY(-2px);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--charcoal);
-            color: var(--warm-white);
-            padding: 80px 0 40px;
-            border-top: 1px solid var(--charcoal-light);
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 60px;
-            margin-bottom: 60px;
-        }
-
-        .footer-brand h3 {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            color: var(--warm-white);
-            letter-spacing: 0.05em;
-        }
-
-        .footer-brand p {
-            color: rgba(255, 255, 255, 0.85);
-            line-height: 1.7;
-            font-size: 14px;
-            margin-bottom: 24px;
-        }
-
-        .footer-contact {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .footer-contact a {
-            color: rgba(255, 255, 255, 0.85);
-            font-size: 14px;
-            transition: color 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .footer-contact a::before {
-            content: '';
-            width: 4px;
-            height: 4px;
-            background: var(--copper);
-            border-radius: 50%;
-        }
-
-        .footer-contact a:hover {
-            color: var(--copper-light);
-        }
-
-        .footer-links h4 {
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 24px;
-            color: var(--warm-white);
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-        }
-
-        .footer-links a {
-            display: block;
-            color: rgba(255, 255, 255, 0.85);
-            margin-bottom: 14px;
-            font-size: 14px;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--copper-light);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 40px;
-            border-top: 1px solid var(--charcoal-light);
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 13px;
-            letter-spacing: 0.02em;
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .footer-grid { grid-template-columns: 1fr 1fr; }
-        }
-
-        @media (max-width: 768px) {
-            .container { padding: 0 24px; }
-            nav ul { display: none; }
-            .page-header h1 { font-size: 32px; }
-            .section-title { font-size: 24px; }
-            .project-card h3 { font-size: 20px; }
-            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Selected work by DATASANJ — enterprise Microsoft Fabric platforms, government compliance reporting including a City of Melbourne waste audit program, healthcare outcome analysis, financial automation, and Excel and Google Sheets systems.">
+<meta name="keywords" content="Microsoft Fabric portfolio, Power BI case studies Australia, City of Melbourne waste audit dashboard, compliance reporting, Xero Power BI, Excel VBA, Google Sheets automation">
+<meta name="author" content="Zohal Zahir">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Work | DATASANJ — From Data Chaos to Clarity">
+<meta property="og:description" content="Enterprise Fabric platforms, government compliance reporting, healthcare outcomes, and financial automation.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.datasanj.com/Portfolio.html">
+<title>Work | From Data Chaos to Clarity | DATASANJ</title>
+<link rel="canonical" href="https://www.datasanj.com/Portfolio.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="container">
-            <a href="index.html" class="logo-wrapper">
-                <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
-                    <g transform="translate(20,18)">
-                        <rect x="0"  y="36" width="9" height="26" rx="2" fill="#2B2B2B"/>
-                        <rect x="19" y="24" width="9" height="38" rx="2" fill="#2B2B2B"/>
-                        <rect x="38" y="12" width="9" height="50" rx="2" fill="#2B2B2B"/>
-                        <path d="M 1 50 Q 26 30, 47 15" stroke="#C46A3D" stroke-width="2" fill="none" stroke-linecap="round"/>
-                    </g>
-                </svg>
-                <div class="logo-text">
-                    <span class="brand">DATASANJ</span>
-                    <span class="tagline">ANALYTICS CONSULTANCY</span>
-                </div>
-            </a>
+<a class="skip-link" href="#main">Skip to content</a>
 
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="About.html">About</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="Portfolio.html" class="active">Portfolio</a></li>
-                <li><a href="Blog.html">Insights</a></li>
-                <li><a href="Contact.html" class="nav-cta">Let's Talk</a></li>
-            </ul>
+<nav>
+  <div class="container">
+    <a href="index.html" class="logo-wrapper">
+      <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" aria-hidden="true">
+        <g transform="translate(20,18)">
+          <rect x="0" y="36" width="9" height="26" rx="2" fill="#2B2B2B"/>
+          <rect x="19" y="24" width="9" height="38" rx="2" fill="#2B2B2B"/>
+          <rect x="38" y="12" width="9" height="50" rx="2" fill="#2B2B2B"/>
+          <path d="M 1 50 Q 26 30, 47 15" stroke="#C46A3D" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </g>
+      </svg>
+      <div class="logo-text">
+        <span class="brand">DATASANJ</span>
+        <span class="tagline">ANALYTICS CONSULTANCY</span>
+      </div>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-menu" id="nav-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="About.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="Portfolio.html" class="active">Work</a></li>
+      <li><a href="Blog.html">Insights</a></li>
+      <li><a href="Contact.html" class="nav-cta">Start a Conversation</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="main">
+
+<header class="page-header page-header--dark">
+  <div class="container">
+    <h1>From data chaos to clarity</h1>
+    <p class="intro">Every engagement below started the same way: numbers people couldn't act on without checking them twice. Grouped by the kind of problem rather than the tool, because the tool is rarely the interesting part.</p>
+    <div class="arc" style="margin-top:34px">
+      <b class="from">Chaos</b><i>→</i><b class="to">Clarity</b>
+    </div>
+  </div>
+</header>
+
+<!-- ============ 1. ENTERPRISE DATA PLATFORMS ============ -->
+<section class="section">
+  <div class="container">
+    <div class="eyebrow">01 — Enterprise Data Platforms</div>
+    <h2 class="section-title">Microsoft Fabric architecture</h2>
+    <p class="section-intro">Full-stack builds: ingestion, Medallion layers, dimensional modelling, governance and publication. Where the whole chain needs one owner.</p>
+
+    <div class="project">
+      <div class="project-head">
+        <div class="project-tags"><span>Microsoft Fabric</span><span class="alt">Kimball model</span><span class="alt">Sole consultant</span></div>
+        <h3>Enterprise hotel portfolio analytics platform</h3>
+        <p class="client">Multi-property hotel portfolio · Feb 2026 – present · End-to-end ownership, phased Agile delivery with sign-off at each milestone</p>
+      </div>
+      <div class="project-body">
+
+        <figure class="media">
+          <div class="frame" data-ph="Add dashboard-hotel-executive.png — executive portfolio view">
+            <img src="dashboard-hotel-executive.png" alt="Executive dashboard showing portfolio KPIs, trends and risk">
+          </div>
+          <figcaption>Executive view — portfolio KPIs, trends and risk. Blur or substitute any client figures before publishing.</figcaption>
+        </figure>
+
+        <div class="ccblock">
+          <div class="ccblock--chaos">
+            <h4>The chaos</h4>
+            <p>Source workbooks that could not feed Power BI at all. Benchmarking reports spread across 17–23 sheets with merged headers. Debt schedules over 11 tabs. Investment summaries with duplicate and missing codes. Budgets across 31 tabs.</p>
+          </div>
+          <div class="ccblock--clarity">
+            <h4>The clarity</h4>
+            <p>One governed semantic model where financial, benchmarking, debt and budget data filter together, published as a Power BI App across dev, test and production — with tie-out reports proving the numbers against the accounting system.</p>
+          </div>
         </div>
-    </nav>
 
-    <!-- Page Header -->
-    <section class="page-header">
-        <div class="container">
-            <h1>Real Projects, Real Results</h1>
-            <p>From chaos to clarity—here's what I've built for finance teams, government, healthcare, and growing businesses.</p>
+        <div class="project-build">
+          <h4>What I built</h4>
+          <p>SharePoint libraries connected to Fabric via Microsoft Graph API, landing files into Bronze automatically. PySpark notebooks in Silver to parse and normalise each source — P&amp;L anchored to the chart of accounts, merged-header benchmarking reports flattened, debt schemas normalised, budgets restructured into flat facts. Gold built as a Kimball dimensional model with conformed property, date, account, department and competitive-set dimensions, feeding a central enterprise semantic model with over 600 DAX measures. Room-weighted aggregation for portfolio-level indices. Role-specific dashboards: executive, operations, benchmarking, owner and investor, and debt and investment. Currently in delivery: franchise and brand compliance, then row-level security, governance and training.</p>
+          <div class="project-stack">
+            <span>Microsoft Fabric</span><span>Lakehouse</span><span>PySpark</span><span>Medallion architecture</span><span>Kimball modelling</span><span>600+ DAX measures</span><span>Deployment pipelines</span><span>Microsoft Graph API</span><span>Power BI App</span>
+          </div>
         </div>
-    </section>
 
-    <!-- Finance & Accounting Projects -->
-    <section class="category-section">
-        <div class="container">
-            <div class="section-label">Finance & Accounting</div>
-            <h2 class="section-title">Automated Financial Systems</h2>
-
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-header">
-                        <span class="project-tag">Microsoft Fabric + Xero</span>
-                        <h3>Xero to Power BI Pipeline via Microsoft Fabric</h3>
-                        <p class="problem">
-                            Turned raw accounting data into actionable financial insights. Client was drowning in manual Xero exports, scattered Excel files, no visibility into overdue invoices, and spending hours on monthly reports.
-                        </p>
-                    </div>
-                    <div class="project-body">
-                        <div class="project-solution">
-                            <h4>What I Built</h4>
-                            <p>Production-grade data pipeline: Xero API → Microsoft Fabric → Delta Lake tables → Power BI dashboard. Automated daily refresh with OAuth 2.0 token management. Dashboard answers: How much are we owed? Who owes us the most? What's overdue? AR vs AP—are we cash positive? Which regions drive revenue?</p>
-                        </div>
-                        <div class="project-result">
-                            <strong>Result</strong>
-                            <p>• Automated daily data refresh<br>• Real-time AR aging analysis<br>• Instant cash flow visibility<br>• One-click executive summary<br>• Manual reporting eliminated completely.</p>
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-tag">Microsoft Fabric</span>
-                            <span class="tech-tag">Delta Lake</span>
-                            <span class="tech-tag">Power BI</span>
-                            <span class="tech-tag">Xero API</span>
-                            <span class="tech-tag">OAuth 2.0</span>
-                            <span class="tech-tag">Python</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <span class="project-tag">Power BI</span>
-                        <h3>SaaS Financial Dashboard - 5 Days to 3 Hours</h3>
-                        <p class="problem">
-                            Fast-growing SaaS company spending 5 days every month manually consolidating financial data for board reporting. By the time reports were ready, data was already outdated.
-                        </p>
-                    </div>
-                    <div class="project-body">
-                        <div class="project-solution">
-                            <h4>What I Built</h4>
-                            <p>Automated Power BI dashboard showing P&L, cash flow, ARR, MRR, runway, and burn rate. One-click board reports with real-time data.</p>
-                        </div>
-                        <div class="project-result">
-                            <strong>Result</strong>
-                            <p>Month-end close reduced from 5 days to 3 hours (80% time saved). Better visibility into spend decisions extended company runway by 12+ months.</p>
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-tag">Power BI</span>
-                            <span class="tech-tag">DAX</span>
-                            <span class="tech-tag">Data Modeling</span>
-                            <span class="tech-tag">Financial Metrics</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <span class="project-tag">Excel VBA</span>
-                        <h3>Pricing Calculator for Manufacturing</h3>
-                        <p class="problem">
-                            Manufacturing company manually calculating quotes in a massive Excel file. 10+ hours per week on pricing, frequent errors, no version control.
-                        </p>
-                    </div>
-                    <div class="project-body">
-                        <div class="project-solution">
-                            <h4>What I Built</h4>
-                            <p>Automated VBA pricing tool with dynamic cost calculations, margin analysis, and instant PDF quote generation. Built-in validation to catch errors.</p>
-                        </div>
-                        <div class="project-result">
-                            <strong>Result</strong>
-                            <p>Pricing time cut from 10 hours/week to 2 hours. Zero pricing errors. Sales team can generate quotes independently.</p>
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-tag">Excel VBA</span>
-                            <span class="tech-tag">Advanced Formulas</span>
-                            <span class="tech-tag">PDF Export</span>
-                        </div>
-                    </div>
-                </div>
+        <div class="media-grid" style="margin-top:24px">
+          <figure class="media">
+            <div class="frame" data-ph="Add dashboard-hotel-benchmarking.png">
+              <img src="dashboard-hotel-benchmarking.png" alt="Benchmarking dashboard with ADR, occupancy and RevPAR indices">
             </div>
-        </div>
-    </section>
-
-    <!-- Government & Municipal Projects -->
-    <section class="category-section">
-        <div class="container">
-            <div class="section-label">Government & Municipal</div>
-            <h2 class="section-title">Public Sector Analytics</h2>
-
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-header">
-                        <span class="project-tag">Power BI</span>
-                        <h3>City of Melbourne Waste Management Dashboard</h3>
-                        <p class="problem">
-                            City of Melbourne needed to track compliance across 25+ KPIs for waste management in CBD laneways. Manual Excel tracking made it impossible to see real-time status or identify problem areas.
-                        </p>
-                    </div>
-                    <div class="project-body">
-                        <div class="project-solution">
-                            <h4>What I Built</h4>
-                            <p>Interactive Power BI dashboard tracking 25+ KPIs across all CBD zones. Real-time alerts for compliance issues, drill-down by location and contractor, automated monthly reporting.</p>
-                        </div>
-                        <div class="project-result">
-                            <strong>Result</strong>
-                            <p>Real-time visibility into laneway cleanliness. Compliance issues identified immediately instead of weeks later. Automated reporting saved 20+ hours per month.</p>
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-tag">Power BI</span>
-                            <span class="tech-tag">DAX</span>
-                            <span class="tech-tag">SQL</span>
-                            <span class="tech-tag">Custom Visuals</span>
-                        </div>
-                    </div>
-                </div>
+            <figcaption>Benchmarking — ADR, occupancy and RevPAR indices, MPI/ARI/RGI trending, competitive-set ranking.</figcaption>
+          </figure>
+          <figure class="media">
+            <div class="frame" data-ph="Add dashboard-hotel-debt.png">
+              <img src="dashboard-hotel-debt.png" alt="Debt and investment dashboard showing DSCR, debt yield and LTV">
             </div>
+            <figcaption>Debt &amp; investment — EBITDA, NOI, FCF and cash-on-cash per property, with DSCR, debt yield and LTV.</figcaption>
+          </figure>
         </div>
-    </section>
 
-    <!-- Healthcare Projects -->
-    <section class="category-section">
-        <div class="container">
-            <div class="section-label">Healthcare</div>
-            <h2 class="section-title">Healthcare Analytics</h2>
-
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-header">
-                        <span class="project-tag">Power BI + Python</span>
-                        <h3>Mental Health 911 Response Dashboard</h3>
-                        <p class="problem">
-                            Healthcare organization in Austin needed to track mental health crisis response times, resource allocation, and outcome metrics across the city. Data scattered across multiple systems.
-                        </p>
-                    </div>
-                    <div class="project-body">
-                        <div class="project-solution">
-                            <h4>What I Built</h4>
-                            <p>Integrated dashboard pulling from multiple data sources. Python scripts for data cleaning and transformation. Real-time tracking of response times, resource deployment, and patient outcomes by district.</p>
-                        </div>
-                        <div class="project-result">
-                            <strong>Result</strong>
-                            <p>Leadership can now identify resource gaps immediately. Response time analysis by district helps allocate teams more effectively.</p>
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-tag">Power BI</span>
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">pandas</span>
-                            <span class="tech-tag">Data Integration</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <span class="project-tag">Power BI</span>
-                        <h3>US Healthcare Data Analysis</h3>
-                        <p class="problem">
-                            Healthcare provider needed comprehensive analysis of patient demographics, service utilization, and operational metrics to improve care delivery and resource planning.
-                        </p>
-                    </div>
-                    <div class="project-body">
-                        <div class="project-solution">
-                            <h4>What I Built</h4>
-                            <p>Multi-dashboard system analyzing patient demographics, appointment patterns, resource utilization, and service quality metrics. Automated weekly and monthly executive reports.</p>
-                        </div>
-                        <div class="project-result">
-                            <strong>Result</strong>
-                            <p>Identified service gaps in specific demographics. Optimized staff scheduling based on actual utilization patterns.</p>
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-tag">Power BI</span>
-                            <span class="tech-tag">DAX</span>
-                            <span class="tech-tag">Data Modeling</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="project-links">
+          <a href="Contact.html">Discuss a platform build →</a>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Operations & Supply Chain Projects -->
-    <section class="category-section">
-        <div class="container">
-            <div class="section-label">Operations</div>
-            <h2 class="section-title">Supply Chain & Operations</h2>
+<!-- ============ 2. GOVERNMENT & COMPLIANCE ============ -->
+<section class="section bg-cream">
+  <div class="container">
+    <div class="eyebrow">02 — Government &amp; Compliance</div>
+    <h2 class="section-title">Reporting as evidence</h2>
+    <p class="section-intro">Programs where the reporting isn't management information — it's the record of whether obligations were met.</p>
 
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-header">
-                        <span class="project-tag">Power BI</span>
-                        <h3>Supply Chain Visibility Dashboard</h3>
-                        <p class="problem">
-                            Manufacturing company had no visibility into inventory levels, supplier performance, or production bottlenecks. Everything lived in disconnected spreadsheets.
-                        </p>
-                    </div>
-                    <div class="project-body">
-                        <div class="project-solution">
-                            <h4>What I Built</h4>
-                            <p>Integrated dashboard showing real-time inventory, supplier delivery performance, production status, and quality metrics. Automated alerts for low stock and late deliveries.</p>
-                        </div>
-                        <div class="project-result">
-                            <strong>Result</strong>
-                            <p>Reduced stockouts by identifying issues earlier. Improved supplier accountability through performance tracking.</p>
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-tag">Power BI</span>
-                            <span class="tech-tag">SQL</span>
-                            <span class="tech-tag">Data Integration</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="project">
+      <div class="project-head">
+        <div class="project-tags"><span>Compliance reporting</span><span class="alt">Local government</span><span class="alt">Ongoing</span></div>
+        <h3>City of Melbourne laneway waste audit program</h3>
+        <p class="client">Engaged by Waste Audit &amp; Consultancy Services on contract · Jun 2025 – present · Ongoing update support and dashboard maintenance</p>
+      </div>
+      <div class="project-body">
+
+        <figure class="media">
+          <div class="frame" data-ph="Add dashboard-waste-compliance.png — laneway compliance overview">
+            <img src="dashboard-waste-compliance.png" alt="Waste audit compliance dashboard tracking bin compliance and infrastructure condition">
+          </div>
+          <figcaption>Compliance overview across CBD laneways, with drill-through to individual laneway and hub.</figcaption>
+        </figure>
+
+        <div class="ccblock">
+          <div class="ccblock--chaos">
+            <h4>The chaos</h4>
+            <p>Audit data on bin compliance, compactor operations, dumped rubbish and infrastructure condition split between internal audit records and third-party contractor feeds, arriving on different daily, weekly and monthly cycles.</p>
+          </div>
+          <div class="ccblock--clarity">
+            <h4>The clarity</h4>
+            <p>One governed star-schema model with automated refresh — and a shift in the question the program could answer: not how much non-compliance existed, but where it concentrated.</p>
+          </div>
         </div>
-    </section>
 
-    <!-- Data Engineering Projects -->
-    <section class="category-section">
-        <div class="container">
-            <div class="section-label">Data Engineering</div>
-            <h2 class="section-title">Advanced Integration & Automation</h2>
-
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-header">
-                        <span class="project-tag">Microsoft Fabric + Python</span>
-                        <h3>Spotify API Data Pipeline</h3>
-                        <p class="problem">
-                            Personal project: Automate collection of my Spotify listening history for analysis. Wanted to build a production-grade data pipeline using Microsoft Fabric.
-                        </p>
-                    </div>
-                    <div class="project-body">
-                        <div class="project-solution">
-                            <h4>What I Built</h4>
-                            <p>Automated data pipeline using Microsoft Fabric, Python, and PySpark. Daily API calls to Spotify, data transformation and loading to lakehouse, automated OAuth token refresh.</p>
-                        </div>
-                        <div class="project-result">
-                            <strong>Result</strong>
-                            <p>Fully automated pipeline runs daily. Demonstrated advanced skills in cloud data engineering and API integration for future client projects.</p>
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-tag">Microsoft Fabric</span>
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">PySpark</span>
-                            <span class="tech-tag">Spotify API</span>
-                            <span class="tech-tag">OAuth 2.0</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="project-build">
+          <h4>What I built</h4>
+          <p>Internal audit and contractor sources integrated into a single star-schema model handling three refresh cadences via SharePoint with automated refresh. More than 25 custom visuals and DAX measures covering compliance trends, damage-type analysis and operational status, with drill-through from a CBD-wide view down to individual laneways and hubs. Metadata documentation and governed datasets published in Power BI Service, with continuing update support after delivery.</p>
+          <div class="project-stack">
+            <span>Power BI</span><span>DAX</span><span>Star-schema modelling</span><span>SharePoint</span><span>Automated refresh</span><span>Governed datasets</span><span>Metadata documentation</span>
+          </div>
         </div>
-    </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <h2>Want Results Like These?</h2>
-            <p>Let's talk about your data challenges and how I can help you scale.</p>
-            <a href="Contact.html" class="btn btn-primary">Schedule a Call →</a>
+        <div class="callout">
+          <h4>Why this one matters</h4>
+          <p>Regulators and public programs don't want more numbers — they want to know where to direct limited attention first. Moving a program from volume to concentration is the same shift risk-based regulation depends on, and it's the thinking I bring to any compliance or audit reporting brief.</p>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <h3>DATASANJ</h3>
-                    <p>Analytics consultancy helping business owners scale with automated reporting and reliable data systems. Microsoft Certified & Xero Advisor. Based in Canberra.</p>
-                    <div class="footer-contact">
-                         <a href="mailto:d_zohal@datasanj.com">d_zohal@datasanj.com</a>
-                        <a href="#">Canberra, ACT, Australia</a>
-                    </div>
-                </div>
+        <div class="project-links">
+          <a href="Contact.html">Discuss compliance reporting →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-                <div class="footer-links">
-                    <h4>Navigation</h4>
-                    <a href="index.html">Home</a>
-                    <a href="About.html">About</a>
-                    <a href="services.html">Services</a>
-                    <a href="Portfolio.html">Portfolio</a>
-                    <a href="Blog.html">Insights</a>
-                    <a href="Contact.html">Contact</a>
-                </div>
+<!-- ============ 3. HEALTHCARE & OUTCOMES ============ -->
+<section class="section">
+  <div class="container">
+    <div class="eyebrow">03 — Healthcare &amp; Community Outcomes</div>
+    <h2 class="section-title">Connecting service data to outcomes</h2>
+    <p class="section-intro">Where the useful question isn't how much activity happened, but whether it changed anything.</p>
 
-                <div class="footer-links">
-                    <h4>What I Do</h4>
-                    <a href="services.html">Power BI Dashboards</a>
-                    <a href="services.html">Excel Automation</a>
-                    <a href="services.html">System Integration</a>
-                    <a href="services.html">Xero to Power BI</a>
-                </div>
+    <div class="project">
+      <div class="project-head">
+        <div class="project-tags"><span>Outcome analysis</span><span class="alt">Healthcare</span></div>
+        <h3>Mental health and 911 response outcomes</h3>
+        <p class="client">Healthcare provider, Austin, Texas · Sep – Oct 2025</p>
+      </div>
+      <div class="project-body">
+        <div class="ccblock">
+          <div class="ccblock--chaos">
+            <h4>The chaos</h4>
+            <p>911 dispatch records, mental health service data and community resource information sitting in separate systems, with no way to connect a crisis response to what happened afterwards.</p>
+          </div>
+          <div class="ccblock--clarity">
+            <h4>The clarity</h4>
+            <p>A star-schema model linking response to outcome, so intervention programs could actually be evaluated rather than just counted.</p>
+          </div>
+        </div>
+        <div class="project-build">
+          <h4>What I built</h4>
+          <p>Dispatch, mental health service and community resource datasets integrated into a star-schema model built for relationship analysis, with an executive dashboard providing drill-down and DAX measures for response-time analysis and outcome tracking.</p>
+          <div class="project-stack"><span>Power BI</span><span>DAX</span><span>Star-schema modelling</span><span>Multi-source integration</span></div>
+        </div>
+      </div>
+    </div>
 
-                <div class="footer-links">
-                    <h4>Connect</h4>
-                    <a href="https://www.linkedin.com/in/zohal-zahir-46128697/" target="_blank">LinkedIn</a>
-                    <a href="https://github.com/Zohal987654321" target="_blank">GitHub</a>
-                    <a href="https://www.upwork.com/freelancers/zohalz" target="_blank">Upwork Profile</a>
-                </div>
-            </div>
+    <div class="project">
+      <div class="project-head">
+        <div class="project-tags"><span>Operational tooling</span><span class="alt">Healthcare</span><span class="alt">Client rated 5.0</span></div>
+        <h3>Medical provider time tracking and client allocation</h3>
+        <p class="client">Healthcare client via Upwork · Mar – Apr 2026</p>
+      </div>
+      <div class="project-body">
+        <div class="project-build">
+          <h4>What I built</h4>
+          <p>A workbook to track hours for per-diem medical providers, allocating time by visit type and membership category so the practice could reconcile provider hours against client allocation without manual recalculation.</p>
+          <div class="project-stack"><span>Excel</span><span>Advanced formulas</span><span>Data validation</span></div>
+        </div>
+        <div class="quote" style="margin-top:20px">
+          <blockquote>"Zohal was simply exceptional to work with. She created a complex Excel file to help me track hours for my per diem medical providers based on visit type and membership."</blockquote>
+          <cite><b>Healthcare client</b>Verified review via Upwork · Endorsed: collaborative, committed to quality, clear communicator, detail oriented</cite>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-            <div class="footer-bottom">
+<!-- ============ 4. FINANCE & ACCOUNTING ============ -->
+<section class="section bg-cream">
+  <div class="container">
+    <div class="eyebrow">04 — Finance &amp; Accounting Automation</div>
+    <h2 class="section-title">Reporting that reconciles</h2>
+    <p class="section-intro">Backed by an accounting qualification and Xero certification — so the model reflects how the books actually work, not how the data happened to be exported.</p>
 
+    <div class="project">
+      <div class="project-head">
+        <div class="project-tags"><span>Microsoft Fabric</span><span class="alt">Xero API</span></div>
+        <h3>Xero to Power BI pipeline via Microsoft Fabric</h3>
+        <p class="client">SME and SaaS clients · Productised solution</p>
+      </div>
+      <div class="project-body">
 
+        <figure class="media">
+          <div class="frame" data-ph="Add dashboard-xero-financial.png — AP/AR and cash position">
+            <img src="dashboard-xero-financial.png" alt="Financial dashboard showing accounts payable, receivable and cash position">
+          </div>
+          <figcaption>Live accounts payable and receivable, budget tracking and cash position.</figcaption>
+        </figure>
 
+        <div class="ccblock">
+          <div class="ccblock--chaos">
+            <h4>The chaos</h4>
+            <p>Manual Xero exports, scattered spreadsheets, no visibility on overdue invoices, and hours lost to assembling monthly reports from figures that were already stale by the time anyone read them.</p>
+          </div>
+          <div class="ccblock--clarity">
+            <h4>The clarity</h4>
+            <p>An automated daily pipeline answering the questions owners actually ask: how much are we owed, who owes the most, what's overdue, and are we cash positive.</p>
+          </div>
+        </div>
+
+        <div class="project-build">
+          <h4>What I built</h4>
+          <p>Xero API into Microsoft Fabric, landing to Delta Lake tables and surfacing in Power BI, with automated daily refresh and OAuth 2.0 token management for unattended operation. Covers accounts payable and receivable ageing, budget tracking, forecasting and scenario analysis.</p>
+          <div class="project-stack"><span>Microsoft Fabric</span><span>Delta Lake</span><span>Xero API</span><span>OAuth 2.0</span><span>Power BI</span><span>Python</span></div>
+        </div>
+
+        <div class="project-links">
+          <a href="https://www.upwork.com/freelancers/zohalz" target="_blank" rel="noopener">See this in my Upwork portfolio →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <div class="project-tags"><span>Power BI</span><span class="alt">SaaS</span></div>
+        <h3>SaaS board reporting — five days to three hours</h3>
+        <p class="client">Fast-growing SaaS company</p>
+      </div>
+      <div class="project-body">
+        <div class="ccblock">
+          <div class="ccblock--chaos">
+            <h4>The chaos</h4>
+            <p>Five days of manual consolidation every month to produce board reporting — by which point the numbers described a month that had already ended.</p>
+          </div>
+          <div class="ccblock--clarity">
+            <h4>The clarity</h4>
+            <p>Month-end reporting cut from five days to three hours, roughly an 80% reduction, through Power BI automation and DAX optimisation. Earlier visibility of cash position supported the company extending its operating runway by more than twelve months.</p>
+          </div>
+        </div>
+        <div class="project-build">
+          <div class="project-stack"><span>Power BI</span><span>DAX optimisation</span><span>Data modelling</span><span>Financial metrics</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <div class="project-tags"><span>Excel</span><span class="alt">QuickBooks Online</span><span class="alt">Client rated 5.0</span></div>
+        <h3>Construction job costing with QuickBooks Online</h3>
+        <p class="client">Construction client via Upwork · Apr – Jul 2026</p>
+      </div>
+      <div class="project-body">
+        <div class="project-build">
+          <h4>What I built</h4>
+          <p>Job-costing reporting for a construction business, reconciling project costs against QuickBooks Online so margin could be tracked at job level rather than only at the company level.</p>
+          <div class="project-stack"><span>Excel</span><span>QuickBooks Online</span><span>Job costing</span><span>Reconciliation</span></div>
+        </div>
+        <div class="quote" style="margin-top:20px">
+          <cite><b>Client endorsement via Upwork</b>Solution oriented · Clear communicator · Detail oriented</cite>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. SPREADSHEET SYSTEMS ============ -->
+<section class="section">
+  <div class="container">
+    <div class="eyebrow">05 — Spreadsheet &amp; Google Sheets Systems</div>
+    <h2 class="section-title">When a spreadsheet is the right answer</h2>
+    <p class="section-intro">Not every problem needs a platform. Some need one workbook that finally behaves — built with the same discipline as anything larger: validation, error handling, and a design the client can maintain.</p>
+
+    <div class="card-grid">
+
+      <div class="card">
+        <span class="num">GOOGLE SHEETS</span>
+        <h3>Accounting automation in Google Sheets</h3>
+        <p>Automated accounting workflow replacing manual entry and reconciliation steps for a client who needed to stay in Sheets rather than migrate.</p>
+        <ul>
+          <li>Client rated 5.0 — "Phenomenal work. Seamless execution."</li>
+          <li>Endorsed: reliable, committed to quality, clear communicator, detail oriented, accountable for outcomes</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <span class="num">COMPLIANCE</span>
+        <h3>Automating compliance review</h3>
+        <p>Repeat engagement automating a manual compliance review process into a structured, user-friendly document workflow.</p>
+        <ul>
+          <li>Client rated 5.0 across multiple projects</li>
+          <li>"Each time she creates simple, user-friendly documents. She is willing to make tweaks until they are just right."</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <span class="num">EXCEL VBA</span>
+        <h3>Payroll and reporting automation</h3>
+        <p>Excel VBA and Power Query automation of recurring payroll and reporting workflows, with validation built in to catch entry errors at source.</p>
+        <ul>
+          <li>Removed 10+ hours of manual effort per week</li>
+          <li>Reduced data-entry error</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <span class="num">MODELLING</span>
+        <h3>Investment portfolio model</h3>
+        <p>Excel investment portfolio model for growth projection and scenario analysis, built alongside the Xero financial analytics work.</p>
+        <ul>
+          <li>Growth projection and scenario comparison</li>
+          <li>Published in my Upwork portfolio</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <span class="num">RETAIL</span>
+        <h3>Automated retail KPI dashboard</h3>
+        <p>KPI dashboard for a retail store operation, automating the reporting that had previously been assembled by hand.</p>
+        <ul>
+          <li>Automated KPI reporting</li>
+          <li>Delivered as a fixed-scope engagement</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <span class="num">HEALTHCARE</span>
+        <h3>Healthcare submission template</h3>
+        <p>Excel submission form with rate automation and data validation, designed so non-technical staff could complete it without producing bad data.</p>
+        <ul>
+          <li>Rate automation</li>
+          <li>Data validation at point of entry</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="project-links" style="justify-content:center;border-top:0;margin-top:34px">
+      <a href="https://www.upwork.com/freelancers/zohalz" target="_blank" rel="noopener">View verified reviews on Upwork →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. R&D ============ -->
+<section class="section bg-dark">
+  <div class="container">
+    <div class="eyebrow">06 — Research &amp; Development</div>
+    <h2 class="section-title">Things I build to find out whether they work</h2>
+    <p class="section-intro">I test new platform features on my own time first, and publish what I find &mdash; so you can judge the reasoning rather than take my word for it.</p>
+
+    <div class="media-grid">
+
+      <figure class="media">
+        <div class="frame" data-ph="Add fabric-apps-leave-tracker.mp4 — walkthrough video">
+          <video controls preload="metadata" playsinline poster="fabric-apps-leave-tracker-poster.png">
+            <source src="fabric-apps-leave-tracker.mp4" type="video/mp4">
+          </video>
+        </div>
+        <figcaption><strong>Fabric App — employee leave tracker.</strong> Operational write-back over a governed Fabric database, with row-level security and reporting on the same model. <a href="blog-fabric-apps.html" style="color:var(--copper-light)">Read the write-up →</a></figcaption>
+      </figure>
+
+      <figure class="media">
+        <div class="frame" data-ph="Add deneb-bodymap.mp4 or a still image">
+          <video controls preload="metadata" playsinline poster="deneb-bodymap-poster.png">
+            <source src="Injuries_Body_Parts_Visual.mp4.mp4" type="video/mp4">
+          </video>
+        </div>
+        <figcaption><strong>Interactive body injury map in Deneb.</strong> 22 interactive body regions heat-mapped by injury count, with cross-filtering and tooltips, built inside Power BI with no external dependencies. <a href="blog-deneb-bodymap.html" style="color:var(--copper-light)">Read the case study →</a></figcaption>
+      </figure>
+
+    </div>
+
+    <div class="card-grid" style="margin-top:34px">
+      <div class="card" style="background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.14)">
+        <span class="num">DATA ENGINEERING</span>
+        <h3 style="color:var(--warm-white)">End-to-end API pipeline in Fabric</h3>
+        <p style="color:rgba(255,255,255,0.75)">A portfolio build using a private API account to demonstrate production-grade engineering without exposing client data: Python and PySpark extraction with OAuth 2.0 token management into a Lakehouse, feeding Power BI Service auto-refresh.</p>
+        <ul style="border-color:rgba(255,255,255,0.14)">
+          <li style="color:rgba(255,255,255,0.6)">Fully unattended daily refresh in under five minutes</li>
+          <li style="color:rgba(255,255,255,0.6)">99.5% pipeline reliability with error handling</li>
+          <li style="color:rgba(255,255,255,0.6)">Transfers directly to third-party integrations in client work</li>
+        </ul>
+      </div>
+      <div class="card" style="background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.14)">
+        <span class="num">BI ENGINEERING</span>
+        <h3 style="color:var(--warm-white)">Version control for Power BI</h3>
+        <p style="color:rgba(255,255,255,0.75)">I moved my BI development to the .pbip project format with Git, so report metadata lives as readable text files. Reporting assets then get what application code has had for decades.</p>
+        <ul style="border-color:rgba(255,255,255,0.14)">
+          <li style="color:rgba(255,255,255,0.6)">Complete change history and diffs</li>
+          <li style="color:rgba(255,255,255,0.6)">Branches for experimentation, pull requests for review</li>
+          <li style="color:rgba(255,255,255,0.6)">Safe rollback instead of "final_v7.pbix"</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="project-links" style="justify-content:center;border-top:0;margin-top:34px">
+      <a href="https://www.linkedin.com/in/zohal-zahir-46128697/recent-activity/all/" target="_blank" rel="noopener" style="color:var(--copper-light)">Follow the experiments on LinkedIn →</a>
+      <a href="https://github.com/Zohal987654321" target="_blank" rel="noopener" style="color:var(--copper-light)">GitHub →</a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <h2>Recognise your own reporting in any of these?</h2>
+    <p>Tell me which decision your team is trying to make and where the numbers stop lining up. I'll come back with a clear read on what's causing it and what fixing it would involve.</p>
+    <a href="Contact.html" class="btn btn-primary">Start a conversation →</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>DATASANJ</h3>
+        <p>Enterprise BI consultancy based in Canberra, Australia. Microsoft Certified (DP-600, PL-300) and Certified Xero Advisor. Remote across Australia, New Zealand and the US.</p>
+        <div class="footer-contact">
+          <a href="mailto:d_zohal@datasanj.com">d_zohal@datasanj.com</a>
+          <a href="Contact.html">Canberra, ACT, Australia</a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Navigation</h4>
+        <a href="index.html">Home</a>
+        <a href="About.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="Portfolio.html">Work</a>
+        <a href="Blog.html">Insights</a>
+        <a href="Contact.html">Contact</a>
+      </div>
+      <div class="footer-links">
+        <h4>Practice Areas</h4>
+        <a href="services.html">Data Platform Architecture</a>
+        <a href="services.html">Semantic Modelling</a>
+        <a href="services.html">Governance &amp; BI Engineering</a>
+        <a href="services.html">Compliance Reporting</a>
+        <a href="services.html">Financial Automation</a>
+      </div>
+      <div class="footer-links">
+        <h4>Connect</h4>
+        <a href="https://www.linkedin.com/in/zohal-zahir-46128697/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/Zohal987654321" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.upwork.com/freelancers/zohalz" target="_blank" rel="noopener">Upwork</a>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 DATASANJ | Analytics Consultancy by Zohal Zahir</div>
+  </div>
+</footer>
+
+<script src="site.js"></script>
+</body>
+</html>

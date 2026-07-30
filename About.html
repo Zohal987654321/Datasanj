@@ -1,924 +1,323 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Meet Zohal Zahir - Microsoft Certified Power BI consultant with 70+ successful projects. From medicine to data science, I build systems that actually work.">
-    <meta name="keywords" content="Zohal Zahir, Power BI consultant, Microsoft certified, Excel VBA expert, Canberra">
-    <meta name="author" content="Zohal Zahir">
-    <title>About Zohal Zahir | Microsoft Certified Analytics Consultant</title>
-    <link rel="canonical" href="https://datasanj.com/About.html">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            --charcoal: #2B2B2B;
-            --charcoal-light: #3D3D3D;
-            --copper: #C46A3D;
-            --copper-light: #D4845A;
-            --copper-dark: #A85A32;
-            --warm-white: #FAFAF8;
-            --cream: #F5F4F2;
-            --stone: #E8E6E3;
-            --grey-400: #9A9A9A;
-            --grey-500: #6B6B6B;
-            --grey-600: #4A4A4A;
-            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body { 
-            font-family: var(--font-primary);
-            line-height: 1.7; 
-            color: var(--charcoal); 
-            background: var(--warm-white);
-            font-weight: 400;
-            -webkit-font-smoothing: antialiased;
-        }
-        
-        a { text-decoration: none; color: inherit; }
-        img { display: block; max-width: 100%; height: auto; }
-        
-        .container { 
-            max-width: 1140px; 
-            margin: 0 auto; 
-            padding: 0 32px; 
-        }
-
-        /* Navigation */
-        nav { 
-            position: fixed; 
-            top: 0; 
-            width: 100%; 
-            background: rgba(250, 250, 248, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--stone);
-            z-index: 1000; 
-            padding: 20px 0;
-        }
-        
-        nav .container { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-        }
-        
-        .logo-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            text-decoration: none;
-        }
-
-        .logo-icon { width: 40px; height: 40px; flex-shrink: 0; }
-
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-            line-height: 1.1;
-        }
-
-        .logo-text .brand {
-            font-size: 18px;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            color: var(--charcoal);
-        }
-
-        .logo-text .tagline {
-            font-size: 9px;
-            font-weight: 400;
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
-            color: var(--grey-500);
-            margin-top: 3px;
-        }
-        
-        nav ul { 
-            display: flex; 
-            list-style: none; 
-            gap: 40px; 
-            align-items: center; 
-        }
-        
-        nav a { 
-            color: var(--grey-600); 
-            font-weight: 500; 
-            font-size: 14px; 
-            letter-spacing: 0.02em;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-        
-        nav a:hover { color: var(--copper); }
-        nav a.active { color: var(--charcoal); }
-
-        nav a.active::after {
-            content: '';
-            position: absolute;
-            bottom: -6px;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: var(--copper);
-        }
-        
-        .nav-cta { 
-            background: var(--charcoal);
-            color: var(--warm-white) !important; 
-            padding: 12px 28px; 
-            border-radius: 6px;
-            font-weight: 500;
-            letter-spacing: 0.03em;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-cta:hover { 
-            background: var(--copper);
-            transform: translateY(-1px);
-        }
-
-        .nav-cta::after { display: none !important; }
-
-        /* Hero Section */
-        .hero-about {
-            margin-top: 84px;
-            padding: 100px 0 120px;
-            background: var(--warm-white);
-        }
-
-        .hero-about .container {
-            display: grid;
-            grid-template-columns: 600px 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .hero-image-wrapper { position: relative; }
-
-        .hero-image {
-            width: 100%;
-            aspect-ratio: 1;
-            background: var(--stone);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 30px 60px rgba(43, 43, 43, 0.08);
-        }
-
-        .hero-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .hero-content h1 {
-            font-size: 44px;
-            font-weight: 600;
-            color: var(--charcoal);
-            margin-bottom: 12px;
-            line-height: 1.2;
-            letter-spacing: -0.02em;
-        }
-
-        .hero-content .title {
-            font-size: 16px;
-            color: var(--copper);
-            font-weight: 500;
-            margin-bottom: 28px;
-            letter-spacing: 0.03em;
-        }
-
-        .hero-content .intro {
-            font-size: 18px;
-            color: var(--grey-600);
-            line-height: 1.8;
-            margin-bottom: 36px;
-        }
-
-        .credentials-badges {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .badge {
-            background: var(--cream);
-            padding: 10px 18px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: 500;
-            color: var(--grey-600);
-            letter-spacing: 0.02em;
-            border: 1px solid var(--stone);
-        }
-
-        .badge.featured {
-            background: var(--copper);
-            color: var(--warm-white);
-            border-color: var(--copper);
-            font-weight: 600;
-        }
-
-        /* Story Section */
-        .story-section {
-            padding: 100px 0;
-            background: var(--cream);
-        }
-
-        .story-content {
-            max-width: 720px;
-            margin: 0 auto;
-        }
-
-        .story-content h3 {
-            font-size: 24px;
-            font-weight: 600;
-            color: var(--charcoal);
-            margin: 48px 0 20px;
-            letter-spacing: -0.01em;
-        }
-
-        .story-content h3:first-of-type { margin-top: 0; }
-
-        .story-content p {
-            font-size: 16px;
-            color: var(--grey-600);
-            line-height: 1.85;
-            margin-bottom: 20px;
-        }
-
-        .story-content strong {
-            color: var(--charcoal);
-            font-weight: 600;
-        }
-
-        .highlight-box {
-            background: var(--charcoal);
-            padding: 40px;
-            border-radius: 8px;
-            color: var(--warm-white);
-            margin: 40px 0;
-        }
-
-        .highlight-box h4 {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            color: var(--copper-light);
-            letter-spacing: 0.01em;
-        }
-
-        .highlight-box p {
-            font-size: 16px;
-            line-height: 1.8;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 0;
-        }
-
-        /* Stats Section */
-        .stats-section {
-            padding: 100px 0;
-            background: var(--warm-white);
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 28px;
-            margin-top: 60px;
-        }
-
-        .stat-card {
-            background: var(--cream);
-            padding: 32px 28px;
-            border-radius: 8px;
-            text-align: center;
-            border: 1px solid var(--stone);
-        }
-
-        .stat-number {
-            font-size: 48px;
-            font-weight: 700;
-            color: var(--copper);
-            margin-bottom: 8px;
-            line-height: 1;
-        }
-
-        .stat-label {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--charcoal);
-        }
-
-        /* Skills Section */
-        .skills-section {
-            padding: 100px 0;
-            background: var(--cream);
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 28px;
-            margin-top: 60px;
-        }
-
-        .skill-card {
-            background: var(--warm-white);
-            padding: 40px;
-            border-radius: 8px;
-            border: 1px solid var(--stone);
-        }
-
-        .skill-card h3 {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--charcoal);
-            margin-bottom: 20px;
-            letter-spacing: 0.01em;
-        }
-
-        .skill-card ul {
-            list-style: none;
-        }
-
-        .skill-card li {
-            font-size: 14px;
-            color: var(--grey-600);
-            padding: 10px 0;
-            padding-left: 24px;
-            position: relative;
-            border-bottom: 1px solid var(--stone);
-        }
-
-        .skill-card li:last-child { border-bottom: none; }
-
-        .skill-card li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 6px;
-            height: 6px;
-            background: var(--copper);
-            border-radius: 50%;
-        }
-
-        .section-label {
-            text-align: center;
-            font-size: 11px;
-            font-weight: 500;
-            color: var(--copper);
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            margin-bottom: 16px;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 36px;
-            font-weight: 600;
-            color: var(--charcoal);
-            margin-bottom: 20px;
-            letter-spacing: -0.02em;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 17px;
-            color: var(--grey-500);
-            margin-bottom: 60px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.7;
-        }
-
-        /* Testimonials */
-        .testimonials-section {
-            padding: 100px 0;
-            background: var(--warm-white);
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 28px;
-            margin-top: 60px;
-        }
-
-        .testimonial-card {
-            background: var(--cream);
-            padding: 36px;
-            border-radius: 8px;
-            border: 1px solid var(--stone);
-        }
-
-        .rating {
-            color: var(--copper);
-            font-size: 14px;
-            margin-bottom: 16px;
-            letter-spacing: 3px;
-        }
-
-        .testimonial-text {
-            font-size: 15px;
-            line-height: 1.75;
-            color: var(--grey-600);
-            margin-bottom: 20px;
-            font-style: italic;
-        }
-
-        .testimonial-author {
-            font-weight: 600;
-            color: var(--charcoal);
-            font-size: 14px;
-        }
-
-        .testimonial-role {
-            color: var(--grey-500);
-            font-size: 13px;
-            margin-top: 4px;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            padding: 100px 0;
-            background: var(--charcoal);
-            color: var(--warm-white);
-            text-align: center;
-        }
-
-        .cta-section h2 {
-            font-size: 36px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            letter-spacing: -0.02em;
-        }
-
-        .cta-section p {
-            font-size: 17px;
-            margin-bottom: 40px;
-            color: rgba(255, 255, 255, 0.95);
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 16px 36px;
-            border-radius: 6px;
-            font-weight: 500;
-            font-size: 15px;
-            letter-spacing: 0.02em;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
-        }
-
-        .btn-primary {
-            background: var(--copper);
-            color: var(--warm-white);
-        }
-
-        .btn-primary:hover {
-            background: var(--copper-light);
-            transform: translateY(-2px);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--charcoal);
-            color: var(--warm-white);
-            padding: 80px 0 40px;
-            border-top: 1px solid var(--charcoal-light);
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 60px;
-            margin-bottom: 60px;
-        }
-
-        .footer-brand h3 {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            color: var(--warm-white);
-            letter-spacing: 0.05em;
-        }
-
-        .footer-brand p {
-            color: rgba(255, 255, 255, 0.85);
-            line-height: 1.7;
-            font-size: 14px;
-            margin-bottom: 24px;
-        }
-
-        .footer-contact {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .footer-contact a {
-            color: rgba(255, 255, 255, 0.85);
-            font-size: 14px;
-            transition: color 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .footer-contact a::before {
-            content: '';
-            width: 4px;
-            height: 4px;
-            background: var(--copper);
-            border-radius: 50%;
-        }
-
-        .footer-contact a:hover {
-            color: var(--copper-light);
-        }
-
-        .footer-links h4 {
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 24px;
-            color: var(--warm-white);
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-        }
-
-        .footer-links a {
-            display: block;
-            color: rgba(255, 255, 255, 0.85);
-            margin-bottom: 14px;
-            font-size: 14px;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--copper-light);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 40px;
-            border-top: 1px solid var(--charcoal-light);
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 13px;
-            letter-spacing: 0.02em;
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .hero-about .container {
-                grid-template-columns: 1fr;
-                gap: 60px;
-                text-align: center;
-            }
-
-            .hero-image-wrapper {
-                max-width: 360px;
-                margin: 0 auto;
-            }
-
-            .credentials-badges { justify-content: center; }
-            .stats-grid, .skills-grid, .testimonials-grid { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr 1fr; }
-        }
-
-        @media (max-width: 768px) {
-            .container { padding: 0 24px; }
-            nav ul { display: none; }
-            .hero-content h1 { font-size: 32px; }
-            .section-title { font-size: 28px; }
-            .story-content h3 { font-size: 20px; }
-            .story-content p { font-size: 15px; }
-            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
-            .highlight-box { padding: 32px; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Zohal Zahir — enterprise BI consultant in Canberra. Microsoft Certified (DP-600, PL-300) with an accounting background, building governed Microsoft Fabric platforms for multi-site operators across Australia.">
+<meta name="keywords" content="Zohal Zahir, DATASANJ, enterprise BI consultant Canberra, Microsoft Fabric consultant Australia, Power BI consultant, Certified Xero Advisor, multi-site reporting">
+<meta name="author" content="Zohal Zahir">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="About | DATASANJ — Zohal Zahir, Enterprise BI Consultant">
+<meta property="og:description" content="A BI engineer who reads a P&amp;L before modelling one. Canberra-based, working with multi-site operators across Australia.">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://www.datasanj.com/About.html">
+<title>About Zohal Zahir | Enterprise BI Consultant | DATASANJ</title>
+<link rel="canonical" href="https://www.datasanj.com/About.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="container">
-            <a href="index.html" class="logo-wrapper">
-                <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
-                    <g transform="translate(20,18)">
-                        <rect x="0"  y="36" width="9" height="26" rx="2" fill="#2B2B2B"/>
-                        <rect x="19" y="24" width="9" height="38" rx="2" fill="#2B2B2B"/>
-                        <rect x="38" y="12" width="9" height="50" rx="2" fill="#2B2B2B"/>
-                        <path d="M 1 50 Q 26 30, 47 15" stroke="#C46A3D" stroke-width="2" fill="none" stroke-linecap="round"/>
-                    </g>
-                </svg>
-                <div class="logo-text">
-                    <span class="brand">DATASANJ</span>
-                    <span class="tagline">ANALYTICS CONSULTANCY</span>
-                </div>
-            </a>
+<a class="skip-link" href="#main">Skip to content</a>
 
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="About.html" class="active">About</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="Portfolio.html">Portfolio</a></li>
-                <li><a href="Blog.html">Insights</a></li>
-                <li><a href="Contact.html" class="nav-cta">Let's Talk</a></li>
-            </ul>
+<nav>
+  <div class="container">
+    <a href="index.html" class="logo-wrapper">
+      <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" aria-hidden="true">
+        <g transform="translate(20,18)">
+          <rect x="0"  y="36" width="9" height="26" rx="2" fill="#2B2B2B"/>
+          <rect x="19" y="24" width="9" height="38" rx="2" fill="#2B2B2B"/>
+          <rect x="38" y="12" width="9" height="50" rx="2" fill="#2B2B2B"/>
+          <path d="M 1 50 Q 26 30, 47 15" stroke="#C46A3D" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </g>
+      </svg>
+      <div class="logo-text">
+        <span class="brand">DATASANJ</span>
+        <span class="tagline">ANALYTICS CONSULTANCY</span>
+      </div>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-menu" id="nav-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="About.html" class="active">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="Portfolio.html">Work</a></li>
+      <li><a href="Blog.html">Insights</a></li>
+      <li><a href="Contact.html" class="nav-cta">Let's Talk</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- Hero -->
+<section class="hero-about">
+  <div class="container">
+    <div class="hero-image-wrapper">
+      <div class="hero-image media" data-ph="Add zohheadshot_Cropped.JPG">
+        <img src="zohheadshot_Cropped.JPG" alt="Zohal Zahir">
+      </div>
+    </div>
+    <div class="hero-content">
+      <h1>Hi, I'm Zohal</h1>
+      <p class="title">Enterprise BI consultant &middot; Microsoft Fabric &amp; Power BI &middot; Canberra</p>
+      <p class="intro">
+        I build the governed data layer that makes site-level performance genuinely comparable — so portfolio roll-ups, benchmarking and per-site P&amp;L all come from one model instead of a folder of workbooks that disagree. Multi-site operators hire me when their numbers have started getting argued about.
+      </p>
+      <div class="credentials-badges">
+        <span class="badge featured">Microsoft Certified DP-600</span>
+        <span class="badge featured">Microsoft Certified PL-300</span>
+        <span class="badge">Certified Xero Advisor</span>
+        <span class="badge">Graduate Certificate, Data Science</span>
+        <span class="badge">Cert III Accounting</span>
+        <span class="badge">Australian citizen</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<section class="stats-section">
+  <div class="container">
+    <div class="section-label">Scale of the work</div>
+    <h2 class="section-title section-title--center">What that looks like in practice</h2>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">600+</div>
+        <div class="stat-label">DAX measures</div>
+        <div class="stat-note">In one governed enterprise semantic model across a multi-property portfolio</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">99.5%</div>
+        <div class="stat-label">Pipeline reliability</div>
+        <div class="stat-note">Unattended daily refresh completing in under five minutes</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">5 days &rarr; 3 hrs</div>
+        <div class="stat-label">Month-end close</div>
+        <div class="stat-note">Board reporting cycle for a SaaS client, via automation and DAX optimisation</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Story -->
+<section class="story-section">
+  <div class="container">
+    <div class="section-label">My story</div>
+    <h2 class="section-title section-title--center">The unconventional path</h2>
+
+    <div class="story-content">
+      <h3>Why I work differently</h3>
+      <p>
+        I came into data through <strong>accounting</strong> and <strong>data science</strong>, not software engineering. That combination is the whole of my practice.
+      </p>
+      <p>
+        Accounting showed me how businesses actually run &mdash; what a chart of accounts is for, what a controller reconciles at month-end. Data science gave me the modelling and the engineering. Most consultants understand the tooling. Fewer understand the <strong>accounts underneath it</strong>, and that's where reporting projects fail.
+      </p>
+
+      <div class="highlight-box">
+        <h4>What this means for you</h4>
+        <p>
+          You get someone who speaks both languages. I model your chart of accounts correctly, reconcile the result back to your accounting system, and explain it to your board without jargon. That's why my models survive contact with a finance team.
+        </p>
+      </div>
+
+      <h3>The problem I solve</h3>
+      <p>
+        One site, reporting is arithmetic. Fifteen sites, it's a definitions problem. Each location recorded things slightly differently, for reasons that made sense locally. Someone builds a roll-up. It doesn't reconcile. From then on, every performance conversation starts with an argument about the number instead of a decision about the site.
+      </p>
+      <p>
+        I build the layer where a metric is defined once and applied everywhere &mdash; <strong>conformed dimensions</strong>. Financial, operational and benchmarking figures then filter together instead of contradicting each other.
+      </p>
+
+      <h3>What I've actually built</h3>
+      <p>
+        An <strong>end-to-end Microsoft Fabric platform</strong> for a multi-property hotel portfolio: Medallion architecture, a Kimball gold layer with conformed dimensions, 600+ DAX measures, deployment pipelines across development, test and production, and tie-out reports validating every figure against the accounting system.
+      </p>
+      <p>
+        <strong>Compliance reporting</strong> for a City of Melbourne laneway waste audit program, engaged through Waste Audit &amp; Consultancy Services &mdash; moving it from how much non-compliance existed to where it concentrated.
+      </p>
+      <p>
+        And the unglamorous work that matters: <strong>Xero and QuickBooks integration, month-end acceleration, Excel and Google Sheets systems</strong> that behave.
+      </p>
+
+      <h3>How I actually work</h3>
+      <p>
+        You get <strong>me</strong>. Not a team, not junior consultants, not an engagement partner between you and the work.
+      </p>
+      <p>
+        The obvious objection is what happens if I'm unavailable. I develop in the <strong>.pbip format with Git version control</strong>, so your reporting has change history, diffs, review and rollback. The architecture is documented, not remembered. <strong>Your reporting isn't trapped in my file.</strong>
+      </p>
+      <p>
+        Based in <strong>Canberra</strong>. Clients across Australia remotely, onsite here, and by arrangement elsewhere.
+      </p>
+
+      <h3>Whether I can help</h3>
+      <p>
+        The test: <strong>do you operate multiple sites, and do your numbers get argued about?</strong>
+      </p>
+      <p>
+        If so, yes. If you run a single site, or want a dashboard built cheaply from data as it stands, I'm not your best option. Sometimes the answer is that you have a process problem and no amount of Power BI will fix it &mdash; <strong>and I'd rather say that in week one.</strong>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Skills -->
+<section class="skills-section">
+  <div class="container">
+    <div class="section-label">What I build</div>
+    <h2 class="section-title section-title--center">Technical capabilities</h2>
+
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>Microsoft Fabric &amp; data platforms</h3>
+        <ul>
+          <li>Microsoft Certified: Fabric Analytics Engineer (DP-600)</li>
+          <li>Medallion architecture — bronze, silver, gold</li>
+          <li>Lakehouse, pipelines, PySpark notebooks</li>
+          <li>REST API and SharePoint ingestion, OAuth 2.0</li>
+          <li>Unattended refresh with error handling</li>
+        </ul>
+      </div>
+
+      <div class="skill-card">
+        <h3>Semantic modelling &amp; governance</h3>
+        <ul>
+          <li>Microsoft Certified: Power BI Data Analyst (PL-300)</li>
+          <li>Kimball dimensional modelling, conformed dimensions</li>
+          <li>Row-level security by site and role</li>
+          <li>Deployment pipelines across dev, test, production</li>
+          <li>.pbip with Git version control, metadata documentation</li>
+        </ul>
+      </div>
+
+      <div class="skill-card">
+        <h3>Finance &amp; reporting</h3>
+        <ul>
+          <li>Chart-of-accounts aligned P&amp;L across entities</li>
+          <li>Budget, forecast and scenario analysis</li>
+          <li>Debt and investment metrics — DSCR, LTV, NOI, EBITDA</li>
+          <li>Live Xero and QuickBooks integration</li>
+          <li>Excel VBA and Google Sheets automation</li>
+        </ul>
+      </div>
+
+      <div class="skill-card">
+        <h3>Sectors I work in</h3>
+        <ul>
+          <li>Hospitality and multi-property accommodation</li>
+          <li>Local government and compliance programs</li>
+          <li>Healthcare and community services</li>
+          <li>Retail and multi-site operations</li>
+          <li>Professional services and SaaS</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials-section">
+  <div class="container">
+    <div class="section-label">Client feedback</div>
+    <h2 class="section-title section-title--center">What people say</h2>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">
+          "Zohal is such an asset to my company. This project required a large amount of back and forth communication for requirements and dashboard updates. Zohal handled these with grace and professionalism."
+        </p>
+        <div class="testimonial-author">Resident Services Manager</div>
+        <div class="testimonial-role">Housing organisation</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">
+          "I have used Zohal on a couple of different projects. Each time she creates simple, user-friendly documents. She is willing to make tweaks until they are just right."
+        </p>
+        <div class="testimonial-author">Repeat client</div>
+        <div class="testimonial-role">Compliance review automation</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">
+          "Zohal was simply exceptional to work with. She created a complex Excel file to help me track hours for my per diem medical providers based on visit type and membership."
+        </p>
+        <div class="testimonial-author">Practice owner</div>
+        <div class="testimonial-role">Healthcare</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">
+          "Her attention to detail and remarkable analytical skills were evident in her consistently producing high-quality work."
+        </p>
+        <div class="testimonial-author">Dr Bazlur Rashid</div>
+        <div class="testimonial-role">Senior Lecturer, Data Science &amp; Cyber Security, University of Adelaide</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Let's work together</h2>
+    <p>Tell me how many sites you operate and where the numbers stop being trusted. I'll give you an honest read on what it would take to fix.</p>
+    <a href="Contact.html" class="btn btn-primary">Start a conversation &rarr;</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>DATASANJ</h3>
+        <p>Enterprise BI consultancy for multi-site operators. Based in Canberra, Australia. Microsoft Certified (DP-600, PL-300) and Certified Xero Advisor.</p>
+        <div class="footer-contact">
+          <a href="mailto:d_zohal@datasanj.com">d_zohal@datasanj.com</a>
+          <a href="Contact.html">Canberra, ACT, Australia</a>
         </div>
-    </nav>
+      </div>
+      <div class="footer-links">
+        <h4>Navigation</h4>
+        <a href="index.html">Home</a>
+        <a href="About.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="Portfolio.html">Work</a>
+        <a href="Blog.html">Insights</a>
+        <a href="Contact.html">Contact</a>
+      </div>
+      <div class="footer-links">
+        <h4>Practice Areas</h4>
+        <a href="services.html">Data Platform Architecture</a>
+        <a href="services.html">Multi-Site Modelling</a>
+        <a href="services.html">Governance &amp; BI Engineering</a>
+        <a href="services.html">Compliance Reporting</a>
+        <a href="services.html">Financial Automation</a>
+      </div>
+      <div class="footer-links">
+        <h4>Connect</h4>
+        <a href="https://www.linkedin.com/in/zohal-zahir-46128697/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/Zohal987654321" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.upwork.com/freelancers/zohalz" target="_blank" rel="noopener">Upwork</a>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 DATASANJ | Analytics Consultancy by Zohal Zahir</div>
+  </div>
+</footer>
 
-    <!-- Hero Section -->
-    <section class="hero-about">
-        <div class="container">
-            <div class="hero-image-wrapper">
-                <div class="hero-image">
-                    <img src="zohheadshot_Cropped.JPG" alt="Zohal Zahir">
-                </div>
-            </div>
-            <div class="hero-content">
-                <h1>Hi, I'm Zohal</h1>
-                <p class="title">Microsoft Certified Power BI developer - Financial reporting expert - Canberra</p>
-                <p class="intro">
-                    I've delivered 80+ projects with 100% success. I build Power BI dashboards, automate Excel workflows, and connect systems . Business owners hire me when they're ready to scale but their spreadsheets aren't.
-                </p>
-                <div class="credentials-badges">
-                    <span class="badge featured">Microsoft Certified</span>
-                    <span class="badge featured">Xero Advisor</span>
-                    <span class="badge">Top Rated Upwork</span>
-                    <span class="badge">  80+ Projects        </span>
-                    <span class="badge">  100% Success        </span>
-                    <span class="badge">University of Adelaide</span>
-                    <span class="badge">Cert III Accounting    </span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="stats-section">
-        <div class="container">
-            <div class="section-label">Track Record</div>
-            <h2 class="section-title">The Numbers</h2>
-
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number">75+</div>
-                    <div class="stat-label">Projects Delivered</div>
-                </div>
-
-                <div class="stat-card">
-                    <div class="stat-number">100%</div>
-                    <div class="stat-label">Success Rate</div>
-                </div>
-
-                <div class="stat-card">
-                    <div class="stat-number">83%</div>
-                    <div class="stat-label">Revenue Growth (2024)</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Story Section -->
-    <section class="story-section">
-        <div class="container">
-            <div class="section-label">My Story</div>
-            <h2 class="section-title">The Unconventional Path</h2>
-
-            <div class="story-content">
-                <h3>Why I Work Differently</h3>
-                <p>
-                    I didn't follow the typical tech path. I started in <strong>medicine</strong>, moved into <strong>accounting</strong>, then landed in <strong>data science</strong>. That combination is my secret weapon.
-                </p>
-
-                <p>
-                    Medicine taught me precision. Accounting showed me how businesses actually run. Data science gave me the tools to automate everything. Most consultants understand the tech. I understand the <strong>business problems</strong> behind the tech.
-                </p>
-
-                <div class="highlight-box">
-                    <h4>What This Means for You</h4>
-                    <p>
-                        When you hire me, you get someone who speaks both languages—business and tech. I don't just build dashboards. I understand your P&L, your month-end close, your cash flow challenges. That's rare.
-                    </p>
-                </div>
-
-                <h3>What I've Actually Built</h3>
-                <p>
-                    <strong>Municipal dashboards</strong> for City of Melbourne tracking 25+ KPIs. <strong>Healthcare systems</strong> for mental health response teams. <strong>Financial automation</strong> that cut month-end reporting from 5 days to 3 hours.
-                </p>
-
-                <p>
-                    I've also built the "boring" stuff that actually matters: <strong>payroll systems, pricing calculators, inventory trackers, budget forecasts</strong>. The tools that keep businesses running but nobody brags about on LinkedIn.
-                </p>
-
-                <h3>How I Actually Work</h3>
-                <p>
-                    When you hire me, you get <strong>me</strong>. Not a team. Not junior developers. Just me—handling everything from requirements to delivery to support.
-                </p>
-
-                <p>
-                    I work mostly with <strong>Power BI</strong> (Microsoft certified), <strong>Excel/VBA</strong>, <strong>Python</strong> for pipelines, and <strong>APIs</strong> for integration. I specialize in making systems talk to each other—like getting Xero data live into Power BI.
-                </p>
-
-                <p>
-                    I'm based in <strong>Canberra</strong>, but most clients are remote. Startups in the US, government in Melbourne, healthcare in Texas, SMBs across Australia. Geography doesn't matter when you're building dashboards.
-                </p>
-
-                <h3>Why It Matters</h3>
-                <p>
-                    The real question is <strong>Can I solve your problem?</strong>
-                </p>
-
-                <p>
-                    <strong>And the answer is :</strong> If your problem is messy data, manual processes, disconnected systems, or unclear reporting—yes, I can help. I turn chaos into clarity. I automate the boring stuff so you can focus on growing your business.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section class="skills-section">
-        <div class="container">
-            <div class="section-label">What I Build</div>
-            <h2 class="section-title">Technical Capabilities</h2>
-
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <h3>Power BI & Business Intelligence</h3>
-                    <ul>
-                        <li>Microsoft Certified (PL-300)</li>
-                        <li>Custom DAX & calculated columns</li>
-                        <li>Data modeling & star schema</li>
-                        <li>Automated refresh & deployment</li>
-                        <li>Xero to Power BI integration</li>
-                    </ul>
-                </div>
-
-                <div class="skill-card">
-                    <h3>Excel & VBA Automation</h3>
-                    <ul>
-                        <li>VBA macro development</li>
-                        <li>Advanced formulas & Power Pivot</li>
-                        <li>Payroll & financial models</li>
-                        <li>Pricing tools & calculators</li>
-                        <li>Template optimization</li>
-                    </ul>
-                </div>
-
-                <div class="skill-card">
-                    <h3>Data Integration & APIs</h3>
-                    <ul>
-                        <li>Python (pandas, PySpark)</li>
-                        <li>REST APIs & OAuth 2.0</li>
-                        <li>Microsoft Fabric & lakehouse</li>
-                        <li>Xero, Salesforce, Google APIs</li>
-                        <li>SQL & database optimization</li>
-                    </ul>
-                </div>
-
-                <div class="skill-card">
-                    <h3>Industries</h3>
-                    <ul>
-                        <li>Finance & accounting</li>
-                        <li>Government & municipal</li>
-                        <li>Healthcare & mental health</li>
-                        <li>Manufacturing & supply chain</li>
-                        <li>Retail & e-commerce</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials-section">
-        <div class="container">
-            <div class="section-label">Client Feedback</div>
-            <h2 class="section-title">What People Say</h2>
-
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="rating">★★★★★</div>
-                    <p class="testimonial-text">
-                        "Zohal is such an asset to my company. This project required a large amount of back and forth communication for requirements and dashboard updates. Zohal handled these with grace and professionalism."
-                    </p>
-                    <div class="testimonial-author">Resident Services Manager</div>
-                    <div class="testimonial-role">Housing Organization</div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="rating">★★★★★</div>
-                    <p class="testimonial-text">
-                        "Zohal was always very proficient with her resolutions. She was patient with me as I poorly tried to explain desired outcomes and she delivered solutions quickly and efficiently."
-                    </p>
-                    <div class="testimonial-author">Business Consultant</div>
-                    <div class="testimonial-role">Financial Services</div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="rating">★★★★★</div>
-                    <p class="testimonial-text">
-                        "Excellent job with professionalism and great responsiveness!! Turn around time is surely very good and overall work quality is as requested."
-                    </p>
-                    <div class="testimonial-author">Supply Chain Manager</div>
-                    <div class="testimonial-role">Manufacturing Company</div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="rating">★★★★★</div>
-                    <p class="testimonial-text">
-                        "We were very happy with the completed project and the communication we received throughout. We look forward to working more with Zohal."
-                    </p>
-                    <div class="testimonial-author">Operations Manager</div>
-                    <div class="testimonial-role">Logistics Company</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <h2>Let's Work Together</h2>
-            <p>Ready to automate your workflows and scale your business? Let's talk.</p>
-            <a href="Contact.html" class="btn btn-primary">Schedule a Call →</a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <h3>DATASANJ</h3>
-                    <p>Power BI and Excel Consultant based in Canberra,Australia. Microsoft Certified & Xero Advisor. </p>
-                    <div class="footer-contact">
-                        <a href="mailto:d_zohal@datasanj.com">d_zohal@datasanj.com</a>
-                        <a href="#">Canberra, ACT, Australia</a>
-                    </div>
-                </div>
-
-                <div class="footer-links">
-                    <h4>Navigation</h4>
-                    <a href="index.html">Home</a>
-                    <a href="About.html">About</a>
-                    <a href="services.html">Services</a>
-                    <a href="Portfolio.html">Portfolio</a>
-                    <a href="Blog.html">Insights</a>
-                    <a href="Contact.html">Contact</a>
-                </div>
-
-                <div class="footer-links">
-                    <h4>What I Do</h4>
-                    <a href="services.html">Power BI Dashboards</a>
-                    <a href="services.html">Excel Automation</a>
-                    <a href="services.html">System Integration</a>
-                    <a href="services.html">Xero to Power BI</a>
-                </div>
-
-                <div class="footer-links">
-                    <h4>Connect</h4>
-                    <a href="https://www.linkedin.com/in/zohal-zahir-46128697/" target="_blank">LinkedIn</a>
-                    <a href="https://github.com/Zohal987654321" target="_blank">GitHub</a>
-                    <a href="https://www.upwork.com/freelancers/zohalz" target="_blank">Upwork Profile</a>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                © 2026 DATASANJ | Analytics Consultancy by Zohal Zahir
-            </div>
-        </div>
-    </footer>
+<script src="site.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

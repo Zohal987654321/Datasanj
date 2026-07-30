@@ -1,0 +1,115 @@
+/* ==========================================================================
+   DATASANJ — additions.css
+   Loads AFTER styles.css. Adds new components only; overrides nothing existing.
+   Written against the real styles.css: uses its tokens (--grey-500 etc), its
+   px type scale, its 8px card radius and its .bg-cream inversion pattern.
+   Note: styles.css already applies * { margin:0; padding:0 } so no list resets
+   are needed here.
+   ========================================================================== */
+
+/* ---------- Breadcrumbs (About, Work, Insights, Contact) ---------------- */
+.crumbs { max-width: 1140px; margin: 0 auto; padding: 18px 32px 0; }
+.crumbs ol { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; font-size: 12.5px; color: var(--grey-500); }
+.crumbs li { display: flex; align-items: center; gap: 8px; }
+.crumbs li + li::before { content: '/'; color: var(--stone); }
+.crumbs a { color: var(--grey-500); transition: color .3s ease; }
+.crumbs a:hover { color: var(--copper); }
+.crumbs [aria-current] { color: var(--charcoal); font-weight: 500; }
+
+/* ---------- Productised offer card (Contact) ---------------------------- */
+.offer { max-width: 760px; margin: 0 auto; background: var(--warm-white); border: 1px solid var(--stone); border-top: 3px solid var(--copper); border-radius: 8px; padding: 36px 34px; text-align: left; }
+.bg-cream .offer { background: var(--warm-white); }
+.offer-eyebrow { font-size: 11px; font-weight: 500; color: var(--copper); text-transform: uppercase; letter-spacing: .2em; margin-bottom: 13px; }
+.offer h3 { font-size: 24px; font-weight: 600; letter-spacing: -.01em; line-height: 1.3; margin-bottom: 12px; }
+.offer-lede { font-size: 16px; color: var(--grey-600); line-height: 1.8; margin-bottom: 26px; }
+.offer-meta { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 28px; padding: 18px 0; margin-bottom: 24px; border-top: 1px solid var(--stone); border-bottom: 1px solid var(--stone); }
+.offer-price { font-size: 26px; font-weight: 700; color: var(--charcoal); line-height: 1.1; }
+.offer-price small { font-size: 13px; font-weight: 400; color: var(--grey-500); }
+.offer-term { font-size: 13.5px; color: var(--grey-500); }
+.offer ul { list-style: none; margin-bottom: 28px; }
+.offer li { font-size: 15.5px; color: var(--grey-600); line-height: 1.72; padding: 8px 0 8px 26px; position: relative; }
+.offer li::before { content: ''; position: absolute; left: 4px; top: 19px; width: 6px; height: 6px; border-radius: 50%; background: var(--copper); }
+.offer li strong { color: var(--charcoal); font-weight: 600; }
+.offer .btn-dark { width: auto; }            /* styles.css sets .btn-dark to 100% */
+.offer-note { font-size: 13.5px; color: var(--grey-500); line-height: 1.7; margin-top: 18px; }
+
+/* ---------- Trust strip under CTAs -------------------------------------- */
+.trust-strip { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 26px; list-style: none; margin-top: 30px; font-size: 13px; line-height: 1.5; color: var(--grey-500); }
+.trust-strip li { display: flex; align-items: center; gap: 8px; }
+.trust-strip li::before { content: ''; flex: 0 0 auto; width: 5px; height: 5px; border-radius: 50%; background: var(--copper); }
+/* .cta-section is charcoal — grey text is unreadable on it */
+.cta-section .trust-strip { color: rgba(255,255,255,.62); }
+.cta-section .trust-strip li::before { background: var(--copper-light); }
+
+/* ---------- Proof band (Work page header) ------------------------------- */
+.proof-band { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1px; background: var(--stone); border: 1px solid var(--stone); border-radius: 8px; overflow: hidden; margin-top: 44px; text-align: left; }
+.proof-band > div { background: var(--warm-white); padding: 26px 24px; }
+.proof-band b { display: block; font-size: 27px; font-weight: 700; color: var(--copper); line-height: 1.1; letter-spacing: -.02em; margin-bottom: 7px; }
+.proof-band span { display: block; font-size: 13.5px; color: var(--grey-600); line-height: 1.6; }
+
+/* ---------- Fit / not-a-fit columns (About) ----------------------------- */
+.fit-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; }
+.fit-col { background: var(--warm-white); border: 1px solid var(--stone); border-radius: 8px; padding: 32px; }
+.fit-col h4 { font-size: 18px; font-weight: 600; color: var(--charcoal); margin-bottom: 18px; }
+.fit-col ul { list-style: none; }
+.fit-col li { font-size: 15px; color: var(--grey-600); line-height: 1.65; padding: 11px 0 11px 26px; position: relative; border-bottom: 1px solid var(--stone); }
+.fit-col li:last-child { border-bottom: none; }
+.fit-col li::before { position: absolute; left: 0; top: 11px; font-weight: 600; }
+.fit-col--yes { border-left: 3px solid var(--copper); }
+.fit-col--yes li::before { content: '\2713'; color: var(--copper); }
+.fit-col--no li::before { content: '\2715'; color: var(--grey-400); }
+
+/* ---------- FAQ (native details/summary, no JS) ------------------------- */
+.faq { max-width: 760px; margin: 0 auto; border-top: 1px solid var(--stone); text-align: left; }
+.faq details { border-bottom: 1px solid var(--stone); }
+.faq summary { cursor: pointer; list-style: none; position: relative; padding: 20px 44px 20px 0; font-size: 16.5px; font-weight: 600; line-height: 1.5; color: var(--charcoal); transition: color .3s ease; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: '+'; position: absolute; right: 6px; top: 50%; transform: translateY(-50%); font-size: 22px; font-weight: 400; line-height: 1; color: var(--copper); }
+.faq details[open] summary::after { content: '\2013'; }
+.faq summary:hover { color: var(--copper-dark); }
+.faq .faq-a { padding: 0 8px 22px 0; }
+.faq .faq-a p { font-size: 16px; color: var(--grey-600); line-height: 1.8; margin-bottom: 12px; }
+.faq .faq-a p:last-child { margin-bottom: 0; }
+
+/* ---------- Form refinements (Contact) ---------------------------------- */
+.opt { font-size: 11px; font-weight: 400; letter-spacing: .1em; text-transform: uppercase; color: var(--grey-400); margin-left: 7px; }
+.form-reassure { font-size: 13.5px; color: var(--grey-500); line-height: 1.7; margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--stone); }
+.hp { position: absolute !important; left: -9999px !important; width: 1px; height: 1px; overflow: hidden; }
+.form-alt { margin-top: 22px; padding: 20px 22px; background: var(--cream); border: 1px solid var(--stone); border-radius: 6px; font-size: 14.5px; color: var(--grey-600); line-height: 1.7; }
+.bg-cream .form-alt { background: var(--warm-white); }
+.form-alt a { color: var(--copper-dark); font-weight: 600; }
+.form-alt a:hover { color: var(--copper); }
+
+/* ---------- Field-note subscribe (Insights + articles) ------------------ */
+.subscribe { max-width: 620px; margin: 48px auto 0; background: var(--cream); border: 1px solid var(--stone); border-radius: 8px; padding: 32px; text-align: left; }
+.subscribe h3 { font-size: 19px; font-weight: 600; margin: 0 0 9px; }
+.subscribe p { font-size: 15px; color: var(--grey-600); line-height: 1.7; margin-bottom: 20px; }
+.subscribe-row { display: flex; flex-wrap: wrap; gap: 10px; }
+.subscribe-row input[type=email] { flex: 1 1 240px; padding: 14px 16px; border: 1px solid var(--stone); border-radius: 6px; font-family: var(--font-primary); font-size: 15px; color: var(--charcoal); background: var(--warm-white); }
+.subscribe-row input[type=email]:focus { outline: none; border-color: var(--copper); box-shadow: 0 0 0 3px rgba(196,106,61,.1); }
+.subscribe-row .btn { flex: 0 0 auto; width: auto; padding: 14px 28px; }  /* .btn-dark is 100% in styles.css */
+.subscribe small { display: block; margin-top: 13px; font-size: 12.5px; color: var(--grey-500); }
+
+/* ---------- Related articles (article pages) ---------------------------- */
+.related-section { margin-top: 48px; padding-top: 36px; border-top: 1px solid var(--stone); }
+.related-section .card h3 { font-size: 17px; line-height: 1.4; }
+.related-section .card p { font-size: 14.5px; margin-bottom: 0; }
+
+/* ---------- Utility ------------------------------------------------------ */
+.visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.u-mt-lg { margin-top: 44px; }
+
+/* ---------- Responsive --------------------------------------------------- */
+@media (max-width: 768px) {
+  .crumbs { padding: 16px 24px 0; }
+  .offer { padding: 28px 22px; }
+  .offer h3 { font-size: 21px; }
+  .offer-price { font-size: 23px; }
+  .proof-band { grid-template-columns: 1fr; margin-top: 34px; }
+  .proof-band b { font-size: 24px; }
+  .fit-cols { grid-template-columns: 1fr; }
+  .fit-col { padding: 26px 22px; }
+  .faq summary { font-size: 15.5px; }
+  .subscribe { padding: 26px 22px; }
+  .subscribe-row .btn { width: 100%; }
+}

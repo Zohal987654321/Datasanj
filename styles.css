@@ -129,7 +129,8 @@ nav .container { display: flex; justify-content: space-between; align-items: cen
 /* ---------- Media (image / video) with graceful placeholder ---------- */
 .media { margin: 0 0 22px; }
 .media .frame { background: var(--charcoal); border: 1px solid var(--stone); border-radius: 8px; overflow: hidden; position: relative; }
-.media img, .media video { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; object-position: top center; background: var(--charcoal-dark); }
+.media img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; object-position: top center; background: var(--charcoal-dark); }
+.media video { width: 100%; aspect-ratio: 16 / 9; object-fit: contain; background: var(--charcoal-dark); display: block; }
 .media--tall img { aspect-ratio: 4 / 3; }
 .media.is-empty img, .media.is-empty video { display: none; }
 .media .frame::after { display: none; }

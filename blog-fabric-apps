@@ -29,6 +29,9 @@
 }
 </script>
 
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -71,7 +74,7 @@
 <header class="article-header">
   <div class="container">
     <p class="crumb"><a href="Blog.html">Insights</a> &nbsp;/&nbsp; Microsoft Fabric</p>
-    <span class="badge">Field Note</span>
+    <span class="badge featured">Field Note</span>
     <h1>One model, two jobs: testing write-back workflows in Microsoft Fabric Apps</h1>
     <p class="standfirst">I wanted to know whether an operational process — the kind that normally ends up in a separate app with its own database — could live on the same governed model as the reporting. So I built an employee leave tracker and found out.</p>
     <div class="article-meta">
@@ -212,8 +215,8 @@
 <section class="cta-section">
   <div class="container">
     <h2>Running two systems that disagree about the same numbers?</h2>
-    <p>That's usually a modelling and governance problem rather than a tooling one. Tell me where your numbers stop being trusted and I'll give you an honest read on what it would take to fix.</p>
-    <a href="Contact.html" class="btn">Start a conversation →</a>
+    <p>That's usually a modelling problem rather than a tooling one, and it's fixable. Tell me where your numbers stop lining up and I'll come back with a clear read on what it would take.</p>
+    <a href="Contact.html" class="btn btn-primary">Start a conversation &rarr;</a>
   </div>
 </section>
 
@@ -243,9 +246,9 @@
       <div class="footer-links">
         <h4>Practice Areas</h4>
         <a href="services.html">Data Platform Architecture</a>
-        <a href="services.html">Semantic Modelling</a>
+        <a href="services.html">Multi-Site Modelling</a>
         <a href="services.html">Governance &amp; BI Engineering</a>
-        <a href="services.html">Executive Reporting</a>
+        <a href="services.html">Compliance Reporting</a>
         <a href="services.html">Financial Automation</a>
       </div>
       <div class="footer-links">

@@ -1,935 +1,372 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Microsoft Certified Power BI Data Analyst. Excel VBA automation, API integration, Xero to Power BI, financial reporting systems.">
-    <meta name="keywords" content="Power BI consultant, Excel VBA, API integration, Xero Power BI, financial reporting">
-    <meta name="author" content="Zohal Zahir">
-    <title>Services | DATASANJ</title>
-    <link rel="canonical" href="https://datasanj.com/services.html">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            --charcoal: #2B2B2B;
-            --charcoal-light: #3D3D3D;
-            --copper: #C46A3D;
-            --copper-light: #D4845A;
-            --copper-dark: #A85A32;
-            --warm-white: #FAFAF8;
-            --cream: #F5F4F2;
-            --stone: #E8E6E3;
-            --grey-400: #9A9A9A;
-            --grey-500: #6B6B6B;
-            --grey-600: #4A4A4A;
-            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body { 
-            font-family: var(--font-primary);
-            line-height: 1.7; 
-            color: var(--charcoal); 
-            background: var(--warm-white);
-            font-weight: 400;
-            -webkit-font-smoothing: antialiased;
-        }
-        
-        a { text-decoration: none; color: inherit; }
-        img { display: block; max-width: 100%; height: auto; }
-        
-        .container { 
-            max-width: 1140px; 
-            margin: 0 auto; 
-            padding: 0 32px; 
-        }
-
-        /* Navigation */
-        nav { 
-            position: fixed; 
-            top: 0; 
-            width: 100%; 
-            background: rgba(250, 250, 248, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--stone);
-            z-index: 1000; 
-            padding: 20px 0;
-        }
-        
-        nav .container { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-        }
-        
-        .logo-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            text-decoration: none;
-        }
-
-        .logo-icon { width: 40px; height: 40px; flex-shrink: 0; }
-
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-            line-height: 1.1;
-        }
-
-        .logo-text .brand {
-            font-size: 18px;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            color: var(--charcoal);
-        }
-
-        .logo-text .tagline {
-            font-size: 9px;
-            font-weight: 400;
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
-            color: var(--grey-500);
-            margin-top: 3px;
-        }
-        
-        nav ul { 
-            display: flex; 
-            list-style: none; 
-            gap: 40px; 
-            align-items: center; 
-        }
-        
-        nav a { 
-            color: var(--grey-600); 
-            font-weight: 500; 
-            font-size: 14px; 
-            letter-spacing: 0.02em;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-        
-        nav a:hover { color: var(--copper); }
-        nav a.active { color: var(--charcoal); }
-
-        nav a.active::after {
-            content: '';
-            position: absolute;
-            bottom: -6px;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: var(--copper);
-        }
-        
-        .nav-cta { 
-            background: var(--charcoal);
-            color: var(--warm-white) !important; 
-            padding: 12px 28px; 
-            border-radius: 6px;
-            font-weight: 500;
-            letter-spacing: 0.03em;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-cta:hover { 
-            background: var(--copper);
-            transform: translateY(-1px);
-        }
-
-        .nav-cta::after { display: none !important; }
-
-        /* Page Header */
-        .page-header {
-            margin-top: 84px;
-            padding: 100px 0 80px;
-            background: var(--charcoal);
-            color: var(--warm-white);
-            text-align: center;
-        }
-
-        .page-header h1 {
-            font-size: 44px;
-            font-weight: 600;
-            margin-bottom: 24px;
-            letter-spacing: -0.02em;
-        }
-
-        .page-header .intro {
-            font-size: 19px;
-            line-height: 1.7;
-            max-width: 800px;
-            margin: 0 auto 24px;
-            color: rgba(255, 255, 255, 0.92);
-        }
-
-        .page-header .credentials {
-            display: flex;
-            justify-content: center;
-            gap: 32px;
-            flex-wrap: wrap;
-            font-size: 13px;
-            color: rgba(255, 255, 255, 0.85);
-            margin-top: 32px;
-        }
-
-        .page-header .credentials span::before {
-            content: '✓ ';
-            color: var(--copper-light);
-            font-weight: 600;
-        }
-
-        /* Section Styling */
-        .section {
-            padding: 100px 0;
-        }
-
-        .section.bg-cream {
-            background: var(--cream);
-        }
-
-        .section-label {
-            font-size: 11px;
-            font-weight: 500;
-            color: var(--copper);
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            margin-bottom: 16px;
-            text-align: center;
-        }
-
-        .section-title {
-            font-size: 36px;
-            font-weight: 600;
-            color: var(--charcoal);
-            margin-bottom: 20px;
-            letter-spacing: -0.02em;
-            text-align: center;
-        }
-
-        .section-subtitle {
-            font-size: 18px;
-            color: var(--grey-600);
-            line-height: 1.8;
-            text-align: center;
-            margin-bottom: 60px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Services Grid */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 32px;
-            margin-top: 60px;
-        }
-
-        .service-card {
-            background: var(--warm-white);
-            border: 1px solid var(--stone);
-            border-radius: 8px;
-            padding: 40px;
-            transition: all 0.3s ease;
-        }
-
-        .section.bg-cream .service-card {
-            background: var(--warm-white);
-        }
-
-        .service-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 32px rgba(43, 43, 43, 0.08);
-        }
-
-        .service-card h3 {
-            font-size: 22px;
-            font-weight: 600;
-            color: var(--charcoal);
-            margin-bottom: 16px;
-            line-height: 1.3;
-        }
-
-        .service-card p {
-            font-size: 16px;
-            color: var(--grey-600);
-            line-height: 1.7;
-            margin-bottom: 24px;
-        }
-
-        .service-card ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .service-card li {
-            padding: 10px 0 10px 28px;
-            position: relative;
-            font-size: 15px;
-            color: var(--grey-600);
-            line-height: 1.6;
-        }
-
-        .service-card li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--copper);
-            font-weight: 700;
-            font-size: 18px;
-        }
-
-        /* Approach Section */
-        .approach-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .approach-content p {
-            font-size: 17px;
-            color: var(--grey-600);
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
-
-        .approach-content ul {
-            list-style: none;
-            padding: 0;
-            margin-top: 32px;
-        }
-
-        .approach-content li {
-            padding: 14px 0 14px 32px;
-            position: relative;
-            font-size: 16px;
-            color: var(--grey-600);
-            line-height: 1.7;
-        }
-
-        .approach-content li::before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            color: var(--copper);
-            font-weight: 700;
-            font-size: 24px;
-        }
-
-        /* Engagement Box */
-        .engagement-box {
-            background: var(--warm-white);
-            border: 1px solid var(--stone);
-            border-radius: 8px;
-            padding: 40px;
-            max-width: 800px;
-            margin: 60px auto 0;
-        }
-
-        .section.bg-cream .engagement-box {
-            background: var(--warm-white);
-        }
-
-        .engagement-box h3 {
-            font-size: 22px;
-            font-weight: 600;
-            color: var(--charcoal);
-            margin-bottom: 20px;
-        }
-
-        .engagement-box p {
-            font-size: 17px;
-            color: var(--grey-600);
-            line-height: 1.7;
-            margin-bottom: 16px;
-        }
-
-        .engagement-box p:last-child {
-            margin-bottom: 0;
-        }
-
-        /* Testimonials Section */
-        .testimonials-section {
-            padding: 100px 0;
-            background: var(--warm-white);
-        }
-
-        .testimonial-form-wrapper {
-            max-width: 700px;
-            margin: 0 auto;
-            background: var(--cream);
-            padding: 48px;
-            border-radius: 8px;
-            border: 1px solid var(--stone);
-        }
-
-        .form-group {
-            margin-bottom: 24px;
-        }
-
-        .form-group label {
-            display: block;
-            font-size: 14px;
-            font-weight: 500;
-            color: var(--charcoal);
-            margin-bottom: 8px;
-            letter-spacing: 0.01em;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 14px 16px;
-            border: 1px solid var(--stone);
-            border-radius: 6px;
-            font-family: var(--font-primary);
-            font-size: 15px;
-            color: var(--charcoal);
-            background: var(--warm-white);
-            transition: all 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--copper);
-            box-shadow: 0 0 0 3px rgba(196, 106, 61, 0.1);
-        }
-
-        .form-group textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        .form-note {
-            font-size: 12px;
-            color: var(--grey-500);
-            margin-top: 6px;
-        }
-
-        .form-submit {
-            margin-top: 32px;
-        }
-
-        .success-message {
-            display: none;
-            background: #d4edda;
-            border: 1px solid #c3e6cb;
-            color: #155724;
-            padding: 16px;
-            border-radius: 6px;
-            margin-bottom: 24px;
-            text-align: center;
-        }
-
-        .success-message.show {
-            display: block;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 16px 36px;
-            border-radius: 6px;
-            font-weight: 500;
-            font-size: 15px;
-            letter-spacing: 0.02em;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
-            width: 100%;
-        }
-
-        .btn-primary {
-            background: var(--charcoal);
-            color: var(--warm-white);
-        }
-
-        .btn-primary:hover {
-            background: var(--copper);
-            transform: translateY(-2px);
-        }
-
-        /* CTA Section */
-        .cta-section {
-            padding: 100px 0;
-            background: var(--charcoal);
-            color: var(--warm-white);
-            text-align: center;
-        }
-
-        .cta-section .container {
-            max-width: 700px;
-        }
-
-        .cta-section p {
-            font-size: 20px;
-            margin-bottom: 40px;
-            color: rgba(255, 255, 255, 0.92);
-            line-height: 1.7;
-        }
-
-        .cta-section .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 16px 36px;
-            border-radius: 6px;
-            font-weight: 500;
-            font-size: 15px;
-            letter-spacing: 0.02em;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            background: var(--copper);
-            color: var(--warm-white);
-            width: auto;
-        }
-
-        .cta-section .btn:hover {
-            background: var(--copper-light);
-            transform: translateY(-2px);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--charcoal);
-            color: var(--warm-white);
-            padding: 80px 0 40px;
-            border-top: 1px solid var(--charcoal-light);
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 60px;
-            margin-bottom: 60px;
-        }
-
-        .footer-brand h3 {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            color: var(--warm-white);
-            letter-spacing: 0.05em;
-        }
-
-        .footer-brand p {
-            color: rgba(255, 255, 255, 0.85);
-            line-height: 1.7;
-            font-size: 14px;
-            margin-bottom: 24px;
-        }
-
-        .footer-contact {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .footer-contact a {
-            color: rgba(255, 255, 255, 0.85);
-            font-size: 14px;
-            transition: color 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .footer-contact a::before {
-            content: '';
-            width: 4px;
-            height: 4px;
-            background: var(--copper);
-            border-radius: 50%;
-        }
-
-        .footer-contact a:hover {
-            color: var(--copper-light);
-        }
-
-        .footer-links h4 {
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 24px;
-            color: var(--warm-white);
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-        }
-
-        .footer-links a {
-            display: block;
-            color: rgba(255, 255, 255, 0.85);
-            margin-bottom: 14px;
-            font-size: 14px;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--copper-light);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 40px;
-            border-top: 1px solid var(--charcoal-light);
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 13px;
-            letter-spacing: 0.02em;
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .services-grid { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr 1fr; }
-        }
-
-        @media (max-width: 768px) {
-            .container { padding: 0 24px; }
-            nav ul { display: none; }
-            .page-header { padding: 80px 0 60px; }
-            .page-header h1 { font-size: 32px; }
-            .page-header .credentials { flex-direction: column; gap: 12px; }
-            .section-title { font-size: 28px; }
-            .services-grid { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
-            .testimonial-form-wrapper { padding: 32px 24px; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="DATASANJ services — Microsoft Fabric data platforms, semantic modelling and governance, compliance and executive reporting, financial automation, and Excel and Google Sheets systems. Canberra-based, working across Australia.">
+<meta name="keywords" content="Microsoft Fabric consultant Australia, Power BI consultant Canberra, data governance, semantic model, compliance reporting, Xero Power BI, Excel VBA, Google Sheets automation">
+<meta name="author" content="Zohal Zahir">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Services | DATASANJ — Enterprise BI Consultancy">
+<meta property="og:description" content="From Fabric platform architecture to the one workbook that finally behaves. Canberra-based, working across Australia.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.datasanj.com/services.html">
+<title>Services | Enterprise BI Consultancy | DATASANJ</title>
+<link rel="canonical" href="https://www.datasanj.com/services.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="container">
-            <a href="index.html" class="logo-wrapper">
-                <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
-                    <g transform="translate(20,18)">
-                        <rect x="0"  y="36" width="9" height="26" rx="2" fill="#2B2B2B"/>
-                        <rect x="19" y="24" width="9" height="38" rx="2" fill="#2B2B2B"/>
-                        <rect x="38" y="12" width="9" height="50" rx="2" fill="#2B2B2B"/>
-                        <path d="M 1 50 Q 26 30, 47 15" stroke="#C46A3D" stroke-width="2" fill="none" stroke-linecap="round"/>
-                    </g>
-                </svg>
-                <div class="logo-text">
-                    <span class="brand">DATASANJ</span>
-                    <span class="tagline">ANALYTICS CONSULTANCY</span>
-                </div>
-            </a>
+<a class="skip-link" href="#main">Skip to content</a>
 
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="About.html">About</a></li>
-                <li><a href="services.html" class="active">Services</a></li>
-                <li><a href="Portfolio.html">Portfolio</a></li>
-                <li><a href="Blog.html">Insights</a></li>
-                <li><a href="Contact.html" class="nav-cta">Let's Talk</a></li>
-            </ul>
+<nav>
+  <div class="container">
+    <a href="index.html" class="logo-wrapper">
+      <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" aria-hidden="true">
+        <g transform="translate(20,18)">
+          <rect x="0" y="36" width="9" height="26" rx="2" fill="#2B2B2B"/>
+          <rect x="19" y="24" width="9" height="38" rx="2" fill="#2B2B2B"/>
+          <rect x="38" y="12" width="9" height="50" rx="2" fill="#2B2B2B"/>
+          <path d="M 1 50 Q 26 30, 47 15" stroke="#C46A3D" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </g>
+      </svg>
+      <div class="logo-text">
+        <span class="brand">DATASANJ</span>
+        <span class="tagline">ANALYTICS CONSULTANCY</span>
+      </div>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-menu" id="nav-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="About.html">About</a></li>
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="Portfolio.html">Work</a></li>
+      <li><a href="Blog.html">Insights</a></li>
+      <li><a href="Contact.html" class="nav-cta">Start a Conversation</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="main">
+
+<header class="page-header page-header--dark">
+  <div class="container">
+    <h1>Services</h1>
+    <p class="intro">Six practice areas, ordered deliberately. Governance is worth very little sitting on top of a pipeline nobody trusts, so engagements usually begin at one level and expand into the next.</p>
+    <div class="creds">
+      <span>Microsoft Certified DP-600</span>
+      <span>Microsoft Certified PL-300</span>
+      <span>Certified Xero Advisor</span>
+      <span>Canberra · AU, NZ, US</span>
+    </div>
+  </div>
+</header>
+
+<!-- Practice areas -->
+<section class="section">
+  <div class="container">
+    <div class="eyebrow eyebrow--center">Practice areas</div>
+    <h2 class="section-title section-title--center">What I'm engaged to do</h2>
+    <p class="section-intro section-intro--center">Australian organisations across local government, hospitality, healthcare and professional services — plus international clients working remotely.</p>
+
+    <div class="card-grid">
+
+      <div class="card">
+        <span class="num">01</span>
+        <h3>Data Platform Architecture</h3>
+        <p>Getting source data into one governed place automatically, so reporting stops depending on someone remembering to send a file.</p>
+        <ul>
+          <li>Microsoft Fabric Lakehouse and pipelines</li>
+          <li>Medallion architecture: bronze, silver, gold</li>
+          <li>REST API and SharePoint ingestion, OAuth 2.0</li>
+          <li>Unattended scheduled refresh with error handling</li>
+          <li>Python and PySpark transformation notebooks</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <span class="num">02</span>
+        <h3>Semantic Modelling</h3>
+        <p>The layer that decides whether your numbers agree with each other. Modelled once, conformed across subject areas, built to be maintained rather than rebuilt.</p>
+        <ul>
+          <li>Kimball dimensional modelling, conformed dimensions</li>
+          <li>Enterprise semantic models with large DAX libraries</li>
+          <li>Tie-out reporting to reconcile against source systems</li>
+          <li>Grain and definition documentation</li>
+          <li>Performance and scalability review</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <span class="num">03</span>
+        <h3>Governance &amp; BI Engineering</h3>
+        <p>Treating reporting as production software: versioned, reviewable, promotable, and safe for more than one person to touch.</p>
+        <ul>
+          <li>Row-level security and controlled data access</li>
+          <li>Deployment pipelines across dev, test and production</li>
+          <li>.pbip project format with Git version control</li>
+          <li>Metadata documentation and governed datasets</li>
+          <li>Handover training so your team owns it</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <span class="num">04</span>
+        <h3>Executive &amp; Compliance Reporting</h3>
+        <p>Reporting built around the decision being made, or the obligation being evidenced — not around the data that happened to be available.</p>
+        <ul>
+          <li>Executive, operations and investor dashboards</li>
+          <li>Benchmarking indices and competitive analysis</li>
+          <li>Audit and inspection program reporting</li>
+          <li>Compliance trend and exception analysis</li>
+          <li>Drill-through from summary to individual site</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <span class="num">05</span>
+        <h3>Financial Reporting Automation</h3>
+        <p>Backed by an accounting qualification and Xero certification, so the model reflects how the books work rather than how the export was formatted.</p>
+        <ul>
+          <li>Chart-of-accounts aligned P&amp;L reporting</li>
+          <li>Budget, forecast and scenario analysis</li>
+          <li>Live Xero and QuickBooks integration</li>
+          <li>AP/AR ageing and cash-flow visibility</li>
+          <li>Month-end close acceleration</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <span class="num">06</span>
+        <h3>Excel &amp; Google Sheets Systems</h3>
+        <p>Not every problem needs a platform. Some need one workbook that finally behaves — built with the same discipline as anything larger.</p>
+        <ul>
+          <li>Excel VBA automation and custom tools</li>
+          <li>Google Sheets workflow automation</li>
+          <li>Refactoring fragile or undocumented workbooks</li>
+          <li>Validation and error handling at point of entry</li>
+          <li>Template standardisation across a team</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Diagnostic -->
+<section class="section bg-cream">
+  <div class="container">
+    <div class="eyebrow eyebrow--center">Where most engagements start</div>
+    <h2 class="section-title section-title--center">Reporting diagnostic</h2>
+    <div class="prose prose--center">
+      <p>Before recommending a build, I trace the chain from source system to decision and find where it breaks. Most organisations don't need what they think they need, and finding that out early is considerably cheaper than finding it out during implementation.</p>
+      <p>A diagnostic is a fixed-scope piece of work that gives you a clear picture whether or not you go on to engage me for the build:</p>
+      <ul>
+        <li>Where definitions are contested, undocumented, or implicit in someone's spreadsheet</li>
+        <li>Where the grain of your data doesn't support the questions being asked of it</li>
+        <li>Which manual steps carry real risk, and which are merely annoying</li>
+        <li>Structural and scalability limits in the existing model</li>
+        <li>A prioritised recommendation, including anything you should not spend money on</li>
+      </ul>
+      <div class="callout">
+        <h4>What a diagnostic gives you</h4>
+        <p>Sometimes the honest answer is that you have a process problem, an ownership problem, or a data-entry problem, and no amount of Power BI will fix it. <strong>I would rather tell you that in week one than build something that quietly inherits it.</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Engagement model -->
+<section class="section">
+  <div class="container">
+    <div class="eyebrow eyebrow--center">Engagement model</div>
+    <h2 class="section-title section-title--center">How I work</h2>
+    <p class="section-intro section-intro--center">Phased, with sign-off at each stage. You should never be several months into a build before you see something you can use.</p>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h3>Assess</h3>
+          <p>We trace the chain from source system to decision and find where it breaks — undefined grain, contested definitions, manual steps, unowned handoffs. Scope, risks and outcomes get defined before anything is built.</p>
         </div>
-    </nav>
-
-    <!-- Page Header -->
-    <section class="page-header">
-        <div class="container">
-            <h1>Services</h1>
-            <p class="intro">I provide targeted reporting and analytics services for organisations that depend on accurate, defensible data. This is custom, responsibility-driven work — not off-the-shelf dashboards.</p>
-            <div class="credentials">
-                <span>Microsoft Certified Power BI Data Analyst</span>
-                <span>Excel VBA Specialist</span>
-                <span>Xero Advisor</span>
-            </div>
+      </div>
+      <div class="process-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h3>Build in phases</h3>
+          <p>Pipeline, then model, then reporting, delivered in Agile milestones with sign-off at each one. Figures are reconciled to source as we go, so trust is established during the build rather than argued about after it.</p>
         </div>
-    </section>
-
-    <!-- Core Services Section -->
-    <section class="section">
-        <div class="container">
-            <div class="section-label">What I Do</div>
-            <h2 class="section-title">Core Services</h2>
-
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>Power BI Dashboards & Reporting</h3>
-                    <p>Management and executive dashboards built for decisions, not decoration. Real-time data connections, clean models, and reporting you can trust.</p>
-                    <ul>
-                        <li>Financial and operational dashboards</li>
-                        <li>Budget vs actual reporting</li>
-                        <li>Multi-entity or multi-site models</li>
-                        <li>Custom DAX calculations</li>
-                        <li>Row-level security implementation</li>
-                        <li>Automated refresh schedules</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <h3>Excel VBA Systems</h3>
-                    <p>Stabilising and modernising business-critical spreadsheets. Automation that reduces manual effort, eliminates errors, and makes complex workflows sustainable.</p>
-                    <ul>
-                        <li>Month-end reporting automation</li>
-                        <li>Custom Excel applications and tools</li>
-                        <li>Refactoring fragile or undocumented files</li>
-                        <li>Advanced UI design and user forms</li>
-                        <li>Template standardisation</li>
-                        <li>Error handling and audit trails</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <h3>API Integration</h3>
-                    <p>Connecting your systems so data flows automatically. No more manual exports, copy-paste errors, or version control nightmares.</p>
-                    <ul>
-                        <li>Xero to Power BI integration</li>
-                        <li>CRM and operations system connections</li>
-                        <li>REST API data pipelines</li>
-                        <li>OAuth 2.0 authentication setup</li>
-                        <li>Automated token refresh</li>
-                        <li>Python and Power Query solutions</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <h3>Reporting Diagnostics & Data Review</h3>
-                    <p>A structured assessment of existing reporting to identify what's broken, what's risky, and what needs fixing before you invest further.</p>
-                    <ul>
-                        <li>Data integrity audits</li>
-                        <li>Broken or implicit business logic review</li>
-                        <li>Structural risk assessment</li>
-                        <li>Performance and scalability analysis</li>
-                        <li>Recommendations for improvement</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <h3>Financial & Operational Reporting Systems</h3>
-                    <p>End-to-end reporting solutions designed for consistency, reconciliation, and long-term use by organisations that can't afford reporting failures.</p>
-                    <ul>
-                        <li>Complete BI implementation</li>
-                        <li>Multi-department reporting models</li>
-                        <li>KPI framework development</li>
-                        <li>Governance and access controls</li>
-                        <li>Documentation and training</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <h3>Ongoing Support & Advisory</h3>
-                    <p>Retainer-based partnership for organisations that need continuous improvement, regular updates, and priority support as their business evolves.</p>
-                    <ul>
-                        <li>Monthly reporting system maintenance</li>
-                        <li>New feature development</li>
-                        <li>Priority response times</li>
-                        <li>Strategic advisory</li>
-                        <li>Ad-hoc analysis and troubleshooting</li>
-                    </ul>
-                </div>
-            </div>
+      </div>
+      <div class="process-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h3>Govern and hand over</h3>
+          <p>Row-level security, deployment pipelines, version control and documentation, plus training. The measure of a good handover is that your team can change the model without me.</p>
         </div>
-    </section>
-
-    <!-- How I Work Section -->
-    <section class="section bg-cream">
-        <div class="container">
-            <div class="section-label">My Approach</div>
-            <h2 class="section-title">How I Work</h2>
-
-            <div class="approach-content">
-                <p>My work follows a deliberate, low-noise approach designed to avoid rework, broken models, and confidence erosion:</p>
-                <ul>
-                    <li>Understand the business logic and what your reporting actually needs to deliver</li>
-                    <li>Fix the data foundation with sound models and structures</li>
-                    <li>Deliver reporting that can be trusted, maintained, and scaled</li>
-                </ul>
-
-                <div class="engagement-box">
-                    <h3>Engagement Model</h3>
-                    <p>Work is typically delivered as fixed-scope engagements, phased implementations, or ongoing advisory support.</p>
-                    <p style="font-weight: 500; color: var(--charcoal);">All work begins with a structured discovery to ensure scope, risks, and outcomes are clearly defined.</p>
-                </div>
-            </div>
+      </div>
+      <div class="process-step">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <h3>Support, if you want it</h3>
+          <p>Monthly retainer for maintenance, new development and priority response — used by clients whose reporting keeps evolving. Optional, and never a condition of the build.</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Minimum Engagement Section -->
-    <section class="section">
-        <div class="container">
-            <div class="section-label">Clear Expectations</div>
-            <h2 class="section-title">Who This Is For</h2>
+<!-- Fit + pricing -->
+<section class="section bg-cream">
+  <div class="container">
+    <div class="eyebrow eyebrow--center">Fit and investment</div>
+    <h2 class="section-title section-title--center">Who this suits</h2>
+    <div class="prose prose--center">
+      <p>I work on engagements that need proper scoping and accountability for outcomes. That tends to mean organisations where:</p>
+      <ul>
+        <li>Reporting already drives decisions rather than just describing them</li>
+        <li>Accuracy and defensibility are non-negotiable — regulated, audited, or board-reported</li>
+        <li>The cost of getting it wrong exceeds the cost of doing it properly</li>
+        <li>There's appetite for structured discovery rather than an immediate build</li>
+      </ul>
+      <h3>On fees</h3>
+      <p>Fees are set after discovery, once complexity and responsibility are understood. Quoting before that either pads the estimate or produces a scope change later, and neither serves you. Engagements range from a focused diagnostic review through to a complete platform implementation, with ongoing support available by monthly retainer.</p>
+      <p><strong>If you're after a quick, low-cost dashboard, I'm not the right fit</strong> — and I'd rather say so here than in a first call.</p>
+    </div>
+  </div>
+</section>
 
-            <div class="approach-content">
-                <p>I work on engagements that require proper scoping, accountability, and ownership of outcomes. This means working with organisations where:</p>
-                <ul>
-                    <li>Reporting is already critical to decision-making</li>
-                    <li>Accuracy and reliability are non-negotiable</li>
-                    <li>The cost of failure exceeds the cost of doing it properly</li>
-                    <li>There's appetite for structured discovery and implementation</li>
-                </ul>
-                <p style="font-weight: 500; color: var(--charcoal); margin-top: 24px;">If you are seeking quick, low-cost dashboards or ad-hoc builds, this will not be the right fit.</p>
-            </div>
+<!-- Testimonials -->
+<section class="section">
+  <div class="container">
+    <div class="eyebrow eyebrow--center">Client feedback</div>
+    <h2 class="section-title section-title--center">What clients say</h2>
+    <p class="section-intro section-intro--center">Verified reviews from completed engagements. Attributed by role rather than name, as most client work is commercially sensitive.</p>
+
+    <div class="quote-grid">
+      <div class="quote">
+        <blockquote>"Phenomenal work. Seamless execution."</blockquote>
+        <cite><b>Accounting automation client</b>Google Sheets accounting automation · Rated 5.0 via Upwork</cite>
+      </div>
+      <div class="quote">
+        <blockquote>"I have used Zohal on a couple of different projects. Each time she creates simple, user-friendly documents. She is willing to make tweaks until they are just right."</blockquote>
+        <cite><b>Repeat client</b>Compliance review automation · Rated 5.0 via Upwork</cite>
+      </div>
+      <div class="quote">
+        <blockquote>"Zohal was simply exceptional to work with. She created a complex Excel file to help me track hours for my per diem medical providers based on visit type and membership."</blockquote>
+        <cite><b>Healthcare practice owner</b>Provider time tracking · Rated 5.0 via Upwork</cite>
+      </div>
+      <div class="quote">
+        <blockquote>"Her attention to detail and remarkable analytical skills were evident in her consistently producing high-quality work."</blockquote>
+        <cite><b>Dr Bazlur Rashid</b>Senior Lecturer in Data Science &amp; Cyber Security, University of Adelaide</cite>
+      </div>
+    </div>
+
+    <div class="project-links" style="justify-content:center;border-top:0;margin-top:32px">
+      <a href="https://www.upwork.com/freelancers/zohalz" target="_blank" rel="noopener">See all verified reviews →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Submit a testimonial -->
+<section class="section bg-cream">
+  <div class="container">
+    <div class="eyebrow eyebrow--center">For past clients</div>
+    <h2 class="section-title section-title--center">Share your experience</h2>
+    <p class="section-intro section-intro--center">Worked with me? Your feedback helps the next person decide whether I'm the right fit.</p>
+
+    <div class="form-wrap">
+      <div id="successMessage" class="success-message">
+        Thank you — that's come through. I appreciate you taking the time.
+      </div>
+
+      <form action="https://formspree.io/f/mvzzzdbl" method="POST" data-ajax="true">
+        <div class="form-group">
+          <label for="name">Your name *</label>
+          <input type="text" id="name" name="name" required placeholder="Jane Smith">
         </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section class="section bg-cream">
-        <div class="container">
-            <div class="section-label">Investment</div>
-            <h2 class="section-title">Pricing Philosophy</h2>
-
-            <div class="approach-content">
-                <p>Fees are determined after discovery, once complexity and responsibility are understood. This ensures:</p>
-                <ul>
-                    <li>Accurate scoping that accounts for real requirements</li>
-                    <li>Sustainable solutions built for long-term use</li>
-                    <li>No shortcuts that compromise trust in the numbers</li>
-                </ul>
-                <p style="font-weight: 500; color: var(--charcoal); margin-top: 24px;">Typical engagements range from focused diagnostic reviews to complete reporting system implementations. Ongoing support is available via monthly retainer.</p>
-            </div>
+        <div class="form-group">
+          <label for="email">Email address *</label>
+          <input type="email" id="email" name="email" required placeholder="jane@example.com">
+          <div class="form-note">Not published — used only so I can thank you and check the details.</div>
         </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials-section">
-        <div class="container">
-            <div class="section-label">Client Feedback</div>
-            <h2 class="section-title">Share Your Experience</h2>
-            <p class="section-subtitle">Worked with me? I'd love to hear about your experience. Your feedback helps others make informed decisions.</p>
-
-            <div class="testimonial-form-wrapper">
-                <div id="successMessage" class="success-message">
-                    Thank you! Your testimonial has been submitted successfully. I appreciate your feedback!
-                </div>
-
-                <form id="testimonialForm" action="https://formspree.io/f/mvzzzdbl" method="POST">
-                    <div class="form-group">
-                        <label for="name">Your Name *</label>
-                        <input type="text" id="name" name="name" required placeholder="John Smith">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Email Address *</label>
-                        <input type="email" id="email" name="email" required placeholder="john@example.com">
-                        <div class="form-note">Your email will not be published publicly</div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="company">Company / Role (Optional)</label>
-                        <input type="text" id="company" name="company" placeholder="ABC Corp, CFO">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="project">Project Type (Optional)</label>
-                        <input type="text" id="project" name="project" placeholder="e.g., Power BI Dashboard, Excel Automation">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="testimonial">Your Testimonial *</label>
-                        <textarea id="testimonial" name="testimonial" required placeholder="Share your experience working with Zohal... What problem did we solve? What was the outcome?"></textarea>
-                        <div class="form-note">Please be specific about the value you received</div>
-                    </div>
-
-                    <div class="form-group">
-                        <label>
-                            <input type="checkbox" name="consent" required style="width: auto; margin-right: 8px;">
-                            I consent to my testimonial being published on this website and marketing materials
-                        </label>
-                    </div>
-
-                    <div class="form-submit">
-                        <button type="submit" class="btn btn-primary">Submit Testimonial</button>
-                    </div>
-                </form>
-            </div>
+        <div class="form-group">
+          <label for="company">Company and role (optional)</label>
+          <input type="text" id="company" name="company" placeholder="e.g. Finance Manager, professional services">
         </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <p>If your organisation relies on reporting to make decisions — and you want confidence in those numbers — I'd be happy to discuss whether I can help.</p>
-            <a href="Contact.html" class="btn">Request a discovery call →</a>
+        <div class="form-group">
+          <label for="project">What we worked on (optional)</label>
+          <input type="text" id="project" name="project" placeholder="e.g. Power BI dashboard, Xero integration">
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <h3>DATASANJ</h3>
-                    <p>Analytics consultancy helping organisations bring order, accuracy, and trust to their financial and operational reporting. Microsoft Certified Power BI Analyst & Xero Advisor. Based in Canberra.</p>
-                    <div class="footer-contact">
-                        <a href="mailto:d_zohal@datasanj.com">d_zohal@datasanj.com</a>
-                        <a href="#">Canberra, ACT, Australia</a>
-                    </div>
-                </div>
-
-                <div class="footer-links">
-                    <h4>Navigation</h4>
-                    <a href="index.html">Home</a>
-                    <a href="About.html">About</a>
-                    <a href="services.html">Services</a>
-                    <a href="Portfolio.html">Portfolio</a>
-                    <a href="Blog.html">Insights</a>
-                    <a href="Contact.html">Contact</a>
-                </div>
-
-                <div class="footer-links">
-                    <h4>What I Do</h4>
-                    <a href="services.html">Power BI Dashboards</a>
-                    <a href="services.html">Excel VBA Systems</a>
-                    <a href="services.html">API Integration</a>
-                    <a href="services.html">Xero to Power BI</a>
-                </div>
-
-                <div class="footer-links">
-                    <h4>Connect</h4>
-                    <a href="https://www.linkedin.com/in/zohal-zahir-46128697/" target="_blank">LinkedIn</a>
-                    <a href="https://github.com/Zohal987654321" target="_blank">GitHub</a>
-                    <a href="https://www.upwork.com/freelancers/zohalz" target="_blank">Upwork Profile</a>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2025 DATASANJ. All rights reserved.</p>
-            </div>
+        <div class="form-group">
+          <label for="testimonial">Your feedback *</label>
+          <textarea id="testimonial" name="testimonial" required placeholder="What problem did we solve, and what changed as a result?"></textarea>
+          <div class="form-note">Specifics are far more useful to readers than praise.</div>
         </div>
-    </footer>
+        <div class="form-group">
+          <label class="form-consent">
+            <input type="checkbox" name="consent" required>
+            <span>I'm happy for this to be published on the DATASANJ website, attributed by role rather than name if I prefer.</span>
+          </label>
+        </div>
+        <button type="submit" class="btn btn-dark">Send feedback</button>
+      </form>
+    </div>
+  </div>
+</section>
 
-    <script>
-        // Testimonial form handling
-        document.getElementById('testimonialForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const form = e.target;
-            const formData = new FormData(form);
-            
-            fetch(form.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            })
-            .then(response => {
-                if (response.ok) {
-                    document.getElementById('successMessage').classList.add('show');
-                    form.reset();
-                    document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
-                    setTimeout(() => {
-                        document.getElementById('successMessage').classList.remove('show');
-                    }, 5000);
-                } else {
-                    alert('Oops! There was a problem submitting your testimonial. Please try again or email me directly.');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('Oops! There was a problem submitting your testimonial. Please try again or email me directly.');
-            });
-        });
-    </script>
+<section class="cta-section">
+  <div class="container">
+    <h2>Start with the diagnostic, not the build</h2>
+    <p>Tell me what decision your team is trying to make and where the numbers stop lining up. I'll come back with a clear read on what it would take to fix.</p>
+    <a href="Contact.html" class="btn btn-primary">Start a conversation →</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>DATASANJ</h3>
+        <p>Enterprise BI consultancy based in Canberra, Australia. Microsoft Certified (DP-600, PL-300) and Certified Xero Advisor. Remote across Australia, New Zealand and the US.</p>
+        <div class="footer-contact">
+          <a href="mailto:d_zohal@datasanj.com">d_zohal@datasanj.com</a>
+          <a href="Contact.html">Canberra, ACT, Australia</a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Navigation</h4>
+        <a href="index.html">Home</a>
+        <a href="About.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="Portfolio.html">Work</a>
+        <a href="Blog.html">Insights</a>
+        <a href="Contact.html">Contact</a>
+      </div>
+      <div class="footer-links">
+        <h4>Practice Areas</h4>
+        <a href="services.html">Data Platform Architecture</a>
+        <a href="services.html">Semantic Modelling</a>
+        <a href="services.html">Governance &amp; BI Engineering</a>
+        <a href="services.html">Compliance Reporting</a>
+        <a href="services.html">Financial Automation</a>
+      </div>
+      <div class="footer-links">
+        <h4>Connect</h4>
+        <a href="https://www.linkedin.com/in/zohal-zahir-46128697/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/Zohal987654321" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.upwork.com/freelancers/zohalz" target="_blank" rel="noopener">Upwork</a>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 DATASANJ | Analytics Consultancy by Zohal Zahir</div>
+  </div>
+</footer>
+
+<script src="site.js"></script>
 </body>
 </html>

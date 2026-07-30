@@ -81,7 +81,7 @@ nav .container { display: flex; justify-content: space-between; align-items: cen
 .arc { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 0; margin: 0 auto; }
 .arc b { font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; }
 .arc i { font-style: normal; color: var(--copper); padding: 0 16px; }
-.arc .from { color: var(--grey-400); }
+.arc .from { color: var(--grey-500); }
 .arc .to { color: var(--charcoal); }
 .page-header--dark .arc .from { color: rgba(255,255,255,0.45); }
 .page-header--dark .arc .to { color: var(--warm-white); }

@@ -113,6 +113,15 @@
     <p>That last point is the whole exercise. A leave tracker is trivial. A leave tracker whose approvals feed the same model your headcount and cost reporting runs on is a different proposition.</p>
 
 
+    <figure class="media">
+      <div class="frame" data-ph="Video unavailable — check the filename matches Fabric_Apps_Short.mp4 exactly">
+        <video controls preload="metadata" playsinline>
+          <source src="Fabric_Apps_Short.mp4" type="video/mp4">
+        </video>
+      </div>
+      <figcaption>Submitting a leave request, approving it as a manager, and the record updating in the underlying Fabric database. <strong>All data shown is generated for testing</strong> &mdash; no client data appears anywhere on this site.</figcaption>
+    </figure>
+
     <h2>Setting it up</h2>
 
     <p>Less involved than I expected. From a standing start:</p>

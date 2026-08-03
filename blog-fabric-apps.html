@@ -1,38 +1,114 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-AU">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="I built an Employee Leave Tracker in Microsoft Fabric Apps to test whether an operational write-back process can live on the same governed semantic model as the reporting. Setup steps, what surprised me, and what I'd want before putting it in production.">
-<meta name="keywords" content="Microsoft Fabric Apps, Fabric write-back, row-level security, semantic model, Power BI, operational workflows, Fabric database, governed data">
+
+<title>Write-Back Workflows in Microsoft Fabric Apps | DATASANJ</title>
+<meta name="description" content="I built an Employee Leave Tracker in Microsoft Fabric Apps to test whether operational write-back can live on the same governed semantic model as the reporting.">
 <meta name="author" content="Zohal Zahir">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://www.datasanj.com/blog-fabric-apps.html">
+
+<!-- Open Graph -->
+<meta property="og:site_name" content="DATASANJ">
+<meta property="og:locale" content="en_AU">
+<meta property="og:type" content="article">
 <meta property="og:title" content="One Model, Two Jobs: Testing Write-Back Workflows in Microsoft Fabric Apps">
 <meta property="og:description" content="An Employee Leave Tracker built in Fabric Apps — write-back, row-level security, and reporting on the same governed model.">
-<meta property="og:type" content="article">
 <meta property="og:url" content="https://www.datasanj.com/blog-fabric-apps.html">
-<title>One Model, Two Jobs: Write-Back Workflows in Microsoft Fabric Apps | DATASANJ</title>
-<link rel="canonical" href="https://www.datasanj.com/blog-fabric-apps.html">
+<meta property="og:image" content="https://www.datasanj.com/og-fabric-apps.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="One model, two jobs: testing write-back workflows in Fabric Apps">
+<meta property="article:published_time" content="2026-07-30T00:00:00+10:00">
+<meta property="article:author" content="Zohal Zahir">
+<meta property="article:section" content="Microsoft Fabric">
+<meta property="article:tag" content="Microsoft Fabric">
+<meta property="article:tag" content="Fabric Apps">
+<meta property="article:tag" content="Row-level security">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="One Model, Two Jobs: Write-Back Workflows in Microsoft Fabric Apps">
+<meta name="twitter:description" content="Write-back, row-level security, and reporting on the same governed model.">
+<meta name="twitter:image" content="https://www.datasanj.com/og-fabric-apps.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="favicon-16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#2B2B2B">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="datasanj-additions.css">
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "TechArticle",
-  "headline": "One Model, Two Jobs: Testing Write-Back Workflows in Microsoft Fabric Apps",
-  "datePublished": "2026-07-30",
-  "author": { "@type": "Person", "name": "Zohal Zahir", "url": "https://www.datasanj.com" },
-  "publisher": { "@type": "Organization", "name": "DATASANJ" },
-  "about": ["Microsoft Fabric", "Fabric Apps", "Row-Level Security", "Semantic Modelling"]
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://www.datasanj.com/#organization",
+      "name": "DATASANJ",
+      "url": "https://www.datasanj.com/",
+      "image": "https://www.datasanj.com/og-image.png",
+      "email": "d_zohal@datasanj.com",
+      "telephone": "+61435916536",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Canberra",
+        "addressRegion": "ACT",
+        "addressCountry": "AU"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/zohal-zahir-46128697/",
+        "https://github.com/Zohal987654321",
+        "https://www.upwork.com/freelancers/zohalz"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.datasanj.com/About.html#zohal-zahir",
+      "name": "Zohal Zahir",
+      "url": "https://www.datasanj.com/About.html",
+      "jobTitle": "Founder & Principal Consultant",
+      "worksFor": { "@id": "https://www.datasanj.com/#organization" },
+      "sameAs": ["https://www.linkedin.com/in/zohal-zahir-46128697/", "https://github.com/Zohal987654321"]
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://www.datasanj.com/blog-fabric-apps.html#article",
+      "headline": "One Model, Two Jobs: Testing Write-Back Workflows in Microsoft Fabric Apps",
+      "description": "An Employee Leave Tracker built in Microsoft Fabric Apps to test whether operational write-back and reporting can share one governed semantic model, with row-level security holding across both.",
+      "url": "https://www.datasanj.com/blog-fabric-apps.html",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.datasanj.com/blog-fabric-apps.html" },
+      "image": "https://www.datasanj.com/og-fabric-apps.png",
+      "datePublished": "2026-07-30",
+      "dateModified": "2026-07-30",
+      "inLanguage": "en-AU",
+      "wordCount": 1180,
+      "timeRequired": "PT5M",
+      "articleSection": "Microsoft Fabric",
+      "author": { "@id": "https://www.datasanj.com/About.html#zohal-zahir" },
+      "publisher": { "@id": "https://www.datasanj.com/#organization" },
+      "isPartOf": { "@id": "https://www.datasanj.com/Blog.html#blog" },
+      "about": ["Microsoft Fabric", "Fabric Apps", "Row-Level Security", "Semantic Modelling"],
+      "keywords": "Microsoft Fabric Apps, Fabric write-back, row-level security, semantic model, Power BI, operational workflows"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.datasanj.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Insights", "item": "https://www.datasanj.com/Blog.html" },
+        { "@type": "ListItem", "position": 3, "name": "Write-Back Workflows in Microsoft Fabric Apps", "item": "https://www.datasanj.com/blog-fabric-apps.html" }
+      ]
+    }
+  ]
 }
 </script>
-
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -40,8 +116,8 @@
 <!-- Navigation -->
 <nav>
   <div class="container">
-    <a href="index.html" class="logo-wrapper">
-      <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" aria-hidden="true">
+    <a href="/" class="logo-wrapper" aria-label="DATASANJ — home">
+      <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" aria-hidden="true" focusable="false">
         <g transform="translate(20,18)">
           <rect x="0" y="36" width="9" height="26" rx="2" fill="#2B2B2B"/>
           <rect x="19" y="24" width="9" height="38" rx="2" fill="#2B2B2B"/>
@@ -58,11 +134,11 @@
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-menu" id="nav-menu">
-      <li><a href="index.html">Home</a></li>
+      <li><a href="/">Home</a></li>
       <li><a href="About.html">About</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="Portfolio.html">Work</a></li>
-      <li><a href="Blog.html" class="active">Insights</a></li>
+      <li><a href="Blog.html" class="active" aria-current="page">Insights</a></li>
       <li><a href="Contact.html" class="nav-cta">Let's Talk</a></li>
     </ul>
   </div>
@@ -76,11 +152,11 @@
     <p class="crumb"><a href="Blog.html">Insights</a> &nbsp;/&nbsp; Microsoft Fabric</p>
     <span class="badge featured">Field Note</span>
     <h1>One model, two jobs: testing write-back workflows in Microsoft Fabric Apps</h1>
-    <p class="standfirst">I wanted to know whether an operational process — the kind that normally ends up in a separate app with its own database — could live on the same governed model as the reporting. So I built an employee leave tracker and found out.</p>
+    <p class="standfirst">I wanted to know whether an operational process &mdash; the kind that normally ends up in a separate app with its own database &mdash; could live on the same governed model as the reporting. So I built an employee leave tracker and found out.</p>
     <div class="article-meta">
-      <span>Zohal Zahir</span><span>•</span>
-      <span>July 2026</span><span>•</span>
-      <span>5 min read</span><span>•</span>
+      <span>Zohal Zahir</span><span>&bull;</span>
+      <time datetime="2026-07-30">July 2026</time><span>&bull;</span>
+      <span>5 min read</span><span>&bull;</span>
       <span>Microsoft Fabric</span>
     </div>
   </div>
@@ -90,11 +166,11 @@
 <article class="article-body">
   <div class="container">
 
-    <p>Most organisations run two parallel data worlds. There's the analytics estate — the warehouse, the semantic model, the dashboards — and there's the operational estate, which is where the actual work happens: leave requests, asset registers, inspection checklists, service tickets. The second one almost always gets built somewhere else, on its own database, with its own permissions model and its own definition of who reports to whom.</p>
+    <p>Most organisations run two parallel data worlds. There's the analytics estate &mdash; the warehouse, the semantic model, the dashboards &mdash; and there's the operational estate, which is where the actual work happens: leave requests, asset registers, inspection checklists, service tickets. The second one almost always gets built somewhere else, on its own database, with its own permissions model and its own definition of who reports to whom.</p>
 
     <p>Then someone asks for a report across both, and you discover the operational app's data has a different grain, different codes, and a security model that doesn't reconcile with the one in your semantic model. I've spent a lot of billable hours on that reconciliation.</p>
 
-    <p>So when Fabric Apps appeared, the question I actually cared about wasn't whether it could build a form. It was <strong>whether the operational write-back and the reporting could sit on the same governed model</strong> — and whether row-level security would hold across both.</p>
+    <p>So when Fabric Apps appeared, the question I actually cared about wasn't whether it could build a form. It was <strong>whether the operational write-back and the reporting could sit on the same governed model</strong> &mdash; and whether row-level security would hold across both.</p>
 
     <div class="pull">
       <p>If the app writes to the same governed data the reporting reads, the reconciliation problem stops existing rather than getting solved.</p>
@@ -110,16 +186,16 @@
       <li>Managers approve or reject them</li>
       <li>Records update immediately</li>
       <li>Row-level security means people only see the data they're permitted to see</li>
-      <li>Reporting sits on top of the same governed data — not a copy of it</li>
+      <li>Reporting sits on top of the same governed data &mdash; not a copy of it</li>
     </ul>
 
     <p>That last point is the whole exercise. A leave tracker is trivial. A leave tracker whose approvals feed the same model your headcount and cost reporting runs on is a different proposition.</p>
 
-
     <figure class="media">
       <div class="frame" data-ph="Video unavailable — check the filename matches Fabric_Apps_Short.mp4 exactly">
-        <video controls preload="metadata" playsinline>
+        <video controls preload="metadata" playsinline width="960" height="540">
           <source src="Fabric_Apps_Short.mp4" type="video/mp4">
+          Your browser doesn't support embedded video. The clip shows a leave request being submitted, approved by a manager, and the record updating in the underlying Fabric database.
         </video>
       </div>
       <figcaption>Submitting a leave request, approving it as a manager, and the record updating in the underlying Fabric database. <strong>All data shown is generated for testing</strong> &mdash; no client data appears anywhere on this site.</figcaption>
@@ -132,7 +208,7 @@
     <ol>
       <li>In the Admin portal, enable <strong>Fabric App items</strong></li>
       <li>In the Admin portal, enable the <strong>Semantic Model Execute Queries REST API</strong></li>
-      <li>In your workspace, create a new item — <strong>Fabric App</strong></li>
+      <li>In your workspace, create a new item &mdash; <strong>Fabric App</strong></li>
       <li>Copy the prompt from the Fabric App screen and post it into your AI assistant</li>
       <li>Answer the assistant's follow-up questions as it works through the build</li>
     </ol>
@@ -141,18 +217,18 @@
 
     <div class="callout">
       <h4>A note on the data</h4>
-      <p>The figures in my walkthrough are AI-generated for testing. The semantic model underneath, though, was built properly on purpose — a real date dimension and fact tables — because I wanted to see how the app behaved against a correctly modelled dataset rather than a flat table. That distinction turned out to matter.</p>
+      <p>The figures in my walkthrough are AI-generated for testing. The semantic model underneath, though, was built properly on purpose &mdash; a real date dimension and fact tables &mdash; because I wanted to see how the app behaved against a correctly modelled dataset rather than a flat table. That distinction turned out to matter.</p>
     </div>
 
     <h2>The two things that surprised me</h2>
 
     <h3>The database got built for me</h3>
 
-    <p>I expected to model the tables myself and wire the app on top. Instead the AI created the database as part of the build. For a prototype that's a substantial time saving. For production I'd want to review every column type, key and constraint it chose — generated schemas are a starting point, not a design — but as a way to get from idea to working prototype in an afternoon, it's genuinely fast.</p>
+    <p>I expected to model the tables myself and wire the app on top. Instead the AI created the database as part of the build. For a prototype that's a substantial time saving. For production I'd want to review every column type, key and constraint it chose &mdash; generated schemas are a starting point, not a design &mdash; but as a way to get from idea to working prototype in an afternoon, it's genuinely fast.</p>
 
     <h3>Row-level security held</h3>
 
-    <p>This is the finding that changes what the tool is for. Fabric Apps leans on the semantic model rather than going around it, and it respects RLS. Which means the permissions you've already defined for reporting extend to the operational surface, instead of being reimplemented — differently, and slightly wrong — in a second system.</p>
+    <p>This is the finding that changes what the tool is for. Fabric Apps leans on the semantic model rather than going around it, and it respects RLS. Which means the permissions you've already defined for reporting extend to the operational surface, instead of being reimplemented &mdash; differently, and slightly wrong &mdash; in a second system.</p>
 
     <p>Anyone who has maintained two divergent security models for the same organisational hierarchy will recognise why that's worth more than the app itself.</p>
 
@@ -161,8 +237,8 @@
     <p>I don't think this replaces Power BI dashboards, and I'd be cautious of anyone who says it does. The division of labour looks reasonably clear to me:</p>
 
     <ul>
-      <li><strong>Power BI</strong> continues to serve structured reporting and KPI monitoring — the views people open every Monday, where consistency matters more than flexibility</li>
-      <li><strong>Fabric Apps</strong> opens up AI-driven exploration and operational workflows on the same governed foundation — the ad-hoc question, and the process step that generates the data</li>
+      <li><strong>Power BI</strong> continues to serve structured reporting and KPI monitoring &mdash; the views people open every Monday, where consistency matters more than flexibility</li>
+      <li><strong>Fabric Apps</strong> opens up AI-driven exploration and operational workflows on the same governed foundation &mdash; the ad-hoc question, and the process step that generates the data</li>
     </ul>
 
     <p>Once you frame it as operational workflows on governed data, the candidates multiply quickly. Approvals of any kind. Asset tracking. Inspections. Audits. Service requests. All of these are currently built in separate tools and then painfully joined back to the analytics estate later.</p>
@@ -172,14 +248,14 @@
     <p>Being clear about this matters more than the enthusiasm. It's a preview feature at the time of writing, and I'd want answers on several fronts before recommending it for anything a client depends on:</p>
 
     <ul>
-      <li><strong>Schema review.</strong> Generated tables need the same scrutiny as any other data model — grain, keys, types, constraints, referential integrity</li>
+      <li><strong>Schema review.</strong> Generated tables need the same scrutiny as any other data model &mdash; grain, keys, types, constraints, referential integrity</li>
       <li><strong>Change control.</strong> How does an app move from development to test to production, and what does version history look like? I hold BI assets to the same standard as application code, and I'd want the same here</li>
       <li><strong>Audit trail.</strong> For approvals in particular, who changed what and when is not optional, and it needs to survive a model refresh</li>
       <li><strong>Concurrency.</strong> Two managers acting on the same request at the same time is a matter of when, not if</li>
       <li><strong>Preview terms.</strong> Feature behaviour and support commitments change before general availability, which is a real consideration for anything load-bearing</li>
     </ul>
 
-    <p>None of that is a reason to ignore it. It's the list I'd work through with a platform team before letting it near a live process — and the fact that the list is this short is itself notable.</p>
+    <p>None of that is a reason to ignore it. It's the list I'd work through with a platform team before letting it near a live process &mdash; and the fact that the list is this short is itself notable.</p>
 
     <h2>Why I think this direction matters</h2>
 
@@ -187,7 +263,7 @@
 
     <p>A platform where the operational process and the reporting genuinely share one governed model is a structurally different proposition from integrating two systems well. I'd want to see it mature before betting a client's process on it. But the direction is the right one.</p>
 
-    <p>I'd be interested to hear what use cases others are testing — particularly anyone who has taken it past prototype.</p>
+    <p>I'd be interested to hear what use cases others are testing &mdash; particularly anyone who has taken it past prototype.</p>
 
     <div class="article-tags">
       <span>Microsoft Fabric</span>
@@ -199,12 +275,41 @@
     </div>
 
     <div class="author">
-      <img src="zohheadshot_smiling_passportsize.JPG" alt="Zohal Zahir" width="68" height="68">
+      <img src="zohheadshot_smiling_passportsize.JPG" alt="Zohal Zahir, enterprise BI consultant, Canberra" width="68" height="68" loading="lazy" decoding="async">
       <div>
         <h4>Zohal Zahir</h4>
-        <p class="role">Enterprise BI Consultant</p>
-        <p>I design governed Microsoft Fabric and Power BI platforms — from ingestion through dimensional modelling to executive reporting. Microsoft Certified (DP-600, PL-300), based in Canberra.</p>
-        <a href="https://www.linkedin.com/in/zohal-zahir-46128697/" target="_blank" rel="noopener">Connect on LinkedIn →</a>
+        <p class="role">Founder &amp; Principal Consultant</p>
+        <p>I design governed Microsoft Fabric and Power BI platforms &mdash; from ingestion through dimensional modelling to executive reporting. Microsoft Certified (DP-600, PL-300), based in Canberra.</p>
+        <a href="https://www.linkedin.com/in/zohal-zahir-46128697/" target="_blank" rel="noopener">Connect on LinkedIn &rarr;</a>
+      </div>
+    </div>
+
+    <div class="subscribe">
+      <h3>New field notes by email</h3>
+      <p>One email when I publish something new. Usually monthly, sometimes less. No roundups of other people's links, and no sales sequence.</p>
+      <form action="https://formspree.io/f/YOUR_SUBSCRIBE_FORM_ID" method="POST">
+        <input type="hidden" name="_subject" value="New field-note subscriber">
+        <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="subscribe-row">
+          <label for="sub-email" class="visually-hidden">Your email address</label>
+          <input type="email" id="sub-email" name="email" required autocomplete="email" inputmode="email" placeholder="you@company.com.au">
+          <button type="submit" class="btn btn-dark">Subscribe</button>
+        </div>
+        <small>Unsubscribe in one click. I don't share the list.</small>
+      </form>
+    </div>
+
+    <div class="related-section u-mt-lg">
+      <div class="eyebrow">Continue reading</div>
+      <div class="card-grid">
+        <a href="blog-mcp-analytics.html" class="card">
+          <h3>What is MCP &mdash; and why should business owners care?</h3>
+          <p>Model Context Protocol lets tools read your data where it already lives. What that changes for reporting, and what it doesn't.</p>
+        </a>
+        <a href="blog-deneb-bodymap.html" class="card">
+          <h3>Building an interactive human body injury map in Power BI using Deneb</h3>
+          <p>22 interactive body regions, heat-mapped by injury count, with full cross-filtering &mdash; no external dependencies.</p>
+        </a>
       </div>
     </div>
 
@@ -217,6 +322,10 @@
     <h2>Running two systems that disagree about the same numbers?</h2>
     <p>That's usually a modelling problem rather than a tooling one, and it's fixable. Tell me where your numbers stop lining up and I'll come back with a clear read on what it would take.</p>
     <a href="Contact.html" class="btn btn-primary">Start a conversation &rarr;</a>
+    <ul class="trust-strip">
+      <li>Reply within two business days</li>
+      <li>Fixed-scope diagnostic before any build</li>
+    </ul>
   </div>
 </section>
 
@@ -231,12 +340,13 @@
         <p>Enterprise BI consultancy based in Canberra, Australia. Microsoft Certified (DP-600, PL-300) and Certified Xero Advisor.</p>
         <div class="footer-contact">
           <a href="mailto:d_zohal@datasanj.com">d_zohal@datasanj.com</a>
+          <a href="tel:+61435916536">+61 435 916 536</a>
           <a href="Contact.html">Canberra, ACT, Australia</a>
         </div>
       </div>
       <div class="footer-links">
         <h4>Navigation</h4>
-        <a href="index.html">Home</a>
+        <a href="/">Home</a>
         <a href="About.html">About</a>
         <a href="services.html">Services</a>
         <a href="Portfolio.html">Work</a>
@@ -258,7 +368,7 @@
         <a href="https://www.upwork.com/freelancers/zohalz" target="_blank" rel="noopener">Upwork</a>
       </div>
     </div>
-    <div class="footer-bottom">© 2026 DATASANJ | Analytics Consultancy by Zohal Zahir</div>
+    <div class="footer-bottom">&copy; 2026 DATASANJ | Analytics Consultancy by Zohal Zahir</div>
   </div>
 </footer>
 

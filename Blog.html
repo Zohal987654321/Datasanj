@@ -68,7 +68,7 @@
       "@id": "https://www.datasanj.com/About.html#zohal-zahir",
       "name": "Zohal Zahir",
       "url": "https://www.datasanj.com/About.html",
-      "jobTitle": "Enterprise Business Intelligence Consultant"
+      "jobTitle": "Founder & Principal Consultant"
     },
     {
       "@type": "Blog",
@@ -80,6 +80,18 @@
       "publisher": { "@id": "https://www.datasanj.com/#organization" },
       "author": { "@id": "https://www.datasanj.com/About.html#zohal-zahir" },
       "blogPost": [
+        {
+          "@type": "BlogPost",
+          "headline": "Lineage You Can Audit, Without a Catalogue",
+          "url": "https://www.datasanj.com/blog-fabric-lineage.html",
+          "datePublished": "2026-08-03",
+          "description": "Building queryable data lineage, quality measurement and PII tracking into a Microsoft Fabric medallion architecture using Delta transaction history, notebook-level logging and semantic-link.",
+          "keywords": "Microsoft Fabric, data lineage, Delta Lake, semantic-link, data governance",
+          "author": { "@id": "https://www.datasanj.com/About.html#zohal-zahir" },
+          "publisher": { "@id": "https://www.datasanj.com/#organization" },
+          "image": "https://www.datasanj.com/og-lineage.png",
+          "mainEntityOfPage": "https://www.datasanj.com/blog-fabric-lineage.html"
+        },
         {
           "@type": "BlogPost",
           "headline": "One Model, Two Jobs: Testing Write-Back Workflows in Microsoft Fabric Apps",
@@ -175,9 +187,25 @@
   <div class="container">
     <div class="blog-grid">
 
-      <a href="blog-fabric-apps.html" class="blog-card">
+      <a href="blog-fabric-lineage.html" class="blog-card">
         <div class="blog-card-header">
           <span class="blog-card-badge new">New — Field Note</span>
+          <h2 class="blog-card-title">Lineage You Can Audit, Without a Catalogue</h2>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <time datetime="2026-08">August 2026</time><span>&bull;</span><span>11 min read</span><span>&bull;</span><span>Microsoft Fabric</span>
+          </div>
+          <p class="blog-card-excerpt">Delta transaction history, notebook-level logging and semantic-link give you a queryable evidence trail from source file to published measure — built into the medallion architecture rather than bolted onto it.</p>
+          <span class="blog-card-link">Read article
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <a href="blog-fabric-apps.html" class="blog-card">
+        <div class="blog-card-header">
+          <span class="blog-card-badge">Field Note</span>
           <h2 class="blog-card-title">One Model, Two Jobs: Testing Write-Back Workflows in Microsoft Fabric Apps</h2>
         </div>
         <div class="blog-card-body">

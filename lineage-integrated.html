@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lineage, Trust &amp; Gates | DATASANJ</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --charcoal:#2B2B2B;--charcoal-2:#3D3D3D;--copper:#C46A3D;--copper-dark:#A85A32;--copper-light:#D4845A;
+  --cream:#F5F4F2;--warm:#FAFAF8;--stone:#E8E6E3;--g400:#9A9A9A;--g500:#6B6B6B;--g600:#4A4A4A;
+  --canvas:#EFEEEC;--teal:#4A7C7E;--ok:#3E7A56;--warn:#C08A2E;--bad:#A8412F;
+  --sans:'Inter',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--sans);background:var(--canvas);color:var(--charcoal);line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1400px;margin:0 auto;padding:24px 14px 56px}
+.intro .k{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--copper-dark);margin-bottom:7px}
+.intro h1{font-size:25px;font-weight:600;letter-spacing:-.02em}
+.intro p{color:var(--g500);font-size:14px;max-width:820px;margin-top:7px}
+.intro b{color:var(--charcoal);font-weight:600}
+
+.app{background:var(--warm);border:1px solid var(--stone);border-radius:9px;overflow:hidden;margin-top:18px;box-shadow:0 10px 32px rgba(43,43,43,.07)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--charcoal);color:var(--warm);padding:11px 18px;flex-wrap:wrap}
+.bar .t{font-size:13.5px;font-weight:600}.bar .t span{color:var(--copper-light);font-weight:500}
+.bar .m{font-family:var(--mono);font-size:10px;color:rgba(255,255,255,.55)}
+
+.toolbar{display:flex;gap:9px;align-items:center;padding:11px 16px;background:var(--cream);border-bottom:1px solid var(--stone);flex-wrap:wrap}
+select{padding:8px 11px;border:1px solid var(--stone);border-radius:6px;font:inherit;font-size:12px;background:#fff;color:var(--g600);min-width:280px}
+select:focus{outline:none;border-color:var(--copper);box-shadow:0 0 0 3px rgba(196,106,61,.1)}
+optgroup{font-family:var(--sans);font-size:11px;color:var(--g400)}
+.chips{margin-left:auto;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.chip{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--g500);background:#fff;border:1px solid var(--stone);border-radius:6px;padding:5px 11px}
+.chip b{font-family:var(--mono);font-size:13px;font-weight:700}
+.gatechip{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.06em;padding:6px 13px;border-radius:6px}
+
+.body{display:grid;grid-template-columns:250px 1fr}
+@media(max-width:960px){.body{grid-template-columns:1fr}}
+.side{border-right:1px solid var(--stone);background:var(--cream)}
+.modes{display:flex;border-bottom:1px solid var(--stone)}
+.mode{flex:1;padding:10px 4px;font:inherit;font-size:11px;font-weight:500;color:var(--g500);background:none;border:0;border-bottom:2px solid transparent;cursor:pointer}
+.mode.on{color:var(--charcoal);border-bottom-color:var(--copper);font-weight:600;background:var(--warm)}
+.tree{padding:6px 6px 14px;max-height:700px;overflow-y:auto}
+details{margin-bottom:1px}
+summary{list-style:none;cursor:pointer;padding:7px 8px;border-radius:4px;font-size:11.5px;font-weight:600;color:var(--charcoal);display:flex;align-items:center;gap:6px}
+summary::-webkit-details-marker{display:none}
+summary:hover{background:var(--warm)}
+summary::before{content:'▸';color:var(--copper);font-size:9px;transition:transform .15s;flex:none}
+details[open]>summary::before{transform:rotate(90deg)}
+summary .q{margin-left:auto;font-family:var(--mono);font-size:9.5px;font-weight:700}
+.sub{padding-left:8px;border-left:1px solid var(--stone);margin-left:11px}
+.it{display:flex;gap:6px;align-items:center;width:100%;text-align:left;padding:6px 8px;border-radius:4px;font:inherit;font-size:11px;color:var(--g600);background:none;border:0;cursor:pointer;line-height:1.3}
+.it:hover{background:var(--warm);color:var(--charcoal)}
+.it.on{background:var(--charcoal);color:#fff;font-weight:500}
+.it .dot{width:7px;height:7px;border-radius:50%;flex:none}
+.it .qv{margin-left:auto;font-family:var(--mono);font-size:9px;font-weight:600}
+.it .blk{font-family:var(--mono);font-size:8px;background:var(--bad);color:#fff;padding:1px 4px;border-radius:2px;flex:none}
+
+.main{padding:14px 16px}
+.vcard{background:#fff;border:1px solid var(--stone);border-radius:8px;padding:15px 17px;margin-bottom:12px}
+.vcard.blocked{border-left:3px solid var(--bad)}
+.vh{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.vh h3{font-size:16px;font-weight:600}
+.vp{font-family:var(--mono);font-size:10px;color:var(--g500);margin-bottom:12px}
+.mrow{display:grid;grid-template-columns:1fr 56px 76px;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--cream);cursor:pointer}
+.mrow:last-of-type{border-bottom:0}
+.mrow:hover .mn{color:var(--copper-dark)}
+.mn{font-size:12.5px;color:var(--charcoal);font-weight:500}
+.mn small{display:block;font-family:var(--mono);font-size:9.5px;color:var(--g500);font-weight:400}
+.mq{font-family:var(--mono);font-size:12.5px;font-weight:700;text-align:right}
+.mbar{height:5px;background:var(--stone);border-radius:3px;overflow:hidden}
+.mbar i{display:block;height:100%;border-radius:3px}
+.vsum{margin-top:12px;padding-top:11px;border-top:1px solid var(--stone);font-size:12px;color:var(--g600);line-height:1.6}
+.vsum b{color:var(--charcoal)}
+
+.stagewrap{background:#fff;border:1px solid var(--stone);border-radius:8px;overflow-x:auto;position:relative}
+svg{display:block;width:100%;height:auto;min-width:860px}
+.edge{fill:none;stroke-width:1.6;transition:opacity .2s,stroke-width .2s}
+.edge.dim{opacity:.12}.edge.hi{stroke-width:3}
+.nodeg{cursor:pointer}.nodeg .b2{transition:opacity .2s}.nodeg.dim .b2{opacity:.2}
+.halo{opacity:0;transition:opacity .2s}.nodeg:hover .halo,.nodeg.focus .halo{opacity:1}
+.nlab{font-size:10px;font-weight:600;fill:var(--charcoal);pointer-events:none;font-family:var(--sans)}
+.nmeta{font-family:var(--mono);font-size:7.5px;fill:var(--g500);pointer-events:none}
+.nq{font-family:var(--mono);font-size:8px;font-weight:600;pointer-events:none}
+.collab{font-family:var(--mono);font-size:8.5px;fill:var(--g400);letter-spacing:.12em}
+.colline{stroke:var(--cream)}
+.rootring{fill:none;stroke:var(--copper);stroke-width:2;stroke-dasharray:3 3}
+.weakring{fill:none;stroke:var(--bad);stroke-width:2.5}
+.gateX{font-family:var(--mono);font-size:9px;font-weight:700;fill:var(--bad);pointer-events:none}
+.tip{position:absolute;pointer-events:none;background:var(--charcoal);color:#fff;border-radius:7px;padding:10px 12px;font-size:11px;max-width:300px;opacity:0;transition:opacity .15s;z-index:30;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+.tip.on{opacity:1}
+.tip .tn{font-family:var(--mono);font-size:10.5px;color:var(--copper-light);font-weight:600;margin-bottom:5px}
+.tip pre{font-family:var(--mono);font-size:9.5px;color:#E4E1DC;white-space:pre-wrap;line-height:1.5;margin:5px 0}
+.tip .qr{display:flex;justify-content:space-between;gap:11px;font-family:var(--mono);font-size:9px;color:rgba(255,255,255,.7);padding:2px 0;border-top:1px solid var(--charcoal-2)}
+.tip .qr b{color:#fff}
+
+/* top-level section nav */
+.snav{display:flex;background:var(--charcoal-2);border-bottom:1px solid var(--charcoal-2);overflow-x:auto}
+.snav button{padding:11px 18px;font:inherit;font-size:12.5px;font-weight:500;color:rgba(255,255,255,.6);
+  background:none;border:0;border-bottom:2px solid transparent;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
+.snav button:hover{color:#fff}
+.snav button.on{color:#fff;font-weight:600;border-bottom-color:var(--copper);background:rgba(0,0,0,.18)}
+.snav button .fl{font-family:var(--mono);font-size:8.5px;padding:1px 6px;border-radius:3px;background:var(--bad);color:#fff}
+.snav button .fw{background:var(--warn)}
+.sec{display:none}.sec.on{display:block}
+.pad{padding:18px 20px}
+.ptitle{font-size:16px;font-weight:600;margin-bottom:3px}
+.psub{font-size:12.5px;color:var(--g500);margin-bottom:15px}
+.grid{display:grid;gap:12px;margin-bottom:13px}
+.g4{grid-template-columns:repeat(4,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:1fr 1fr}
+@media(max-width:820px){.g4,.g3,.g2{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.g4,.g3,.g2{grid-template-columns:1fr}}
+.box{background:#fff;border:1px solid var(--stone);border-radius:7px;padding:15px 17px}
+.box .bh{font-size:10.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--g500);margin-bottom:12px}
+.kv{font-size:27px;font-weight:700;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.kl{font-size:11.5px;color:var(--g500);margin-top:5px}
+.ks{font-family:var(--mono);font-size:9px;color:var(--g400);margin-top:3px;letter-spacing:.05em}
+.qr2{display:grid;grid-template-columns:1fr 58px 84px;gap:11px;align-items:center;padding:8px 0;border-bottom:1px solid var(--cream)}
+.qr2:last-child{border-bottom:0}
+.qn2{font-size:12px;color:var(--g600)}
+.qn2 small{display:block;font-family:var(--mono);font-size:9.5px;color:var(--g400)}
+.qp2{font-family:var(--mono);font-size:12px;font-weight:600;text-align:right;font-variant-numeric:tabular-nums}
+.trend{display:flex;align-items:flex-end;gap:4px;height:56px}
+.trend div{flex:1;border-radius:2px 2px 0 0;min-height:2px;background:var(--teal)}
+.trend div.dip{background:var(--bad)}
+.pill2{display:inline-block;font-size:9.5px;font-weight:600;padding:2px 8px;border-radius:3px;letter-spacing:.04em}
+.pl-ok{background:#E6F0EA;color:var(--ok)}.pl-bad{background:#F8E8E4;color:var(--bad)}
+.pl-drop{background:#EDEBE8;color:var(--g500)}.pl-ps{background:#E4EDEE;color:var(--teal)}.pl-car{background:#FBEDE4;color:var(--copper-dark)}
+.note2{border-left:3px solid var(--copper);background:var(--cream);border-radius:0 6px 6px 0;padding:13px 16px;margin-top:13px}
+.note2 .h{font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--copper-dark);margin-bottom:6px}
+.note2 p{font-size:12.5px;color:var(--g600);line-height:1.65;margin:0}
+.note2 b{color:var(--charcoal);font-weight:600}
+
+/* dossier tabs */
+.dossier{margin-top:12px;background:#fff;border:1px solid var(--stone);border-radius:8px;overflow:hidden}
+.dtabs{display:flex;background:var(--cream);border-bottom:1px solid var(--stone);overflow-x:auto}
+.dtab{padding:10px 15px;font:inherit;font-size:11.5px;font-weight:500;color:var(--g500);background:none;border:0;border-bottom:2px solid transparent;cursor:pointer;white-space:nowrap}
+.dtab.on{color:var(--charcoal);border-bottom-color:var(--copper);font-weight:600;background:#fff}
+.dtab .n{font-family:var(--mono);font-size:9px;color:var(--g400);margin-left:5px}
+.dpane{padding:16px 18px;display:none}.dpane.on{display:block}
+
+.plain{background:var(--cream);border-left:3px solid var(--teal);border-radius:0 6px 6px 0;padding:13px 16px;margin-bottom:13px}
+.plain .h{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:6px}
+.plain p{font-size:13.5px;color:var(--charcoal);line-height:1.7;margin:0}
+.dax{background:var(--charcoal);border-radius:6px;padding:12px 14px;overflow-x:auto;margin-bottom:11px}
+.dax code{font-family:var(--mono);font-size:11px;color:#E4E1DC;white-space:pre;display:block;line-height:1.7}
+.dax .k{color:var(--copper-light)}.dax .c{color:#8C9A8E}
+.dlab{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--g500);margin:0 0 7px}
+.cmp{border:1px solid var(--stone);border-left:3px solid var(--teal);border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:10px}
+.cmp .ch{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.cmp .cn{font-size:13px;font-weight:600;cursor:pointer}
+.cmp .cn:hover{color:var(--copper-dark)}
+.cmp .cq{font-family:var(--mono);font-size:11.5px;font-weight:700}
+.cmp .cp{font-size:12px;color:var(--g600);margin-bottom:8px;line-height:1.55}
+.cmp .dax{margin-bottom:0}
+.depth-tag{font-family:var(--mono);font-size:8.5px;background:var(--cream);color:var(--g500);padding:2px 7px;border-radius:3px;letter-spacing:.05em}
+
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{text-align:left;font-size:9.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--g500);padding:0 9px 8px;border-bottom:1px solid var(--stone)}
+th.n,td.n{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+td{padding:8px 9px;border-bottom:1px solid var(--cream);color:var(--g600);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td.mono{font-family:var(--mono);font-size:11px;color:var(--charcoal)}
+td small{display:block;font-size:10.5px;color:var(--g500);line-height:1.45;margin-top:2px}
+.sev{font-family:var(--mono);font-size:8.5px;font-weight:700;padding:2px 7px;border-radius:3px;letter-spacing:.05em}
+.s-block{background:#F8E8E4;color:var(--bad)}.s-warn{background:#FAF0DE;color:var(--warn)}.s-mon{background:#EDEBE8;color:var(--g500)}
+.st-pass{color:var(--ok);font-weight:600}.st-fail{color:var(--bad);font-weight:700}.st-warn{color:var(--warn);font-weight:600}
+.gatebar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.gb{flex:1;min-width:130px;border:1px solid var(--stone);border-radius:6px;padding:11px 13px}
+.gb .v{font-size:19px;font-weight:700;letter-spacing:-.02em}
+.gb .l{font-size:10.5px;color:var(--g500);line-height:1.3;margin-top:1px}
+.verdict{border-left:3px solid var(--bad);background:var(--cream);border-radius:0 6px 6px 0;padding:13px 16px;font-size:12.5px;color:var(--g600);line-height:1.65}
+.verdict b{color:var(--charcoal)}
+.legend{display:flex;flex-wrap:wrap;gap:7px 18px;padding:10px 2px 0;font-size:10.5px;color:var(--g500)}
+.legend span{display:flex;align-items:center;gap:5px}
+.legend i{width:9px;height:9px;border-radius:50%}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="intro">
+  <div class="k">Lineage · trust · quality gates · residential aged care</div>
+  <h1>Can I trust what I'm looking at?</h1>
+  <p>Browse by <b>report page and visual</b> the way a manager arrives, or by display folder the way the model is built. A visual is only as good as its weakest measure; a measure only as good as its weakest column. <b>Blocking rules stop a number being publishable</b> regardless of its score.</p>
+</div>
+
+<div class="app">
+  <div class="bar">
+    <div class="t">Lineage, trust &amp; gates <span>· 12 facilities</span></div>
+    <div class="m">LOAD 03 AUG 2026 02:14 UTC</div>
+  </div>
+
+  <div class="toolbar">
+    <select id="pick" aria-label="Jump to a measure"></select>
+    <div class="chips">
+      <span class="chip">Trust <b id="tv">—</b></span>
+      <span class="gatechip" id="gate">—</span>
+    </div>
+  </div>
+
+  <div class="snav" id="snav"></div>
+
+  <div class="sec on" id="s-lin">
+  <div class="body">
+    <div class="side">
+      <div class="modes">
+        <button class="mode on" data-m="page">Report page</button>
+        <button class="mode" data-m="folder">Display folder</button>
+      </div>
+      <div class="tree" id="tree"></div>
+    </div>
+
+    <div class="main">
+      <div id="vwrap"></div>
+      <div class="stagewrap">
+        <svg id="g" viewBox="0 0 1090 440" role="img" aria-label="Lineage graph"></svg>
+        <div class="tip" id="tip"></div>
+      </div>
+      <div class="legend">
+        <span><i style="background:var(--ok)"></i>≥99%</span><span><i style="background:var(--warn)"></i>95–99%</span>
+        <span><i style="background:var(--bad)"></i>&lt;95%</span>
+        <span style="color:var(--g400)">Red ring = weakest link · ✕ = blocking rule failed · hover for detail</span>
+      </div>
+
+      <div class="dossier">
+        <div class="dtabs">
+          <button class="dtab on" data-d="def">Definition</button>
+          <button class="dtab" data-d="cmp">Component measures<span class="n" id="nCmp"></span></button>
+          <button class="dtab" data-d="col">Columns it depends on<span class="n" id="nCol"></span></button>
+          <button class="dtab" data-d="gat">Quality gates<span class="n" id="nGat"></span></button>
+        </div>
+        <div class="dpane on" id="p-def"></div>
+        <div class="dpane" id="p-cmp"></div>
+        <div class="dpane" id="p-col"></div>
+        <div class="dpane" id="p-gat"></div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="sec" id="s-qual"></div>
+  <div class="sec" id="s-load"></div>
+  <div class="sec" id="s-acc"></div>
+  <div class="sec" id="s-pii"></div>
+</div>
+</div>
+
+<script>
+/* ===================== COLUMNS: quality + gated rules ===================== */
+/* sev: block = number not publishable · warn = caveat · monitor = watch      */
+const COLS={
+ 'incident_id':{src:'Incident Register',b:100,s:100,g:100,tbl:'fact_incident',
+   rules:[{r:'not_null',v:100,th:100,sev:'block'},{r:'unique',v:100,th:100,sev:'block'}]},
+ 'facility_code':{src:'Incident Register',b:99.4,s:71.3,g:71.3,tbl:'fact_incident',
+   rules:[{r:'not_null',v:71.3,th:98,sev:'block'},{r:'resolves_to_dim_facility',v:99.8,th:99,sev:'block'}],
+   issue:'One facility changed its export format in May. ~255 rows per load arrive with no code and are rejected at Silver.'},
+ 'incident_type':{src:'Incident Register',b:97.2,s:97.2,g:97.2,tbl:'fact_incident',
+   rules:[{r:'in_coded_domain',v:97.2,th:99,sev:'warn'}],
+   issue:'2.8% free-text values outside the coded domain — mostly "fall (witnessed)" variants.'},
+ 'severity_code':{src:'Incident Register',b:94.1,s:94.1,g:94.1,tbl:'fact_incident',
+   rules:[{r:'in_coded_domain',v:94.1,th:99,sev:'block'},{r:'not_null',v:98.6,th:99,sev:'warn'}],
+   issue:'Severity blank on 5.9% of incidents, concentrated in after-hours reporting.'},
+ 'resident_key':{src:'Care Management',b:99.8,s:99.8,g:99.8,tbl:'fact_episode',
+   rules:[{r:'resolves_to_dim_resident',v:99.8,th:99,sev:'block'}]},
+ 'bed_days':{src:'Care Management',b:100,s:100,g:100,tbl:'fact_occupancy',
+   rules:[{r:'not_null',v:100,th:100,sev:'block'},{r:'non_negative',v:100,th:100,sev:'block'}]},
+ 'assessment_date':{src:'Care Management',b:99.5,s:99.5,g:99.5,tbl:'fact_assessment',
+   rules:[{r:'valid_range',v:99.5,th:99,sev:'block'},{r:'within_24h_of_admission',v:71.3,th:90,sev:'monitor'}],
+   issue:'Timeliness passes only 71.3% — assessment displaced by clinical urgency. Monitored, not blocking: it is a workflow finding, not a data fault.'},
+ 'assessment_status':{src:'Care Management',b:100,s:100,g:100,tbl:'fact_assessment',
+   rules:[{r:'in_coded_domain',v:100,th:99,sev:'block'}]},
+ 'shift_minutes':{src:'Rostering',b:99.9,s:99.9,g:99.9,tbl:'fact_roster',
+   rules:[{r:'non_negative',v:100,th:100,sev:'block'},{r:'plausible_range',v:99.9,th:99,sev:'warn'}]},
+ 'staff_role':{src:'Rostering',b:98.7,s:98.7,g:98.7,tbl:'fact_roster',
+   rules:[{r:'resolves_to_dim_role',v:98.7,th:99,sev:'warn'}],
+   issue:'1.3% agency roles arriving with vendor codes not yet mapped to the role dimension.'},
+ 'occupied_beds':{src:'Care Management',b:100,s:100,g:100,tbl:'fact_occupancy',
+   rules:[{r:'not_null',v:100,th:100,sev:'block'}]}
+};
+
+/* ========================= MEASURES ========================= */
+const M={
+ 'Falls per 1,000 Bed Days':{f:'Clinical Quality',
+  plain:'How many falls occurred for every 1,000 days that residents were in care. Expressing it per 1,000 bed days lets a 40-bed home and a 120-bed home be compared fairly — a raw count would always make the larger home look worse.',
+  dax:'Falls per 1,000 Bed Days =\nDIVIDE (\n    [Fall Incidents],\n    [Total Bed Days]\n) * 1000',
+  up:['Fall Incidents','Total Bed Days'],
+  note:'A ratio inherits the weaker of numerator and denominator. Both sides here depend on facility_code, so the weakness compounds rather than cancels.'},
+ 'Fall Incidents':{f:'Clinical Quality',
+  plain:'The number of incidents recorded as a fall. Counts the incident register, filtered to incident types grouped as falls.',
+  dax:'Fall Incidents =\nCALCULATE (\n    COUNTROWS ( fact_incident ),\n    dim_incident_type[group] = "Fall"\n)',
+  up:['incident_id','incident_type','facility_code'],
+  note:'Because it filters on incident_type, it inherits that column\u2019s domain validity as well as facility completeness.'},
+ 'Total Bed Days':{f:'Operations',
+  plain:'The total number of days residents occupied a bed across the period. The denominator for most clinical rates.',
+  dax:'Total Bed Days = SUM ( fact_occupancy[bed_days] )',
+  up:['bed_days','facility_code'],
+  note:'The underlying bed_days column is clean, but the measure is reported by facility — so it is still capped by facility_code.'},
+ 'Serious Incident Rate':{f:'Clinical Quality',
+  plain:'The share of all incidents that were serious — severity 1 or 2. Reported externally to the regulator.',
+  dax:'Serious Incident Rate =\nDIVIDE (\n    [Serious Incidents],\n    [Total Incidents]\n)',
+  up:['Serious Incidents','Total Incidents'],
+  note:'Externally reported, and its weakest input is severity_code — the column most often left blank.'},
+ 'Serious Incidents':{f:'Clinical Quality',
+  plain:'The count of incidents coded as severity 1 or 2. Incidents with no severity recorded are not counted.',
+  dax:'Serious Incidents =\nCALCULATE (\n    COUNTROWS ( fact_incident ),\n    fact_incident[severity_code] IN { "1", "2" }\n)',
+  up:['incident_id','severity_code'],
+  note:'Blank severity is excluded by the filter, so missing data silently understates the numerator rather than showing as a gap.'},
+ 'Total Incidents':{f:'Clinical Quality',
+  plain:'Every incident recorded in the period, regardless of type or severity.',
+  dax:'Total Incidents = COUNTROWS ( fact_incident )',
+  up:['incident_id'],
+  note:'The cleanest measure in the model — a row count over a column with no quality issues.'},
+ 'Assessment Completion %':{f:'Clinical Quality',
+  plain:'The share of admissions where a falls risk screen was completed. The denominator is every admission, not only those that were assessed.',
+  dax:'Assessment Completion % =\nDIVIDE (\n    [Assessments Completed],\n    [Admissions]\n)',
+  up:['Assessments Completed','Admissions'],
+  note:'Denominator choice is stated in the model description, because completion is not random — it falls as acuity rises.'},
+ 'Assessments Completed':{f:'Clinical Quality',
+  plain:'The number of falls risk screens marked complete.',
+  dax:'Assessments Completed =\nCALCULATE (\n    COUNTROWS ( fact_assessment ),\n    fact_assessment[status] = "Completed"\n)',
+  up:['assessment_status','assessment_date','resident_key'],
+  note:'The 24-hour timeliness rule fails 28.7% of the time. It is monitored rather than blocking: a workflow finding, not a data fault.'},
+ 'Admissions':{f:'Operations',
+  plain:'The number of distinct admission episodes in the period.',
+  dax:'Admissions = DISTINCTCOUNT ( fact_episode[episode_id] )',
+  up:['resident_key'],
+  note:'A distinct count over a well-resolved key.'},
+ 'Care Minutes per Resident Day':{f:'Workforce',
+  plain:'Average minutes of direct care each resident received per day. Only hands-on care roles count — administration, catering and maintenance are excluded.',
+  dax:'Care Minutes per Resident Day =\nDIVIDE (\n    [Direct Care Minutes],\n    [Occupied Bed Days]\n)',
+  up:['Direct Care Minutes','Occupied Bed Days'],
+  note:'Reported to the regulator. Capped by staff_role, because the numerator filters on it.'},
+ 'Direct Care Minutes':{f:'Workforce',
+  plain:'Total minutes worked by staff in direct care roles.',
+  dax:'Direct Care Minutes =\nCALCULATE (\n    SUM ( fact_roster[shift_minutes] ),\n    dim_role[is_direct_care] = TRUE\n)',
+  up:['shift_minutes','staff_role'],
+  note:'The exclusion of non-direct-care roles is a definitional judgement, documented in the model description rather than argued about later.'},
+ 'Occupied Bed Days':{f:'Operations',
+  plain:'Days on which a bed was actually occupied.',
+  dax:'Occupied Bed Days = SUM ( fact_occupancy[occupied_beds] )',
+  up:['occupied_beds'], note:'Clean throughout.'}
+};
+
+const PAGES={
+ 'Board Quality Pack':[
+  {v:'Falls trend by facility',t:'Line chart',m:['Falls per 1,000 Bed Days','Total Bed Days']},
+  {v:'Serious incidents — 12 month',t:'Column chart',m:['Serious Incident Rate','Serious Incidents','Total Incidents']},
+  {v:'Incidents this quarter',t:'KPI card',m:['Total Incidents']}],
+ 'Clinical Governance':[
+  {v:'Falls by facility and type',t:'Matrix',m:['Falls per 1,000 Bed Days','Fall Incidents']},
+  {v:'Assessment completion by facility',t:'Bar chart',m:['Assessment Completion %','Assessments Completed']},
+  {v:'Incident volume',t:'KPI card',m:['Total Incidents']}],
+ 'Regulatory Return':[
+  {v:'Care minutes — quarterly submission',t:'Table',m:['Care Minutes per Resident Day','Direct Care Minutes','Occupied Bed Days']},
+  {v:'Serious incident rate',t:'KPI card',m:['Serious Incident Rate']},
+  {v:'Assessment compliance',t:'Gauge',m:['Assessment Completion %']}],
+ 'Operations':[
+  {v:'Occupancy and bed days',t:'Combo chart',m:['Total Bed Days','Occupied Bed Days','Admissions']},
+  {v:'Care minutes by facility',t:'Bar chart',m:['Care Minutes per Resident Day']}]
+};
+
+const DOWN={};Object.entries(M).forEach(([m,d])=>d.up.forEach(u=>{(DOWN[u]=DOWN[u]||[]).push(m)}));
+const FOLD={};Object.entries(M).forEach(([m,d])=>{(FOLD[d.f]=FOLD[d.f]||[]).push(m)});
+
+/* ---- closures ---- */
+function leafCols(n,seen=new Set()){if(COLS[n])return[n];if(!M[n]||seen.has(n))return[];seen.add(n);
+  return [...new Set(M[n].up.flatMap(u=>leafCols(u,seen)))]}
+function compMeasures(n,d=1,acc=[],seen=new Set()){
+  if(!M[n])return acc;
+  M[n].up.filter(u=>M[u]).forEach(u=>{if(!seen.has(u)){seen.add(u);acc.push({m:u,d});compMeasures(u,d+1,acc,seen)}});
+  return acc}
+const qOf=n=>COLS[n]?COLS[n].g:Math.min(...leafCols(n).map(c=>COLS[c].g));
+const weakest=n=>{const l=leafCols(n);return l.reduce((a,b)=>COLS[b].g<COLS[a].g?b:a,l[0])};
+const band=q=>q>=99?'var(--ok)':q>=95?'var(--warn)':'var(--bad)';
+const ruleStat=r=>r.v>=r.th?'pass':(r.sev==='block'?'fail':'warn');
+const colBlocked=c=>COLS[c].rules.some(r=>r.sev==='block'&&r.v<r.th);
+const gatesOf=n=>leafCols(n).flatMap(c=>COLS[c].rules.map(r=>({...r,col:c,stat:ruleStat(r)})));
+const blockedBy=n=>gatesOf(n).filter(r=>r.sev==='block'&&r.stat==='fail');
+const qVisual=v=>Math.min(...v.m.map(qOf));
+const visBlocked=v=>v.m.some(m=>blockedBy(m).length);
+
+let root='Falls per 1,000 Bed Days',mode='page',curVis=null,dtab='def';
+
+/* ---------------- grouped dropdown ---------------- */
+const pick=document.getElementById('pick');
+Object.keys(FOLD).sort().forEach(f=>{
+  const og=document.createElement('optgroup');og.label=f;
+  FOLD[f].sort().forEach(m=>{const o=document.createElement('option');o.value=m;
+    o.textContent=`${m} — ${qOf(m).toFixed(1)}%${blockedBy(m).length?' ⛔':''}`;og.appendChild(o)});
+  pick.appendChild(og)});
+pick.value=root;
+pick.onchange=e=>{root=e.target.value;curVis=null;tree();draw()};
+document.querySelectorAll('.mode').forEach(b=>b.onclick=()=>{mode=b.dataset.m;
+  document.querySelectorAll('.mode').forEach(x=>x.classList.toggle('on',x===b));tree()});
+document.querySelectorAll('.dtab').forEach(b=>b.onclick=()=>{dtab=b.dataset.d;
+  document.querySelectorAll('.dtab').forEach(x=>x.classList.toggle('on',x===b));
+  document.querySelectorAll('.dpane').forEach(p=>p.classList.toggle('on',p.id==='p-'+dtab))});
+
+/* ---------------- tree ---------------- */
+function tree(){
+  const t=document.getElementById('tree');t.innerHTML='';
+  if(mode==='folder'){
+    Object.keys(FOLD).sort().forEach(f=>{
+      const q=Math.min(...FOLD[f].map(qOf)),d=document.createElement('details');
+      d.open=FOLD[f].includes(root);
+      d.innerHTML=`<summary>${f}<span class="q" style="color:${band(q)}">${q.toFixed(0)}%</span></summary>`;
+      const s=document.createElement('div');s.className='sub';
+      FOLD[f].sort().forEach(m=>s.appendChild(mItem(m)));d.appendChild(s);t.appendChild(d)});
+  }else{
+    Object.keys(PAGES).forEach(p=>{
+      const q=Math.min(...PAGES[p].map(qVisual)),blk=PAGES[p].some(visBlocked);
+      const d=document.createElement('details');d.open=PAGES[p].some(v=>v.m.includes(root));
+      d.innerHTML=`<summary>${p}<span class="q" style="color:${band(q)}">${blk?'⛔ ':''}${q.toFixed(0)}%</span></summary>`;
+      const s=document.createElement('div');s.className='sub';
+      PAGES[p].forEach(v=>{const vq=qVisual(v),b=document.createElement('button');
+        b.className='it'+(curVis===v?' on':'');
+        b.innerHTML=`<span class="dot" style="background:${band(vq)}"></span>${v.v}
+          ${visBlocked(v)?'<span class="blk">BLOCK</span>':''}
+          <span class="qv" style="color:${curVis===v?'#fff':band(vq)}">${vq.toFixed(0)}%</span>`;
+        b.onclick=()=>{curVis=v;root=v.m.reduce((a,x)=>qOf(x)<qOf(a)?x:a,v.m[0]);pick.value=root;tree();draw()};
+        s.appendChild(b)});
+      d.appendChild(s);t.appendChild(d)})}
+}
+function mItem(m){const q=qOf(m),b=document.createElement('button');
+  b.className='it'+(m===root&&!curVis?' on':'');
+  b.innerHTML=`<span class="dot" style="background:${band(q)}"></span>${m}
+    ${blockedBy(m).length?'<span class="blk">BLOCK</span>':''}
+    <span class="qv" style="color:${m===root?'#fff':band(q)}">${q.toFixed(0)}%</span>`;
+  b.onclick=()=>{root=m;curVis=null;pick.value=m;tree();draw()};return b}
+
+/* ---------------- graph ---------------- */
+const NS='http://www.w3.org/2000/svg',svg=document.getElementById('g'),tip=document.getElementById('tip');
+const el=(t,a={})=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e};
+const bn=n=>n.split('::')[0],lo=n=>n.includes('::')?n.split('::')[1]:(COLS[n]?'gold':'measure');
+function qNode(n){const b=bn(n),L=lo(n);
+  if(COLS[b])return L==='bronze'?COLS[b].b:L==='silver'?COLS[b].s:L==='src'?100:COLS[b].g;return qOf(n)}
+const rad=n=>COLS[bn(n)]?8:Math.max(9,Math.min(15,9+(DOWN[n]||[]).length*2.2));
+
+function build(){
+  const lvl=new Map([[root,0]]),edges=[];let fr=[root];
+  for(let d=1;d<=4;d++){const nx=[];
+    fr.forEach(n=>{if(!M[n])return;M[n].up.forEach(u=>{edges.push([u,n]);if(!lvl.has(u)){lvl.set(u,d);nx.push(u)}})});
+    if(!nx.length)break;fr=nx}
+  [...lvl.keys()].filter(n=>COLS[n]).forEach(c=>{const d=lvl.get(c);
+    lvl.set(c+'::silver',d+1);edges.push([c+'::silver',c]);
+    lvl.set(c+'::bronze',d+2);edges.push([c+'::bronze',c+'::silver']);
+    lvl.set(c+'::src',d+3);edges.push([c+'::src',c+'::bronze'])});
+  return{lvl,edges:[...new Set(edges.map(e=>e.join('|')))].map(s=>s.split('|'))}}
+
+function draw(){
+  const{lvl,edges}=build(),gr={};lvl.forEach((d,n)=>{(gr[d]=gr[d]||[]).push(n)});
+  const keys=Object.keys(gr).map(Number).sort((a,b)=>b-a);
+  const W=1090,H=440,PX=84,sp=keys.length>1?(W-PX*2)/(keys.length-1):0,X={},Y={};
+  keys.forEach((k,i)=>{const xs=PX+i*sp,l=gr[k],gap=Math.min(56,(H-120)/Math.max(1,l.length)),y0=H/2-((l.length-1)*gap)/2+4;
+    l.forEach((n,j)=>{X[n]=xs;Y[n]=y0+j*gap})});
+  svg.innerHTML='';
+  const defs=el('defs');defs.innerHTML=`<filter id="sh" x="-60%" y="-60%" width="220%" height="220%"><feDropShadow dx="0" dy="1.3" stdDeviation="2" flood-color="#2B2B2B" flood-opacity=".18"/></filter>`;
+  svg.appendChild(defs);
+  const LBL={src:'SOURCE',bronze:'BRONZE',silver:'SILVER',gold:'GOLD COLUMN',measure:'MEASURE'};
+  keys.forEach((k,i)=>{const xs=PX+i*sp;const t=el('text',{x:xs,y:22,'text-anchor':'middle',class:'collab'});
+    t.textContent=[...new Set(gr[k].map(lo))].map(x=>LBL[x]).join('/');svg.appendChild(t);
+    svg.appendChild(el('line',{x1:xs,y1:30,x2:xs,y2:H-20,class:'colline'}))});
+  const wk=weakest(root);
+  const eg=el('g');
+  edges.forEach(([a,b])=>{if(X[a]===undefined||X[b]===undefined)return;const mx=(X[a]+X[b])/2;
+    eg.appendChild(el('path',{d:`M${X[a]},${Y[a]} C${mx},${Y[a]} ${mx},${Y[b]} ${X[b]},${Y[b]}`,class:'edge',
+      stroke:band(Math.min(qNode(a),qNode(b))),'stroke-opacity':.5,'data-a':a,'data-b':b}))});
+  svg.appendChild(eg);
+  Object.keys(X).forEach(n=>{
+    const q=qNode(n),r=rad(n),g=el('g',{class:'nodeg'+(n===root?' focus':''),'data-n':n});
+    g.appendChild(el('circle',{cx:X[n],cy:Y[n],r:r+7,fill:'var(--copper)','fill-opacity':.13,class:'halo'}));
+    if(n===root)g.appendChild(el('circle',{cx:X[n],cy:Y[n],r:r+6,class:'rootring'}));
+    if(bn(n)===wk&&lo(n)==='gold')g.appendChild(el('circle',{cx:X[n],cy:Y[n],r:r+5,class:'weakring'}));
+    const b=el('g',{class:'b2'});
+    b.appendChild(el('circle',{cx:X[n],cy:Y[n],r:r,fill:band(q),filter:'url(#sh)'}));
+    if(r>=9){const qt=el('text',{x:X[n],y:Y[n]+3,'text-anchor':'middle',class:'nq',fill:'#fff'});
+      qt.textContent=q>=100?'100':q.toFixed(0);b.appendChild(qt)}
+    if(COLS[bn(n)]&&lo(n)==='gold'&&colBlocked(bn(n))){
+      const x=el('text',{x:X[n]+r+7,y:Y[n]-r-1,class:'gateX'});x.textContent='✕';b.appendChild(x)}
+    const nm=bn(n),lab=el('text',{x:X[n],y:Y[n]+r+12,'text-anchor':'middle',class:'nlab'});
+    lab.textContent=nm.length>18?nm.slice(0,17)+'…':nm;b.appendChild(lab);
+    const mt=el('text',{x:X[n],y:Y[n]+r+22,'text-anchor':'middle',class:'nmeta'});
+    mt.textContent=COLS[nm]?(lo(n)==='src'?COLS[nm].src.toUpperCase():lo(n).toUpperCase()):`${(DOWN[n]||[]).length} DEP`;
+    b.appendChild(mt);g.appendChild(b);
+    g.addEventListener('mousemove',e=>showTip(e,n));
+    g.addEventListener('mouseenter',()=>hi(n));
+    g.addEventListener('mouseleave',()=>{clr();tip.classList.remove('on')});
+    g.addEventListener('click',()=>{if(M[n]){root=n;pick.value=n;tree();draw()}});
+    svg.appendChild(g)});
+  const tq=qOf(root),blk=blockedBy(root);
+  const tvEl=document.getElementById('tv');tvEl.textContent=tq.toFixed(1)+'%';tvEl.style.color=band(tq);
+  const ge=document.getElementById('gate');
+  ge.textContent=blk.length?`⛔ BLOCKED · ${blk.length} RULE${blk.length>1?'S':''}`:'✓ PUBLISHABLE';
+  ge.style.cssText=blk.length?'background:#F8E8E4;color:var(--bad)':'background:#E6F0EA;color:var(--ok)';
+  visualCard();dossier()}
+
+function visualCard(){
+  const w=document.getElementById('vwrap');
+  if(!curVis){w.innerHTML='';return}
+  const vq=qVisual(curVis),page=Object.keys(PAGES).find(p=>PAGES[p].includes(curVis));
+  const weakM=curVis.m.reduce((a,x)=>qOf(x)<qOf(a)?x:a,curVis.m[0]),blk=visBlocked(curVis);
+  w.innerHTML=`<div class="vcard${blk?' blocked':''}">
+   <div class="vh"><h3>${curVis.v}</h3>
+     <span class="gatechip" style="${blk?'background:#F8E8E4;color:var(--bad)':'background:#E6F0EA;color:var(--ok)'}">${blk?'⛔ BLOCKED':'✓ PUBLISHABLE'}</span></div>
+   <div class="vp">${page} · ${curVis.t} · ${curVis.m.length} measure${curVis.m.length>1?'s':''} · trust ${vq.toFixed(1)}%</div>
+   ${curVis.m.map(m=>{const q=qOf(m),mb=blockedBy(m).length;return `<div class="mrow" onclick="jump('${m.replace(/'/g,"\\'")}')">
+     <div class="mn">${m}${mb?' <span class="blk">BLOCK</span>':''}<small>limited by ${weakest(m)}</small></div>
+     <div class="mq" style="color:${band(q)}">${q.toFixed(1)}%</div>
+     <div class="mbar"><i style="width:${q}%;background:${band(q)}"></i></div></div>`}).join('')}
+   <div class="vsum">Only as reliable as its weakest measure — <b>${weakM}</b> at <b>${qOf(weakM).toFixed(1)}%</b>, limited by <code style="font-family:var(--mono)">${weakest(weakM)}</code>.
+   ${blk?' A <b>blocking rule has failed</b>, so this visual should not be published or submitted until the source issue is resolved.':' No blocking rules failed — publishable, with the ceiling noted.'}</div></div>`}
+window.jump=m=>{root=m;pick.value=m;tree();draw()};
+
+function showTip(e,n){
+  const nm=bn(n),L=lo(n);let html;
+  if(COLS[nm]){const c=COLS[nm],q=qNode(n);
+    html=`<div class="tn">${nm}</div><div style="color:rgba(255,255,255,.65);font-size:9.5px">${L==='src'?c.src:L.toUpperCase()} · ${c.tbl} · pass <b style="color:${band(q)}">${q}%</b></div>
+     ${c.rules.map(r=>`<div class="qr"><span>${r.r} <span style="opacity:.55">[${r.sev}]</span></span><b style="color:${ruleStat(r)==='pass'?'#8FBF9F':ruleStat(r)==='fail'?'#E39A8C':'#E8C48A'}">${r.v}% / ${r.th}%</b></div>`).join('')}
+     ${c.issue?`<div style="margin-top:7px;color:var(--copper-light);font-size:10px;line-height:1.5">${c.issue}</div>`:''}`;
+  }else{const d=M[n];
+    html=`<div class="tn">${nm}</div><pre>${d.dax}</pre>
+     <div class="qr"><span>trust</span><b style="color:${band(qOf(n))}">${qOf(n).toFixed(1)}%</b></div>
+     <div class="qr"><span>limited by</span><b>${weakest(n)}</b></div>`}
+  tip.innerHTML=html;tip.classList.add('on');
+  const wr=svg.parentElement.getBoundingClientRect();
+  tip.style.left=Math.min(e.clientX-wr.left+14,wr.width-320)+'px';
+  tip.style.top=(e.clientY-wr.top+12)+'px'}
+function hi(n){const t=new Set([n]);
+  svg.querySelectorAll('.edge').forEach(e=>{const on=e.dataset.a===n||e.dataset.b===n;
+    e.classList.toggle('hi',on);e.classList.toggle('dim',!on);if(on){t.add(e.dataset.a);t.add(e.dataset.b)}});
+  svg.querySelectorAll('.nodeg').forEach(g=>g.classList.toggle('dim',!t.has(g.dataset.n)))}
+function clr(){svg.querySelectorAll('.hi,.dim').forEach(e=>e.classList.remove('hi','dim'))}
+
+const hl=s=>s.replace(/\b(CALCULATE|DIVIDE|SUM|SUMX|COUNTROWS|DISTINCTCOUNT|IN|TRUE)\b/g,'<span class="k">$1</span>');
+
+/* ---------------- dossier ---------------- */
+function dossier(){
+  const d=M[root],comps=compMeasures(root),cols=leafCols(root),gates=gatesOf(root);
+  document.getElementById('nCmp').textContent=comps.length;
+  document.getElementById('nCol').textContent=cols.length;
+  const failing=gates.filter(g=>g.stat!=='pass');
+  document.getElementById('nGat').textContent=`${failing.length}/${gates.length}`;
+
+  /* definition */
+  document.getElementById('p-def').innerHTML=`
+   <div class="plain"><div class="h">In plain words</div><p>${d.plain}</p></div>
+   <p class="dlab">DAX</p><div class="dax"><code>${hl(d.dax)}</code></div>
+   <p style="font-size:12.5px;color:var(--g600);line-height:1.65">${d.note}</p>`;
+
+  /* components */
+  document.getElementById('p-cmp').innerHTML = comps.length
+   ? `<p style="font-size:12.5px;color:var(--g600);margin-bottom:13px">This is a <b>composite measure</b> — it is built from ${comps.filter(c=>c.d===1).length} measure${comps.filter(c=>c.d===1).length>1?'s':''}, which in turn depend on others. Every DAX expression in the chain is shown, deepest last.</p>`
+     + comps.map(c=>{const cm=M[c.m],q=qOf(c.m);return `<div class="cmp">
+       <div class="ch"><span class="cn" onclick="jump('${c.m.replace(/'/g,"\\'")}')">${c.m}</span>
+         <span><span class="depth-tag">LEVEL ${c.d}</span> <span class="cq" style="color:${band(q)}">${q.toFixed(1)}%</span></span></div>
+       <p class="cp">${cm.plain}</p><div class="dax"><code>${hl(cm.dax)}</code></div></div>`}).join('')
+   : `<p style="font-size:12.5px;color:var(--g600)">This is a <b>base measure</b> — it reads directly from physical columns and does not reference other measures.</p>`;
+
+  /* columns */
+  document.getElementById('p-col').innerHTML=`
+   <p style="font-size:12.5px;color:var(--g600);margin-bottom:13px">Every physical column in the full dependency closure — including columns referenced only inside component measures or filter arguments.</p>
+   <table><thead><tr><th>Column</th><th>Table</th><th>Source</th><th class="n">Bronze</th><th class="n">Silver</th><th class="n">Gold</th><th>Referenced by</th></tr></thead><tbody>
+   ${cols.sort((a,b)=>COLS[a].g-COLS[b].g).map(c=>{const x=COLS[c];
+     const via=[root,...comps.map(z=>z.m)].filter(m=>M[m].up.includes(c));
+     return `<tr><td class="mono">${c}${colBlocked(c)?' <span class="sev s-block">BLOCK</span>':''}
+       ${x.issue?`<small>${x.issue}</small>`:''}</td>
+      <td class="mono">${x.tbl}</td><td>${x.src}</td>
+      <td class="n" style="color:${band(x.b)}">${x.b}%</td>
+      <td class="n" style="color:${band(x.s)}">${x.s}%</td>
+      <td class="n" style="color:${band(x.g)};font-weight:700">${x.g}%</td>
+      <td style="font-size:11px">${via.join('<br>')}</td></tr>`}).join('')}
+   </tbody></table>`;
+
+  /* gates */
+  const blk=gates.filter(g=>g.sev==='block'),blkFail=blk.filter(g=>g.stat==='fail');
+  document.getElementById('p-gat').innerHTML=`
+   <div class="gatebar">
+     <div class="gb"><div class="v" style="color:${blkFail.length?'var(--bad)':'var(--ok)'}">${blkFail.length}</div><div class="l">Blocking rules failed</div></div>
+     <div class="gb"><div class="v" style="color:var(--warn)">${gates.filter(g=>g.stat==='warn').length}</div><div class="l">Warnings</div></div>
+     <div class="gb"><div class="v">${gates.length}</div><div class="l">Rules evaluated across ${cols.length} columns</div></div>
+     <div class="gb"><div class="v" style="color:${band(qOf(root))}">${qOf(root).toFixed(1)}%</div><div class="l">Trust ceiling</div></div>
+   </div>
+   <table><thead><tr><th>Rule</th><th>Column</th><th>Severity</th><th class="n">Actual</th><th class="n">Threshold</th><th>Status</th></tr></thead><tbody>
+   ${gates.sort((a,b)=>(a.stat==='pass')-(b.stat==='pass')).map(g=>`<tr>
+     <td class="mono">${g.r}</td><td class="mono">${g.col}</td>
+     <td><span class="sev s-${g.sev==='block'?'block':g.sev==='warn'?'warn':'mon'}">${g.sev.toUpperCase()}</span></td>
+     <td class="n" style="color:${band(g.v)}">${g.v}%</td><td class="n">${g.th}%</td>
+     <td class="st-${g.stat==='pass'?'pass':g.stat==='fail'?'fail':'warn'}">${g.stat==='pass'?'Pass':g.stat==='fail'?'FAILED':'Warn'}</td></tr>`).join('')}
+   </tbody></table>
+   <div class="verdict" style="margin-top:14px;border-left-color:${blkFail.length?'var(--bad)':'var(--ok)'}">
+   ${blkFail.length
+     ? `<b>Not publishable.</b> ${blkFail.length} blocking rule${blkFail.length>1?'s have':' has'} failed — ${blkFail.map(g=>`<code style="font-family:var(--mono)">${g.r}</code> on <code style="font-family:var(--mono)">${g.col}</code> at ${g.v}% against a ${g.th}% threshold`).join('; ')}. Blocking rules exist so a number cannot quietly reach a board pack or a regulatory return while a known defect is unresolved. This will clear when the source issue is fixed — not by adjusting the threshold.`
+     : `<b>Publishable.</b> No blocking rule has failed. Warnings and monitored rules are recorded but do not stop the number being used — they set the caveat, not the gate.`}</div>`;
+}
+
+/* ==================== SECTION NAV + OTHER PAGES ==================== */
+const LOADS=[
+ {sys:'Incident Register',obj:'incident_register_20260803.csv',rows:4102,hash:'9c4e…b71f',t:'03 Aug 02:14',st:'Success'},
+ {sys:'Care Management',obj:'assessments_20260803.parquet',rows:3312,hash:'4d18…c093',t:'03 Aug 02:09',st:'Success'},
+ {sys:'Rostering',obj:'roster_export_20260803.json',rows:12840,hash:'7a02…4e8d',t:'03 Aug 02:21',st:'Success'},
+ {sys:'Incident Register',obj:'incident_register_20260802.csv',rows:0,hash:'—',t:'02 Aug 02:14',st:'Failed'},
+ {sys:'Care Management',obj:'assessments_20260802.parquet',rows:3298,hash:'1f77…a204',t:'02 Aug 02:08',st:'Success'},
+ {sys:'Rostering',obj:'roster_export_20260802.json',rows:12776,hash:'be31…0c5a',t:'02 Aug 02:20',st:'Success'}];
+
+const ROLES=[
+ {r:'Facility Manager',n:12,f:'facility = USERNAME()'},
+ {r:'Regional Manager',n:3,f:'region IN assigned_regions'},
+ {r:'Quality & Compliance',n:4,f:'all facilities'},
+ {r:'Executive',n:5,f:'all facilities, aggregate only'}];
+const REVIEWS=[
+ {d:'14 Jul 2026',by:'Quality Manager',c:'2 removed (departed staff)'},
+ {d:'10 Apr 2026',by:'Quality Manager',c:'1 added, 1 role change'},
+ {d:'13 Jan 2026',by:'Operations Manager',c:'No change'},
+ {d:'09 Oct 2025',by:'Quality Manager',c:'3 added (new facility)'}];
+
+const PII=[
+ {c:'care.resident.full_name',t:'Dropped',j:'Reporting needs counts by facility, not identity',by:'Quality Manager',d:'12 Feb 26'},
+ {c:'care.resident.resident_id',t:'Pseudonymised',j:'Needed to link episodes; mapping held in a separately secured lakehouse',by:'Quality Manager',d:'12 Feb 26'},
+ {c:'care.resident.date_of_birth',t:'Carried',j:'Age band required for falls risk cohort analysis',by:'Clinical Lead',d:'12 Feb 26'},
+ {c:'care.resident.address',t:'Dropped',j:'No reporting requirement',by:'Quality Manager',d:'12 Feb 26'},
+ {c:'care.resident.next_of_kin',t:'Dropped',j:'No reporting requirement',by:'Quality Manager',d:'12 Feb 26'},
+ {c:'roster.staff.employee_id',t:'Pseudonymised',j:'Care minutes reported by role, not by individual',by:'Operations Manager',d:'03 Mar 26'},
+ {c:'incident.reported_by',t:'Carried',j:'Required for incident follow-up workflow',by:'Quality Manager',d:'03 Mar 26'},
+ {c:'care.resident.medicare_no',t:'Dropped',j:'Never ingested — excluded at source query',by:'Quality Manager',d:'12 Feb 26'}];
+
+/* --- roll-ups across the whole model --- */
+const ALLRULES=Object.entries(COLS).flatMap(([c,x])=>x.rules.map(r=>({...r,col:c,stat:ruleStat(r)})));
+const FAILBLOCK=ALLRULES.filter(r=>r.sev==='block'&&r.stat==='fail');
+const FAILWARN=ALLRULES.filter(r=>r.stat==='warn');
+
+const SECS=[
+ {id:'lin',n:'Lineage & trust'},
+ {id:'qual',n:'Data quality',fl:FAILBLOCK.length},
+ {id:'load',n:'Load history',fl:LOADS.filter(l=>l.st==='Failed').length},
+ {id:'acc',n:'Access'},
+ {id:'pii',n:'Personal information'}];
+
+const snav=document.getElementById('snav');
+SECS.forEach((sc,i)=>{const b=document.createElement('button');
+ b.className=i===0?'on':'';
+ b.innerHTML=sc.n+(sc.fl?`<span class="fl${sc.id==='load'?'':''}">${sc.fl}</span>`:'');
+ b.onclick=()=>{document.querySelectorAll('.snav button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+  document.querySelectorAll('.sec').forEach(p=>p.classList.toggle('on',p.id==='s-'+sc.id))};
+ snav.appendChild(b)});
+
+/* ---------- Data quality ---------- */
+const bandPct=q=>band(q);
+document.getElementById('s-qual').innerHTML=`<div class="pad">
+ <div class="ptitle">Data quality</div>
+ <div class="psub">Every rule, evaluated on every load. Measured — not asserted in a document.</div>
+ <div class="grid g4">
+  <div class="box"><div class="kv" style="color:${FAILBLOCK.length?'var(--bad)':'var(--ok)'}">${FAILBLOCK.length}</div><div class="kl">Blocking rules failed</div><div class="ks">STOPS PUBLICATION</div></div>
+  <div class="box"><div class="kv" style="color:var(--warn)">${FAILWARN.length}</div><div class="kl">Warnings</div><div class="ks">CAVEAT, NOT A GATE</div></div>
+  <div class="box"><div class="kv">${ALLRULES.length}</div><div class="kl">Rules across ${Object.keys(COLS).length} columns</div><div class="ks">ALL SOURCES</div></div>
+  <div class="box"><div class="kv" style="color:var(--bad)">1,228</div><div class="kl">Rows rejected this load</div><div class="ks">SEE LOAD HISTORY</div></div>
+ </div>
+ <div class="grid g2">
+  <div class="box"><div class="bh">Rule results — current load</div>
+   ${ALLRULES.sort((a,b)=>(a.stat==='pass')-(b.stat==='pass')||a.v-b.v).map(r=>`
+   <div class="qr2"><div class="qn2">${r.r}<small>${r.col.toUpperCase()} · ${r.sev.toUpperCase()} · THRESHOLD ${r.th}%</small></div>
+    <div class="qp2" style="color:${band(r.v)}">${r.v}%</div>
+    <div class="mbar"><i style="width:${r.v}%;background:${band(r.v)}"></i></div></div>`).join('')}
+  </div>
+  <div class="box"><div class="bh">Completeness trend — facility_code</div>
+   <div class="trend">${[98,99,97,98,99,98,96,97].map(h=>`<div style="height:${h}%"></div>`).join('')}${[84,76,71,71].map(h=>`<div class="dip" style="height:${h}%"></div>`).join('')}</div>
+   <div style="display:flex;justify-content:space-between;font-family:var(--mono);font-size:9px;color:var(--g400);margin-top:7px"><span>SEP 2025</span><span>AUG 2026</span></div>
+   <div class="note2"><div class="h">Reading this</div><p>Completeness fell from 98% to 71.3% across four loads from May. All missing codes originate from <b>one facility</b> whose export format changed. That is an operational finding about that site — <b>not a pipeline fault</b>, and not something a threshold change should hide.</p></div>
+  </div>
+ </div></div>`;
+
+/* ---------- Load history ---------- */
+document.getElementById('s-load').innerHTML=`<div class="pad">
+ <div class="ptitle">Load history</div>
+ <div class="psub">Every extract, its status, row count and hash. Gaps are recorded rather than silent.</div>
+ <div class="grid g3">
+  <div class="box"><div class="kv" style="color:var(--ok)">1,094</div><div class="kl">Successful loads</div><div class="ks">LAST 12 MONTHS</div></div>
+  <div class="box"><div class="kv" style="color:var(--bad)">7</div><div class="kl">Failed loads</div><div class="ks">ALL RECORDED</div></div>
+  <div class="box"><div class="kv">0</div><div class="kl">Unexplained gaps</div><div class="ks">NO SILENT MISSES</div></div>
+ </div>
+ <div class="box"><div class="bh">Recent loads</div>
+  <table><thead><tr><th>Source system</th><th>Object</th><th class="n">Rows</th><th>SHA-256</th><th>Completed</th><th>Status</th></tr></thead><tbody>
+  ${LOADS.map(l=>`<tr><td>${l.sys}</td><td class="mono">${l.obj}</td><td class="n">${l.rows.toLocaleString()}</td>
+   <td class="mono">${l.hash}</td><td class="mono">${l.t}</td>
+   <td><span class="pill2 ${l.st==='Success'?'pl-ok':'pl-bad'}">${l.st}</span></td></tr>`).join('')}
+  </tbody></table>
+  <div class="note2"><div class="h">On the 2 August failure</div><p>Recorded as <b>FileNotFoundError</b> — the exception <b>type</b> only, never the message, since a message can carry field values. Because the failure is logged, a missing day is distinguishable from a day with no incidents. That distinction matters more than it sounds: silent gaps read as good news.</p></div>
+ </div></div>`;
+
+/* ---------- Access ---------- */
+document.getElementById('s-acc').innerHTML=`<div class="pad">
+ <div class="ptitle">Access</div>
+ <div class="psub">Who can see what, and when that was last reviewed.</div>
+ <div class="grid g3">
+  <div class="box"><div class="kv">${ROLES.reduce((a,r)=>a+r.n,0)}</div><div class="kl">People with report access</div><div class="ks">ACROSS 12 FACILITIES</div></div>
+  <div class="box"><div class="kv" style="color:var(--copper)">${ROLES.length}</div><div class="kl">Row-level security roles</div><div class="ks">DEFINED IN THE MODEL</div></div>
+  <div class="box"><div class="kv" style="color:var(--ok);font-size:19px">14 Jul 2026</div><div class="kl">Last access review</div><div class="ks">QUARTERLY CADENCE</div></div>
+ </div>
+ <div class="grid g2">
+  <div class="box"><div class="bh">Roles and what each can see</div>
+   <table><thead><tr><th>Role</th><th class="n">People</th><th>RLS filter</th></tr></thead><tbody>
+   ${ROLES.map(r=>`<tr><td>${r.r}</td><td class="n">${r.n}</td><td class="mono">${r.f}</td></tr>`).join('')}
+   </tbody></table></div>
+  <div class="box"><div class="bh">Review history</div>
+   <table><thead><tr><th>Date</th><th>Reviewed by</th><th>Changes</th></tr></thead><tbody>
+   ${REVIEWS.map(r=>`<tr><td class="mono">${r.d}</td><td>${r.by}</td><td>${r.c}</td></tr>`).join('')}
+   </tbody></table>
+   <div class="note2"><div class="h">What this answers</div><p><b>"When did you last review who can see resident data?"</b> needs a date and a name, not an assurance.</p></div>
+  </div>
+ </div></div>`;
+
+/* ---------- Personal information ---------- */
+const cls={'Dropped':'pl-drop','Pseudonymised':'pl-ps','Carried':'pl-car'};
+document.getElementById('s-pii').innerHTML=`<div class="pad">
+ <div class="ptitle">Personal information</div>
+ <div class="psub">Every column carrying or derived from personal information, and why it is there.</div>
+ <div class="grid g3">
+  <div class="box"><div class="kv">${PII.length}</div><div class="kl">PII columns at source</div><div class="ks">ACROSS 3 SYSTEMS</div></div>
+  <div class="box"><div class="kv" style="color:var(--ok)">${PII.filter(p=>p.t!=='Carried').length}</div><div class="kl">Dropped or pseudonymised</div><div class="ks">BEFORE REPORTING LAYER</div></div>
+  <div class="box"><div class="kv" style="color:var(--copper)">${PII.filter(p=>p.t==='Carried').length}</div><div class="kl">Carried, with justification</div><div class="ks">APPROVED AND DATED</div></div>
+ </div>
+ <div class="box"><div class="bh">PII decision register</div>
+  <table><thead><tr><th>Source column</th><th>Treatment</th><th>Justification</th><th>Approved by</th><th>Date</th></tr></thead><tbody>
+  ${PII.map(p=>`<tr><td class="mono">${p.c}</td><td><span class="pill2 ${cls[p.t]}">${p.t}</span></td>
+   <td>${p.j}</td><td>${p.by}</td><td class="mono">${p.d}</td></tr>`).join('')}
+  </tbody></table>
+  <div class="note2"><div class="h">Why this is the most audit-relevant page</div><p>It answers <b>"what personal information reaches your reporting layer, and who decided it should?"</b> — recorded at the moment the engineer made the decision, in the notebook, rather than curated afterwards in a separate tool. That is what stops it drifting out of date.</p></div>
+ </div></div>`;
+
+tree();draw();
+</script>
+</body>
+</html>

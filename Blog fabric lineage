@@ -184,6 +184,11 @@
 
     <p>Everything below assumes that constraint.</p>
 
+    <div class="callout" style="border-left:3px solid var(--copper)">
+      <h4>See it running</h4>
+      <p>Everything below is surfaced in a report the client operates themselves. <a href="demo-lineage.html" class="inline"><strong>Open the interactive demo &rarr;</strong></a> &mdash; trace a measure back to its source file, see quality per column at each layer, and watch a blocking rule hold a figure back. Synthetic data throughout.</p>
+    </div>
+
     <h2>Bronze: what Delta already gives you, and what it doesn't</h2>
 
     <p>Delta Lake hands you a substantial amount of lineage for free, and it's underused. Every write to a Delta table produces a transaction log entry, queryable directly:</p>
@@ -399,6 +404,8 @@ columns       = fabric.list_columns(DATASET)
     <p>One row, six hops: published measure &rarr; its DAX &rarr; the Gold table &rarr; the notebook and commit that built it &rarr; the Bronze load &rarr; the source file, its hash and its timestamp.</p>
 
     <p>Surface that in a Power BI report the client operates themselves and you've replaced a two-week reconstruction with a lookup. That report is the deliverable; the tables are just how it's fed.</p>
+
+    <p><a href="demo-lineage.html" class="inline"><strong>Open the interactive demo &rarr;</strong></a> to see what that looks like &mdash; measure lineage, per-column quality across Bronze, Silver and Gold, blocking rules, load history and the PII register.</p>
 
     <h2>Where this stops</h2>
 

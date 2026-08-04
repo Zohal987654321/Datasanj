@@ -96,6 +96,14 @@
       "publisher": { "@id": "https://www.datasanj.com/#organization" },
       "isPartOf": { "@id": "https://www.datasanj.com/Blog.html#blog" },
       "about": ["Microsoft Fabric", "Fabric Apps", "Row-Level Security", "Semantic Modelling"],
+      "video": {
+        "@type": "VideoObject",
+        "name": "Employee leave tracker built in Microsoft Fabric Apps",
+        "description": "Screen recording showing a leave request submitted through a Fabric App, approved by a manager, and the record updating in the underlying Fabric database. Synthetic test data.",
+        "contentUrl": "https://www.datasanj.com/Fabric_Apps_Short.mp4",
+        "thumbnailUrl": "https://www.datasanj.com/og-fabric-apps.png",
+        "uploadDate": "2026-07-30"
+      },
       "keywords": "Microsoft Fabric Apps, Fabric write-back, row-level security, semantic model, Power BI, operational workflows"
     },
     {
@@ -192,10 +200,15 @@
     <p>That last point is the whole exercise. A leave tracker is trivial. A leave tracker whose approvals feed the same model your headcount and cost reporting runs on is a different proposition.</p>
 
     <figure class="media">
-      <div class="frame" data-ph="Video unavailable — check the filename matches Fabric_Apps_Short.mp4 exactly">
-        <video controls preload="metadata" playsinline width="960" height="540">
+      <div class="frame">
+        <video controls playsinline muted loop preload="metadata"
+               width="960" height="540"
+               aria-label="Screen recording: submitting a leave request in Microsoft Fabric Apps, approving it as a manager, and the record updating in the underlying database">
           <source src="Fabric_Apps_Short.mp4" type="video/mp4">
-          Your browser doesn't support embedded video. The clip shows a leave request being submitted, approved by a manager, and the record updating in the underlying Fabric database.
+          <p>Your browser can't play embedded video.
+             <a href="Fabric_Apps_Short.mp4" download>Download the clip</a> to watch it &mdash;
+             it shows a leave request being submitted, approved by a manager, and the record
+             updating in the underlying Fabric database.</p>
         </video>
       </div>
       <figcaption>Submitting a leave request, approving it as a manager, and the record updating in the underlying Fabric database. <strong>All data shown is generated for testing</strong> &mdash; no client data appears anywhere on this site.</figcaption>

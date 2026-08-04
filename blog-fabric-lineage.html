@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Auditable Lineage in Fabric Without Purview | DATASANJ</title>
-<meta name="description" content="Build queryable data lineage, quality measurement and PII tracking into a Fabric medallion architecture using Delta history and semantic-link.">
+<title>What Happens After You Connect Your Systems | DATASANJ</title>
+<meta name="description" content="What a data pipeline actually does once your systems are connected, and why knowing where each number came from is the part most reporting projects leave out.">
 <meta name="author" content="Zohal Zahir">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <link rel="canonical" href="https://www.datasanj.com/blog-fabric-lineage.html">
@@ -14,13 +14,13 @@
 <meta property="og:site_name" content="DATASANJ">
 <meta property="og:locale" content="en_AU">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Lineage You Can Audit, Without a Catalogue">
-<meta property="og:description" content="Delta history, notebook logging and semantic-link — building an evidence trail into the medallion architecture itself.">
+<meta property="og:title" content="What Happens After You Connect Your Systems">
+<meta property="og:description" content="Connecting your systems is the easy half. Knowing whether the numbers can be trusted is the half that decides whether anyone uses the reporting.">
 <meta property="og:url" content="https://www.datasanj.com/blog-fabric-lineage.html">
 <meta property="og:image" content="https://www.datasanj.com/og-lineage.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Lineage you can audit, without a catalogue">
+<meta property="og:image:alt" content="DATASANJ — what happens after you connect your systems">
 <meta property="article:published_time" content="2026-08-03T00:00:00+10:00">
 <meta property="article:author" content="Zohal Zahir">
 <meta property="article:section" content="Microsoft Fabric">
@@ -31,8 +31,8 @@
 
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Lineage You Can Audit, Without a Catalogue">
-<meta name="twitter:description" content="Delta history, notebook logging and semantic-link in a Fabric medallion architecture.">
+<meta name="twitter:title" content="What Happens After You Connect Your Systems">
+<meta name="twitter:description" content="Connecting your systems is the easy half. Knowing whether the numbers can be trusted is the other half.">
 <meta name="twitter:image" content="https://www.datasanj.com/og-lineage.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -80,21 +80,19 @@
       "sameAs": ["https://www.linkedin.com/in/zohal-zahir-46128697/", "https://github.com/Zohal987654321"]
     },
     {
-      "@type": "TechArticle",
+      "@type": "BlogPosting",
       "@id": "https://www.datasanj.com/blog-fabric-lineage.html#article",
-      "headline": "Lineage You Can Audit, Without a Catalogue",
-      "description": "Building queryable data lineage, quality measurement and PII tracking into a Microsoft Fabric medallion architecture using Delta transaction history, notebook-level logging and semantic-link metadata extraction.",
+      "headline": "What Happens After You Connect Your Systems",
+      "description": "What a data pipeline does once your systems are connected, why data quality has to be measured continuously, and how lineage lets anyone trace a reported number back to the file it came from.",
       "url": "https://www.datasanj.com/blog-fabric-lineage.html",
       "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.datasanj.com/blog-fabric-lineage.html" },
       "image": "https://www.datasanj.com/og-lineage.png",
       "datePublished": "2026-08-03",
       "dateModified": "2026-08-03",
       "inLanguage": "en-AU",
-      "wordCount": 2100,
-      "timeRequired": "PT11M",
+      "wordCount": 1250,
+      "timeRequired": "PT6M",
       "articleSection": "Microsoft Fabric",
-      "proficiencyLevel": "Expert",
-      "dependencies": "Microsoft Fabric, PySpark, Delta Lake, semantic-link",
       "author": { "@id": "https://www.datasanj.com/About.html#zohal-zahir" },
       "publisher": { "@id": "https://www.datasanj.com/#organization" },
       "isPartOf": { "@id": "https://www.datasanj.com/Blog.html#blog" },
@@ -106,7 +104,7 @@
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.datasanj.com/" },
         { "@type": "ListItem", "position": 2, "name": "Insights", "item": "https://www.datasanj.com/Blog.html" },
-        { "@type": "ListItem", "position": 3, "name": "Auditable Lineage in Fabric Without Purview", "item": "https://www.datasanj.com/blog-fabric-lineage.html" }
+        { "@type": "ListItem", "position": 3, "name": "What Happens After You Connect Your Systems", "item": "https://www.datasanj.com/blog-fabric-lineage.html" }
       ]
     }
   ]
@@ -150,15 +148,15 @@
 
 <header class="article-header">
   <div class="container">
-    <p class="crumb"><a href="Blog.html">Insights</a> &nbsp;/&nbsp; Microsoft Fabric</p>
+    <p class="crumb"><a href="Blog.html">Insights</a> &nbsp;/&nbsp; Data platforms</p>
     <span class="badge featured">Field Note</span>
-    <h1>Lineage you can audit, without a catalogue</h1>
-    <p class="standfirst">Delta transaction history, notebook-level logging and <code>semantic-link</code> give you a queryable evidence trail from source file to published measure &mdash; built into the medallion architecture rather than bolted onto it. Here's the implementation, and where it stops being enough.</p>
+    <h1>What happens after you connect your systems</h1>
+    <p class="standfirst">Getting your data into one place is the half everyone talks about. Knowing whether the numbers can be trusted is the half that decides whether anyone actually uses the reporting.</p>
     <div class="article-meta">
       <span>Zohal Zahir</span><span>&bull;</span>
       <time datetime="2026-08-03">August 2026</time><span>&bull;</span>
-      <span>11 min read</span><span>&bull;</span>
-      <span>Microsoft Fabric</span>
+      <span>6 min read</span><span>&bull;</span>
+      <span>Data platforms</span>
     </div>
   </div>
 </header>
@@ -166,304 +164,139 @@
 <article class="article-body">
   <div class="container">
 
-    <p>Most governance conversations in Fabric end at the same place: buy Purview. Which is a reasonable answer for an organisation with a data governance function, and a non-answer for the ones I mostly work with &mdash; multi-site operators with somewhere between eight and fifty locations, a compliance obligation that is very real, and no appetite for a second platform to administer.</p>
+    <p>Most businesses I talk to are running four or five systems that don't speak to each other. An accounting package, something operational, a rostering or booking system, and a set of spreadsheets holding it all together.</p>
 
-    <p>So the question I've been working on is narrower: <strong>how much defensible lineage can you build from the pipeline itself?</strong> Not a catalogue. An evidence trail that falls out of the platform running normally, and that survives someone asking where a number came from eighteen months later.</p>
+    <p>Every month somebody exports from each one, copies it into a single sheet, fixes the formatting, chases whichever site sent theirs late, and checks it twice because last time there was an error. That takes weeks, and the finished report describes a month that already closed.</p>
 
-    <p>The answer turns out to be: quite a lot, if you treat the audit tables as first-class outputs rather than debug logging. This is the implementation I've settled on, and the honest boundaries of it.</p>
+    <p>The fix is a data pipeline. But "we'll build you a pipeline" is one of those phrases that means everything and nothing, so here is what it actually involves &mdash; and, more usefully, what has to happen <em>after</em> the connecting is done.</p>
+
+    <h2>Part one: connecting the systems</h2>
+
+    <p>This is the part most people picture. Your systems are connected once, and from then on the data comes across on its own &mdash; usually overnight, so it's ready before anyone's at their desk.</p>
+
+    <figure class="media" style="background:none;border:0;padding:0">
+      <svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram: source systems feed a pipeline which produces reports" style="width:100%;height:auto;background:#FAFAF8;border:1px solid #E8E6E3;border-radius:8px">
+        <text x="88" y="34" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="600" letter-spacing="1.6" fill="#9A9A9A">YOUR SYSTEMS</text>
+        <g font-family="system-ui,sans-serif" font-size="12" fill="#4A4A4A">
+          <rect x="18" y="52" width="140" height="30" rx="5" fill="#fff" stroke="#E8E6E3"/><text x="88" y="71" text-anchor="middle">Accounting</text>
+          <rect x="18" y="90" width="140" height="30" rx="5" fill="#fff" stroke="#E8E6E3"/><text x="88" y="109" text-anchor="middle">Operational system</text>
+          <rect x="18" y="128" width="140" height="30" rx="5" fill="#fff" stroke="#E8E6E3"/><text x="88" y="147" text-anchor="middle">Rostering / payroll</text>
+          <rect x="18" y="166" width="140" height="30" rx="5" fill="#fff" stroke="#E8E6E3"/><text x="88" y="185" text-anchor="middle">Spreadsheets</text>
+          <rect x="18" y="204" width="140" height="30" rx="5" fill="#fff" stroke="#E8E6E3"/><text x="88" y="223" text-anchor="middle">Site exports</text>
+        </g>
+        <path d="M168 143 C210 143, 210 143, 248 143" stroke="#C46A3D" stroke-width="1.6" fill="none"/>
+        <polygon points="248,143 240,139 240,147" fill="#C46A3D"/>
+        <rect x="258" y="78" width="180" height="130" rx="8" fill="#F5F4F2" stroke="#C46A3D" stroke-width="1.5"/>
+        <text x="348" y="106" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#2B2B2B">The pipeline</text>
+        <g font-family="system-ui,sans-serif" font-size="11" fill="#6B6B6B">
+          <text x="348" y="130" text-anchor="middle">Collects it every night</text>
+          <text x="348" y="150" text-anchor="middle">Cleans and standardises</text>
+          <text x="348" y="170" text-anchor="middle">Makes every source</text>
+          <text x="348" y="186" text-anchor="middle">mean the same thing</text>
+        </g>
+        <path d="M448 143 C490 143, 490 143, 528 143" stroke="#C46A3D" stroke-width="1.6" fill="none"/>
+        <polygon points="528,143 520,139 520,147" fill="#C46A3D"/>
+        <text x="632" y="34" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="600" letter-spacing="1.6" fill="#9A9A9A">YOUR REPORTING</text>
+        <g font-family="system-ui,sans-serif" font-size="12" fill="#4A4A4A">
+          <rect x="546" y="90" width="156" height="30" rx="5" fill="#fff" stroke="#E8E6E3"/><text x="624" y="109" text-anchor="middle">Board pack</text>
+          <rect x="546" y="128" width="156" height="30" rx="5" fill="#fff" stroke="#E8E6E3"/><text x="624" y="147" text-anchor="middle">Site comparison</text>
+          <rect x="546" y="166" width="156" height="30" rx="5" fill="#fff" stroke="#E8E6E3"/><text x="624" y="185" text-anchor="middle">Finance &amp; P&amp;L</text>
+        </g>
+      </svg>
+      <figcaption>Connected once, then it runs on its own. No exporting, no copying between files.</figcaption>
+    </figure>
+
+    <p>The important word in that diagram is <strong>standardises</strong>. Your accounting system might call something a cost centre, your operational system calls it a department, and two sites spell the same location differently. Until those are reconciled, joining the data together produces confident-looking nonsense.</p>
 
     <div class="pull">
-      <p>Debug logging tells you why last night's run failed. An audit trail tells you why a number in a board pack from March is what it is. They are not the same artefact, and the difference is mostly discipline.</p>
+      <p>Connecting systems is a technical job. Agreeing what the numbers mean is a business decision, and it has to be made by your people, not by whoever builds the pipeline.</p>
     </div>
 
-    <h2>The design constraint that shapes everything</h2>
+    <p>That's why every build I do starts with sitting down and agreeing what each measure means &mdash; one definition, written down and signed off, applied identically everywhere. It's unglamorous and it's the difference between reporting that gets used and reporting that gets argued about.</p>
 
-    <p>One rule, and it dictates most of what follows: <strong>the audit layer never contains data values.</strong> Row counts, hashes, timestamps, rule outcomes, column names. Never a sample row, never a rejected record's contents, never an exception message that might carry a field value.</p>
+    <h2>Part two: the half that usually gets skipped</h2>
 
-    <p>This is easy to violate accidentally. A well-meaning <code>except Exception as e: log(str(e))</code> will happily write a customer name into your audit table the first time a constraint fails on a bad row. In a health or care context that turns your compliance artefact into a breach surface, and the audit table is usually the one with the loosest access control because nobody thinks of it as sensitive.</p>
+    <p>Here's the problem with automation. Once the numbers appear on their own, people stop checking them &mdash; which is the point, but it means when something goes wrong, nobody finds out.</p>
 
-    <p>Everything below assumes that constraint.</p>
+    <p>A site changes its export format. A field starts arriving blank. A system stops sending altogether. The report still opens, still looks right, and quietly reports the wrong thing until someone notices months later.</p>
 
-    <div class="callout" style="border-left:3px solid var(--copper)">
-      <h4>See it running</h4>
-      <p>Everything below is surfaced in a report the client operates themselves. <a href="demo-lineage.html" class="inline"><strong>Open the interactive demo &rarr;</strong></a> &mdash; trace a measure back to its source file, see quality per column at each layer, and watch a blocking rule hold a figure back. Synthetic data throughout.</p>
-    </div>
+    <p>So alongside the pipeline I build a second layer that watches it.</p>
 
-    <h2>Bronze: what Delta already gives you, and what it doesn't</h2>
+    <figure class="media" style="background:none;border:0;padding:0">
+      <svg viewBox="0 0 720 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram: the monitoring layer checks quality, traces numbers and holds back defective figures" style="width:100%;height:auto;background:#FAFAF8;border:1px solid #E8E6E3;border-radius:8px">
+        <rect x="24" y="30" width="212" height="86" rx="8" fill="#fff" stroke="#E8E6E3"/>
+        <circle cx="52" cy="58" r="9" fill="#3E7A56"/><text x="52" y="62" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" font-weight="700" fill="#fff">1</text>
+        <text x="70" y="62" font-family="system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#2B2B2B">Checks every load</text>
+        <text x="42" y="84" font-family="system-ui,sans-serif" font-size="11" fill="#6B6B6B">Did it arrive? Is anything</text>
+        <text x="42" y="100" font-family="system-ui,sans-serif" font-size="11" fill="#6B6B6B">missing or out of range?</text>
 
-    <p>Delta Lake hands you a substantial amount of lineage for free, and it's underused. Every write to a Delta table produces a transaction log entry, queryable directly:</p>
+        <rect x="254" y="30" width="212" height="86" rx="8" fill="#fff" stroke="#E8E6E3"/>
+        <circle cx="282" cy="58" r="9" fill="#C46A3D"/><text x="282" y="62" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" font-weight="700" fill="#fff">2</text>
+        <text x="300" y="62" font-family="system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#2B2B2B">Traces every number</text>
+        <text x="272" y="84" font-family="system-ui,sans-serif" font-size="11" fill="#6B6B6B">Board pack back to the</text>
+        <text x="272" y="100" font-family="system-ui,sans-serif" font-size="11" fill="#6B6B6B">file it came from</text>
 
-    <p class="code-label">Notebook — Bronze</p>
-    <pre><code><span class="c"># Delta transaction history is already an audit trail.</span>
-<span class="c"># Every version, operation, timestamp and row count, at no cost.</span>
-history_df = spark.sql(<span class="s">"DESCRIBE HISTORY bronze.incident_register"</span>)
+        <rect x="484" y="30" width="212" height="86" rx="8" fill="#fff" stroke="#E8E6E3"/>
+        <circle cx="512" cy="58" r="9" fill="#A8412F"/><text x="512" y="62" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" font-weight="700" fill="#fff">3</text>
+        <text x="530" y="62" font-family="system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#2B2B2B">Holds back bad figures</text>
+        <text x="502" y="84" font-family="system-ui,sans-serif" font-size="11" fill="#6B6B6B">A known problem stops the</text>
+        <text x="502" y="100" font-family="system-ui,sans-serif" font-size="11" fill="#6B6B6B">number being published</text>
 
-history_df.select(
-    <span class="s">"version"</span>, <span class="s">"timestamp"</span>, <span class="s">"operation"</span>,
-    <span class="s">"operationMetrics.numOutputRows"</span>,
-    <span class="s">"operationParameters"</span>
-).show(truncate=<span class="k">False</span>)</code></pre>
+        <rect x="24" y="140" width="672" height="82" rx="8" fill="#2B2B2B"/>
+        <text x="360" y="170" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#FAFAF8">All of it in one report your own team opens</text>
+        <text x="360" y="194" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11.5" fill="rgba(255,255,255,0.68)">Updated every time your data comes in — not a document written once and filed</text>
+      </svg>
+      <figcaption>The monitoring layer. Built into the pipeline, so it can't fall out of date.</figcaption>
+    </figure>
 
-    <p>That gives you version, operation type, wall-clock time and rows written, per table, retained according to your log retention settings. Combined with time travel, you can reconstruct exactly what a table contained at a point in the past:</p>
+    <h2>What that looks like in practice</h2>
 
-    <pre><code><span class="c"># What did Bronze look like when that board pack was produced?</span>
-as_at = spark.read.format(<span class="s">"delta"</span>) \
-    .option(<span class="s">"timestampAsOf"</span>, <span class="s">"2026-03-31 23:59:59"</span>) \
-    .table(<span class="s">"bronze.incident_register"</span>)</code></pre>
+    <p>Say a chart in your board pack is showing a figure that's slightly off. Someone at one site has been leaving a field blank &mdash; about one record in twenty &mdash; and it's been quietly pulling the number down for three months.</p>
 
-    <p><strong>What Delta history does not tell you</strong> is the part that matters for an audit: which source system the file came from, when the <em>source</em> last changed, what the extract window was, whether the payload you processed is byte-identical to the one you received, and what triggered the run. None of that is inferable from the transaction log. So Bronze needs an explicit control table written before the data lands.</p>
+    <p>You could have found that in a spreadsheet. But you'd have had to go looking, across a dozen files, knowing in advance what you were looking for. Nobody does that every month.</p>
 
-    <p class="code-label">Notebook — Bronze ingestion control</p>
-    <pre><code><span class="k">import</span> hashlib, uuid, json
-<span class="k">from</span> datetime <span class="k">import</span> datetime, timezone
-<span class="k">from</span> pyspark.sql <span class="k">import</span> Row
-
-<span class="k">def</span> sha256_of(path: str) -> str:
-    h = hashlib.sha256()
-    <span class="k">with</span> open(path, <span class="s">"rb"</span>) <span class="k">as</span> f:
-        <span class="k">for</span> chunk <span class="k">in</span> iter(<span class="k">lambda</span>: f.read(1 &lt;&lt; 20), <span class="k">b""</span>):
-            h.update(chunk)
-    <span class="k">return</span> h.hexdigest()
-
-load_id    = str(uuid.uuid4())
-started    = datetime.now(timezone.utc)
-src_path   = <span class="s">"Files/landing/incident_register_20260701.csv"</span>
-
-<span class="k">try</span>:
-    df = spark.read.option(<span class="s">"header"</span>, <span class="k">True</span>).csv(src_path)
-    rows = df.count()
-    df.write.format(<span class="s">"delta"</span>).mode(<span class="s">"append"</span>) \
-      .option(<span class="s">"mergeSchema"</span>, <span class="s">"false"</span>) \
-      .saveAsTable(<span class="s">"bronze.incident_register"</span>)
-    status, failure = <span class="s">"Success"</span>, <span class="k">None</span>
-
-<span class="k">except</span> Exception <span class="k">as</span> e:
-    rows, status = 0, <span class="s">"Failed"</span>
-    <span class="c"># Exception TYPE only. The message may contain field values.</span>
-    failure = type(e).__name__
-
-spark.createDataFrame([Row(
-    load_id            = load_id,
-    source_system      = <span class="s">"IncidentRegister"</span>,
-    source_object      = src_path.split(<span class="s">"/"</span>)[-1],
-    source_modified_utc= <span class="k">None</span>,          <span class="c"># populate from mtime / API header</span>
-    extract_window_start = <span class="s">"2026-04-01"</span>,
-    extract_window_end   = <span class="s">"2026-06-30"</span>,
-    rows_received      = rows,
-    file_hash          = sha256_of(src_path),
-    triggered_by       = notebookutils.runtime.context.get(<span class="s">"activityId"</span>),
-    load_started_utc   = started,
-    load_completed_utc = datetime.now(timezone.utc),
-    status             = status,
-    failure_detail     = failure,
-)]).write.format(<span class="s">"delta"</span>).mode(<span class="s">"append"</span>).saveAsTable(<span class="s">"audit.ingestion"</span>)</code></pre>
+    <p>With the monitoring layer, the chart carries a score. It's flagged, it names the site, and it tells you when it started. And if the problem is serious enough, the figure doesn't reach the board pack at all until it's resolved.</p>
 
     <div class="callout">
-      <h4>Why the hash earns its place</h4>
-      <p>Of everything in that table, <strong>file_hash</strong> is the column that does the most work in an actual audit. It lets you demonstrate that the payload you processed is the payload you were given, unaltered. It also catches the silent duplicate re-load &mdash; same hash, different load_id, same extract window &mdash; which is otherwise very hard to spot after the fact.</p>
-      <p>Note the failure path writes <code>type(e).__name__</code> rather than <code>str(e)</code>. That is deliberate, and it's the single most common place this design leaks data.</p>
+      <h4>See it working</h4>
+      <p>I've put together an interactive demonstration using synthetic data. Pick a measure, trace it back to the file it came from, and see what happens when a quality rule fails.</p>
+      <p><a href="demo-lineage.html" class="inline"><strong>Open the demo &rarr;</strong></a></p>
     </div>
 
-    <p>One more Bronze rule: <strong>append only, and never <code>mergeSchema</code> silently.</strong> If the source added a column, that is a fact worth failing on and recording, not something to absorb quietly. Schema drift discovered six months later during a reconciliation is expensive; schema drift that fails a load at 2am is cheap.</p>
+    <h2>Why this matters more than it sounds</h2>
 
-    <h2>Silver: rows in, rows out, and where PII gets decided</h2>
+    <p><strong>You stop defending numbers.</strong> When someone questions a figure in a meeting, you can show where it came from instead of promising to check. Meetings move from arguing about the number to deciding what to do about it.</p>
 
-    <p>Silver is where transformation happens, and where most of the useful audit signal is generated. The single most valuable thing you can log here is boring: <strong>rows in versus rows out versus rows rejected, per rule.</strong></p>
+    <p><strong>Problems surface in days, not quarters.</strong> A site whose data quality is slipping shows up the week it starts &mdash; and that's usually an operational finding about that site, not a technical fault.</p>
 
-    <p>I have lost count of the number of investigations that collapsed to a five-minute lookup because this existed. A figure looks wrong; you check the transformation log; 4,102 rows went in, 3,847 came out, 255 were rejected on a missing facility code from one site that changed its export format. That's a conversation with an operations manager, not a two-day forensic exercise.</p>
+    <p><strong>An audit becomes a lookup.</strong> If a regulator, lender or auditor asks how a reported figure was produced, the answer is a report you open rather than a fortnight of reconstruction.</p>
 
-    <p class="code-label">Notebook — Silver conform with rejection accounting</p>
-    <pre><code><span class="k">from</span> pyspark.sql <span class="k">import</span> functions <span class="k">as</span> F
+    <p><strong>Your team isn't dependent on me.</strong> The monitoring report is theirs. They open it, see what's healthy, see what changed this week, and know whether to trust what they're looking at. That's the point &mdash; you shouldn't have to call your consultant to find out whether your own numbers are all right.</p>
 
-RULES = {
-    <span class="s">"facility_code_present"</span>: F.col(<span class="s">"facility_code"</span>).isNotNull(),
-    <span class="s">"incident_date_valid"</span>:   F.col(<span class="s">"incident_date"</span>).between(<span class="s">"2020-01-01"</span>, <span class="s">"2030-12-31"</span>),
-    <span class="s">"severity_in_domain"</span>:    F.col(<span class="s">"severity"</span>).isin(<span class="s">"1"</span>, <span class="s">"2"</span>, <span class="s">"3"</span>, <span class="s">"4"</span>),
-}
+    <h2>The part I'd want you to take away</h2>
 
-src = spark.table(<span class="s">"bronze.incident_register"</span>).filter(F.col(<span class="s">"load_id"</span>) == load_id)
-rows_in = src.count()
+    <p>Governance sounds like a separate project with its own budget line. It isn't, or it shouldn't be. Done properly it's a <strong>by-product of building the pipeline carefully in the first place</strong> &mdash; the checks happen because the pipeline runs, not because someone remembers to do them.</p>
 
-<span class="c"># Tag each row with the first rule it fails — counts only, never values.</span>
-tagged = src
-<span class="k">for</span> name, cond <span class="k">in</span> RULES.items():
-    tagged = tagged.withColumn(<span class="s">f"_fail_{name}"</span>, (~cond).cast(<span class="s">"int"</span>))
+    <p>Which also means it doesn't decay. A document describing your data is accurate for about a quarter. A check that runs every night is accurate for as long as the platform is running.</p>
 
-fail_cols = [c <span class="k">for</span> c <span class="k">in</span> tagged.columns <span class="k">if</span> c.startswith(<span class="s">"_fail_"</span>)]
-rejections = tagged.agg(*[F.sum(c).alias(c) <span class="k">for</span> c <span class="k">in</span> fail_cols]).collect()[0].asDict()
-
-clean = tagged.filter(F.greatest(*[F.col(c) <span class="k">for</span> c <span class="k">in</span> fail_cols]) == 0).drop(*fail_cols)
-rows_out = clean.count()
-
-clean.write.format(<span class="s">"delta"</span>).mode(<span class="s">"append"</span>).saveAsTable(<span class="s">"silver.incident"</span>)
-
-spark.createDataFrame([Row(
-    run_id           = str(uuid.uuid4()),
-    load_id          = load_id,
-    notebook_name    = <span class="s">"nb_incident_conform"</span>,
-    notebook_version = git_commit_sha,        <span class="c"># injected by the pipeline</span>
-    input_tables     = <span class="s">"bronze.incident_register"</span>,
-    output_table     = <span class="s">"silver.incident"</span>,
-    rows_in          = rows_in,
-    rows_out         = rows_out,
-    rows_rejected    = rows_in - rows_out,
-    rejection_detail = json.dumps(rejections),   <span class="c"># counts by rule</span>
-    started_utc      = started,
-    completed_utc    = datetime.now(timezone.utc),
-)]).write.format(<span class="s">"delta"</span>).mode(<span class="s">"append"</span>).saveAsTable(<span class="s">"audit.transformation"</span>)</code></pre>
-
-    <p>Two things worth noting in that pattern. <code>rejection_detail</code> holds counts per rule, not the rejected rows &mdash; if you need the rows for remediation, they belong in a quarantine table with the same access controls as the source, not in the audit schema. And <code>notebook_version</code> carries the git commit, which is what makes a number traceable to the exact code that produced it. If your pipeline can't inject that, it's worth the plumbing.</p>
-
-    <h3>The PII decision table</h3>
-
-    <p>Silver is also where you decide what personal information proceeds, and this is the table I'd argue is the most audit-relevant artefact in the whole design. One row per column that carries or derives from personal information:</p>
-
-    <table>
-      <thead><tr><th>Column</th><th>Holds</th></tr></thead>
-      <tbody>
-        <tr><td><code>source_column</code></td><td>Fully qualified source path</td></tr>
-        <tr><td><code>treatment</code></td><td>Dropped · Pseudonymised · Hashed · Carried</td></tr>
-        <tr><td><code>surrogate_table</code></td><td>Where the mapping lives, if pseudonymised</td></tr>
-        <tr><td><code>justification</code></td><td>Why it proceeds at all, in prose</td></tr>
-        <tr><td><code>approved_by</code> / <code>approved_date</code></td><td>Who made the call, and when</td></tr>
-      </tbody>
-    </table>
-
-    <p>It's unglamorous and it takes ten minutes to populate. It also answers, instantly, the question that otherwise takes a week to reconstruct: <em>what personal information reaches the reporting layer, and who decided it should?</em></p>
-
-    <p>Where you pseudonymise, keep the surrogate mapping in a separate lakehouse with its own workspace permissions. If the reporting model can join back to the mapping, you haven't pseudonymised anything &mdash; you've added a step.</p>
-
-    <h2>Semantic model: extracting definitions with semantic-link</h2>
-
-    <p>The layer that generates the most disagreement is the one people document least. A measure's DAX is the actual definition of a business metric, and it changes without ceremony.</p>
-
-    <p><code>semantic-link</code> lets you pull model metadata into a notebook, which means you can snapshot it on a schedule and keep a dated record of what every measure meant on any given day.</p>
-
-    <p class="code-label">Notebook — model snapshot</p>
-    <pre><code><span class="k">import</span> sempy.fabric <span class="k">as</span> fabric
-<span class="k">from</span> pyspark.sql <span class="k">import</span> functions <span class="k">as</span> F
-
-DATASET = <span class="s">"Care Quality Reporting"</span>
-snapshot_date = datetime.now(timezone.utc).date()
-
-measures      = fabric.list_measures(DATASET)
-relationships = fabric.list_relationships(DATASET)
-columns       = fabric.list_columns(DATASET)
-
-<span class="c"># Measures: name, DAX, description, folder — the definitional record</span>
-(spark.createDataFrame(measures)
-   .withColumn(<span class="s">"snapshot_date"</span>, F.lit(snapshot_date))
-   .write.format(<span class="s">"delta"</span>).mode(<span class="s">"append"</span>)
-   .saveAsTable(<span class="s">"audit.model_measure_snapshot"</span>))
-
-(spark.createDataFrame(relationships)
-   .withColumn(<span class="s">"snapshot_date"</span>, F.lit(snapshot_date))
-   .write.format(<span class="s">"delta"</span>).mode(<span class="s">"append"</span>)
-   .saveAsTable(<span class="s">"audit.model_relationship_snapshot"</span>))</code></pre>
-
-    <p>Once that's running, a genuinely useful query becomes available &mdash; measures whose definition changed between two dates:</p>
-
-    <pre><code><span class="k">SELECT</span> a.measure_name,
-       a.expression <span class="k">AS</span> before_dax,
-       b.expression <span class="k">AS</span> after_dax
-<span class="k">FROM</span>   audit.model_measure_snapshot a
-<span class="k">JOIN</span>   audit.model_measure_snapshot b
-       <span class="k">ON</span> a.measure_name = b.measure_name
-<span class="k">WHERE</span>  a.snapshot_date = <span class="s">'2026-03-31'</span>
-  <span class="k">AND</span>  b.snapshot_date = <span class="s">'2026-06-30'</span>
-  <span class="k">AND</span>  a.expression &lt;&gt; b.expression;</code></pre>
-
-    <p>That query has ended several arguments for me. "The number changed" is usually true, and usually because someone adjusted a filter three months ago with good intentions and no record.</p>
-
-    <div class="callout">
-      <h4>On measure descriptions</h4>
-      <p>The snapshot is only as useful as what's in the model. Every measure gets a description, and where a definition embeds a judgement, the description says so.</p>
-      <p>A measure averaging only completed assessments should be named <code>Avg Risk Score (Completed Only)</code> and its description should state that it therefore understates true risk, because completion is not random. Naming a limitation in the model is worth more than a paragraph in a document nobody opens.</p>
-    </div>
-
-    <h2>Wiring it together: the trace</h2>
-
-    <p>Individually these tables are logs. Joined, they're a lineage graph:</p>
-
-    <pre><code><span class="k">SELECT</span> m.measure_name,
-       m.expression,
-       t.output_table,
-       t.notebook_name,
-       t.notebook_version,
-       t.rows_in, t.rows_out, t.rows_rejected,
-       i.source_system,
-       i.source_object,
-       i.file_hash,
-       i.load_completed_utc
-<span class="k">FROM</span>   audit.model_measure_snapshot m
-<span class="k">JOIN</span>   audit.transformation t <span class="k">ON</span> t.output_table = m.source_table
-<span class="k">JOIN</span>   audit.ingestion     i <span class="k">ON</span> i.load_id      = t.load_id
-<span class="k">WHERE</span>  m.snapshot_date = <span class="s">'2026-06-30'</span>
-  <span class="k">AND</span>  m.measure_name  = <span class="s">'Incidents per 1,000 Bed Days'</span>;</code></pre>
-
-    <p>One row, six hops: published measure &rarr; its DAX &rarr; the Gold table &rarr; the notebook and commit that built it &rarr; the Bronze load &rarr; the source file, its hash and its timestamp.</p>
-
-    <p>Surface that in a Power BI report the client operates themselves and you've replaced a two-week reconstruction with a lookup. That report is the deliverable; the tables are just how it's fed.</p>
-
-    <p><a href="demo-lineage.html" class="inline"><strong>Open the interactive demo &rarr;</strong></a> to see what that looks like &mdash; measure lineage, per-column quality across Bronze, Silver and Gold, blocking rules, load history and the PII register.</p>
-
-    <h2>Where this stops</h2>
-
-    <p>Being clear about the boundaries matters more than the implementation, and it's the part I'd want any engineer building this to say out loud to their stakeholders.</p>
-
-    <ul>
-      <li><strong>Lineage starts at your ingestion boundary.</strong> You can evidence that a file arrived from a vendor system on a date with a given hash. What happened inside that platform &mdash; who edited a field at point of capture, and when &mdash; is their audit trail. If that matters, it's a vendor conversation, not an engineering one.</li>
-      <li><strong>Only what flows through the platform is visible.</strong> Someone exporting to Excel and emailing it is outside this entirely, and in the organisations I work with that's common rather than exceptional.</li>
-      <li><strong>This is evidence, not compliance.</strong> It demonstrates that the pipeline is traceable and access is controlled. It says nothing about whether consent was obtained, retention obligations were met, or the organisation's policies are adequate. Those are policy questions and they belong with someone qualified to answer them.</li>
-      <li><strong>Custom means maintained.</strong> Purview is a product with a vendor. This is a framework you built. Documentation, version control and training are what make that a reasonable trade rather than a liability &mdash; and they have to actually be delivered.</li>
-      <li><strong>Retention applies to the audit tables too.</strong> They accumulate indefinitely by default. Decide how long they're kept, and record that decision, or you've created a governance problem while solving one.</li>
-    </ul>
-
-    <h2>Why bother, rather than buying the catalogue</h2>
-
-    <p>Two reasons, and the second is the one that decides it.</p>
-
-    <p>The first is cost, which is the obvious one and the less interesting.</p>
-
-    <p>The second: <strong>governance implemented as a separate system decays, and governance implemented as a by-product of the pipeline doesn't.</strong> A catalogue that depends on someone remembering to update it is accurate for about a quarter. An audit table that gets written because the notebook ran is accurate for as long as the platform runs. In organisations without a dedicated data function &mdash; which is most of them &mdash; that difference is the whole ballgame.</p>
-
-    <p>It's also reusable. Built once, it's a component in every subsequent engagement, which for a solo consultancy is the closest thing to a product.</p>
-
-    <p>If you've implemented something similar, I'd be interested in what you logged that I haven't &mdash; particularly anyone who's had this survive contact with an actual regulatory audit rather than an internal one.</p>
+    <p>If your monthly reporting still depends on one spreadsheet and one person, that's the conversation I'd want to have.</p>
 
     <div class="article-tags">
+      <span>Data pipelines</span>
       <span>Microsoft Fabric</span>
-      <span>Data lineage</span>
-      <span>Delta Lake</span>
-      <span>semantic-link</span>
-      <span>PySpark</span>
-      <span>Data governance</span>
-      <span>Medallion architecture</span>
+      <span>Power BI</span>
+      <span>Data quality</span>
+      <span>Reporting</span>
     </div>
 
     <div class="author">
-      <img src="zohheadshot_smiling_passportsize.JPG" alt="Zohal Zahir, enterprise BI consultant, Canberra" width="68" height="68" loading="lazy" decoding="async">
+      <img src="zohheadshot_smiling_passportsize.JPG" alt="Zohal Zahir, Founder and Principal Consultant, DATASANJ" width="68" height="68" loading="lazy" decoding="async">
       <div>
         <h4>Zohal Zahir</h4>
         <p class="role">Founder &amp; Principal Consultant</p>
-        <p>I design governed Microsoft Fabric and Power BI platforms &mdash; from ingestion through dimensional modelling to executive reporting. Microsoft Certified (DP-600, PL-300), based in Canberra.</p>
+        <p>I build Microsoft Fabric and Power BI reporting platforms for midsize companies across Australia &mdash; connecting your systems, governing the data, and building the reporting on top. Microsoft Certified (DP-600, PL-300), based in Canberra.</p>
         <a href="https://www.linkedin.com/in/zohal-zahir-46128697/" target="_blank" rel="noopener">Connect on LinkedIn &rarr;</a>
       </div>
-    </div>
-
-    <div class="subscribe">
-      <h3>New field notes by email</h3>
-      <p>One email when I publish something new. Usually monthly, sometimes less. No roundups of other people's links, and no sales sequence.</p>
-      <form action="https://formspree.io/f/YOUR_SUBSCRIBE_FORM_ID" method="POST">
-        <input type="hidden" name="_subject" value="New field-note subscriber">
-        <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <div class="subscribe-row">
-          <label for="sub-email" class="visually-hidden">Your email address</label>
-          <input type="email" id="sub-email" name="email" required autocomplete="email" inputmode="email" placeholder="you@company.com.au">
-          <button type="submit" class="btn btn-dark">Subscribe</button>
-        </div>
-        <small>Unsubscribe in one click. I don't share the list.</small>
-      </form>
     </div>
 
     <div class="related-section u-mt-lg">
@@ -471,11 +304,11 @@ columns       = fabric.list_columns(DATASET)
       <div class="card-grid">
         <a href="blog-fabric-apps.html" class="card">
           <h3>One model, two jobs: testing write-back workflows in Microsoft Fabric Apps</h3>
-          <p>Can an operational process live on the same governed semantic model as the reporting? Row-level security held across both.</p>
+          <p>Can an operational process live on the same governed model as the reporting?</p>
         </a>
         <a href="blog-mcp-analytics.html" class="card">
           <h3>What is MCP &mdash; and why should business owners care?</h3>
-          <p>Model Context Protocol lets tools read your data where it already lives. What that changes, and what it doesn't.</p>
+          <p>Model Context Protocol lets tools read your data where it already lives.</p>
         </a>
       </div>
     </div>

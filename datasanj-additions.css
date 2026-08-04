@@ -237,3 +237,9 @@
   .article-body h3{ margin-top: 30px; }
   .article-body .article-tags{ margin-top: 38px; }
 }
+
+/* Homepage hero: photo and personal name removed for company voice.
+   .hero-role was styled to sit under the headshot, so it needs its own
+   top spacing now that it leads the block. */
+.hero .hero-role{ margin-top: 0; margin-bottom: 22px; }
+.hero .hero-content > .hero-role:first-child{ margin-bottom: 24px; }

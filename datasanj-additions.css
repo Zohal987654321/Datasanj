@@ -243,3 +243,15 @@
    top spacing now that it leads the block. */
 .hero .hero-role{ margin-top: 0; margin-bottom: 22px; }
 .hero .hero-content > .hero-role:first-child{ margin-bottom: 24px; }
+
+/* Video embeds — hold the 16:9 box before metadata loads so the page
+   doesn't jump, and keep controls reachable on mobile. */
+.media .frame video{
+  width: 100%; height: auto; aspect-ratio: 16 / 9;
+  display: block; background: var(--charcoal-dark, #1A1A1A);
+}
+.media .frame video::-webkit-media-controls{ z-index: 2; }
+.media .frame p{
+  padding: 22px; color: rgba(255,255,255,.75); font-size: 14px; line-height: 1.6;
+}
+.media .frame p a{ color: var(--copper-light); font-weight: 600; }

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Opening graphic — DATASANJ</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+ --charcoal:#2B2B2B;--copper:#C46A3D;--copper-light:#D4845A;--cream:#F5F4F2;--warm:#FAFAF8;
+ --stone:#E8E6E3;--g400:#9A9A9A;--g500:#6B6B6B;--teal:#4A7C7E;--bad:#A8412F;--ok:#3E7A56;
+ --sans:'Inter',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--sans);background:#111;display:flex;flex-direction:column;align-items:center;
+ justify-content:center;min-height:100vh;padding:20px;gap:16px}
+
+/* 1920x1080 capture frame */
+.stage{width:min(96vw,1280px);aspect-ratio:16/9;background:var(--charcoal);border-radius:10px;
+ position:relative;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.stage::after{content:'';position:absolute;left:0;top:0;bottom:0;width:8px;background:var(--copper)}
+
+.scene{position:absolute;inset:0;opacity:0;transition:opacity .5s}
+.scene.on{opacity:1}
+
+.cap{position:absolute;left:6%;bottom:7%;right:6%;z-index:5}
+.cap .big{font-size:clamp(18px,2.5vw,34px);font-weight:600;color:var(--warm);letter-spacing:-.02em;line-height:1.25}
+.cap .big em{font-style:normal;color:var(--copper-light)}
+.cap .sm{font-family:var(--mono);font-size:clamp(9px,.95vw,13px);letter-spacing:.16em;
+ text-transform:uppercase;color:var(--copper);margin-bottom:9px}
+
+/* ---------- scene 1: branches with different numbers ---------- */
+.grid{position:absolute;left:6%;right:6%;top:13%;display:grid;grid-template-columns:repeat(6,1fr);
+ gap:clamp(6px,.9vw,13px)}
+.br{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.11);border-radius:7px;
+ padding:clamp(7px,1vw,14px);opacity:0;transform:translateY(9px);animation:pop .4s ease forwards}
+.br .n{font-family:var(--mono);font-size:clamp(7px,.72vw,10px);color:rgba(255,255,255,.42);
+ letter-spacing:.09em;text-transform:uppercase}
+.br .v{font-family:var(--mono);font-size:clamp(14px,1.75vw,25px);font-weight:700;color:var(--warm);
+ margin-top:5px;letter-spacing:-.02em}
+.br .u{font-size:clamp(7px,.68vw,10px);color:rgba(255,255,255,.34);margin-top:2px}
+.br.odd .v{color:var(--copper-light)}
+@keyframes pop{to{opacity:1;transform:none}}
+
+.qmark{position:absolute;left:50%;top:47%;transform:translate(-50%,-50%);text-align:center;
+ opacity:0;animation:fadeUp .6s ease .1s forwards}
+.qmark .q{font-size:clamp(30px,4.4vw,64px);font-weight:700;color:var(--copper);letter-spacing:-.03em}
+.qmark .t{font-size:clamp(11px,1.15vw,17px);color:rgba(255,255,255,.62);margin-top:6px}
+@keyframes fadeUp{from{opacity:0;transform:translate(-50%,-42%)}to{opacity:1;transform:translate(-50%,-50%)}}
+
+/* ---------- scene 2: manual consolidation ---------- */
+.msvg{position:absolute;inset:0}
+.mline{stroke:rgba(255,255,255,.2);stroke-width:1.4;fill:none;stroke-dasharray:5 4}
+.mline.a{animation:dash 1.4s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-36}}
+.hub{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;
+ background:rgba(168,65,47,.14);border:1.5px solid var(--bad);border-radius:9px;
+ padding:clamp(12px,1.6vw,22px) clamp(18px,2.4vw,34px)}
+.hub .i{font-size:clamp(20px,2.6vw,36px)}
+.hub .t{font-family:var(--mono);font-size:clamp(9px,.95vw,13px);color:var(--warm);letter-spacing:.09em;
+ text-transform:uppercase;margin-top:7px;font-weight:600}
+.hub .s{font-size:clamp(9px,.92vw,13px);color:rgba(255,255,255,.55);margin-top:4px}
+.tick{position:absolute;font-family:var(--mono);font-size:clamp(8px,.85vw,12px);color:var(--bad);
+ opacity:0;animation:blip .5s ease forwards}
+@keyframes blip{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* ---------- scene 3: one pipeline ---------- */
+.p-row{position:absolute;left:6%;right:6%;top:20%;display:grid;
+ grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;gap:clamp(8px,1.2vw,20px)}
+.p-stack{display:flex;flex-direction:column;gap:clamp(4px,.55vw,8px)}
+.p-src{background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.12);border-radius:5px;
+ padding:clamp(5px,.65vw,9px) clamp(7px,.9vw,13px);font-family:var(--mono);
+ font-size:clamp(7px,.72vw,10.5px);color:rgba(255,255,255,.62);letter-spacing:.05em}
+.arw{font-size:clamp(13px,1.5vw,22px);color:var(--copper);text-align:center}
+.p-box{background:rgba(74,124,126,.13);border:1.5px solid var(--teal);border-radius:9px;
+ padding:clamp(11px,1.5vw,22px) clamp(9px,1.2vw,18px);text-align:center}
+.p-box .t{font-family:var(--mono);font-size:clamp(8px,.85vw,12px);color:#7FB4B6;letter-spacing:.11em;
+ text-transform:uppercase;font-weight:600}
+.p-box .s{font-size:clamp(8px,.82vw,12px);color:rgba(255,255,255,.52);margin-top:5px;line-height:1.45}
+.p-out{background:rgba(196,106,61,.14);border:1.5px solid var(--copper);border-radius:9px;
+ padding:clamp(11px,1.5vw,22px) clamp(9px,1.2vw,18px);text-align:center}
+.p-out .t{font-family:var(--mono);font-size:clamp(8px,.85vw,12px);color:var(--copper-light);
+ letter-spacing:.11em;text-transform:uppercase;font-weight:600}
+.p-out .v{font-family:var(--mono);font-size:clamp(18px,2.3vw,34px);font-weight:700;color:var(--warm);
+ margin-top:6px;letter-spacing:-.02em}
+.p-out .s{font-size:clamp(8px,.82vw,12px);color:rgba(255,255,255,.52);margin-top:3px}
+.badges{position:absolute;left:6%;right:6%;top:59%;display:flex;gap:clamp(6px,.85vw,13px);
+ flex-wrap:wrap;justify-content:center}
+.bdg{background:rgba(62,122,86,.15);border:1px solid rgba(62,122,86,.45);border-radius:100px;
+ padding:clamp(5px,.6vw,9px) clamp(10px,1.25vw,19px);font-size:clamp(8px,.82vw,12px);
+ color:#8FBF9F;display:flex;align-items:center;gap:6px;opacity:0;animation:pop .35s ease forwards}
+.bdg::before{content:'✓';font-weight:700}
+
+.fade-in{opacity:0;animation:pop .45s ease forwards}
+
+/* controls */
+.ctl{display:flex;gap:9px;align-items:center}
+button{background:var(--charcoal);color:var(--warm);border:1px solid #3D3D3D;border-radius:6px;
+ padding:9px 18px;font:inherit;font-size:13px;cursor:pointer}
+button:hover{border-color:var(--copper);color:#fff}
+.tl{display:flex;gap:5px}
+.tl i{width:34px;height:4px;border-radius:2px;background:#333;display:block}
+.tl i.on{background:var(--copper)}
+.hint{color:#666;font-size:12px;font-family:var(--mono);text-align:center;max-width:640px;line-height:1.6}
+</style>
+</head>
+<body>
+
+<div class="stage" id="stage">
+
+  <!-- SCENE 1 -->
+  <div class="scene on" id="sc1">
+    <div class="grid" id="brgrid"></div>
+    <div class="qmark" id="qm" style="display:none">
+      <div class="q">Which one is right?</div>
+      <div class="t">Same metric. Twelve definitions.</div>
+    </div>
+    <div class="cap">
+      <div class="sm">Twelve branches</div>
+      <div class="big">Every branch reports the same number <em>a little differently.</em></div>
+    </div>
+  </div>
+
+  <!-- SCENE 2 -->
+  <div class="scene" id="sc2">
+    <svg class="msvg" viewBox="0 0 1280 720" preserveAspectRatio="none" id="msvg"></svg>
+    <div class="hub">
+      <div class="i">📄</div>
+      <div class="t">Consolidation.xlsx</div>
+      <div class="s">v7_FINAL_use-this-one</div>
+    </div>
+    <div class="cap">
+      <div class="sm">Weeks of manual work</div>
+      <div class="big">Exports, reformatting, chasing the late one — <em>then checking it twice.</em></div>
+    </div>
+  </div>
+
+  <!-- SCENE 3 -->
+  <div class="scene" id="sc3">
+    <div class="p-row">
+      <div class="p-stack" id="srcs"></div>
+      <div class="arw fade-in" style="animation-delay:.5s">→</div>
+      <div class="p-box fade-in" style="animation-delay:.65s">
+        <div class="t">One governed pipeline</div>
+        <div class="s">Runs overnight · every branch · every system</div>
+      </div>
+      <div class="arw fade-in" style="animation-delay:.8s">→</div>
+      <div class="p-out fade-in" style="animation-delay:.95s">
+        <div class="t">One number</div>
+        <div class="v">4,102</div>
+        <div class="s">Defined once. Applied everywhere.</div>
+      </div>
+    </div>
+    <div class="badges" id="bdgs"></div>
+    <div class="cap">
+      <div class="sm">Not a big-company thing</div>
+      <div class="big">One pipeline. Every branch. <em>Numbers that agree with each other.</em></div>
+    </div>
+  </div>
+</div>
+
+<div class="ctl">
+  <button onclick="run()">▶ Replay</button>
+  <div class="tl"><i class="on" id="t1"></i><i id="t2"></i><i id="t3"></i></div>
+</div>
+<p class="hint">Screen-record this frame for the video opening. Roughly 16 seconds end to end —<br>scene 1 at 0:00, scene 2 at 0:06, scene 3 at 0:11.</p>
+
+<script>
+const BR=[
+ ['Northside','1,204','incidents ytd',0],['Riverside','1,187','incidents ytd',1],
+ ['Lakeview','1,204','incident count',0],['Parkside','986','reported incidents',1],
+ ['Hillcrest','1,204','incidents ytd',0],['Bayview','1,331','all incidents',1],
+ ['Westgate','1,204','incidents ytd',0],['Eastwood','1,092','incidents (net)',1],
+ ['Southbrook','1,204','incidents ytd',0],['Cedar Park','1,204','incidents ytd',0],
+ ['Fernhill','1,268','incidents inc. near-miss',1],['Oakridge','1,204','incidents ytd',0]];
+
+const SRC=['12 branch exports','Care system API','Rostering platform','Finance / GL','Incident register'];
+const BDG=['Every number traceable to source','Quality measured on every load','Access controlled by branch','Updates itself overnight'];
+
+function scene1(){
+  const g=document.getElementById('brgrid');g.innerHTML='';
+  BR.forEach((b,i)=>{
+    const d=document.createElement('div');
+    d.className='br'+(b[3]?' odd':'');
+    d.style.animationDelay=(i*55)+'ms';
+    d.innerHTML=`<div class="n">${b[0]}</div><div class="v">${b[1]}</div><div class="u">${b[2]}</div>`;
+    g.appendChild(d)});
+  const q=document.getElementById('qm');q.style.display='none';
+  setTimeout(()=>{q.style.display='block'},2600);
+}
+
+function scene2(){
+  const s=document.getElementById('msvg');s.innerHTML='';
+  const cx=640,cy=360;
+  for(let i=0;i<12;i++){
+    const a=(i/12)*Math.PI*2-Math.PI/2;
+    const x=cx+Math.cos(a)*430,y=cy+Math.sin(a)*250;
+    const p=document.createElementNS('http://www.w3.org/2000/svg','path');
+    p.setAttribute('d',`M${x},${y} Q${(x+cx)/2},${(y+cy)/2+((i%2)?50:-50)} ${cx},${cy}`);
+    p.setAttribute('class','mline a');
+    p.style.animationDelay=(i*90)+'ms';
+    s.appendChild(p);
+    const c=document.createElementNS('http://www.w3.org/2000/svg','circle');
+    c.setAttribute('cx',x);c.setAttribute('cy',y);c.setAttribute('r',5);
+    c.setAttribute('fill','rgba(255,255,255,.3)');
+    s.appendChild(c);
+  }
+  ['2 weeks per cycle','manual re-keying','no audit trail','one person knows how'].forEach((t,i)=>{
+    const d=document.createElement('div');d.className='tick';
+    d.textContent='— '+t;
+    d.style.cssText+=`left:${[8,72,10,70][i]}%;top:${[20,26,74,80][i]}%;animation-delay:${900+i*260}ms`;
+    document.getElementById('sc2').appendChild(d)});
+}
+
+function scene3(){
+  const s=document.getElementById('srcs');s.innerHTML='';
+  SRC.forEach((t,i)=>{const d=document.createElement('div');d.className='p-src fade-in';
+    d.style.animationDelay=(i*70)+'ms';d.textContent=t;s.appendChild(d)});
+  const b=document.getElementById('bdgs');b.innerHTML='';
+  BDG.forEach((t,i)=>{const d=document.createElement('div');d.className='bdg';
+    d.style.animationDelay=(1200+i*180)+'ms';d.textContent=t;b.appendChild(d)});
+}
+
+let timers=[];
+function show(n){
+  ['sc1','sc2','sc3'].forEach((id,i)=>document.getElementById(id).classList.toggle('on',i===n-1));
+  ['t1','t2','t3'].forEach((id,i)=>document.getElementById(id).classList.toggle('on',i===n-1));
+}
+function run(){
+  timers.forEach(clearTimeout);timers=[];
+  document.querySelectorAll('.tick').forEach(t=>t.remove());
+  show(1);scene1();
+  timers.push(setTimeout(()=>{show(2);scene2()},6000));
+  timers.push(setTimeout(()=>{show(3);scene3()},11000));
+}
+run();
+</script>
+</body>
+</html>

@@ -161,21 +161,22 @@
   .hero{padding:74px 0 60px;position:relative;overflow:hidden}
   .hero:before{content:"";position:absolute;top:-160px;right:-160px;width:520px;height:520px;
     background:radial-gradient(circle,rgba(196,106,61,.10),transparent 68%);pointer-events:none}
-  .hero h1{font-size:clamp(38px,5.6vw,64px);margin:20px 0 22px;max-width:15ch}
-  .hero .subtitle{font-size:clamp(17px,1.7vw,20px);color:var(--ink-soft);max-width:60ch;margin-bottom:16px}
-  .hero .payoff{font-size:clamp(16px,1.6vw,18px);color:var(--ink);font-weight:600;max-width:56ch;margin-bottom:30px}
+  .hero .container{text-align:center}
+  .hero h1{font-size:clamp(38px,5.6vw,64px);margin:20px auto 22px;max-width:17ch}
+  .hero .subtitle{font-size:clamp(17px,1.7vw,20px);color:var(--ink-soft);max-width:62ch;margin:0 auto 16px}
+  .hero .payoff{font-size:clamp(16px,1.6vw,18px);color:var(--ink);font-weight:600;max-width:56ch;margin:0 auto 30px}
   .hero .payoff em{font-style:normal;color:var(--terracotta)}
-  .cta-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-bottom:26px}
-  .creds{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:8px}
+  .cta-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:center;margin-bottom:26px}
+  .creds{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:8px}
   .creds span{font-size:12.5px;font-weight:600;color:var(--ink);background:var(--white);border:1px solid var(--stone);padding:7px 13px;border-radius:999px}
-  .trust-strip{display:flex;flex-wrap:wrap;gap:8px 22px;list-style:none;margin-top:22px;font-size:14px;color:var(--muted)}
+  .trust-strip{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 22px;list-style:none;margin-top:22px;font-size:14px;color:var(--muted)}
   .trust-strip li{display:flex;align-items:center;gap:8px}
   .trust-strip li:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--terracotta)}
 
   /* Signature chain */
   .chain{margin-top:44px;background:var(--white);border:1px solid var(--stone);border-radius:var(--r);
     padding:26px 28px;box-shadow:0 20px 50px -40px rgba(43,43,43,.55)}
-  .chain-track{display:flex;align-items:center;flex-wrap:wrap;gap:6px}
+  .chain-track{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px}
   .chain-step{display:flex;align-items:center;gap:14px}
   .chain-step b{font-family:'Fraunces',serif;font-size:20px;font-weight:600;color:var(--ink)}
   .chain-step.on b{color:var(--terracotta)}
@@ -318,7 +319,7 @@
 <!-- ===== Hero ===== -->
 <section class="hero">
   <div class="container">
-    <span class="eyebrow">Canberra · Australia-wide · Microsoft Certified</span>
+    <span class="eyebrow eyebrow--center">Canberra · Australia-wide · Microsoft Certified</span>
     <h1>Month-end reporting doesn't have to be this hard.</h1>
     <p class="subtitle">If closing the month means exporting from half a dozen systems, stitching it together in spreadsheets and reconciling by hand, you're losing days to something that should take minutes &mdash; and every manual step is a chance to get it wrong. We connect your systems and automate the reporting on Microsoft Fabric and Power BI, so it comes out at the click of a button.</p>
     <p class="payoff"><em>Hours back every month. The human error taken out. Numbers you can finally trust.</em></p>

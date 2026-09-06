@@ -548,4 +548,4 @@ footer{padding:72px 0 32px}
 .logo .name em{display:block;margin:4px 0 0;font-size:10.5px;letter-spacing:.22em;color:var(--text-3);font-weight:400;text-transform:none}
 /* solid dark backgrounds, no pattern */
 .hero,.cta{background-image:none;background:var(--ink)}
-
+.btn .ph{width:16px;height:16px;flex:none}

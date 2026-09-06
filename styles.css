@@ -533,3 +533,16 @@ footer{padding:72px 0 32px}
 .who b{color:var(--ink);font-weight:500}
 .about-hero img{aspect-ratio:4/5;object-fit:cover;object-position:center top}
 .founder img{object-position:center top}
+
+.logo .name em{font-style:normal;font-weight:400;letter-spacing:0;color:var(--text-3);margin-left:6px;font-size:14px}
+.about-grid{display:grid;grid-template-columns:300px 1fr;gap:64px;align-items:start}
+.about-grid .story{max-width:760px}
+.aside{position:sticky;top:96px;background:#fff;border-radius:20px;padding:28px}
+.aside h3{font-size:16px;margin-bottom:14px}
+.aside dl div{padding:10px 0;border-top:1px solid var(--line)}
+.aside dt{font-size:12.5px;color:var(--text-3);margin-bottom:2px}
+.aside dd{font-size:14.5px;color:var(--ink);margin:0;line-height:1.45}
+.aside .btn{margin-top:18px}
+@media (max-width:900px){.about-grid{grid-template-columns:1fr}.aside{position:static}}
+.logo .name{display:flex;flex-direction:column;line-height:1;letter-spacing:.14em}
+.logo .name em{display:block;margin:4px 0 0;font-size:10.5px;letter-spacing:.22em;color:var(--text-3);font-weight:400;text-transform:none}

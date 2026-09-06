@@ -102,8 +102,8 @@ strong{color:var(--ink);font-weight:600}
 .tile .ico{width:44px;height:44px;border-radius:8px;background:var(--copper-tint);display:flex;align-items:center;justify-content:center;color:var(--copper)}
 .tile .ico svg{width:22px;height:22px}
 .tile p{font-size:15px}
-.tile .case{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);font-size:14px;font-weight:500;color:var(--ink)}
-.tile .case:hover{color:var(--copper)}
+.tile .tile-link{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);font-size:14px;font-weight:500;color:var(--ink)}
+.tile .tile-link:hover{color:var(--copper)}
 
 /* Results strip */
 .results{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
@@ -527,7 +527,7 @@ h2{font-size:clamp(30px,3.6vw,44px);letter-spacing:-0.03em;line-height:1.08}
 footer{padding:72px 0 32px}
 @media (max-width:1024px){.packs-3{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr 1fr}.steps::before{display:none}.step::before{box-shadow:none}}
 @media (max-width:768px){.section{padding:72px 0}.hero{padding:64px 0 72px}.steps{grid-template-columns:1fr}.case-head,.case-body,.stack{padding-left:22px;padding-right:22px}.pack-lead,.onedef{padding:28px}}
-.tile .case{border-top:1px solid var(--line);padding-top:16px;margin-top:auto;font-size:14px;font-weight:500;color:var(--copper-deep);background:transparent}
+.tile .tile-link{border-top:1px solid var(--line);padding-top:16px;margin-top:auto;font-size:14px;font-weight:500;color:var(--copper-deep);background:transparent;overflow:visible}
 .who{display:flex;align-items:center;gap:12px;margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid var(--line);font-size:14px;color:var(--text-2)}
 .who img{width:48px;height:48px;border-radius:50%;object-fit:cover;object-position:center top}
 .who b{color:var(--ink);font-weight:500}

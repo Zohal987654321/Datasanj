@@ -66,7 +66,7 @@ strong{color:var(--ink);font-weight:600}
 .kicker{display:inline-block;font-size:14px;font-weight:700;color:var(--copper);margin-bottom:12px}
 
 /* Hero (home + contact) */
-.hero{background:radial-gradient(1200px 600px at 85% -10%,#2C3B49 0%,var(--ink) 55%);color:#fff;padding:88px 0 96px;position:relative;overflow:hidden}
+.hero{background:var(--ink);color:#fff;padding:88px 0 96px;position:relative;overflow:hidden}
 .hero .container{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:start}
 .hero h1{color:#fff;max-width:14ch}
 .hero .lede{font-size:19px;font-weight:400;color:rgba(255,255,255,.76);max-width:50ch;margin:26px 0 30px;line-height:1.6}
@@ -435,7 +435,7 @@ h2{font-size:clamp(30px,3.6vw,44px);letter-spacing:-0.03em;line-height:1.08}
 .kicker::before{content:"";width:22px;height:2px;background:var(--copper)}
 .section{padding:120px 0;border-top:1px solid var(--line)}
 .section.bg-surface{border-top:0}
-.hero{padding:104px 0 112px;background:var(--ink);background-image:repeating-linear-gradient(-45deg,rgba(255,255,255,.025) 0 1px,transparent 1px 14px),radial-gradient(900px 500px at 90% -20%,rgba(217,98,42,.22),transparent 60%)}
+.hero{padding:104px 0 112px;background:var(--ink)}
 .hero .container{gap:72px;align-items:center}
 .hero .lede{font-size:20px;line-height:1.55;max-width:46ch;margin:28px 0 34px;color:rgba(255,255,255,.74)}
 .hero .marks{font-size:13.5px;gap:8px 22px}
@@ -501,7 +501,7 @@ h2{font-size:clamp(30px,3.6vw,44px);letter-spacing:-0.03em;line-height:1.08}
 .faq details{padding:22px 0}
 .faq summary{font-size:18px}
 /* cta */
-.cta{padding:112px 0;background:var(--ink);background-image:repeating-linear-gradient(-45deg,rgba(255,255,255,.025) 0 1px,transparent 1px 14px)}
+.cta{padding:112px 0;background:var(--ink)}
 .cta h2{font-size:clamp(30px,3.6vw,46px)}
 /* founder */
 .founder{border-radius:22px;padding:40px;gap:44px}
@@ -548,3 +548,4 @@ footer{padding:72px 0 32px}
 .logo .name em{display:block;margin:4px 0 0;font-size:10.5px;letter-spacing:.22em;color:var(--text-3);font-weight:400;text-transform:none}
 /* solid dark backgrounds, no pattern */
 .hero,.cta{background-image:none;background:var(--ink)}
+

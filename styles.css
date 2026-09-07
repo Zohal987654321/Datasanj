@@ -404,3 +404,6 @@ footer{padding:72px 0 32px;background:var(--ink-2);color:rgba(255,255,255,.75);f
   .case-head,.case-body,.stack{padding-left:22px;padding-right:22px}
   .pack-lead,.onedef{padding:28px}
 }
+
+.hero .marks a{color:inherit;border-bottom:1px solid rgba(255,255,255,.35)}
+.hero .marks a:hover{color:#fff;border-color:#fff}

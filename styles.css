@@ -58,7 +58,7 @@ h3{font-size:19px;letter-spacing:-0.015em}
 .logo{display:flex;align-items:center;gap:10px}
 .logo svg{width:36px;height:36px}
 .logo .name{display:flex;flex-direction:column;font-family:var(--display);font-weight:600;font-size:15.5px;letter-spacing:.14em;line-height:1;color:var(--ink)}
-.logo .name em{display:block;margin-top:4px;font-style:normal;font-weight:400;font-size:10.5px;letter-spacing:.22em;color:var(--text-3)}
+.logo .name em{display:block;margin-top:4px;font-style:normal;font-weight:500;font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--copper)}
 .nav-menu{display:flex;align-items:center;gap:4px}
 .nav-menu a{font-size:15px;font-weight:500;color:var(--text-2);padding:8px 12px;border-radius:var(--pill)}
 .nav-menu a:hover,.nav-menu a.active{color:var(--ink);background:var(--surface)}
@@ -251,7 +251,8 @@ h3{font-size:19px;letter-spacing:-0.015em}
 /* ---------- Footer ---------- */
 footer{padding:72px 0 32px;background:var(--ink-2);color:rgba(255,255,255,.75);font-size:14px}
 .foot{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px}
-.foot .brand{font-family:var(--display);font-weight:600;font-size:15px;letter-spacing:.14em;color:#fff;margin-bottom:12px}
+.foot .brand{font-family:var(--display);font-weight:600;font-size:15px;letter-spacing:.14em;color:#fff;margin-bottom:12px;line-height:1.2}
+.foot .brand-sub{display:block;margin-top:3px;font-family:var(--font);font-weight:500;font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--copper)}
 .foot h4{font-family:var(--font);font-weight:500;font-size:13px;color:#fff;margin-bottom:14px}
 .foot p{max-width:40ch;margin-bottom:14px;color:rgba(255,255,255,.65)}
 .foot a{display:block;padding:3px 0}

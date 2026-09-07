@@ -406,3 +406,8 @@ footer{padding:72px 0 32px;background:var(--ink-2);color:rgba(255,255,255,.75);f
 
 .hero .marks a{color:inherit;border-bottom:1px solid rgba(255,255,255,.35)}
 .hero .marks a:hover{color:#fff;border-color:#fff}
+
+.hero .partner-line{margin-bottom:14px}
+.hero .partner-line a{display:block;font-family:var(--display);font-weight:600;font-size:16px;color:#fff;letter-spacing:-0.01em}
+.hero .partner-line a:hover{color:var(--copper)}
+.hero .partner-line small{display:block;margin-top:3px;font-size:13.5px;color:rgba(255,255,255,.55)}

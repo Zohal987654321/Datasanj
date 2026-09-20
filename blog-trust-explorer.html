@@ -14,7 +14,7 @@
 <meta property="og:title" content="Measured, not asserted: a trust layer for every number in a Power BI report">
 <meta property="og:description" content="One capture per pipeline run, a score on every measure and page, and a lineage graph that shows where the number came from. Built on Microsoft Fabric with Semantic Link, Deneb and Power BI.">
 <meta property="og:url" content="https://www.datasanj.com/blog-trust-explorer.html">
-<meta property="og:image" content="https://www.datasanj.com/trust-explorer/explore.png">
+<meta property="og:image" content="https://www.datasanj.com/trust-explorer-explore.png">
 <meta property="og:image:width" content="1800">
 <meta property="og:image:height" content="1141">
 <meta property="og:image:alt" content="Trust Explorer — Explore page showing a red measure, its weakest link and its lineage graph">
@@ -23,14 +23,14 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Measured, not asserted: a trust layer for every number in a Power BI report">
 <meta name="twitter:description" content="One capture per pipeline run, a score on every measure and page, and a lineage graph that shows where the number came from.">
-<meta name="twitter:image" content="https://www.datasanj.com/trust-explorer/explore.png">
+<meta name="twitter:image" content="https://www.datasanj.com/trust-explorer-explore.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta name="theme-color" content="#1B2733">
 <link rel="stylesheet" href="styles.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","@id":"https://www.datasanj.com/blog-trust-explorer.html#article","headline":"Measured, not asserted: a trust layer for every number in a Power BI report","description":"How I built a lineage and trust layer on Microsoft Fabric: one capture per pipeline run, a score on every measure and page, and a graph that shows where each number came from.","image":"https://www.datasanj.com/trust-explorer/explore.png","datePublished":"2026-09-21","dateModified":"2026-09-21","author":{"@id":"https://www.datasanj.com/About.html#zohal-zahir"},"publisher":{"@id":"https://www.datasanj.com/#organization"},"isPartOf":{"@id":"https://www.datasanj.com/Blog.html#blog"},"mainEntityOfPage":"https://www.datasanj.com/blog-trust-explorer.html","keywords":["Microsoft Fabric","Power BI","data lineage","data quality","Semantic Link","Deneb","trust score","data observability"],"video":{"@type":"VideoObject","name":"Fabric data lineage explorer — demo walkthrough","description":"Walkthrough of the Trust Explorer: pick a page and a measure, follow one broken key upstream to its cause, and see every page it touches.","thumbnailUrl":"https://www.datasanj.com/trust-explorer/explore.png","contentUrl":"https://www.datasanj.com/Fabric_data_lineage_explorer.mp4","uploadDate":"2026-09-21"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","@id":"https://www.datasanj.com/blog-trust-explorer.html#article","headline":"Measured, not asserted: a trust layer for every number in a Power BI report","description":"How I built a lineage and trust layer on Microsoft Fabric: one capture per pipeline run, a score on every measure and page, and a graph that shows where each number came from.","image":"https://www.datasanj.com/trust-explorer-explore.png","datePublished":"2026-09-21","dateModified":"2026-09-21","author":{"@id":"https://www.datasanj.com/About.html#zohal-zahir"},"publisher":{"@id":"https://www.datasanj.com/#organization"},"isPartOf":{"@id":"https://www.datasanj.com/Blog.html#blog"},"mainEntityOfPage":"https://www.datasanj.com/blog-trust-explorer.html","keywords":["Microsoft Fabric","Power BI","data lineage","data quality","Semantic Link","Deneb","trust score","data observability"],"video":{"@type":"VideoObject","name":"Fabric data lineage explorer — demo walkthrough","description":"Walkthrough of the Trust Explorer: pick a page and a measure, follow one broken key upstream to its cause, and see every page it touches.","thumbnailUrl":"https://www.datasanj.com/trust-explorer-explore.png","contentUrl":"https://www.datasanj.com/Fabric_data_lineage_explorer.mp4","uploadDate":"2026-09-21"}}</script>
 <style>
 /* Article-only styles. Site chrome (nav, footer, buttons) comes from styles.css. */
 .te-article{max-width:820px;margin:0 auto;padding:48px 0 32px}
@@ -103,7 +103,7 @@
 
   <h2>The demo — me walking through it</h2>
   <div class="te-video">
-    <video controls preload="metadata" poster="trust-explorer/explore.png">
+    <video controls preload="metadata" poster="trust-explorer-explore.png">
       <source src="Fabric_data_lineage_explorer.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
@@ -176,7 +176,7 @@
   <p>The Trust Explorer is a four-page Power BI report on a Direct Lake model over the Monitor lakehouse: 28 tables joined on the run, 45 measures, one 1920×1080 canvas per page. The lineage graph, the page heatmap and the source funnel are Deneb (Vega-Lite) visuals; the measure card, DAX, links, issues and KPI strips are HTML Content visuals rendered from DAX measures. The model was built with Tabular Editor scripts and the report definition (PBIR) is pushed with the Fabric REST API from a notebook, so the whole thing is re-runnable in any workspace.</p>
 
   <h3>Page 1 · Explore — "Can I trust this measure?"</h3>
-  <figure class="te-figure"><img src="trust-explorer/explore.png" alt="Explore page: Active Store Count at 90.9 % red, the weakest link named, the DAX, the lineage graph and open issues" loading="lazy"><figcaption>Explore: pick a page, then a measure on it. Card, DAX, lineage and this run's issues in one view.</figcaption></figure>
+  <figure class="te-figure"><img src="trust-explorer-explore.png" alt="Explore page: Active Store Count at 90.9 % red, the weakest link named, the DAX, the lineage graph and open issues" loading="lazy"><figcaption>Explore: pick a page, then a measure on it. Card, DAX, lineage and this run's issues in one view.</figcaption></figure>
   <p>Four slicers across the top: <strong>Run → Page → Folder → Measure</strong>. Pick a report page and the measure list shrinks to what is on it — one relationship between the visual fields and the measure catalogue does that. Here the page is <em>Franchise Distributions</em> and the measure is <em>Active Store Count</em>.</p>
   <ul>
     <li><strong>The card</strong> (top left): trust <strong>90.9 %, red</strong>, the folder, the format, how many pages show it, and the plain-English definition pulled from the model's description. Underneath, the weakest link is named: <em>gold_dim_store[OwnerCode] is capping this measure</em>.</li>
@@ -187,7 +187,7 @@
   </ul>
 
   <h3>Page 2 · Last Capture — "Did the run do what it should?"</h3>
-  <figure class="te-figure"><img src="trust-explorer/last_capture.png" alt="Last Capture page: KPI strip, source folders, lakehouse layers, gold tables, column quality and pipeline activities" loading="lazy"><figcaption>Last Capture: the run's receipt — files, completeness, red and amber counts, tables, columns and pipeline activities.</figcaption></figure>
+  <figure class="te-figure"><img src="trust-explorer-last_capture.png" alt="Last Capture page: KPI strip, source folders, lakehouse layers, gold tables, column quality and pipeline activities" loading="lazy"><figcaption>Last Capture: the run's receipt — files, completeness, red and amber counts, tables, columns and pipeline activities.</figcaption></figure>
   <p>The KPI strip reads left to right: <strong>1,686 files in source, 1,685 parsed to silver, 1 blocked, 99.9 % completeness, 20 measures red, 29 amber, 25 pages below 100</strong>. One blocked file and 99.9 % completeness sounds fine — until you see that 20 measures and 25 pages are red because of it. Completeness of files and trust of numbers are different questions.</p>
   <ul>
     <li><strong>Source folders · parsed vs blocked</strong>: every folder green except <code>09_Promotions</code>, whose only file was blocked (wrong template).</li>
@@ -198,7 +198,7 @@
   </ul>
 
   <h3>Page 3 · Page Trust — "Which pages can I present?"</h3>
-  <figure class="te-figure"><img src="trust-explorer/page_trust.png" alt="Page Trust page: heatmap of every report page, pages ranked by trust, and the weakest measure on each page" loading="lazy"><figcaption>Page Trust: every page of both reports on one heatmap, ranked, with the weakest measure named.</figcaption></figure>
+  <figure class="te-figure"><img src="trust-explorer-page_trust.png" alt="Page Trust page: heatmap of every report page, pages ranked by trust, and the weakest measure on each page" loading="lazy"><figcaption>Page Trust: every page of both reports on one heatmap, ranked, with the weakest measure named.</figcaption></figure>
   <p>A page is only as trustworthy as its weakest visual.</p>
   <ul>
     <li><strong>The heatmap</strong> (left): the Full report and the Managers report side by side. <em>Inventory</em> is the one green page at <strong>99.2</strong> — it only draws on measures whose upstream is clean. <em>Budget vs Actual</em> and <em>Executive Overview</em> are amber at 98.8. Everything that touches royalties or suppliers is red at 81.6 to 93.8.</li>
@@ -208,7 +208,7 @@
   <p>Same run, same model, same pipeline. The difference between a green page and a red one is one key.</p>
 
   <h3>Page 4 · Source health — "What went wrong at the source?"</h3>
-  <figure class="te-figure"><img src="trust-explorer/source_health.png" alt="Source health page: records missing from master, periods with errors, folders with problem files and blocked periods by folder" loading="lazy"><figcaption>Source health: the fix list for the data owners, and where the red on the other pages is explained in words.</figcaption></figure>
+  <figure class="te-figure"><img src="trust-explorer-source_health.png" alt="Source health page: records missing from master, periods with errors, folders with problem files and blocked periods by folder" loading="lazy"><figcaption>Source health: the fix list for the data owners, and where the red on the other pages is explained in words.</figcaption></figure>
   <ul>
     <li><strong>Missing from master (2)</strong>: <em>Harkness Retail Group</em> has royalty rows in <code>11_Franchise_Owners</code> across <strong>91 periods</strong> but is not in the owner master. <em>Meridian Distribution</em> appears in <code>08_Supplier_Register</code> for 2 periods and is not a registered supplier. Those two codes are the whole story behind <em>Royalty Paid</em> at 81.6 and every red page that shows it.</li>
     <li><strong>91 periods with errors, 94 property groups skipped</strong>: the size of the gap in one number each.</li>

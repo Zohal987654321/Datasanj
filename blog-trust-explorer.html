@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Measured, not asserted: a trust layer for every number in a Power BI report | DATASANJ</title>
+<meta name="description" content="How I built a lineage and trust layer on Microsoft Fabric: one capture per pipeline run, a score on every measure and page, and a graph that shows where each number came from. With a walkthrough video.">
+<meta name="author" content="Zohal Zahir">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://www.datasanj.com/blog-trust-explorer.html">
+<meta property="og:site_name" content="DATASANJ">
+<meta property="og:locale" content="en_AU">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Measured, not asserted: a trust layer for every number in a Power BI report">
+<meta property="og:description" content="One capture per pipeline run, a score on every measure and page, and a lineage graph that shows where the number came from. Built on Microsoft Fabric with Semantic Link, Deneb and Power BI.">
+<meta property="og:url" content="https://www.datasanj.com/blog-trust-explorer.html">
+<meta property="og:image" content="https://www.datasanj.com/trust-explorer/explore.png">
+<meta property="og:image:width" content="1800">
+<meta property="og:image:height" content="1141">
+<meta property="og:image:alt" content="Trust Explorer — Explore page showing a red measure, its weakest link and its lineage graph">
+<meta property="article:published_time" content="2026-09-21">
+<meta property="article:author" content="https://www.datasanj.com/About.html#zohal-zahir">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Measured, not asserted: a trust layer for every number in a Power BI report">
+<meta name="twitter:description" content="One capture per pipeline run, a score on every measure and page, and a lineage graph that shows where the number came from.">
+<meta name="twitter:image" content="https://www.datasanj.com/trust-explorer/explore.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#1B2733">
+<link rel="stylesheet" href="styles.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","@id":"https://www.datasanj.com/blog-trust-explorer.html#article","headline":"Measured, not asserted: a trust layer for every number in a Power BI report","description":"How I built a lineage and trust layer on Microsoft Fabric: one capture per pipeline run, a score on every measure and page, and a graph that shows where each number came from.","image":"https://www.datasanj.com/trust-explorer/explore.png","datePublished":"2026-09-21","dateModified":"2026-09-21","author":{"@id":"https://www.datasanj.com/About.html#zohal-zahir"},"publisher":{"@id":"https://www.datasanj.com/#organization"},"isPartOf":{"@id":"https://www.datasanj.com/Blog.html#blog"},"mainEntityOfPage":"https://www.datasanj.com/blog-trust-explorer.html","keywords":["Microsoft Fabric","Power BI","data lineage","data quality","Semantic Link","Deneb","trust score","data observability"],"video":{"@type":"VideoObject","name":"Fabric data lineage explorer — demo walkthrough","description":"Walkthrough of the Trust Explorer: pick a page and a measure, follow one broken key upstream to its cause, and see every page it touches.","thumbnailUrl":"https://www.datasanj.com/trust-explorer/explore.png","contentUrl":"https://www.datasanj.com/Fabric_data_lineage_explorer.mp4","uploadDate":"2026-09-21"}}</script>
+<style>
+/* Article-only styles. Site chrome (nav, footer, buttons) comes from styles.css. */
+.te-article{max-width:820px;margin:0 auto;padding:48px 0 32px}
+.te-kicker{display:inline-block;background:rgba(216,101,42,.12);color:#D8652A;padding:6px 14px;border-radius:4px;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:18px}
+.te-article h1{font-family:'Sora',sans-serif;font-size:40px;line-height:1.15;letter-spacing:-.02em;margin:0 0 16px}
+.te-standfirst{font-size:19px;line-height:1.6;color:#4A4A4A;margin:0 0 18px}
+.te-meta{font-size:14px;color:#6B6B6B;margin-bottom:36px;padding-bottom:20px;border-bottom:1px solid #E8E6E3}
+.te-meta b{color:#1B2733;font-weight:600}
+.te-article h2{font-family:'Sora',sans-serif;font-size:27px;line-height:1.25;letter-spacing:-.01em;margin:52px 0 16px}
+.te-article h3{font-family:'Sora',sans-serif;font-size:19px;margin:34px 0 12px}
+.te-article p,.te-article li{font-size:17px;line-height:1.8;color:#3D3D3D}
+.te-article p{margin:0 0 18px}
+.te-article ul{margin:0 0 22px 22px}
+.te-article li{margin-bottom:10px}
+.te-article strong{color:#1B2733}
+.te-article code{font-family:'JetBrains Mono',Consolas,monospace;font-size:.88em;background:#F5F4F2;padding:2px 6px;border-radius:4px;color:#2B2B2B}
+.te-callout{background:#F5F4F2;border-left:3px solid #D8652A;padding:22px 26px;margin:30px 0;border-radius:0 8px 8px 0}
+.te-callout p{margin:0;font-size:16px}
+.te-callout h4{font-size:13px;font-weight:600;color:#D8652A;letter-spacing:.1em;text-transform:uppercase;margin:0 0 8px}
+.te-video{background:#1A1A1A;border-radius:10px;overflow:hidden;margin:28px 0 8px;box-shadow:0 12px 40px rgba(27,39,51,.15)}
+.te-video video{width:100%;display:block}
+.te-caption{font-size:14px;color:#6B6B6B;text-align:center;font-style:italic;margin:10px 0 30px}
+.te-figure{margin:26px 0 30px}
+.te-figure img{width:100%;height:auto;display:block;border:1px solid #E8E6E3;border-radius:10px;box-shadow:0 8px 28px rgba(27,39,51,.08)}
+.te-figure figcaption{font-size:14px;color:#6B6B6B;margin-top:10px;line-height:1.5}
+.te-table{width:100%;border-collapse:collapse;margin:18px 0 30px;font-size:15px;background:#FAFAF8;border:1px solid #E8E6E3;border-radius:8px;overflow:hidden}
+.te-table th{background:#F5F4F2;color:#6B6B6B;text-align:left;padding:12px 16px;font-weight:600;font-size:13px;letter-spacing:.04em;text-transform:uppercase}
+.te-table td{padding:12px 16px;border-top:1px solid #EEECE9;vertical-align:top;line-height:1.55}
+.te-table code{font-size:13px}
+.te-band{display:flex;gap:12px;flex-wrap:wrap;margin:18px 0 26px}
+.te-band span{padding:8px 16px;border-radius:24px;font-weight:600;font-size:14px}
+.te-green{background:#EAF1EC;color:#3E7A56}.te-amber{background:#FBF3E2;color:#C08A2E}.te-red{background:#F7E9E6;color:#A8412F}
+.te-flow{display:flex;align-items:stretch;gap:0;margin:20px 0 30px;overflow-x:auto;padding-bottom:6px}
+.te-flow .n{flex:1;min-width:120px;background:#FAFAF8;border:1px solid #E8E6E3;border-top:6px solid #D8652A;border-radius:10px;padding:14px 12px;text-align:center}
+.te-flow .n b{display:block;font-size:15px;margin-bottom:4px;color:#1B2733}
+.te-flow .n span{font-size:13px;color:#6B6B6B;line-height:1.4}
+.te-flow .n.dark{background:#1B2733;border-top-color:#D8652A}
+.te-flow .n.dark b{color:#FAFAF8}.te-flow .n.dark span{color:#BFC7CE}
+.te-flow .a{align-self:center;width:26px;flex:none;height:2px;background:#9A9A9A;position:relative;margin:0 2px}
+.te-flow .a:after{content:'';position:absolute;right:-1px;top:-5px;border:6px solid transparent;border-left:8px solid #9A9A9A}
+.te-closing{background:#1B2733;color:#FAFAF8;padding:40px 44px;border-radius:12px;margin:48px 0 8px}
+.te-closing h2{color:#FAFAF8;margin:0 0 12px;font-size:30px}
+.te-closing p{color:#D9D6D2;margin:0 0 10px}
+.te-fine{font-size:14px;color:#6B6B6B;font-style:italic;margin-top:28px;padding-top:18px;border-top:1px solid #E8E6E3}
+@media (max-width:768px){.te-article h1{font-size:30px}.te-article h2{font-size:23px}.te-flow{flex-wrap:nowrap}.te-closing{padding:28px 24px}}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav class="nav" aria-label="Main">
+  <div class="container">
+    <a href="index.html" class="logo" aria-label="DATASANJ home"><svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g transform="translate(20,18)"><rect x="0" y="36" width="9" height="26" rx="2" fill="#1B2733"/><rect x="19" y="24" width="9" height="38" rx="2" fill="#1B2733"/><rect x="38" y="12" width="9" height="50" rx="2" fill="#1B2733"/><path d="M 1 50 Q 26 30, 47 15" stroke="#D8652A" stroke-width="2.6" fill="none" stroke-linecap="round"/></g></svg><span class="name">DATASANJ<em>Analytics Consultancy</em></span></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Menu"><span></span><span></span><span></span></button>
+    <ul class="nav-menu" id="nav-menu"><li><a href="index.html">Home</a></li><li><a href="About.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="Portfolio.html">Work</a></li><li><a href="Blog.html" class="active" aria-current="page">Insights</a></li><li><a href="Contact.html" class="nav-cta">Book a fit call</a></li></ul>
+  </div>
+</nav>
+<main id="main">
+<section class="section"><div class="container">
+<article class="te-article">
+
+  <span class="te-kicker">Field note · Microsoft Fabric</span>
+  <h1>Measured, not asserted: a trust layer for every number in a Power BI report</h1>
+  <p class="te-standfirst">Every dashboard answers "what is the number?" Almost none can answer "can I trust it?" Here is how I built one that can — one capture per pipeline run, a score on every measure and page, and a graph that shows where each number came from — with a short video where I walk through it.</p>
+  <p class="te-meta">By <b>Zohal Zahir</b> · September 2026 · 9 min read · All data shown is synthetic (NorthField Retail); no client data appears in this article or the video.</p>
+
+  <h2>The question a dashboard cannot answer</h2>
+  <p>A number on a report page is the last link of a long chain. A file lands in SharePoint. A notebook parses it. A lakehouse table is built. A key column joins it to a master. A DAX measure sums it. A visual shows it. The report sees only that last link.</p>
+  <p>And the chain breaks quietly. A store code that is missing from the owner master does not throw an error. The royalty total is simply smaller than it should be — and it is still green.</p>
+  <p>"The pipeline ran" is not the same as "the numbers on page 3 are complete." That gap is what this project closes: a trust layer that measures every number instead of asserting it.</p>
+
+  <h2>The demo — me walking through it</h2>
+  <div class="te-video">
+    <video controls preload="metadata" poster="trust-explorer/explore.png">
+      <source src="Fabric_data_lineage_explorer.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <p class="te-caption">One broken key, followed to every page it touches. Synthetic retail data — no client data appears.</p>
+  <p>In the video I pick a report page, then a measure on it. The trust score, the definition, the DAX and the lineage graph appear together. I follow one red key upstream to its cause, then show the two pages it touches and the fix list on the Source health page. The rest of this article is the same walk in writing — first how it was made, then page by page.</p>
+
+  <h2>How it was made</h2>
+
+  <h3>1. The platform: files in, reports out</h3>
+  <p>The platform is a medallion lakehouse on Microsoft Fabric. Business users drop reference files and monthly exports into SharePoint, one folder per source. Bronze mirrors every file exactly as it arrived. Silver is where parser notebooks read each template and write typed rows plus a parse log per file. Gold holds the facts and dimensions with keys resolved against the masters. A semantic model sits on the lakehouse, the measures are DAX, and the reports sit on top.</p>
+  <div class="te-flow">
+    <div class="n"><b>SharePoint</b><span>files per source folder</span></div><div class="a"></div>
+    <div class="n"><b>Bronze</b><span>raw file mirror</span></div><div class="a"></div>
+    <div class="n"><b>Silver</b><span>parsed rows + parse logs</span></div><div class="a"></div>
+    <div class="n"><b>Gold</b><span>facts and dimensions</span></div><div class="a"></div>
+    <div class="n"><b>Semantic model</b><span>DAX measures</span></div><div class="a"></div>
+    <div class="n"><b>Reports</b><span>pages and visuals</span></div><div class="a"></div>
+    <div class="n dark"><b>Monitor capture</b><span>pipeline's last step</span></div>
+  </div>
+  <p>A Fabric data pipeline runs the whole chain on a schedule and refreshes the model. The Monitor capture is the pipeline's last step, so every run leaves a record of what it did and how clean it was.</p>
+
+  <h3>2. The signals already existed — in six places</h3>
+  <table class="te-table">
+    <tr><th>Where</th><th>What it already records</th></tr>
+    <tr><td>File sync log</td><td>Every file that landed: name, size, timestamp, sync status</td></tr>
+    <tr><td>Parser logs</td><td>Severity, category, period, file and message for each parse</td></tr>
+    <tr><td>Per-file status</td><td>OK, ERROR, IGNORED, COVERED — wrong template, empty, unexpected type</td></tr>
+    <tr><td>Master-data DQ tables</td><td>Codes in the data that no master knows: stores, owners, suppliers</td></tr>
+    <tr><td>Tie-out checks</td><td>Subtotals that must foot; a group is skipped when they disagree</td></tr>
+    <tr><td>Orphan gates</td><td>A key that cannot be matched stops the gold build</td></tr>
+  </table>
+  <p>Six tables, six shapes, six notebooks. Nobody read them together, and none of them knew which report page a broken key ended up on. The missing piece was not more checks. It was a join between the logs, the semantic model and the report definitions, rolled up to a page.</p>
+
+  <h3>3. One capture per run: 28 tables in a Monitor lakehouse</h3>
+  <p>The pipeline got one more step at the end: a notebook that writes a capture into a Monitor lakehouse. Twenty-eight <code>mon_*</code> tables, in six groups:</p>
+  <table class="te-table">
+    <tr><th>Group</th><th>Tables</th></tr>
+    <tr><td>Run</td><td><code>mon_run</code> · <code>mon_run_activity</code> · <code>mon_pipeline_definition</code></td></tr>
+    <tr><td>Source files</td><td><code>mon_source_file</code> · <code>mon_file_status</code> · <code>mon_source_issue</code> · <code>mon_period_status</code> · <code>mon_missing_master</code> · <code>mon_source_completeness</code> · <code>mon_folder_summary</code></td></tr>
+    <tr><td>Lakehouse</td><td><code>mon_table_snapshot</code> · <code>mon_table_lineage</code> · <code>mon_column_quality</code> · <code>mon_schema_drift</code> · <code>mon_log_event</code></td></tr>
+    <tr><td>Semantic model</td><td><code>mon_model_measure</code> · <code>mon_model_dependency</code> · <code>mon_model_relationship</code> · <code>mon_model_role</code> · <code>mon_model_partition</code></td></tr>
+    <tr><td>Reports</td><td><code>mon_report_page</code> · <code>mon_report_visual</code> · <code>mon_visual_field</code></td></tr>
+    <tr><td>Trust and lineage</td><td><code>mon_trust_measure</code> · <code>mon_trust_visual</code> · <code>mon_trust_page</code> · <code>mon_lineage_node</code> · <code>mon_lineage_edge</code></td></tr>
+  </table>
+  <p>Every row carries a <code>run_id</code> and <code>captured_at</code>, so captures can be compared over time. It is Delta on the lakehouse with a Direct Lake model on top. Nothing is copied.</p>
+
+  <h3>4. How the notebook reads it</h3>
+  <p>Nothing is typed by hand. The inputs are the model's own metadata, the report's own definition and the logs the pipeline already writes.</p>
+  <ul>
+    <li><strong>Semantic Link (<code>sempy.fabric</code>)</strong> lists the model's tables, measures (with DAX, description, display folder and format), relationships, partitions and roles.</li>
+    <li><strong>Semantic Link Labs</strong> gives the measure dependency tree — DAX down to the columns and tables it reads — and the report definition (PBIR), so the capture knows which page shows which measure.</li>
+    <li><strong>Spark on the lakehouse</strong> computes row counts, null % and orphan % on every key column, checks that each key resolves to its dimension, and compares the lakehouse schema with the model.</li>
+    <li><strong>Pipeline and parser logs</strong> supply what happened this run: activities and durations, files seen, parsed and blocked, issues by folder and period, codes missing from a master.</li>
+  </ul>
+
+  <h3>5. The trust rule: minimum, not average</h3>
+  <p>Column quality is 100 minus null % minus orphan %. A table is capped by its worst key column, because a broken join breaks every row. A measure's trust is the minimum across every column its DAX reaches, plus each upstream table's worst key. A visual takes the minimum of its measures. A page takes its weakest visual.</p>
+  <div class="te-flow">
+    <div class="n"><b>Column</b><span>100 − null % − orphan %</span></div><div class="a"></div>
+    <div class="n"><b>Table</b><span>capped by its worst key</span></div><div class="a"></div>
+    <div class="n dark"><b>Measure</b><span>min of every column its DAX reads</span></div><div class="a"></div>
+    <div class="n"><b>Visual</b><span>min of its measures</span></div><div class="a"></div>
+    <div class="n"><b>Page</b><span>its weakest visual</span></div>
+  </div>
+  <div class="te-band"><span class="te-green">green ≥ 99 · complete</span><span class="te-amber">amber 95–99 · check before quoting</span><span class="te-red">red &lt; 95 · a key is broken upstream</span></div>
+  <p>An average would hide one broken key behind nine clean columns. The minimum does not — and the lineage graph shows which key, on which page. The thresholds live in the data contract, not in the code.</p>
+
+  <h2>Exploring the report</h2>
+  <p>The Trust Explorer is a four-page Power BI report on a Direct Lake model over the Monitor lakehouse: 28 tables joined on the run, 45 measures, one 1920×1080 canvas per page. The lineage graph, the page heatmap and the source funnel are Deneb (Vega-Lite) visuals; the measure card, DAX, links, issues and KPI strips are HTML Content visuals rendered from DAX measures. The model was built with Tabular Editor scripts and the report definition (PBIR) is pushed with the Fabric REST API from a notebook, so the whole thing is re-runnable in any workspace.</p>
+
+  <h3>Page 1 · Explore — "Can I trust this measure?"</h3>
+  <figure class="te-figure"><img src="trust-explorer/explore.png" alt="Explore page: Active Store Count at 90.9 % red, the weakest link named, the DAX, the lineage graph and open issues" loading="lazy"><figcaption>Explore: pick a page, then a measure on it. Card, DAX, lineage and this run's issues in one view.</figcaption></figure>
+  <p>Four slicers across the top: <strong>Run → Page → Folder → Measure</strong>. Pick a report page and the measure list shrinks to what is on it — one relationship between the visual fields and the measure catalogue does that. Here the page is <em>Franchise Distributions</em> and the measure is <em>Active Store Count</em>.</p>
+  <ul>
+    <li><strong>The card</strong> (top left): trust <strong>90.9 %, red</strong>, the folder, the format, how many pages show it, and the plain-English definition pulled from the model's description. Underneath, the weakest link is named: <em>gold_dim_store[OwnerCode] is capping this measure</em>.</li>
+    <li><strong>The DAX</strong> below it, straight from the model — no copy kept anywhere else.</li>
+    <li><strong>The lineage graph</strong> (centre): SharePoint folder <code>01_Master_Reference</code> → the <code>Silver_to_Gold</code> notebook → the <code>store</code> gold table at 91 → the two columns the DAX reads: <code>store[StoreCode]</code> green at 100 and <code>store[OwnerCode]</code> red at 91 → the measure at 91. The store count itself is fine; the owner key is not. Node colour is the weakest quality reaching that node; hover any node for its layer and score.</li>
+    <li><strong>Built on / Used by / Shown on</strong> (bottom left): what this measure reads, what depends on it, and the page it appears on.</li>
+    <li><strong>This capture's issues</strong> (bottom centre): 1 upstream table below 100 %. The table beside it lists what is open this run: a benchmark store ID not in master, a fuzzy store-name match, and the owner <em>Harkness Retail Group</em> with royalty rows but no entry in the owner master.</li>
+  </ul>
+
+  <h3>Page 2 · Last Capture — "Did the run do what it should?"</h3>
+  <figure class="te-figure"><img src="trust-explorer/last_capture.png" alt="Last Capture page: KPI strip, source folders, lakehouse layers, gold tables, column quality and pipeline activities" loading="lazy"><figcaption>Last Capture: the run's receipt — files, completeness, red and amber counts, tables, columns and pipeline activities.</figcaption></figure>
+  <p>The KPI strip reads left to right: <strong>1,686 files in source, 1,685 parsed to silver, 1 blocked, 99.9 % completeness, 20 measures red, 29 amber, 25 pages below 100</strong>. One blocked file and 99.9 % completeness sounds fine — until you see that 20 measures and 25 pages are red because of it. Completeness of files and trust of numbers are different questions.</p>
+  <ul>
+    <li><strong>Source folders · parsed vs blocked</strong>: every folder green except <code>09_Promotions</code>, whose only file was blocked (wrong template).</li>
+    <li><strong>Lakehouse layers</strong>: row and column counts for every gold, silver and log table in the capture, with read errors — <code>gold_fact_sales</code> at 3.9 million rows, <code>gold_fact_financial</code> at 1.45 million.</li>
+    <li><strong>Gold tables and their log tables</strong>: which parse or DQ log feeds each gold table and the worst severity it carries this run.</li>
+    <li><strong>Column quality</strong>: null % and orphan % per key column. <code>gold_fact_royalty[StoreCode]</code> shows 0.80 % orphans — that is the broken key the rest of the report keeps pointing at.</li>
+    <li><strong>Pipeline activities</strong> (right): every activity of the run with status and duration, ending with <em>Refresh semantic model</em> and <em>Monitor Capture</em> — the capture is the last step.</li>
+  </ul>
+
+  <h3>Page 3 · Page Trust — "Which pages can I present?"</h3>
+  <figure class="te-figure"><img src="trust-explorer/page_trust.png" alt="Page Trust page: heatmap of every report page, pages ranked by trust, and the weakest measure on each page" loading="lazy"><figcaption>Page Trust: every page of both reports on one heatmap, ranked, with the weakest measure named.</figcaption></figure>
+  <p>A page is only as trustworthy as its weakest visual.</p>
+  <ul>
+    <li><strong>The heatmap</strong> (left): the Full report and the Managers report side by side. <em>Inventory</em> is the one green page at <strong>99.2</strong> — it only draws on measures whose upstream is clean. <em>Budget vs Actual</em> and <em>Executive Overview</em> are amber at 98.8. Everything that touches royalties or suppliers is red at 81.6 to 93.8.</li>
+    <li><strong>Pages ranked by trust</strong> (top right): the bars are zoomed to 75–100 so the difference between 81.6 and 98.8 is visible. Nine pages sit at exactly 81.6 — the same key, the same cap.</li>
+    <li><strong>Weakest measure on each page</strong> (bottom right): the table names the culprit. On the Managers report's <em>Footfall &amp; Conversion</em> page it is <em>Royalty Paid</em> at 81.60, then <em>Royalty Paid MoM %</em>; on <em>Inventory</em> the weakest is <em>Net Sales Arrow</em> at 98.80.</li>
+  </ul>
+  <p>Same run, same model, same pipeline. The difference between a green page and a red one is one key.</p>
+
+  <h3>Page 4 · Source health — "What went wrong at the source?"</h3>
+  <figure class="te-figure"><img src="trust-explorer/source_health.png" alt="Source health page: records missing from master, periods with errors, folders with problem files and blocked periods by folder" loading="lazy"><figcaption>Source health: the fix list for the data owners, and where the red on the other pages is explained in words.</figcaption></figure>
+  <ul>
+    <li><strong>Missing from master (2)</strong>: <em>Harkness Retail Group</em> has royalty rows in <code>11_Franchise_Owners</code> across <strong>91 periods</strong> but is not in the owner master. <em>Meridian Distribution</em> appears in <code>08_Supplier_Register</code> for 2 periods and is not a registered supplier. Those two codes are the whole story behind <em>Royalty Paid</em> at 81.6 and every red page that shows it.</li>
+    <li><strong>91 periods with errors, 94 property groups skipped</strong>: the size of the gap in one number each.</li>
+    <li><strong>Folders with problem files</strong>: <code>07_Market_Benchmark</code> (2 files) and <code>09_Promotions</code> (1 file) — the per-file reconciliation that catches a wrong template or an empty file before the parser ever sees it.</li>
+    <li><strong>Blocked periods by folder · top reason</strong>: period by period, with the reason — <em>Period label mismatch</em>, <em>Benchmark store not in master</em>, <em>Supplier not registered</em>.</li>
+  </ul>
+  <p>The fix is a master-data entry, not a code change. That is the point of putting the cause next to the effect.</p>
+
+  <h2>Where the data contract sits</h2>
+  <div class="te-callout">
+    <h4>Governance stays with people</h4>
+    <p>None of this replaces a data contract, or the people who own it. The contract is the governance decision: which files must arrive, from which folder, in which template; which columns are keys and which master they resolve to; what "complete" means; who fixes what when a code is missing. The Monitor is the instrument that checks that contract on every run and makes the drift visible on every page. Thresholds live in the contract, not in the code.</p>
+  </div>
+
+  <h2>What's next</h2>
+  <ul>
+    <li>Trend across captures — the <code>run_id</code> is already on every row.</li>
+    <li>An alert when a page turns red, sent to the page's owner.</li>
+    <li>Model health (VertiPaq size, best-practice rules) in the same capture.</li>
+  </ul>
+
+  <div class="te-closing">
+    <h2>Measured, not asserted.</h2>
+    <p>A capture at the end of every pipeline run. A score on every measure and every page. A graph that shows where the number came from.</p>
+    <p>If you are building something similar, or you disagree with the minimum-not-average rule, I would like to hear it — <a href="Contact.html" style="color:#F0A47A;text-decoration:underline">send me a message</a> or find me on <a href="https://www.linkedin.com/in/dr-zohal-zahir-46128697/" target="_blank" rel="noopener" style="color:#F0A47A;text-decoration:underline">LinkedIn</a>.</p>
+  </div>
+
+  <p class="te-fine">Built with Microsoft Fabric, Semantic Link, Semantic Link Labs, Delta, Direct Lake, Power BI and Deneb. All data shown is synthetic (NorthField Retail); no client data appears in this article or the video.</p>
+
+</article>
+</div></section>
+<section class="cta"><div class="container"><div><h2>Want to know which of your numbers can be trusted?</h2><p>Book a free 30-minute call. Tell us which systems you run and how reporting gets produced now, and we'll give you a clear read on where a trust layer like this would fit.</p></div><div class="actions on-ink"><a href="Contact.html" class="btn btn-primary">Book a fit call</a><small>30 minutes. Reply within two business days</small></div></div></section>
+</main>
+<footer>
+  <div class="container">
+    <div class="foot">
+      <div>
+        <div class="brand">DATASANJ<br><span class="brand-sub">Analytics Consultancy</span></div>
+        <p>Microsoft Fabric and Power BI consultancy. We connect your systems into one trusted model and build the reporting on top. Australia, New Zealand and the United States.</p>
+        <a href="mailto:d_zohal@datasanj.com">d_zohal@datasanj.com</a>
+        <a href="tel:+61435916536">+61 435 916 536</a>
+        <a href="Contact.html">Canberra, ACT, Australia</a>
+      </div>
+      <div><h4>Company</h4><a href="index.html">Home</a><a href="About.html">About</a><a href="services.html">Services and packages</a><a href="Portfolio.html">Work</a><a href="Blog.html">Insights</a><a href="Contact.html">Book a call</a></div>
+      <div><h4>What we do</h4><a href="services.html#integrate">Data platforms and integration</a><a href="services.html#analyse">Analysis and modelling</a><a href="services.html#visualise">Reporting and visualisation</a><a href="services.html#packages">Packages</a><a href="services.html#packages">Month-end automation</a><a href="services.html#packages">Data governance</a><a href="services.html#training">Power BI training</a></div>
+      <div><h4>Trust</h4><a href="data-handling.html">How we handle your data</a><a href="https://www.linkedin.com/in/dr-zohal-zahir-46128697/" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/Zohal987654321" target="_blank" rel="noopener">GitHub</a><a data-partner href="https://marketplace.microsoft.com/en-us/partners/5685b0ed-d7fa-4d1b-b1ca-23d85e710f1c/overview" target="_blank" rel="noopener" class="partner-link"><img src="logos/microsoft-partner-badge.png" alt="" height="28" onerror="this.remove()"> DATASANJ on the Microsoft partner directory</a></div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 DATASANJ Analytics Consultancy. ABN on request.</span><span>Microsoft Partner. Founder Microsoft Certified.</span></div>
+  </div>
+</footer>
+<script src="site.js"></script>
+</body>
+</html>

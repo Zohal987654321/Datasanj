@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Measured, not asserted: a trust layer for every number in a Power BI report | DATASANJ</title>
-<meta name="description" content="How I built a lineage and trust layer on Microsoft Fabric: one capture per pipeline run, a score on every measure and page, and a graph that shows where each number came from. With a walkthrough video.">
+<meta name="description" content="How I built a lineage and trust layer on Microsoft Fabric: one capture per pipeline run, a score on every measure and page, and a graph that shows where each number came from. With the live report embedded to explore.">
 <meta name="author" content="Zohal Zahir">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <link rel="canonical" href="https://www.datasanj.com/blog-trust-explorer.html">
@@ -30,7 +30,7 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta name="theme-color" content="#1B2733">
 <link rel="stylesheet" href="styles.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","@id":"https://www.datasanj.com/blog-trust-explorer.html#article","headline":"Measured, not asserted: a trust layer for every number in a Power BI report","description":"How I built a lineage and trust layer on Microsoft Fabric: one capture per pipeline run, a score on every measure and page, and a graph that shows where each number came from.","image":"https://www.datasanj.com/trust-explorer-explore.png","datePublished":"2026-09-21","dateModified":"2026-09-21","author":{"@id":"https://www.datasanj.com/About.html#zohal-zahir"},"publisher":{"@id":"https://www.datasanj.com/#organization"},"isPartOf":{"@id":"https://www.datasanj.com/Blog.html#blog"},"mainEntityOfPage":"https://www.datasanj.com/blog-trust-explorer.html","keywords":["Microsoft Fabric","Power BI","data lineage","data quality","Semantic Link","Deneb","trust score","data observability"],"video":{"@type":"VideoObject","name":"Fabric data lineage explorer — demo walkthrough","description":"Walkthrough of the Trust Explorer: pick a page and a measure, follow one broken key upstream to its cause, and see every page it touches.","thumbnailUrl":"https://www.datasanj.com/trust-explorer-explore.png","contentUrl":"https://www.datasanj.com/Fabric_data_lineage_explorer.mp4","uploadDate":"2026-09-21"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","@id":"https://www.datasanj.com/blog-trust-explorer.html#article","headline":"Measured, not asserted: a trust layer for every number in a Power BI report","description":"How I built a lineage and trust layer on Microsoft Fabric: one capture per pipeline run, a score on every measure and page, and a graph that shows where each number came from.","image":"https://www.datasanj.com/trust-explorer-explore.png","datePublished":"2026-09-21","dateModified":"2026-09-25","author":{"@id":"https://www.datasanj.com/About.html#zohal-zahir"},"publisher":{"@id":"https://www.datasanj.com/#organization"},"isPartOf":{"@id":"https://www.datasanj.com/Blog.html#blog"},"mainEntityOfPage":"https://www.datasanj.com/blog-trust-explorer.html","keywords":["Microsoft Fabric","Power BI","data lineage","data quality","Semantic Link","Deneb","trust score","data observability"]}</script>
 <style>
 /* Article-only styles. Site chrome (nav, footer, buttons) comes from styles.css. */
 .te-article{max-width:820px;margin:0 auto;padding:48px 0 32px}
@@ -52,6 +52,11 @@
 .te-callout h4{font-size:13px;font-weight:600;color:#D8652A;letter-spacing:.1em;text-transform:uppercase;margin:0 0 8px}
 .te-video{background:#1A1A1A;border-radius:10px;overflow:hidden;margin:28px 0 8px;box-shadow:0 12px 40px rgba(27,39,51,.15)}
 .te-video video{width:100%;display:block}
+/* Embedded live Power BI report — same frame treatment as the video it replaced */
+.te-embed{position:relative;width:100%;aspect-ratio:16/9;background:#1A1A1A;border-radius:10px;overflow:hidden;margin:28px 0 8px;box-shadow:0 12px 40px rgba(27,39,51,.15)}
+.te-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+/* A 16:9 report at phone width is unreadable, so trade ratio for height */
+@media (max-width:768px){.te-embed{aspect-ratio:auto;height:72vh;min-height:440px}}
 .te-caption{font-size:14px;color:#6B6B6B;text-align:center;font-style:italic;margin:10px 0 30px}
 .te-figure{margin:26px 0 30px}
 .te-figure img{width:100%;height:auto;display:block;border:1px solid #E8E6E3;border-radius:10px;box-shadow:0 8px 28px rgba(27,39,51,.08)}
@@ -93,23 +98,24 @@
 
   <span class="te-kicker">Field note · Microsoft Fabric</span>
   <h1>Measured, not asserted: a trust layer for every number in a Power BI report</h1>
-  <p class="te-standfirst">Every dashboard answers "what is the number?" Almost none can answer "can I trust it?" Here is how I built one that can — one capture per pipeline run, a score on every measure and page, and a graph that shows where each number came from — with a short video where I walk through it.</p>
-  <p class="te-meta">By <b>Zohal Zahir</b> · September 2026 · 9 min read · All data shown is synthetic (NorthField Retail); no client data appears in this article or the video.</p>
+  <p class="te-standfirst">Every dashboard answers "what is the number?" Almost none can answer "can I trust it?" Here is how I built one that can — one capture per pipeline run, a score on every measure and page, and a graph that shows where each number came from — with the live report embedded below, so you can click through it yourself.</p>
+  <p class="te-meta">By <b>Zohal Zahir</b> · September 2026 · 9 min read · All data shown is synthetic (NorthField Retail); no client data appears in this article or the embedded report.</p>
 
   <h2>The question a dashboard cannot answer</h2>
   <p>A number on a report page is the last link of a long chain. A file lands in SharePoint. A notebook parses it. A lakehouse table is built. A key column joins it to a master. A DAX measure sums it. A visual shows it. The report sees only that last link.</p>
   <p>And the chain breaks quietly. A store code that is missing from the owner master does not throw an error. The royalty total is simply smaller than it should be — and it is still green.</p>
   <p>"The pipeline ran" is not the same as "the numbers on page 3 are complete." That gap is what this project closes: a trust layer that measures every number instead of asserting it.</p>
 
-  <h2>The demo — me walking through it</h2>
-  <div class="te-video">
-    <video controls preload="metadata" poster="trust-explorer-explore.png">
-      <source src="Fabric_data_lineage_explorer.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+  <h2>The demo — have a go yourself</h2>
+  <div class="te-embed">
+    <iframe
+      title="Trust Explorer — live Power BI report"
+      src="https://app.powerbi.com/view?r=eyJrIjoiNTFmM2Q0NTUtZDY2Ny00ZTIyLWJiYzctODMzZGNlNWNlNzdjIiwidCI6IjU2ODViMGVkLWQ3ZmEtNGQxYi1iMWNhLTIzZDg1ZTcxMGYxYyJ9"
+      loading="lazy"
+      allowfullscreen="true"></iframe>
   </div>
-  <p class="te-caption">One broken key, followed to every page it touches. Synthetic retail data — no client data appears.</p>
-  <p>In the video I pick a report page, then a measure on it. The trust score, the definition, the DAX and the lineage graph appear together. I follow one red key upstream to its cause, then show the two pages it touches and the fix list on the Source health page. The rest of this article is the same walk in writing — first how it was made, then page by page.</p>
+  <p class="te-caption">The live report. Use the page tabs along the bottom to move between Explore, Last Capture, Page Trust and Source health. Synthetic retail data — no client data appears.</p>
+  <p>Start on <strong>Explore</strong>: pick a report page, then a measure on it. The trust score, the definition, the DAX and the lineage graph appear together. Follow one red key upstream to its cause, then look at the two pages it touches and the fix list on <strong>Source health</strong>. The rest of this article is that same walk in writing — first how it was made, then page by page.</p>
 
   <h2>How it was made</h2>
 
@@ -236,7 +242,7 @@
     <p>If you are building something similar, or you disagree with the minimum-not-average rule, I would like to hear it — <a href="Contact.html" style="color:#F0A47A;text-decoration:underline">send me a message</a> or find me on <a href="https://www.linkedin.com/in/dr-zohal-zahir-46128697/" target="_blank" rel="noopener" style="color:#F0A47A;text-decoration:underline">LinkedIn</a>.</p>
   </div>
 
-  <p class="te-fine">Built with Microsoft Fabric, Semantic Link, Semantic Link Labs, Delta, Direct Lake, Power BI and Deneb. All data shown is synthetic (NorthField Retail); no client data appears in this article or the video.</p>
+  <p class="te-fine">Built with Microsoft Fabric, Semantic Link, Semantic Link Labs, Delta, Direct Lake, Power BI and Deneb. All data shown is synthetic (NorthField Retail); no client data appears in this article or the embedded report.</p>
 
 </article>
 </div></section>

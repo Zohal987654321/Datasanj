@@ -46,6 +46,25 @@
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="datasanj-additions.css">
 
+<style>
+/* Embedded Power BI report — scoped to this page, nothing else is affected */
+.pbi-embed{
+  position:relative;
+  width:100%;
+  aspect-ratio:1140/541;
+  min-height:420px;
+  background:#FAFAF8;
+  border:1px solid #E8E6E3;
+  border-radius:8px;
+  overflow:hidden;
+}
+.pbi-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+/* On narrow screens a wide report becomes unreadable, so give it more height */
+@media (max-width:700px){
+  .pbi-embed{aspect-ratio:auto;height:78vh;min-height:460px}
+}
+</style>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -88,7 +107,7 @@
       "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.datasanj.com/blog-fabric-lineage.html" },
       "image": "https://www.datasanj.com/og-lineage.png",
       "datePublished": "2026-08-03",
-      "dateModified": "2026-08-03",
+      "dateModified": "2026-09-25",
       "inLanguage": "en-AU",
       "wordCount": 1250,
       "timeRequired": "PT6M",
@@ -259,9 +278,21 @@
 
     <div class="callout">
       <h4>See it working</h4>
-      <p>I've put together an interactive demonstration using synthetic data. Pick a measure, trace it back to the file it came from, and see what happens when a quality rule fails.</p>
-      <p><a href="demo-lineage.html" class="inline"><strong>Open the demo &rarr;</strong></a></p>
+      <p>Below is the monitoring layer itself, running live on synthetic data. Pick a measure and trace it back to the file it came from, or move between lineage, data quality and load history using the page tabs at the bottom of the report.</p>
     </div>
+
+    <figure class="media" style="background:none;border:0;padding:0">
+      <div class="pbi-embed">
+        <iframe
+          title="NorthField Trust Explorer — live data quality and lineage report"
+          src="https://app.powerbi.com/view?r=eyJrIjoiNTFmM2Q0NTUtZDY2Ny00ZTIyLWJiYzctODMzZGNlNWNlNzdjIiwidCI6IjU2ODViMGVkLWQ3ZmEtNGQxYi1iMWNhLTIzZDg1ZTcxMGYxYyJ9"
+          loading="lazy"
+          allowfullscreen="true"></iframe>
+      </div>
+      <figcaption>Live Power BI report, built on synthetic data. Every trust score you see is calculated from the quality rules that ran on the last load &mdash; nothing here is typed in by hand.</figcaption>
+    </figure>
+
+    <p>If you'd rather read the reasoning than click through it, <a href="demo-lineage.html" class="inline"><strong>the annotated walkthrough is here &rarr;</strong></a></p>
 
     <h2>Why this matters more than it sounds</h2>
 

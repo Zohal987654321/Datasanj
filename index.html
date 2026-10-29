@@ -185,6 +185,36 @@
   </div>
 </section>
 
+<section class="s2-section ai-sec" id="ai-ready"><div class="container">
+  <div class="ai-grid">
+    <div>
+      <p class="s2-eyebrow">AI-ready Power BI and Fabric</p>
+      <h2>Centralised, governed data: the strong base AI needs</h2>
+      <p class="ai-lede">Copilot, ChatGPT and AI agents can only answer from the data and the context they are given. If "revenue" lives in five spreadsheets with five meanings, AI gives five answers, confidently. We centralise your data in Microsoft Fabric, govern it, and build Power BI reports and models that are ready for AI.</p>
+      <ul class="ai-list">
+        <li><b>Centralised in one place.</b> Your systems feed one governed Fabric platform and one semantic model, not scattered files and copies.</li>
+        <li><b>One definition per number.</b> Each measure is defined once and described in plain words, so AI knows what "revenue" or "active customer" means for your business.</li>
+        <li><b>Governed, clean data.</b> Data-quality checks, owners for each dataset, Purview lineage and version control, so you know where every number came from and who changed what.</li>
+        <li><b>Security that AI respects.</b> Row-level security means people only get AI answers from data they are allowed to see.</li>
+        <li><b>Traceable answers.</b> Every number can be followed back to its source, so you can check what AI tells you.</li>
+      </ul>
+    </div>
+    <div class="ai-demo" aria-label="The same question asked with and without a trusted data model">
+      <div class="ai-col bad">
+        <span class="ai-k">Without a trusted model</span>
+        <div class="ai-q">What was revenue last month?</div>
+        <div class="ai-a">It could be <b>$412K</b>, <b>$398K</b> or <b>$441K</b>, depending on which file you mean.</div>
+        <span class="ai-tag">Guessing</span>
+      </div>
+      <div class="ai-col good">
+        <span class="ai-k">With one trusted model</span>
+        <div class="ai-q">What was revenue last month?</div>
+        <div class="ai-a"><b>$437,550</b>, 1.7% above budget. Matches the general ledger for February.</div>
+        <span class="ai-tag">Checked</span>
+      </div>
+    </div>
+  </div>
+</div></section>
 <section class="s2-section bg-surface" id="showcase-strip"><div class="container">
   <div class="s2-head"><h2>See the kind of reports we build</h2><p>Finance, assets, marketing and full data platforms.</p></div>
   <div class="sc-strip"><a href="Portfolio.html#showcase"><img src="showcase/finance-ibcs-summary.jpg" alt="Management report: profit vs plan, and why cash lags" loading="lazy"></a><a href="Portfolio.html#showcase"><img src="showcase/harborline-by-store.jpg" alt="Multi-store financial report with collapsible navigation" loading="lazy"></a><a href="Portfolio.html#showcase"><img src="showcase/assets.jpg" alt="Asset and maintenance analytics" loading="lazy"></a><a href="Portfolio.html#showcase"><img src="showcase/marketing-bigquery.jpg" alt="Marketing performance from four sources" loading="lazy"></a></div>
@@ -239,7 +269,7 @@
 <script>
 (function(){
   function reveal(el){if(!el)return;if('IntersectionObserver' in window){new IntersectionObserver(function(e,o){e.forEach(function(x){if(x.isIntersecting){el.classList.add('in');o.disconnect();}});},{threshold:.4}).observe(el);}else{el.classList.add('in');}}
-  reveal(document.querySelector('.s2-steps'));reveal(document.querySelector('.s2-ba'));reveal(document.querySelector('.s2-qa'));
+  reveal(document.querySelector('.s2-steps'));reveal(document.querySelector('.s2-ba'));reveal(document.querySelector('.s2-qa'));reveal(document.querySelector('.ai-sec'));
   if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches){document.querySelectorAll('svg').forEach(function(s){if(s.pauseAnimations)s.pauseAnimations();});}
 })();
 </script>

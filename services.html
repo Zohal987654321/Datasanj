@@ -28,6 +28,7 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta name="theme-color" content="#1B2733">
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="visual.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"ProfessionalService","@id":"https://www.datasanj.com/#organization","name":"DATASANJ","alternateName":"DATASANJ Analytics Consultancy","url":"https://www.datasanj.com/","image":"https://www.datasanj.com/og-image.png","email":"d_zohal@datasanj.com","telephone":"+61435916536","description":"Microsoft Fabric and Power BI consultancy. We connect the systems a business already runs into one governed model and build the analysis and reporting on top. Integration, analysis and visualisation, founder-led and fixed-scope, inside the client's own Microsoft tenant.","founder":{"@id":"https://www.datasanj.com/About.html#zohal-zahir"},"memberOf":{"@type":"Organization","name":"Microsoft AI Cloud Partner Program"},"address":{"@type":"PostalAddress","addressLocality":"Canberra","addressRegion":"ACT","addressCountry":"AU"},"areaServed":[{"@type":"Country","name":"Australia"},{"@type":"Country","name":"New Zealand"},{"@type":"Country","name":"United States"}],"knowsAbout":["Microsoft Fabric","Power BI","Microsoft Purview","Azure DevOps","Data integration","Data modelling","Data governance","DAX","PySpark"],"sameAs":["https://www.linkedin.com/in/dr-zohal-zahir-46128697/","https://github.com/Zohal987654321","https://marketplace.microsoft.com/en-us/partners/5685b0ed-d7fa-4d1b-b1ca-23d85e710f1c/overview"]},{"@type":"Person","@id":"https://www.datasanj.com/About.html#zohal-zahir","name":"Zohal Zahir","jobTitle":"Founder and Principal Consultant, DATASANJ","url":"https://www.datasanj.com/About.html","worksFor":{"@id":"https://www.datasanj.com/#organization"},"hasCredential":[{"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"Microsoft Certified: Fabric Analytics Engineer Associate (DP-600)","recognizedBy":{"@type":"Organization","name":"Microsoft"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"Microsoft Certified: Power BI Data Analyst Associate (PL-300)","recognizedBy":{"@type":"Organization","name":"Microsoft"}}],"sameAs":["https://www.linkedin.com/in/dr-zohal-zahir-46128697/","https://github.com/Zohal987654321"]},{"@type":"OfferCatalog","name":"Packages","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Reporting Discovery"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Dashboard Build"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Fabric Data Platform"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Support and Extension"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Power BI Training Workshops"}}]}]}</script>
 <script data-goatcounter="https://datasanj.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I automate month-end reporting?", "acceptedAnswer": {"@type": "Answer", "text": "Connect your accounting system (like Xero or QuickBooks) to Power BI so the profit and loss, balance sheet and cash reports refresh on their own. No more exporting to Excel each month."}}, {"@type": "Question", "name": "How do I consolidate reports from multiple companies or sites?", "acceptedAnswer": {"@type": "Answer", "text": "Bring every entity into one data model with the same account mapping, then report each one side by side and as a group total that adds up."}}, {"@type": "Question", "name": "How do I make a cash flow forecast I can trust?", "acceptedAnswer": {"@type": "Answer", "text": "Use your real actuals for past months and your budget for future months, with a few simple assumptions you control. It updates when your accounts do."}}, {"@type": "Question", "name": "Why is my Power BI report so slow?", "acceptedAnswer": {"@type": "Answer", "text": "Usually the data model, heavy measures or the refresh setup. We find the cause, fix it and write down what changed."}}, {"@type": "Question", "name": "How do I stop managers seeing other teams' data in Power BI?", "acceptedAnswer": {"@type": "Answer", "text": "Row-level security filters each report so people only see their own rows. We set it up or check it, and test it. Our free guide shows how."}}, {"@type": "Question", "name": "How much does it cost?", "acceptedAnswer": {"@type": "Answer", "text": "Every job has a fixed price. Small jobs are quoted right after the free call. Bigger projects start with a short Discovery that sets the price."}}, {"@type": "Question", "name": "Do we need Microsoft Fabric?", "acceptedAnswer": {"@type": "Answer", "text": "Not always. Many jobs only need Power BI and the systems you already have."}}, {"@type": "Question", "name": "Which systems can you connect?", "acceptedAnswer": {"@type": "Answer", "text": "Xero, QuickBooks, CRMs, databases, SharePoint, Excel, Google Sheets and most systems that can export or share data."}}, {"@type": "Question", "name": "Do you work outside Canberra?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Onsite in the ACT, and remotely across Australia, New Zealand and the United States."}}, {"@type": "Question", "name": "Is our data safe?", "acceptedAnswer": {"@type": "Answer", "text": "We build inside your own Microsoft account, follow your policies and sign an NDA when needed. How we handle data."}}]}</script>
@@ -43,99 +44,6 @@
 </nav>
 <main id="main">
 
-<style>
-.s2-hero{background:var(--ink);color:#fff;padding:72px 0 64px;overflow:hidden}
-.s2-hero .container{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center}
-.s2-eyebrow{font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--copper);margin-bottom:14px}
-.s2-hero h1{color:#fff;font-size:clamp(36px,4.6vw,58px)}
-.s2-hero p.lede{color:rgba(255,255,255,.75);font-size:19px;margin:18px 0 26px;max-width:40ch}
-.s2-cta{display:flex;flex-wrap:wrap;align-items:center;gap:14px}
-.s2-cta small{color:rgba(255,255,255,.6);font-size:14px}
-.s2-trust{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
-.s2-trust a,.s2-trust span{font-size:13.5px;font-weight:600;padding:7px 13px;border-radius:999px;border:1px solid rgba(255,255,255,.18);color:#fff}
-.s2-trust .ms{background:#fff;color:var(--ink);border-color:#fff;display:inline-flex;align-items:center;gap:8px}
-.s2-trust .ms i{display:grid;grid-template-columns:7px 7px;gap:2px}
-.s2-trust .ms i b{width:7px;height:7px;display:block}
-.s2-flow{width:100%;height:auto}
-.s2-flow text{font-family:var(--font);font-size:13px;font-weight:600}
-.s2-section{padding:80px 0}
-.s2-head{text-align:center;max-width:640px;margin:0 auto 40px}
-.s2-head p{font-size:18px;margin-top:10px}
-.s2-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:start}
-.s2-card{border:1px solid var(--line);border-radius:18px;background:#fff;transition:box-shadow .2s,border-color .2s;scroll-margin-top:90px}
-.s2-card:hover,.s2-card[open]{border-color:var(--copper-line);box-shadow:0 20px 40px -28px rgba(24,35,46,.35)}
-.s2-card summary{list-style:none;cursor:pointer;padding:18px 18px 16px;display:block}
-.s2-card summary::-webkit-details-marker{display:none}
-.s2-card svg.mini{width:100%;height:auto;background:var(--surface);border-radius:12px;margin-bottom:14px}
-.s2-card h3{font-size:17px;margin-bottom:6px}
-.s2-card .ba{font-size:14.5px;color:var(--text-2);line-height:1.45}
-.s2-card .ba b{color:var(--copper-deep)}
-.s2-more{display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:13.5px;font-weight:600;color:var(--ink)}
-.s2-more:after{content:'+';display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--copper-tint);color:var(--copper-deep);font-weight:700;transition:transform .2s}
-.s2-card[open] .s2-more:after{transform:rotate(45deg)}
-.s2-body{padding:0 18px 18px;border-top:1px dashed var(--line);margin-top:2px}
-.s2-body ul{margin:14px 0 14px}
-.s2-body li{position:relative;padding-left:22px;font-size:14.5px;color:var(--text);margin-bottom:6px;line-height:1.45}
-.s2-body li:before{content:'';position:absolute;left:2px;top:6px;width:11px;height:6px;border-left:2px solid var(--copper);border-bottom:2px solid var(--copper);transform:rotate(-45deg)}
-.s2-body a.btn{font-size:14px;padding:9px 16px}
-.s2-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative;counter-reset:st}
-.s2-steps:before{content:'';position:absolute;top:31px;left:12%;right:12%;height:3px;background:var(--line);border-radius:3px}
-.s2-steps:after{content:'';position:absolute;top:31px;left:12%;height:3px;width:0;background:var(--copper);border-radius:3px;transition:width 2.4s ease}
-.s2-steps.in:after{width:76%}
-.s2-step{text-align:center;position:relative;z-index:1}
-.s2-step .dot{width:64px;height:64px;border-radius:50%;background:#fff;border:3px solid var(--line);display:grid;place-items:center;margin:0 auto 14px;transition:border-color .4s,background .4s}
-.s2-steps.in .s2-step .dot{border-color:var(--copper);background:var(--copper-tint)}
-.s2-steps.in .s2-step:nth-child(2) .dot{transition-delay:.7s}.s2-steps.in .s2-step:nth-child(3) .dot{transition-delay:1.4s}.s2-steps.in .s2-step:nth-child(4) .dot{transition-delay:2.1s}
-.s2-step svg{width:28px;height:28px;stroke:var(--ink);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.s2-step h3{font-size:17px}
-.s2-step p{font-size:14.5px;margin-top:4px;line-height:1.45}
-.s2-promise{display:grid;grid-template-columns:auto 1fr auto;gap:28px;align-items:center;background:var(--ink);color:#fff;border-radius:22px;padding:30px 34px}
-.s2-seal{width:96px;height:96px}
-.s2-promise h2{color:#fff;font-size:clamp(22px,2.6vw,30px)}
-.s2-promise p{color:rgba(255,255,255,.72);margin-top:6px}
-.s2-proof{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:22px}
-.s2-proof div{border:1px solid var(--line);border-radius:16px;padding:18px;text-align:center}
-.s2-proof b{display:block;font-family:var(--display);font-size:clamp(20px,2.2vw,28px);white-space:nowrap;color:var(--ink);letter-spacing:-.02em}
-.s2-proof span{font-size:14px;color:var(--text-2)}
-.s2-faq{max-width:760px;margin:0 auto}
-.s2-faq details{border-bottom:1px solid var(--line);padding:16px 0}
-.s2-faq summary{cursor:pointer;font-weight:600;color:var(--ink);font-size:17px;list-style:none;display:flex;justify-content:space-between;gap:12px}
-.s2-faq summary::-webkit-details-marker{display:none}
-.s2-faq summary:after{content:'+';color:var(--copper);font-size:22px;line-height:1}
-.s2-faq details[open] summary:after{content:'–'}
-.s2-faq p{margin-top:8px;font-size:15.5px}
-/* mini animations */
-.grow{transform-box:fill-box;transform-origin:bottom;animation:grow 3.2s ease-in-out infinite}
-.grow.d1{animation-delay:.25s}.grow.d2{animation-delay:.5s}.grow.d3{animation-delay:.75s}
-@keyframes grow{0%,8%{transform:scaleY(0)}35%,85%{transform:scaleY(1)}100%{transform:scaleY(0)}}
-.spin{transform-box:fill-box;transform-origin:center;animation:spin 2.4s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-.draw{stroke-dasharray:300;stroke-dashoffset:300;animation:draw 4s ease-in-out infinite}
-.draw.late{animation-name:draw2}
-@keyframes draw{0%{stroke-dashoffset:300}40%,85%{stroke-dashoffset:0}100%{stroke-dashoffset:300}}
-@keyframes draw2{0%,35%{stroke-dashoffset:300}70%,85%{stroke-dashoffset:0}100%{stroke-dashoffset:300}}
-.fadein{opacity:0;animation:fadein 4s ease-in-out infinite}
-@keyframes fadein{0%,40%{opacity:0}60%,85%{opacity:1}100%{opacity:0}}
-.pop{transform-box:fill-box;transform-origin:center;transform:scale(0);animation:pop 4s ease infinite}
-.pop.p2{animation-delay:.5s}.pop.p3{animation-delay:1s}
-@keyframes pop{0%,10%{transform:scale(0)}20%,85%{transform:scale(1)}100%{transform:scale(0)}}
-.needle{transform-origin:100px 92px;animation:needle 4s ease-in-out infinite}
-@keyframes needle{0%,10%{transform:rotate(-70deg)}45%,85%{transform:rotate(62deg)}100%{transform:rotate(-70deg)}}
-.cross{stroke-dasharray:60;stroke-dashoffset:60;animation:cross 3.2s ease infinite}
-@keyframes cross{0%,10%{stroke-dashoffset:60}30%,85%{stroke-dashoffset:0}100%{stroke-dashoffset:60}}
-.hl{animation:hl 6s steps(1) infinite;opacity:.15}
-.hl.h2{animation-delay:2s}.hl.h3{animation-delay:4s}
-@keyframes hl{0%{opacity:1}33.3%,100%{opacity:.15}}
-.who{animation:who 6s steps(1) infinite;opacity:.35}
-.who.h2{animation-delay:2s}.who.h3{animation-delay:4s}
-@keyframes who{0%{opacity:1}33.3%,100%{opacity:.35}}
-.cursor{animation:cur 4s ease-in-out infinite}
-@keyframes cur{0%{transform:translate(0,0)}40%,60%{transform:translate(46px,-20px)}100%{transform:translate(0,0)}}
-@media (prefers-reduced-motion:reduce){.s2-section *,.s2-hero *{animation:none!important}.grow,.pop{transform:none}.draw{stroke-dashoffset:0}.fadein{opacity:1}}
-@media (max-width:1020px){.s2-grid{grid-template-columns:repeat(2,1fr)}.s2-proof{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:820px){.s2-hero .container{grid-template-columns:1fr;gap:30px}.s2-steps{grid-template-columns:1fr 1fr;row-gap:30px}.s2-steps:before,.s2-steps:after{display:none}.s2-promise{grid-template-columns:1fr;text-align:center;justify-items:center}}
-@media (max-width:560px){.s2-proof b{white-space:normal;font-size:20px}.s2-proof div{padding:14px 10px}.s2-grid{grid-template-columns:1fr}.s2-section{padding:56px 0}.s2-hero{padding:48px 0}}
-</style>
 
 <header class="s2-hero"><div class="container">
   <div>

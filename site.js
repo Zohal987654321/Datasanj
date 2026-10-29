@@ -36,3 +36,13 @@
     });
   });
 })();
+
+// Share buttons: copy link + count share clicks in GoatCounter
+document.addEventListener('click',function(e){
+  var el=e.target.closest&&e.target.closest('[data-share]');if(!el)return;
+  var k=el.getAttribute('data-share'),box=el.closest('.te-share'),slug=box?box.getAttribute('data-slug'):location.pathname;
+  try{if(window.goatcounter&&window.goatcounter.count){window.goatcounter.count({path:'share-'+k+'-'+slug,title:'Share '+k+': '+slug,event:true});}}catch(_){}
+  if(k==='copy'){e.preventDefault();var u=el.getAttribute('data-url')||location.href;var lab=el.querySelector('span');
+    var done=function(){if(lab){var o=lab.textContent;lab.textContent='Copied';setTimeout(function(){lab.textContent=o},1800);}};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(u).then(done,done);}else{var t=document.createElement('textarea');t.value=u;document.body.appendChild(t);t.select();try{document.execCommand('copy')}catch(_){}document.body.removeChild(t);done();}}
+});

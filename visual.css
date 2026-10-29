@@ -296,3 +296,6 @@ a.s2-card .go{display:inline-block;margin-top:10px;font-size:13.5px;font-weight:
 .bl-card .cs-tag,.bl-feat .cs-tag{align-self:flex-start}
 @media (max-width:1020px){.bl-grid{grid-template-columns:1fr 1fr}}
 @media (max-width:760px){.bl-feat{grid-template-columns:1fr}.bl-feat .bl-img img{min-height:0}.bl-grid{grid-template-columns:1fr}}
+.rv-cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;margin-top:20px;padding:16px 20px;border:1px dashed var(--line-2);border-radius:14px;background:#fff}
+.rv-cta span{font-size:15px;color:var(--text-2)}
+.rv-cta .btn{display:inline-flex;align-items:center;gap:8px}

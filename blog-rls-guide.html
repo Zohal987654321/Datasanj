@@ -106,8 +106,8 @@
 
   <span class="te-kicker">Field note · Power BI security</span>
   <h1>Who sees what: row-level security in Power BI, explained</h1>
-  <p class="te-standfirst">Row-level security (RLS) lets one Power BI report show every person only their own region, team or customer. The rule is usually one line of DAX. Most problems come from everything around it. Here is the whole picture on one page, with a free guide and checklist to download at the end.</p>
-  <p class="te-meta">By <b>Zohal Zahir</b> · November 2026 · 7 min read · Free download: 31-page guide + Python checks</p>
+  <p class="te-standfirst">Row-level security (RLS) lets one Power BI report show every person only their own region, team or customer. The rule is usually one line of DAX. Most problems come from everything around it. Here is the whole picture on one page, with a free guide and checklist to download at the end. Not sure what you need to read? <a href="#check" style="color:#D8652A;font-weight:600">Take the 2-minute RLS check</a>.</p>
+  <p class="te-meta">By <b>Zohal Zahir</b> · November 2026 · 7 min read · Free guide, self-check and Python checks</p>
 
   <h2>What RLS does</h2>
   <p>Without RLS, you either build one report per audience or everyone sees everything. With RLS, you build one model and one report, and Power BI filters the rows for each person when they open it.</p>
@@ -163,6 +163,136 @@
     <tr><td><strong>Test it</strong></td><td>10 RLS and report speed · 16 Does Copilot respect RLS?</td></tr>
     <tr><td><strong>Deploy and audit it</strong></td><td>17 Dev → Test → Prod · 19 Audit who sees what · 20 The whole series on one page</td></tr>
   </table>
+
+  <h2 id="check">Check your RLS: what should you read?</h2>
+  <p>Fourteen quick questions, about two minutes. Each one is a common RLS mistake. At the end you get a reading list with only the chapters you need, linked straight to the right page of the free guide. Nothing you answer is saved or sent anywhere.</p>
+
+  <div class="rq" id="rq" aria-live="polite">
+    <div class="rq-top"><span class="rq-count" id="rq-count"></span><div class="rq-bar"><i id="rq-bar"></i></div></div>
+    <div id="rq-body"></div>
+    <noscript><p>Turn on JavaScript to use the self-check, or download the guide below.</p></noscript>
+  </div>
+
+<style>
+.rq{background:#FAFAF8;border:1px solid #E8E6E3;border-top:6px solid #D8652A;border-radius:12px;padding:26px 28px;margin:22px 0 34px}
+.rq-top{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.rq-count{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#D8652A;white-space:nowrap}
+.rq-bar{flex:1;height:6px;background:#EEECE9;border-radius:6px;overflow:hidden}
+.rq-bar i{display:block;height:100%;width:0;background:#D8652A;transition:width .25s}
+.rq h3{margin:0 0 16px!important;font-size:19px;line-height:1.4}
+.rq-opts{display:grid;gap:10px;margin-bottom:6px}
+.rq-opt{display:block;width:100%;text-align:left;font:inherit;font-size:16px;line-height:1.5;color:#2B2B2B;background:#fff;border:1.5px solid #E0DDD8;border-radius:10px;padding:12px 16px;cursor:pointer;transition:border-color .15s,background .15s}
+.rq-opt:hover:not(:disabled){border-color:#D8652A}
+.rq-opt:focus-visible{outline:3px solid rgba(216,101,42,.35);outline-offset:2px}
+.rq-opt:disabled{cursor:default}
+.rq-opt.ok{border-color:#3E7A56;background:#EAF1EC}
+.rq-opt.bad{border-color:#A8412F;background:#F7E9E6}
+.rq-why{margin:14px 0 0;padding:14px 16px;border-radius:8px;background:#F5F4F2;font-size:15px!important;line-height:1.6!important}
+.rq-why b{color:#1B2733}
+.rq-nav{display:flex;justify-content:flex-end;margin-top:16px}
+.rq-score{font-family:'Sora',sans-serif;font-size:30px;font-weight:700;color:#1B2733;margin:0 0 6px!important}
+.rq-list{list-style:none;margin:16px 0 18px!important;padding:0}
+.rq-list li{display:flex;gap:14px;align-items:flex-start;padding:12px 0;border-top:1px solid #EEECE9;margin:0!important}
+.rq-list .n{flex:none;min-width:58px;font-size:13px;font-weight:700;color:#D8652A;letter-spacing:.04em;padding-top:3px}
+.rq-list a{color:#1B2733;font-weight:600;text-decoration:underline;text-decoration-color:#F0C9B2;text-underline-offset:3px}
+.rq-list span{display:block;font-size:14px;color:#6B6B6B;line-height:1.5}
+.rq-actions{display:flex;flex-wrap:wrap;gap:12px}
+@media (max-width:768px){.rq{padding:20px 18px}.rq h3{font-size:17px}.rq-opt{font-size:15px}}
+</style>
+<script>
+(function(){
+  var PDF = "downloads/Who-Sees-What-RLS-Guide-DATASANJ.pdf";
+  var CH = {1:["The bridge model",4],2:["Leaky tables",5],3:["Workspace roles skip RLS",6],4:["Guest users and #EXT#",7],
+    5:["Four ways to say “the current user”",8],6:["Embedded reports and CUSTOMDATA",9],7:["Static or dynamic RLS?",10],
+    8:["Hiding columns: OLS, CLS and masking",11],9:["Connection identity: SSO or fixed identity",12],10:["RLS and report speed",13],
+    11:["Why “% of total” changes per user",14],12:["Manager hierarchies with PATH",15],13:["One person, two roles",16],
+    14:["RLS in one role, OLS in another",17],15:["Storage modes change RLS",18],16:["Does Copilot respect RLS?",19],
+    17:["Dev → Test → Prod",20],18:["6 things RLS doesn’t hide",21],19:["Audit who sees what",22]};
+  var Q = [
+    {q:"Your role filters a security table with [Email] = USERPRINCIPALNAME(). It is linked to DimRegion, and DimRegion to the sales table. What makes the filter reach DimRegion?",
+     o:["Nothing extra. Filters always flow both ways","Cross filter direction Both, plus “Apply security filter in both directions” on that relationship","A second role on DimRegion"],a:1,p:[1],
+     w:"The filter starts on the “many” side, so it has to travel uphill. That one relationship needs both settings."},
+    {q:"A Targets table is related only to the Date table. A user in your North role opens a targets visual. What do they see?",
+     o:["Only North targets","Targets for every region","Nothing"],a:1,p:[2,16],
+     w:"RLS reaches tables only through relationships. A table the filter can’t reach is shown in full. Copilot can find it too."},
+    {q:"Your finance manager is a Contributor on the workspace. Does RLS filter their data?",
+     o:["Yes, RLS filters everyone","No, Contributors see every row","Only in the Power BI app"],a:1,p:[3],
+     w:"RLS only filters people who read the model. Admin, Member and Contributor can edit it, so they see everything."},
+    {q:"A guest from another company is in your security table by email, but sees a blank report. What is the most likely cause?",
+     o:["Guests can never use RLS","USERPRINCIPALNAME() returns a different value for them, such as a long #EXT# address","They need a Pro licence to see rows"],a:1,p:[4,5],
+     w:"For guests, the value Power BI sees can differ from their email. Store exactly what a USERPRINCIPALNAME() card shows them."},
+    {q:"You build a SaaS app with embedded Power BI. Where should each customer’s tenant ID come from?",
+     o:["Your backend, from your own database","A value the browser sends with the request","A separate report for each customer"],a:0,p:[6],
+     w:"The user only sends their login. If the browser could send the tenant ID, someone could change it and see another customer’s data."},
+    {q:"You have 200 users, and who sees which region changes every week. Which kind of RLS fits best?",
+     o:["Static: one role per region","Dynamic: one role and a security table","Separate reports per region"],a:1,p:[7],
+     w:"With dynamic RLS, a change in access is a new row in a table. No new role, no republish."},
+    {q:"Managers must not see the Salary column at all, even when they build their own reports on the model. What do you use?",
+     o:["Hide the column in Power BI Desktop","Object-level security (OLS)","An RLS filter on the column"],a:1,p:[8,18],
+     w:"Hiding a column isn’t security: people with Build can still see it. OLS removes it for the role."},
+    {q:"A user is in an “East team” role (row filter) and a separate “Hide salary” role (OLS). What happens?",
+     o:["They see East rows without Salary","Their visuals show errors","They see every row and Salary"],a:1,p:[14,13],
+     w:"Roles add up, so together they would show every row plus the hidden column. Power BI blocks that. Put both rules in one role."},
+    {q:"Someone is in a role with Product = “Bikes” and another role with Region = “East”. What do they see?",
+     o:["Only East Bikes","All of East, plus Bikes in every region","Nothing, because the roles conflict"],a:1,p:[13],
+     w:"Two roles mean OR. Two filters in one role mean AND. For East Bikes only, put both filters in one role."},
+    {q:"Your “% of total” measure uses CALCULATE([Sales], ALL(DimRegion)). What is the total for a North user?",
+     o:["The whole company’s sales","Only the North sales they can see","It shows an error"],a:1,p:[11],
+     w:"ALL() clears filters, but not the RLS filter. So “% of total” becomes “% of what I’m allowed to see”."},
+    {q:"Your model uses DirectQuery. Can a role rule use PATHCONTAINS for a manager hierarchy?",
+     o:["Yes, all DAX works in role rules","No. Use a flat manager-to-employee table instead","Only with Premium capacity"],a:1,p:[12,15],
+     w:"PATH functions and CUSTOMDATA don’t work in DirectQuery role rules. A flat table with [ManagerEmail] = USERPRINCIPALNAME() works in every mode."},
+    {q:"RLS works in Test. After the first deployment to Prod, users see blank visuals. Why?",
+     o:["The DAX rules didn’t copy over","Role members don’t travel with a deployment","Prod doesn’t support RLS"],a:1,p:[17,19],
+     w:"Deployments move role definitions, not the people in them. Add your security groups once in each stage, then refresh."},
+    {q:"A user exports their filtered rows to Excel and emails the file to a colleague. Does RLS protect the file?",
+     o:["Yes, the file still checks RLS","No. Whoever opens it sees those rows","The export is blocked by RLS"],a:1,p:[18],
+     w:"RLS only works inside Power BI. Use sensitivity labels so protection travels with the file."},
+    {q:"Someone switches the model’s connection from SSO to a fixed identity to fix a refresh error. What can change?",
+     o:["Nothing. Model RLS covers everything","Users may now see data that was only protected at the source","Refresh gets slower, nothing else"],a:1,p:[9],
+     w:"With a fixed identity the source can’t tell users apart. Anything protected only at the source is now open."}
+  ];
+  var ALWAYS = [10, 19];
+  var i = 0, wrong = {}, right = 0, el = document.getElementById("rq-body");
+  function esc(s){ return s.replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c];}); }
+  function bar(){ document.getElementById("rq-count").textContent = i < Q.length ? "Question " + (i+1) + " of " + Q.length : "Your reading list";
+    document.getElementById("rq-bar").style.width = (Math.min(i,Q.length)/Q.length*100) + "%"; }
+  function show(){
+    bar();
+    if (i >= Q.length) return results();
+    var q = Q[i], h = "<h3>" + esc(q.q) + "</h3><div class='rq-opts'>";
+    q.o.concat(["Not sure"]).forEach(function(o,k){ h += "<button type='button' class='rq-opt' data-k='" + k + "'>" + esc(o) + "</button>"; });
+    el.innerHTML = h + "</div><div id='rq-after'></div>";
+    el.querySelectorAll(".rq-opt").forEach(function(b){ b.addEventListener("click", function(){ pick(+b.dataset.k); }); });
+    var first = el.querySelector(".rq-opt"); if (first && i > 0) first.focus();
+  }
+  function pick(k){
+    var q = Q[i], ok = k === q.a, btns = el.querySelectorAll(".rq-opt");
+    btns.forEach(function(b){ b.disabled = true; });
+    btns[q.a].classList.add("ok"); if (!ok) btns[k].classList.add("bad");
+    if (ok) right++; else q.p.forEach(function(p){ wrong[p] = true; });
+    var parts = q.p.map(function(p){ return "Part " + p; }).join(", ");
+    document.getElementById("rq-after").innerHTML = "<p class='rq-why'><b>" + (ok ? "Right. " : (k === q.o.length ? "Good to check. " : "Not quite. ")) + "</b>" + esc(q.w) + " <em>(" + parts + ")</em></p>" +
+      "<div class='rq-nav'><button type='button' class='btn btn-primary' id='rq-next'>" + (i === Q.length-1 ? "See my reading list" : "Next question") + "</button></div>";
+    var n = document.getElementById("rq-next"); n.focus(); n.addEventListener("click", function(){ i++; show(); });
+  }
+  function link(p, note){ return "<li><span class='n'>Part " + p + "</span><div><a href='" + PDF + "#page=" + CH[p][1] + "' target='_blank' rel='noopener'>" + esc(CH[p][0]) + "</a><span>" + note + "</span></div></li>"; }
+  function results(){
+    var need = Object.keys(wrong).map(Number).sort(function(a,b){return a-b;});
+    var h = "<p class='rq-score'>" + right + " of " + Q.length + " right</p>";
+    h += need.length ? "<p>Read these " + need.length + " chapters first. Each one opens at the right page of the guide.</p>"
+                     : "<p>Strong result. You know the common traps. Two chapters are still worth a look before go-live.</p>";
+    h += "<ul class='rq-list'>";
+    need.forEach(function(p){ h += link(p, "From a question you missed or weren’t sure about"); });
+    ALWAYS.forEach(function(p){ if (!wrong[p]) h += link(p, "Worth reading for everyone before go-live"); });
+    h += "</ul><div class='rq-actions'><a class='btn btn-primary' href='" + PDF + "' download>Download the full guide</a>" +
+         "<button type='button' class='btn btn-outline' id='rq-again'>Start again</button></div>";
+    el.innerHTML = h;
+    document.getElementById("rq-again").addEventListener("click", function(){ i = 0; right = 0; wrong = {}; show(); });
+  }
+  show();
+})();
+</script>
 
   <h2 id="download">Download the free guide</h2>
   <div class="rls-download">

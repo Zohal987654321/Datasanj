@@ -9,8 +9,6 @@
 <meta name="author" content="Zohal Zahir">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <link rel="canonical" href="https://www.datasanj.com/blog-fabric-apps.html">
-
-<!-- Open Graph -->
 <meta property="og:site_name" content="DATASANJ">
 <meta property="og:locale" content="en_AU">
 <meta property="og:type" content="article">
@@ -27,23 +25,10 @@
 <meta property="article:tag" content="Microsoft Fabric">
 <meta property="article:tag" content="Fabric Apps">
 <meta property="article:tag" content="Row-level security">
-
-<!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="One Model, Two Jobs: Write-Back Workflows in Microsoft Fabric Apps">
 <meta name="twitter:description" content="Write-back, row-level security, and reporting on the same governed model.">
 <meta name="twitter:image" content="https://www.datasanj.com/og-fabric-apps.png">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
-<link rel="icon" href="favicon-16.png" sizes="16x16" type="image/png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<meta name="theme-color" content="#2B2B2B">
-<link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="datasanj-additions.css">
 
 <script type="application/ld+json">
 {
@@ -117,62 +102,33 @@
   ]
 }
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#1B2733">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="article.css">
 </head>
+
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
-
-<!-- Navigation -->
-<nav>
+<nav class="nav" aria-label="Main">
   <div class="container">
-    <a href="/" class="logo-wrapper" aria-label="DATASANJ — home">
-      <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" aria-hidden="true" focusable="false">
-        <g transform="translate(20,18)">
-          <rect x="0" y="36" width="9" height="26" rx="2" fill="#2B2B2B"/>
-          <rect x="19" y="24" width="9" height="38" rx="2" fill="#2B2B2B"/>
-          <rect x="38" y="12" width="9" height="50" rx="2" fill="#2B2B2B"/>
-          <path d="M 1 50 Q 26 30, 47 15" stroke="#C46A3D" stroke-width="2" fill="none" stroke-linecap="round"/>
-        </g>
-      </svg>
-      <div class="logo-text">
-        <span class="brand">DATASANJ</span>
-        <span class="tagline">ANALYTICS CONSULTANCY</span>
-      </div>
-    </a>
-    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="nav-menu" id="nav-menu">
-      <li><a href="/">Home</a></li>
-      <li><a href="About.html">About</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="Portfolio.html">Work</a></li>
-      <li><a href="Blog.html" class="active" aria-current="page">Insights</a></li>
-      <li><a href="Contact.html" class="nav-cta">Let's Talk</a></li>
-    </ul>
+    <a href="index.html" class="logo" aria-label="DATASANJ home"><svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g transform="translate(20,18)"><rect x="0" y="36" width="9" height="26" rx="2" fill="#1B2733"/><rect x="19" y="24" width="9" height="38" rx="2" fill="#1B2733"/><rect x="38" y="12" width="9" height="50" rx="2" fill="#1B2733"/><path d="M 1 50 Q 26 30, 47 15" stroke="#D8652A" stroke-width="2.6" fill="none" stroke-linecap="round"/></g></svg><span class="name">DATASANJ<em>Analytics Consultancy</em></span></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Menu"><span></span><span></span><span></span></button>
+    <ul class="nav-menu" id="nav-menu"><li><a href="index.html">Home</a></li><li><a href="About.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="Portfolio.html">Work</a></li><li><a href="Blog.html" class="active" aria-current="page">Insights</a></li><li><a href="Contact.html" class="nav-cta">Book a fit call</a></li></ul>
   </div>
 </nav>
-
 <main id="main">
+<section class="section"><div class="container">
+<article class="te-article">
+  <p class="te-crumb"><a href="Blog.html">Insights</a> / Microsoft Fabric</p>
+  <span class="te-kicker">Field Note · Microsoft Fabric</span>
+  <h1>One model, two jobs: testing write-back workflows in Microsoft Fabric Apps</h1>
+  <p class="te-standfirst">I wanted to know whether an operational process &mdash; the kind that normally ends up in a separate app with its own database &mdash; could live on the same governed model as the reporting. So I built an employee leave tracker and found out.</p>
+  <p class="te-meta">By <b>Zohal Zahir</b> · July 2026 · 5 min read · Microsoft Fabric</p>
 
-<!-- Article header -->
-<header class="article-header">
-  <div class="container">
-    <p class="crumb"><a href="Blog.html">Insights</a> &nbsp;/&nbsp; Microsoft Fabric</p>
-    <span class="badge featured">Field Note</span>
-    <h1>One model, two jobs: testing write-back workflows in Microsoft Fabric Apps</h1>
-    <p class="standfirst">I wanted to know whether an operational process &mdash; the kind that normally ends up in a separate app with its own database &mdash; could live on the same governed model as the reporting. So I built an employee leave tracker and found out.</p>
-    <div class="article-meta">
-      <span>Zohal Zahir</span><span>&bull;</span>
-      <time datetime="2026-07-30">July 2026</time><span>&bull;</span>
-      <span>5 min read</span><span>&bull;</span>
-      <span>Microsoft Fabric</span>
-    </div>
-  </div>
-</header>
-
-<!-- Article body -->
-<article class="article-body">
-  <div class="container">
 
     <p>Most organisations run two parallel data worlds. There's the analytics estate &mdash; the warehouse, the semantic model, the dashboards &mdash; and there's the operational estate, which is where the actual work happens: leave requests, asset registers, inspection checklists, service tickets. The second one almost always gets built somewhere else, on its own database, with its own permissions model and its own definition of who reports to whom.</p>
 
@@ -277,114 +233,29 @@
     <p>A platform where the operational process and the reporting genuinely share one governed model is a structurally different proposition from integrating two systems well. I'd want to see it mature before betting a client's process on it. But the direction is the right one.</p>
 
     <p>I'd be interested to hear what use cases others are testing &mdash; particularly anyone who has taken it past prototype.</p>
-
-    <div class="article-tags">
-      <span>Microsoft Fabric</span>
-      <span>Fabric Apps</span>
-      <span>Row-level security</span>
-      <span>Semantic modelling</span>
-      <span>Data governance</span>
-      <span>Operational workflows</span>
-    </div>
-
-    <div class="author">
-      <img src="zohheadshot_smiling_passportsize.JPG" alt="Zohal Zahir, enterprise BI consultant, Canberra" width="68" height="68" loading="lazy" decoding="async">
-      <div>
-        <h4>Zohal Zahir</h4>
-        <p class="role">Founder &amp; Principal Consultant</p>
-        <p>I design governed Microsoft Fabric and Power BI platforms &mdash; from ingestion through dimensional modelling to executive reporting. Microsoft Certified (DP-600, PL-300), based in Canberra.</p>
-        <a href="https://www.linkedin.com/in/zohal-zahir-46128697/" target="_blank" rel="noopener">Connect on LinkedIn &rarr;</a>
-      </div>
-    </div>
-
-    <div class="subscribe">
-      <h3>New field notes by email</h3>
-      <p>One email when we publish something new. No roundups of other people's links, and no sales sequence.</p>
-      <form action="https://formspree.io/f/mvzzzdbl" method="POST" data-subscribe="true">
-        <input type="hidden" name="_subject" value="Newsletter sign-up"><input type="hidden" name="source" value="blog-fabric-apps.html">
-        <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <div class="subscribe-row">
-          <label for="sub-email" class="visually-hidden">Your email address</label>
-          <input type="email" id="sub-email" name="email" required autocomplete="email" inputmode="email" placeholder="you@company.com.au">
-          <button type="submit" class="btn btn-dark">Subscribe</button>
-        </div>
-        <small>Reply to any email to unsubscribe. We don't share the list.</small><p class="sub-msg" role="status" aria-live="polite"></p>
-      </form>
-    </div>
-
-    <div class="related-section u-mt-lg">
-      <div class="eyebrow">Continue reading</div>
-      <div class="card-grid">
-        <a href="blog-mcp-analytics.html" class="card">
-          <h3>What is MCP &mdash; and why should business owners care?</h3>
-          <p>Model Context Protocol lets tools read your data where it already lives. What that changes for reporting, and what it doesn't.</p>
-        </a>
-        <a href="blog-deneb-bodymap.html" class="card">
-          <h3>Building an interactive human body injury map in Power BI using Deneb</h3>
-          <p>22 interactive body regions, heat-mapped by injury count, with full cross-filtering &mdash; no external dependencies.</p>
-        </a>
-      </div>
-    </div>
-
-  </div>
+  <div class="subscribe"><div><h3>New field notes by email</h3><p style="font-size:15px;margin-top:6px">One email when something new is published. No roundups, no sales sequence.</p></div><form action="https://formspree.io/f/mvzzzdbl" method="POST" data-subscribe="true"><input type="hidden" name="_subject" value="Newsletter sign-up"><input type="hidden" name="source" value="blog-fabric-apps.html"><input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true"><label for="sub-email" class="visually-hidden">Email</label><input type="email" id="sub-email" name="email" required autocomplete="email" placeholder="you@company.com.au"><button type="submit" class="btn btn-ink">Subscribe</button><p class="sub-msg" role="status" aria-live="polite"></p></form></div>
+  <nav class="te-series" aria-label="Continue reading"><a href="blog-mcp-analytics.html"><small>Continue reading</small><b>What is MCP &mdash; and why should business owners care?</b></a><a href="blog-deneb-bodymap.html"><small>Continue reading</small><b>Building an interactive human body injury map in Power BI using Deneb</b></a></nav>
 </article>
-
-<!-- CTA -->
-<section class="cta-section">
-  <div class="container">
-    <h2>Running two systems that disagree about the same numbers?</h2>
-    <p>That's usually a modelling problem rather than a tooling one, and it's fixable. Tell us where your numbers stop lining up and we'll come back with a clear read on what it would take.</p>
-    <a href="Contact.html" class="btn btn-primary">Start a conversation &rarr;</a>
-    <ul class="trust-strip">
-      <li>Reply within two business days</li>
-      <li>Fixed-scope diagnostic before any build</li>
-    </ul>
-  </div>
-</section>
-
+</div></section>
+<section class="cta"><div class="container"><div><h2>Running two systems that disagree about the same numbers?</h2><p>That's usually a modelling problem rather than a tooling one, and it's fixable. Tell us where your numbers stop lining up and we'll come back with a clear read on what it would take.</p></div><div class="actions on-ink"><a href="Contact.html" class="btn btn-primary">Book a fit call</a><small>30 minutes. Reply within two business days</small></div></div></section>
 </main>
-
-<!-- Footer -->
 <footer>
   <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <h3>DATASANJ</h3>
-        <p>Enterprise BI consultancy based in Canberra, Australia. Microsoft Certified (DP-600, PL-300) and Certified Xero Advisor.</p>
-        <div class="footer-contact">
-          <a href="mailto:d_zohal@datasanj.com">d_zohal@datasanj.com</a>
-          <a href="tel:+61435916536">+61 435 916 536</a>
-          <a href="Contact.html">Canberra, ACT, Australia</a>
-        </div>
+    <div class="foot">
+      <div>
+        <div class="brand">DATASANJ<br><span class="brand-sub">Analytics Consultancy</span></div>
+        <p>Microsoft Fabric and Power BI consultancy. We connect your systems into one trusted model and build the reporting on top. Australia, New Zealand and the United States.</p>
+        <a href="mailto:d_zohal@datasanj.com">d_zohal@datasanj.com</a>
+        <a href="tel:+61435916536">+61 435 916 536</a>
+        <a href="Contact.html">Canberra, ACT, Australia</a>
       </div>
-      <div class="footer-links">
-        <h4>Navigation</h4>
-        <a href="/">Home</a>
-        <a href="About.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="Portfolio.html">Work</a>
-        <a href="Blog.html">Insights</a>
-        <a href="Contact.html">Contact</a>
-      </div>
-      <div class="footer-links">
-        <h4>Practice Areas</h4>
-        <a href="services.html">Data Platform Architecture</a>
-        <a href="services.html">Multi-Site Modelling</a>
-        <a href="services.html">Governance &amp; BI Engineering</a>
-        <a href="services.html">Compliance Reporting</a>
-        <a href="services.html">Financial Automation</a>
-      </div>
-      <div class="footer-links">
-        <h4>Connect</h4>
-        <a href="https://www.linkedin.com/in/zohal-zahir-46128697/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://github.com/Zohal987654321" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://www.upwork.com/freelancers/zohalz" target="_blank" rel="noopener">Upwork</a>
-      </div>
+      <div><h4>Company</h4><a href="index.html">Home</a><a href="About.html">About</a><a href="services.html">Services and packages</a><a href="Portfolio.html">Work</a><a href="Blog.html">Insights</a><a href="Contact.html">Book a call</a></div>
+      <div><h4>What we do</h4><a href="services.html#integrate">Data platforms and integration</a><a href="services.html#analyse">Analysis and modelling</a><a href="services.html#visualise">Reporting and visualisation</a><a href="services.html#packages">Packages</a><a href="services.html#packages">Month-end automation</a><a href="services.html#packages">Data governance</a><a href="services.html#training">Power BI training</a></div>
+      <div><h4>Trust</h4><a href="data-handling.html">How we handle your data</a><a href="https://www.linkedin.com/in/dr-zohal-zahir-46128697/" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/Zohal987654321" target="_blank" rel="noopener">GitHub</a><a data-partner href="https://marketplace.microsoft.com/en-us/partners/5685b0ed-d7fa-4d1b-b1ca-23d85e710f1c/overview" target="_blank" rel="noopener" class="partner-link"><img src="logos/microsoft-partner-badge.png" alt="" height="28" onerror="this.remove()"> DATASANJ on the Microsoft partner directory</a></div>
     </div>
-    <div class="footer-bottom">&copy; 2026 DATASANJ | Analytics Consultancy by Zohal Zahir</div>
+    <div class="foot-bottom"><span>© 2026 DATASANJ Analytics Consultancy. ABN on request.</span><span>Microsoft Partner. Founder Microsoft Certified.</span></div>
   </div>
 </footer>
-
 <script src="site.js"></script>
 </body>
 </html>

@@ -167,13 +167,10 @@
   </ul>
 
   <h2>The full series</h2>
-  <p>This page sums up a 20-part LinkedIn series. Each part takes one problem and its fix:</p>
+  <p>This page sums up a 20-part series. Each part takes one problem and its fix, and every part has its own page:</p>
   <table class="te-table">
     <tr><th>Stage</th><th>Parts</th></tr>
-    <tr><td><strong>Build it</strong></td><td>1 The bridge model · 2 Leaky tables · 5 Four identity functions · 6 Embedded reports and CUSTOMDATA · 7 Static or dynamic · 8 OLS, CLS and masking · 9 SSO or fixed identity · 11 "% of total" per user · 12 Manager hierarchies with PATH · 15 Storage modes</td></tr>
-    <tr><td><strong>Share it</strong></td><td>3 Workspace roles skip RLS · 4 Guest users and #EXT# · 13 One person, two roles · 14 RLS and OLS in different roles · 18 Six things RLS doesn't hide</td></tr>
-    <tr><td><strong>Test it</strong></td><td>10 RLS and report speed · 16 Does Copilot respect RLS?</td></tr>
-    <tr><td><strong>Deploy and audit it</strong></td><td>17 Dev → Test → Prod · 19 Audit who sees what · 20 The whole series on one page</td></tr>
+    <tr><td><strong>Build it</strong></td><td><a href="rls-bridge-table.html">1 The bridge model</a> · <a href="rls-leaky-tables.html">2 Leaky tables</a> · <a href="userprincipalname-vs-username.html">5 Four ways to say &quot;the current user&quot;</a> · <a href="rls-embedded-customdata.html">6 Embedded reports and CUSTOMDATA</a> · <a href="static-vs-dynamic-rls.html">7 Static or dynamic RLS?</a> · <a href="ols-cls-data-masking.html">8 Hiding columns: OLS, CLS and masking</a> · <a href="sso-vs-fixed-identity-rls.html">9 Connection identity: SSO or fixed identity</a> · <a href="rls-percent-of-total.html">11 Why &quot;% of total&quot; changes per user</a> · <a href="rls-manager-hierarchy-path.html">12 Manager hierarchies with PATH</a> · <a href="rls-import-directquery-direct-lake.html">15 Storage modes change RLS</a></td></tr><tr><td><strong>Share it</strong></td><td><a href="rls-contributor-sees-all-data.html">3 Workspace roles skip RLS</a> · <a href="rls-guest-users-ext.html">4 Guest users and #EXT#</a> · <a href="rls-multiple-roles.html">13 One person, two roles</a> · <a href="rls-ols-different-roles-error.html">14 RLS in one role, OLS in another</a> · <a href="what-rls-doesnt-hide.html">18 6 things RLS doesn&#x27;t hide</a></td></tr><tr><td><strong>Test it</strong></td><td><a href="rls-performance-testing.html">10 RLS and report speed</a> · <a href="copilot-rls.html">16 Does Copilot respect RLS?</a></td></tr><tr><td><strong>Deploy and audit it</strong></td><td><a href="rls-deployment-pipelines.html">17 Dev → Test → Prod</a> · <a href="rls-audit-who-sees-what.html">19 Audit who sees what</a></td></tr>
   </table>
 
   <h2 id="check">Check your RLS: what should you read?</h2>
@@ -293,12 +290,13 @@
     var n = document.getElementById("rq-next"); n.focus(); n.addEventListener("click", function(){ i++; show(); });
   }
   function isOpen(){ return window.dsGuideUnlocked && window.dsGuideUnlocked(); }
-  function link(p, note){ var href = isOpen() ? PDFP() + "#page=" + CH[p][1] : "#download";
-    return "<li><span class='n'>Part " + p + "</span><div><a href='" + href + "'" + (isOpen() ? " target='_blank' rel='noopener'" : "") + ">" + esc(CH[p][0]) + "</a><span>" + note + (isOpen() ? "" : " \u00b7 page " + CH[p][1] + " of the guide") + "</span></div></li>"; }
+  var WEB = {1:"rls-bridge-table.html",2:"rls-leaky-tables.html",3:"rls-contributor-sees-all-data.html",4:"rls-guest-users-ext.html",5:"userprincipalname-vs-username.html",6:"rls-embedded-customdata.html",7:"static-vs-dynamic-rls.html",8:"ols-cls-data-masking.html",9:"sso-vs-fixed-identity-rls.html",10:"rls-performance-testing.html",11:"rls-percent-of-total.html",12:"rls-manager-hierarchy-path.html",13:"rls-multiple-roles.html",14:"rls-ols-different-roles-error.html",15:"rls-import-directquery-direct-lake.html",16:"copilot-rls.html",17:"rls-deployment-pipelines.html",18:"what-rls-doesnt-hide.html",19:"rls-audit-who-sees-what.html"};
+  function link(p, note){ var g = isOpen() ? " \u00b7 <a href='" + PDFP() + "#page=" + CH[p][1] + "' target='_blank' rel='noopener'>page " + CH[p][1] + " of the guide</a>" : " \u00b7 page " + CH[p][1] + " of the guide";
+    return "<li><span class='n'>Part " + p + "</span><div><a href='" + WEB[p] + "'>" + esc(CH[p][0]) + "</a><span>" + note + g + "</span></div></li>"; }
   function results(){
     var need = Object.keys(wrong).map(Number).sort(function(a,b){return a-b;});
     var h = "<p class='rq-score'>" + right + " of " + Q.length + " right</p>";
-    h += need.length ? "<p>Read these " + need.length + " chapters first. Each one opens at the right page of the guide.</p>"
+    h += need.length ? "<p>Read these " + need.length + " parts first. Each one opens as a short page, and is also in the free guide.</p>"
                      : "<p>Strong result. You know the common traps. Two chapters are still worth a look before go-live.</p>";
     h += "<ul class='rq-list'>";
     need.forEach(function(p){ h += link(p, "From a question you missed or weren’t sure about"); });

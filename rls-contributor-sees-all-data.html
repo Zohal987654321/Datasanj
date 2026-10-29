@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why RLS doesn&#x27;t work for Contributors in Power BI | DATASANJ</title>
+<meta name="description" content="RLS only filters Viewers. Workspace Admins, Members and Contributors see every row. Why, and how to give people Build without breaking RLS.">
+<meta name="author" content="Zohal Zahir">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://www.datasanj.com/rls-contributor-sees-all-data.html">
+<meta property="og:site_name" content="DATASANJ">
+<meta property="og:locale" content="en_AU">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Why RLS doesn&#x27;t work for Contributors in Power BI">
+<meta property="og:description" content="RLS only filters Viewers. Workspace Admins, Members and Contributors see every row. Why, and how to give people Build without breaking RLS.">
+<meta property="og:url" content="https://www.datasanj.com/rls-contributor-sees-all-data.html">
+<meta property="og:image" content="https://www.datasanj.com/og-rls-guide.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="article:published_time" content="2026-11-01">
+<meta property="article:author" content="https://www.datasanj.com/About.html#zohal-zahir">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Why RLS doesn&#x27;t work for Contributors in Power BI">
+<meta name="twitter:description" content="RLS only filters Viewers. Workspace Admins, Members and Contributors see every row. Why, and how to give people Build without breaking RLS.">
+<meta name="twitter:image" content="https://www.datasanj.com/og-rls-guide.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#1B2733">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="article.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "@id": "https://www.datasanj.com/rls-contributor-sees-all-data.html#article", "headline": "Why RLS doesn't work for Contributors in Power BI", "description": "RLS only filters Viewers. Workspace Admins, Members and Contributors see every row. Why, and how to give people Build without breaking RLS.", "image": "https://www.datasanj.com/og-rls-guide.png", "datePublished": "2026-11-01", "inLanguage": "en-AU", "author": {"@id": "https://www.datasanj.com/About.html#zohal-zahir"}, "publisher": {"@id": "https://www.datasanj.com/#organization"}, "isPartOf": {"@id": "https://www.datasanj.com/blog-rls-guide.html#article"}, "mainEntityOfPage": "https://www.datasanj.com/rls-contributor-sees-all-data.html", "keywords": ["Power BI", "row-level security", "RLS", "Microsoft Fabric"]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Insights", "item": "https://www.datasanj.com/Blog.html"}, {"@type": "ListItem", "position": 2, "name": "RLS in Power BI", "item": "https://www.datasanj.com/blog-rls-guide.html"}, {"@type": "ListItem", "position": 3, "name": "Part 3: Workspace roles skip RLS", "item": "https://www.datasanj.com/rls-contributor-sees-all-data.html"}]}]}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav class="nav" aria-label="Main">
+  <div class="container">
+    <a href="index.html" class="logo" aria-label="DATASANJ home"><svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g transform="translate(20,18)"><rect x="0" y="36" width="9" height="26" rx="2" fill="#1B2733"/><rect x="19" y="24" width="9" height="38" rx="2" fill="#1B2733"/><rect x="38" y="12" width="9" height="50" rx="2" fill="#1B2733"/><path d="M 1 50 Q 26 30, 47 15" stroke="#D8652A" stroke-width="2.6" fill="none" stroke-linecap="round"/></g></svg><span class="name">DATASANJ<em>Analytics Consultancy</em></span></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Menu"><span></span><span></span><span></span></button>
+    <ul class="nav-menu" id="nav-menu"><li><a href="index.html">Home</a></li><li><a href="About.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="Portfolio.html">Work</a></li><li><a href="Blog.html" class="active" aria-current="page">Insights</a></li><li><a href="Contact.html" class="nav-cta">Book a fit call</a></li></ul>
+  </div>
+</nav>
+<main id="main">
+<section class="section"><div class="container">
+<article class="te-article">
+  <p class="te-crumb"><a href="Blog.html">Insights</a> / <a href="blog-rls-guide.html">RLS in Power BI</a> / Part 3</p>
+  <span class="te-kicker">Part 3 of 20 · Share it</span>
+  <h1>Why RLS doesn&#x27;t work for Contributors in Power BI</h1>
+  <p class="te-meta">By <b>Zohal Zahir</b> · November 2026 · From the series <a href="blog-rls-guide.html">Who sees what: RLS in Power BI</a></p>
+  <p><strong>The problem.</strong> Your RLS is correct and "Test as role" passed. Your finance manager still sees every region.</p>
+<p><strong>Why.</strong> RLS only applies to people who <strong>read</strong> the model: workspace Viewers, and people who get the report through an app or a share. Workspace <strong>Admin, Member and Contributor</strong> can edit the model, so RLS is skipped for them. "Test as role" won't show you this, because it applies the role to whoever you pick, whatever their real access is.</p>
+<p><strong>Build is not Write.</strong> Build lets someone create their own report or use Analyze in Excel on your model. RLS still applies to Read, Build and Reshare. It is skipped for Write.</p>
+<figure class="te-fig"><svg class="fig" role="img" viewBox="0 0 660 250" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, Inter, sans-serif"><defs><marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1B2733"/></marker><marker id="ac" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#D8652A"/></marker><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3E7A56"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#A8412F"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#A9A39A"/></marker></defs><rect x="10" y="12" width="250" height="38" rx="8" fill="#FFFFFF" stroke="#CFC9C1" stroke-width="1.5"/><text x="135.0" y="35.25" font-size="12.5" font-weight="700" fill="#1B2733" text-anchor="middle">Admin</text><text x="275" y="36" font-size="11.5" font-weight="400" fill="#6B6B6B" text-anchor="start">Everything</text><rect x="470" y="21" width="180" height="20" rx="10" fill="#F7E9E6" stroke="#A8412F"/><text x="560.0" y="35" font-size="10.5" font-weight="700" fill="#7E2E21" text-anchor="middle">Skips RLS: sees every row</text><rect x="10" y="58" width="250" height="38" rx="8" fill="#FFFFFF" stroke="#CFC9C1" stroke-width="1.5"/><text x="135.0" y="81.25" font-size="12.5" font-weight="700" fill="#1B2733" text-anchor="middle">Member</text><text x="275" y="82" font-size="11.5" font-weight="400" fill="#6B6B6B" text-anchor="start">Edit + add people</text><rect x="470" y="67" width="180" height="20" rx="10" fill="#F7E9E6" stroke="#A8412F"/><text x="560.0" y="81" font-size="10.5" font-weight="700" fill="#7E2E21" text-anchor="middle">Skips RLS: sees every row</text><rect x="10" y="104" width="250" height="38" rx="8" fill="#FFFFFF" stroke="#CFC9C1" stroke-width="1.5"/><text x="135.0" y="127.25" font-size="12.5" font-weight="700" fill="#1B2733" text-anchor="middle">Contributor</text><text x="275" y="128" font-size="11.5" font-weight="400" fill="#6B6B6B" text-anchor="start">Create, edit, publish</text><rect x="470" y="113" width="180" height="20" rx="10" fill="#F7E9E6" stroke="#A8412F"/><text x="560.0" y="127" font-size="10.5" font-weight="700" fill="#7E2E21" text-anchor="middle">Skips RLS: sees every row</text><rect x="10" y="150" width="250" height="38" rx="8" fill="#FFFFFF" stroke="#CFC9C1" stroke-width="1.5"/><text x="135.0" y="173.25" font-size="12.5" font-weight="700" fill="#1B2733" text-anchor="middle">Viewer + Build</text><text x="275" y="174" font-size="11.5" font-weight="400" fill="#6B6B6B" text-anchor="start">Build own reports</text><rect x="470" y="159" width="100" height="20" rx="10" fill="#EAF1EC" stroke="#3E7A56"/><text x="520.0" y="173" font-size="10.5" font-weight="700" fill="#24563A" text-anchor="middle">RLS applies</text><rect x="10" y="196" width="250" height="38" rx="8" fill="#FFFFFF" stroke="#CFC9C1" stroke-width="1.5"/><text x="135.0" y="219.25" font-size="12.5" font-weight="700" fill="#1B2733" text-anchor="middle">Viewer</text><text x="275" y="220" font-size="11.5" font-weight="400" fill="#6B6B6B" text-anchor="start">Read reports and apps</text><rect x="470" y="205" width="100" height="20" rx="10" fill="#EAF1EC" stroke="#3E7A56"/><text x="520.0" y="219" font-size="10.5" font-weight="700" fill="#24563A" text-anchor="middle">RLS applies</text><line x1="10" y1="146" x2="650" y2="146" stroke="#D8652A" stroke-width="2" stroke-dasharray="6 4"/><text x="650" y="143" font-size="10" font-weight="700" fill="#D8652A" text-anchor="end">Write access: no RLS</text></svg></figure>
+
+<table>
+<thead>
+<tr>
+<th>Access</th>
+<th>Can do</th>
+<th>RLS applies?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Workspace Viewer</td>
+<td>Read reports</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Model Build / Reshare</td>
+<td>Build reports, share</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Workspace Contributor</td>
+<td>Create, edit, publish</td>
+<td><strong>No</strong></td>
+</tr>
+<tr>
+<td>Workspace Member</td>
+<td>Contributor + add people</td>
+<td><strong>No</strong></td>
+</tr>
+<tr>
+<td>Workspace Admin</td>
+<td>Everything</td>
+<td><strong>No</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>The fix.</strong> Someone wants to build on your model or share it? Don't change their workspace role.</p>
+<p>Semantic model → <strong>Manage permissions</strong> → add their email or security group → tick <strong>Build</strong> (and <strong>Reshare</strong> if needed).</p>
+<p>Admin, Member and Contributor are for the people who build the workspace. Everyone else gets Viewer or the app.</p><div class="te-check"><h4>Check before go-live</h4><ul><li><span>Business users are Viewers or app users, not Contributors or Members <span class="te-tag">Service</span></span></li><li><span>People who build on the model have Build permission, not a higher workspace role <span class="te-tag">Service</span></span></li><li><span>Nobody outside the build team has Write on the model <span class="te-tag">Service</span></span></li></ul></div>
+  <aside class="te-cta"><img src="downloads/who-sees-what-cover.png" alt="" width="120" height="170" loading="lazy"><div><h3>Get the whole series as a free guide</h3><p>All 20 parts with diagrams, the RLS go-live checklist, click-by-click checks and a Fabric audit notebook. Not sure what you need? The 2-minute self-check builds your reading list.</p><a class="btn btn-primary" href="blog-rls-guide.html#download">Get the free guide</a><a class="btn btn-outline on-ink" href="blog-rls-guide.html#check" style="color:#FAFAF8;border-color:#5A6773">Take the self-check</a></div></aside>
+  <nav class="te-series" aria-label="Series"><a href="rls-leaky-tables.html" class="prev"><small>Previous · Part 2</small><b>Leaky tables</b></a><a href="rls-guest-users-ext.html" class="next"><small>Next · Part 4</small><b>Guest users and #EXT#</b></a></nav>
+  <p class="te-fine">Want a second pair of eyes on your own model? The <a href="services.html#rls-review">RLS review</a> checks your roles, relationships and workspace access against this checklist, at a fixed price.</p>
+</article>
+</div></section>
+<section class="cta"><div class="container"><div><h2>Want your RLS checked on a real model?</h2><p>Book a free 30-minute call. Tell us how your model and workspaces are set up, and we'll tell you where access could leak and what fixing it would involve.</p></div><div class="actions on-ink"><a href="Contact.html" class="btn btn-primary">Book a fit call</a><small>30 minutes. Reply within two business days</small></div></div></section>
+</main>
+<footer>
+  <div class="container">
+    <div class="foot">
+      <div>
+        <div class="brand">DATASANJ<br><span class="brand-sub">Analytics Consultancy</span></div>
+        <p>Microsoft Fabric and Power BI consultancy. We connect your systems into one trusted model and build the reporting on top. Australia, New Zealand and the United States.</p>
+        <a href="mailto:d_zohal@datasanj.com">d_zohal@datasanj.com</a>
+        <a href="tel:+61435916536">+61 435 916 536</a>
+        <a href="Contact.html">Canberra, ACT, Australia</a>
+      </div>
+      <div><h4>Company</h4><a href="index.html">Home</a><a href="About.html">About</a><a href="services.html">Services and packages</a><a href="Portfolio.html">Work</a><a href="Blog.html">Insights</a><a href="Contact.html">Book a call</a></div>
+      <div><h4>What we do</h4><a href="services.html#integrate">Data platforms and integration</a><a href="services.html#analyse">Analysis and modelling</a><a href="services.html#visualise">Reporting and visualisation</a><a href="services.html#packages">Packages</a><a href="services.html#packages">Month-end automation</a><a href="services.html#packages">Data governance</a><a href="services.html#training">Power BI training</a></div>
+      <div><h4>Trust</h4><a href="data-handling.html">How we handle your data</a><a href="https://www.linkedin.com/in/dr-zohal-zahir-46128697/" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/Zohal987654321" target="_blank" rel="noopener">GitHub</a><a data-partner href="https://marketplace.microsoft.com/en-us/partners/5685b0ed-d7fa-4d1b-b1ca-23d85e710f1c/overview" target="_blank" rel="noopener" class="partner-link"><img src="logos/microsoft-partner-badge.png" alt="" height="28" onerror="this.remove()"> DATASANJ on the Microsoft partner directory</a></div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 DATASANJ Analytics Consultancy. ABN on request.</span><span>Microsoft Partner. Founder Microsoft Certified.</span></div>
+  </div>
+</footer>
+<script src="site.js"></script>
+</body>
+</html>

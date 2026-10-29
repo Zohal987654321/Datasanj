@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OLS vs CLS vs data masking in Power BI and Fabric | DATASANJ</title>
+<meta name="description" content="How to hide a column in Power BI and Fabric: object-level security, column-level security or dynamic data masking. Which one protects which door.">
+<meta name="author" content="Zohal Zahir">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://www.datasanj.com/ols-cls-data-masking.html">
+<meta property="og:site_name" content="DATASANJ">
+<meta property="og:locale" content="en_AU">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OLS vs CLS vs data masking in Power BI and Fabric">
+<meta property="og:description" content="How to hide a column in Power BI and Fabric: object-level security, column-level security or dynamic data masking. Which one protects which door.">
+<meta property="og:url" content="https://www.datasanj.com/ols-cls-data-masking.html">
+<meta property="og:image" content="https://www.datasanj.com/og-rls-guide.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="article:published_time" content="2026-11-01">
+<meta property="article:author" content="https://www.datasanj.com/About.html#zohal-zahir">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="OLS vs CLS vs data masking in Power BI and Fabric">
+<meta name="twitter:description" content="How to hide a column in Power BI and Fabric: object-level security, column-level security or dynamic data masking. Which one protects which door.">
+<meta name="twitter:image" content="https://www.datasanj.com/og-rls-guide.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#1B2733">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="article.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "@id": "https://www.datasanj.com/ols-cls-data-masking.html#article", "headline": "OLS vs CLS vs data masking in Power BI and Fabric", "description": "How to hide a column in Power BI and Fabric: object-level security, column-level security or dynamic data masking. Which one protects which door.", "image": "https://www.datasanj.com/og-rls-guide.png", "datePublished": "2026-11-01", "inLanguage": "en-AU", "author": {"@id": "https://www.datasanj.com/About.html#zohal-zahir"}, "publisher": {"@id": "https://www.datasanj.com/#organization"}, "isPartOf": {"@id": "https://www.datasanj.com/blog-rls-guide.html#article"}, "mainEntityOfPage": "https://www.datasanj.com/ols-cls-data-masking.html", "keywords": ["Power BI", "row-level security", "RLS", "Microsoft Fabric"]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Insights", "item": "https://www.datasanj.com/Blog.html"}, {"@type": "ListItem", "position": 2, "name": "RLS in Power BI", "item": "https://www.datasanj.com/blog-rls-guide.html"}, {"@type": "ListItem", "position": 3, "name": "Part 8: Hiding columns: OLS, CLS and masking", "item": "https://www.datasanj.com/ols-cls-data-masking.html"}]}]}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav class="nav" aria-label="Main">
+  <div class="container">
+    <a href="index.html" class="logo" aria-label="DATASANJ home"><svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g transform="translate(20,18)"><rect x="0" y="36" width="9" height="26" rx="2" fill="#1B2733"/><rect x="19" y="24" width="9" height="38" rx="2" fill="#1B2733"/><rect x="38" y="12" width="9" height="50" rx="2" fill="#1B2733"/><path d="M 1 50 Q 26 30, 47 15" stroke="#D8652A" stroke-width="2.6" fill="none" stroke-linecap="round"/></g></svg><span class="name">DATASANJ<em>Analytics Consultancy</em></span></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Menu"><span></span><span></span><span></span></button>
+    <ul class="nav-menu" id="nav-menu"><li><a href="index.html">Home</a></li><li><a href="About.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="Portfolio.html">Work</a></li><li><a href="Blog.html" class="active" aria-current="page">Insights</a></li><li><a href="Contact.html" class="nav-cta">Book a fit call</a></li></ul>
+  </div>
+</nav>
+<main id="main">
+<section class="section"><div class="container">
+<article class="te-article">
+  <p class="te-crumb"><a href="Blog.html">Insights</a> / <a href="blog-rls-guide.html">RLS in Power BI</a> / Part 8</p>
+  <span class="te-kicker">Part 8 of 20 · Build it</span>
+  <h1>OLS vs CLS vs data masking in Power BI and Fabric</h1>
+  <p class="te-meta">By <b>Zohal Zahir</b> · November 2026 · From the series <a href="blog-rls-guide.html">Who sees what: RLS in Power BI</a></p>
+  <p>RLS hides <strong>rows</strong>. To hide a <strong>column</strong> (salary, email, card number) there are three tools. Which one you need depends on how the person reaches the data.</p>
+<p>First, one rule for all of them: they only apply to Viewers. Admin, Member and Contributor see everything.</p>
+<p><strong>There are two doors to your data.</strong> Security only works on the door the person actually walks through.</p>
+<p><strong>Door 1: the semantic model.</strong> Guarded by RLS (rows) and <strong>OLS</strong> (columns).
+People come this way when they open a report or app, build their own report on the model, or use Analyze in Excel.</p>
+<p><strong>Door 2: the source</strong> (SQL analytics endpoint, Warehouse). Guarded by <strong>CLS</strong> and <strong>dynamic data masking (DDM)</strong>.
+People come this way with direct SQL, notebooks, other models built on the same warehouse, other tools, and Direct Lake with the user's own identity. OLS isn't on this path.</p>
+<figure class="te-fig"><svg class="fig" role="img" viewBox="0 0 660 258" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, Inter, sans-serif"><defs><marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1B2733"/></marker><marker id="ac" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#D8652A"/></marker><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3E7A56"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#A8412F"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#A9A39A"/></marker></defs><rect x="10" y="92" width="120" height="60" rx="8" fill="#FFFFFF" stroke="#CFC9C1" stroke-width="1.5"/><text x="70.0" y="111.5" font-size="13" font-weight="700" fill="#1B2733" text-anchor="middle">People</text><text x="70.0" y="127.5" font-size="11" font-weight="400" fill="#6B6B6B" text-anchor="middle">reports, Excel,</text><text x="70.0" y="142.5" font-size="11" font-weight="400" fill="#6B6B6B" text-anchor="middle">SQL, notebooks</text><rect x="190" y="20" width="210" height="70" rx="8" fill="#1B2733" stroke="#1B2733" stroke-width="1.5"/><text x="295.0" y="44.5" font-size="13" font-weight="700" fill="#FAFAF8" text-anchor="middle">Door 1: semantic model</text><text x="295.0" y="60.5" font-size="11" font-weight="400" fill="#CFC9C1" text-anchor="middle">RLS hides rows</text><text x="295.0" y="75.5" font-size="11" font-weight="400" fill="#CFC9C1" text-anchor="middle">OLS hides columns</text><rect x="190" y="150" width="210" height="70" rx="8" fill="#FBF1EA" stroke="#D8652A" stroke-width="1.5"/><text x="295.0" y="174.5" font-size="13" font-weight="700" fill="#7A3D1E" text-anchor="middle">Door 2: the source</text><text x="295.0" y="190.5" font-size="11" font-weight="400" fill="#8A5A40" text-anchor="middle">SQL endpoint / Warehouse</text><text x="295.0" y="205.5" font-size="11" font-weight="400" fill="#8A5A40" text-anchor="middle">CLS blocks · DDM masks</text><rect x="470" y="85" width="180" height="70" rx="8" fill="#FFFFFF" stroke="#CFC9C1" stroke-width="1.5"/><text x="560.0" y="117.0" font-size="13" font-weight="700" fill="#1B2733" text-anchor="middle">Your data</text><text x="560.0" y="133.0" font-size="11" font-weight="400" fill="#6B6B6B" text-anchor="middle">salary, email, IDs</text><line x1="130" y1="112" x2="188" y2="58" stroke="#1B2733" stroke-width="1.8" marker-end="url(#ai)"/><text x="70" y="78" font-size="10.5" font-weight="600" fill="#1B2733" text-anchor="middle">report · app · Excel</text><line x1="130" y1="132" x2="188" y2="182" stroke="#D8652A" stroke-width="1.8" marker-end="url(#ac)"/><text x="72" y="176" font-size="10.5" font-weight="600" fill="#D8652A" text-anchor="middle">SQL · notebooks · tools</text><line x1="400" y1="55" x2="468" y2="108" stroke="#1B2733" stroke-width="1.8" marker-end="url(#ai)"/><line x1="400" y1="185" x2="468" y2="132" stroke="#D8652A" stroke-width="1.8" marker-end="url(#ac)"/><text x="330" y="246" font-size="11.5" font-weight="600" fill="#1B2733" text-anchor="middle">Security only works on the door the person walks through.</text></svg></figure>
+
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Where</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OLS</td>
+<td>Semantic model, per role</td>
+<td>Hides the column completely. Visuals that use it show an error</td>
+</tr>
+<tr>
+<td>CLS</td>
+<td>Warehouse / SQL endpoint</td>
+<td>Blocks the column at the source</td>
+</tr>
+<tr>
+<td>DDM</td>
+<td>Warehouse / SQL endpoint</td>
+<td>Shows the column with masked values</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-tmdl">role 'Hide salary'
+    modelPermission: read
+    tablePermission Employees
+        columnPermission Salary = none
+</code></pre>
+<pre><code class="language-sql">-- CLS: GRANT is a whitelist. Listed columns show; the rest are blocked
+GRANT SELECT ON Customers(Name, Email) TO [Sales Group];
+-- or, if they already have SELECT on the table
+DENY SELECT ON Customers(CreditCard) TO [Sales Group];
+
+-- DDM: keep the column, mask the values
+ALTER TABLE Customers ALTER COLUMN Email ADD MASKED WITH (FUNCTION = 'email()');
+GRANT UNMASK ON Customers TO [Finance Group];
+</code></pre>
+<p><strong>Gotchas.</strong> DDM is not a security boundary: people can guess values with range queries, so pair it with CLS or RLS. Source security only tells users apart if their own identity reaches the source (Part 9). With Direct Lake on the SQL endpoint, SQL security changes how queries run, so test visuals that use protected columns.</p><div class="te-check"><h4>Check before go-live</h4><ul><li><span>Sensitive columns are hidden with OLS in the model <span class="te-tag">Desktop</span></span></li><li><span>Sensitive columns are also protected at the source if people can query it directly</span></li><li><span>The row filter and the OLS rule for an audience sit in the same role (Part 14) <span class="te-tag">Desktop</span></span></li></ul></div>
+  <aside class="te-cta"><img src="downloads/who-sees-what-cover.png" alt="" width="120" height="170" loading="lazy"><div><h3>Get the whole series as a free guide</h3><p>All 20 parts with diagrams, the RLS go-live checklist, click-by-click checks and a Fabric audit notebook. Not sure what you need? The 2-minute self-check builds your reading list.</p><a class="btn btn-primary" href="blog-rls-guide.html#download">Get the free guide</a><a class="btn btn-outline on-ink" href="blog-rls-guide.html#check" style="color:#FAFAF8;border-color:#5A6773">Take the self-check</a></div></aside>
+  <nav class="te-series" aria-label="Series"><a href="static-vs-dynamic-rls.html" class="prev"><small>Previous · Part 7</small><b>Static or dynamic RLS?</b></a><a href="sso-vs-fixed-identity-rls.html" class="next"><small>Next · Part 9</small><b>Connection identity: SSO or fixed identity</b></a></nav>
+  <p class="te-fine">Want a second pair of eyes on your own model? The <a href="services.html#rls-review">RLS review</a> checks your roles, relationships and workspace access against this checklist, at a fixed price.</p>
+</article>
+</div></section>
+<section class="cta"><div class="container"><div><h2>Want your RLS checked on a real model?</h2><p>Book a free 30-minute call. Tell us how your model and workspaces are set up, and we'll tell you where access could leak and what fixing it would involve.</p></div><div class="actions on-ink"><a href="Contact.html" class="btn btn-primary">Book a fit call</a><small>30 minutes. Reply within two business days</small></div></div></section>
+</main>
+<footer>
+  <div class="container">
+    <div class="foot">
+      <div>
+        <div class="brand">DATASANJ<br><span class="brand-sub">Analytics Consultancy</span></div>
+        <p>Microsoft Fabric and Power BI consultancy. We connect your systems into one trusted model and build the reporting on top. Australia, New Zealand and the United States.</p>
+        <a href="mailto:d_zohal@datasanj.com">d_zohal@datasanj.com</a>
+        <a href="tel:+61435916536">+61 435 916 536</a>
+        <a href="Contact.html">Canberra, ACT, Australia</a>
+      </div>
+      <div><h4>Company</h4><a href="index.html">Home</a><a href="About.html">About</a><a href="services.html">Services and packages</a><a href="Portfolio.html">Work</a><a href="Blog.html">Insights</a><a href="Contact.html">Book a call</a></div>
+      <div><h4>What we do</h4><a href="services.html#integrate">Data platforms and integration</a><a href="services.html#analyse">Analysis and modelling</a><a href="services.html#visualise">Reporting and visualisation</a><a href="services.html#packages">Packages</a><a href="services.html#packages">Month-end automation</a><a href="services.html#packages">Data governance</a><a href="services.html#training">Power BI training</a></div>
+      <div><h4>Trust</h4><a href="data-handling.html">How we handle your data</a><a href="https://www.linkedin.com/in/dr-zohal-zahir-46128697/" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/Zohal987654321" target="_blank" rel="noopener">GitHub</a><a data-partner href="https://marketplace.microsoft.com/en-us/partners/5685b0ed-d7fa-4d1b-b1ca-23d85e710f1c/overview" target="_blank" rel="noopener" class="partner-link"><img src="logos/microsoft-partner-badge.png" alt="" height="28" onerror="this.remove()"> DATASANJ on the Microsoft partner directory</a></div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 DATASANJ Analytics Consultancy. ABN on request.</span><span>Microsoft Partner. Founder Microsoft Certified.</span></div>
+  </div>
+</footer>
+<script src="site.js"></script>
+</body>
+</html>

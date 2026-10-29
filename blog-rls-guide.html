@@ -213,7 +213,7 @@
 </style>
 <script>
 (function(){
-  var PDF = "downloads/Who-Sees-What-RLS-Guide-DATASANJ.pdf";
+  function PDFP(){ return window.dsGuidePdf ? window.dsGuidePdf() : "#download"; }
   var CH = {1:["The bridge model",4],2:["Leaky tables",5],3:["Workspace roles skip RLS",6],4:["Guest users and #EXT#",7],
     5:["Four ways to say “the current user”",8],6:["Embedded reports and CUSTOMDATA",9],7:["Static or dynamic RLS?",10],
     8:["Hiding columns: OLS, CLS and masking",11],9:["Connection identity: SSO or fixed identity",13],10:["RLS and report speed",14],
@@ -293,7 +293,7 @@
     var n = document.getElementById("rq-next"); n.focus(); n.addEventListener("click", function(){ i++; show(); });
   }
   function isOpen(){ return window.dsGuideUnlocked && window.dsGuideUnlocked(); }
-  function link(p, note){ var href = isOpen() ? PDF + "#page=" + CH[p][1] : "#download";
+  function link(p, note){ var href = isOpen() ? PDFP() + "#page=" + CH[p][1] : "#download";
     return "<li><span class='n'>Part " + p + "</span><div><a href='" + href + "'" + (isOpen() ? " target='_blank' rel='noopener'" : "") + ">" + esc(CH[p][0]) + "</a><span>" + note + (isOpen() ? "" : " \u00b7 page " + CH[p][1] + " of the guide") + "</span></div></li>"; }
   function results(){
     var need = Object.keys(wrong).map(Number).sort(function(a,b){return a-b;});
@@ -303,7 +303,7 @@
     h += "<ul class='rq-list'>";
     need.forEach(function(p){ h += link(p, "From a question you missed or weren’t sure about"); });
     ALWAYS.forEach(function(p){ if (!wrong[p]) h += link(p, "Worth reading for everyone before go-live"); });
-    h += "</ul><div class='rq-actions'><a class='btn btn-primary' href='" + (isOpen() ? PDF + "' download" : "#download'") + ">" + (isOpen() ? "Download the full guide" : "Get the free guide") + "</a>" +
+    h += "</ul><div class='rq-actions'><a class='btn btn-primary' href='" + (isOpen() ? PDFP() + "' download" : "#download'") + ">" + (isOpen() ? "Download the full guide" : "Get the free guide") + "</a>" +
          "<button type='button' class='btn btn-outline' id='rq-again'>Start again</button></div>";
     el.innerHTML = h;
     document.getElementById("rq-again").addEventListener("click", function(){ i = 0; right = 0; wrong = {}; show(); });
@@ -339,8 +339,8 @@
       <div class="rls-unlocked" id="rls-unlocked" hidden>
         <p class="rls-thanks" id="rls-thanks">Thanks. Your downloads are ready.</p>
         <p class="rls-btns">
-          <a class="btn btn-primary" href="downloads/Who-Sees-What-RLS-Guide-DATASANJ.pdf" download>Download the guide (PDF)</a>
-          <a class="btn btn-outline" href="downloads/RLS-Audit-Notebook-DATASANJ.ipynb" download>Audit notebook (Fabric)</a>
+          <a class="btn btn-primary" data-file="g" href="#download" download>Download the guide (PDF)</a>
+          <a class="btn btn-outline" data-file="n" href="#download" download>Audit notebook (Fabric)</a>
         </p>
         <p class="rls-small">Most checks need no code: the guide shows the clicks. The notebook is for monthly audits in Fabric; it only reads and changes nothing.</p>
       </div>
@@ -350,23 +350,28 @@
 <script>
 (function(){
   var KEY="ds-rls-guide", form=document.getElementById("rls-gate"), box=document.getElementById("rls-unlocked"), err=document.getElementById("gate-error");
+  var F={g:"ZG93bmxvYWRzLzM4ZDVjN2NjZjJhOS9XaG8tU2Vlcy1XaGF0LVJMUy1HdWlkZS1EQVRBU0FOSi5wZGY=",n:"ZG93bmxvYWRzLzM4ZDVjN2NjZjJhOS9STFMtQXVkaXQtTm90ZWJvb2stREFUQVNBTkouaXB5bmI="};
+  function path(k){ try{ return atob(F[k]); }catch(e){ return "#download"; } }
   function done(){ try{ return localStorage.getItem(KEY)==="1"; }catch(e){ return false; } }
   function unlock(fresh){
     try{ localStorage.setItem(KEY,"1"); }catch(e){}
+    box.querySelectorAll("a[data-file]").forEach(function(a){ a.href=path(a.getAttribute("data-file")); });
     form.hidden=true; box.hidden=false;
     if(!fresh){ document.getElementById("rls-thanks").textContent="Welcome back. Your downloads are below."; }
     else { box.querySelector("a").focus(); }
   }
   window.dsGuideUnlocked=done;
+  window.dsGuidePdf=function(){ return path("g"); };
   if(done()) unlock(false);
   form.addEventListener("submit",function(e){
     e.preventDefault(); err.textContent="";
+    if(form._gotcha.value){ return; }
     var email=form.email.value.trim();
     if(!/^[^@\s]+@[^@\s]+\.[A-Za-z]{2,}$/.test(email)){ err.textContent="Please enter a valid email address."; form.email.focus(); return; }
     var b=form.querySelector("button"), t=b.textContent; b.disabled=true; b.textContent="Sending";
     fetch(form.action,{method:"POST",body:new FormData(form),headers:{Accept:"application/json"}})
       .then(function(r){ if(!r.ok) throw new Error(); unlock(true); })
-      .catch(function(){ unlock(true); document.getElementById("rls-thanks").textContent="Your downloads are ready below."; })
+      .catch(function(){ err.innerHTML="That didn\u2019t go through. Please try again, or email <a href=\"mailto:d_zohal@datasanj.com?subject=RLS%20guide\">d_zohal@datasanj.com</a> and you\u2019ll get the guide by reply."; })
       .then(function(){ b.disabled=false; b.textContent=t; });
   });
 })();

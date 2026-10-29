@@ -86,6 +86,18 @@
 .rls-download h3{margin-top:0}
 .rls-btns{display:flex;flex-wrap:wrap;gap:12px;margin:18px 0 10px}
 .te-flow .n span{overflow-wrap:anywhere}
+.rls-gate{margin-top:18px}
+.rls-label{display:block;font-size:14px;font-weight:600;color:#1B2733;margin-bottom:6px}
+.rls-row{display:flex;gap:10px;flex-wrap:wrap}
+.rls-row input{flex:1;min-width:200px;font:inherit;font-size:16px;padding:12px 16px;border:1.5px solid #D9D6D2;border-radius:999px;background:#fff;color:#2B2B2B}
+.rls-row input:focus{outline:3px solid rgba(216,101,42,.3);border-color:#D8652A}
+.rls-tick{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:#4A4A4A;margin:12px 0 4px;line-height:1.5;cursor:pointer}
+.rls-tick input{margin-top:3px;accent-color:#D8652A}
+.rls-error{color:#A8412F!important;font-size:14px!important;margin:6px 0!important;min-height:0}
+.rls-error:empty{display:none}
+.rls-small a{color:#B9531F;text-decoration:underline}
+.rls-thanks{font-weight:600;color:#3E7A56!important;margin:16px 0 0!important}
+.hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;opacity:0}
 .rls-small{font-size:14px!important;color:#6B6B6B!important;margin:0!important}
 @media (max-width:768px){.te-table code{word-break:break-all;font-size:12px}.te-table th,.te-table td{padding:10px 10px}}
 @media (max-width:768px){.rls-download{grid-template-columns:1fr;padding:20px}.rls-download img{max-width:200px}}
@@ -276,7 +288,9 @@
       "<div class='rq-nav'><button type='button' class='btn btn-primary' id='rq-next'>" + (i === Q.length-1 ? "See my reading list" : "Next question") + "</button></div>";
     var n = document.getElementById("rq-next"); n.focus(); n.addEventListener("click", function(){ i++; show(); });
   }
-  function link(p, note){ return "<li><span class='n'>Part " + p + "</span><div><a href='" + PDF + "#page=" + CH[p][1] + "' target='_blank' rel='noopener'>" + esc(CH[p][0]) + "</a><span>" + note + "</span></div></li>"; }
+  function isOpen(){ return window.dsGuideUnlocked && window.dsGuideUnlocked(); }
+  function link(p, note){ var href = isOpen() ? PDF + "#page=" + CH[p][1] : "#download";
+    return "<li><span class='n'>Part " + p + "</span><div><a href='" + href + "'" + (isOpen() ? " target='_blank' rel='noopener'" : "") + ">" + esc(CH[p][0]) + "</a><span>" + note + (isOpen() ? "" : " \u00b7 page " + CH[p][1] + " of the guide") + "</span></div></li>"; }
   function results(){
     var need = Object.keys(wrong).map(Number).sort(function(a,b){return a-b;});
     var h = "<p class='rq-score'>" + right + " of " + Q.length + " right</p>";
@@ -285,7 +299,7 @@
     h += "<ul class='rq-list'>";
     need.forEach(function(p){ h += link(p, "From a question you missed or weren’t sure about"); });
     ALWAYS.forEach(function(p){ if (!wrong[p]) h += link(p, "Worth reading for everyone before go-live"); });
-    h += "</ul><div class='rq-actions'><a class='btn btn-primary' href='" + PDF + "' download>Download the full guide</a>" +
+    h += "</ul><div class='rq-actions'><a class='btn btn-primary' href='" + (isOpen() ? PDF + "' download" : "#download'") + ">" + (isOpen() ? "Download the full guide" : "Get the free guide") + "</a>" +
          "<button type='button' class='btn btn-outline' id='rq-again'>Start again</button></div>";
     el.innerHTML = h;
     document.getElementById("rq-again").addEventListener("click", function(){ i = 0; right = 0; wrong = {}; show(); });
@@ -305,14 +319,54 @@
         <li>The RLS go-live checklist on two pages</li>
         <li>Four free Python checks that scan your model, check your security table, list who bypasses RLS, and test as each user</li>
       </ul>
-      <p class="rls-btns">
-        <a class="btn btn-primary" href="downloads/Who-Sees-What-RLS-Guide-DATASANJ.pdf" download>Download the guide (PDF)</a>
-        <a class="btn btn-outline" href="downloads/rls-health-check.zip" download>Python checks (ZIP)</a>
-      </p>
-      <p class="rls-small">Free, no sign-up. The Python checks only read your files and workspace; they change nothing. Run them on the included sample model first.</p>
+      <form class="rls-gate" id="rls-gate" action="https://formspree.io/f/mvzzzdbl" method="POST" novalidate>
+        <input type="hidden" name="_subject" value="RLS guide download">
+        <input type="hidden" name="source" value="blog-rls-guide.html">
+        <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label for="gate-email" class="rls-label">Work email</label>
+        <div class="rls-row">
+          <input type="email" id="gate-email" name="email" required autocomplete="email" placeholder="you@company.com.au">
+          <button type="submit" class="btn btn-primary">Get the guide</button>
+        </div>
+        <label class="rls-tick"><input type="checkbox" name="newsletter" value="yes"> Also email me when a new free guide is published (about monthly)</label>
+        <p class="rls-error" id="gate-error" role="alert"></p>
+        <p class="rls-small">Your email is only used to send you this guide and, if you tick the box, new guides. It is never sold or shared. <a href="data-handling.html">How we handle your data</a>.</p>
+      </form>
+      <div class="rls-unlocked" id="rls-unlocked" hidden>
+        <p class="rls-thanks" id="rls-thanks">Thanks. Your downloads are ready.</p>
+        <p class="rls-btns">
+          <a class="btn btn-primary" href="downloads/Who-Sees-What-RLS-Guide-DATASANJ.pdf" download>Download the guide (PDF)</a>
+          <a class="btn btn-outline" href="downloads/rls-health-check.zip" download>Python checks (ZIP)</a>
+        </p>
+        <p class="rls-small">The Python checks only read your files and workspace; they change nothing. Run them on the included sample model first.</p>
+      </div>
     </div>
   </div>
 
+<script>
+(function(){
+  var KEY="ds-rls-guide", form=document.getElementById("rls-gate"), box=document.getElementById("rls-unlocked"), err=document.getElementById("gate-error");
+  function done(){ try{ return localStorage.getItem(KEY)==="1"; }catch(e){ return false; } }
+  function unlock(fresh){
+    try{ localStorage.setItem(KEY,"1"); }catch(e){}
+    form.hidden=true; box.hidden=false;
+    if(!fresh){ document.getElementById("rls-thanks").textContent="Welcome back. Your downloads are below."; }
+    else { box.querySelector("a").focus(); }
+  }
+  window.dsGuideUnlocked=done;
+  if(done()) unlock(false);
+  form.addEventListener("submit",function(e){
+    e.preventDefault(); err.textContent="";
+    var email=form.email.value.trim();
+    if(!/^[^@\s]+@[^@\s]+\.[A-Za-z]{2,}$/.test(email)){ err.textContent="Please enter a valid email address."; form.email.focus(); return; }
+    var b=form.querySelector("button"), t=b.textContent; b.disabled=true; b.textContent="Sending";
+    fetch(form.action,{method:"POST",body:new FormData(form),headers:{Accept:"application/json"}})
+      .then(function(r){ if(!r.ok) throw new Error(); unlock(true); })
+      .catch(function(){ unlock(true); document.getElementById("rls-thanks").textContent="Your downloads are ready below."; })
+      .then(function(){ b.disabled=false; b.textContent=t; });
+  });
+})();
+</script>
   <div class="te-closing">
     <h2>One line of DAX. A lot around it.</h2>
     <p>Get the model right, give report users Viewer access, test as real people in the stage you publish to, and check who has access every month.</p>

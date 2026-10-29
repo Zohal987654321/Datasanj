@@ -413,3 +413,8 @@ footer{padding:72px 0 32px;background:var(--ink-2);color:rgba(255,255,255,.75);f
 .hero .partner-line small{display:block;margin-top:3px;font-size:13.5px;color:rgba(255,255,255,.55)}
 
 .sub-msg{grid-column:1/-1;margin:8px 0 0;font-size:14px}.sub-msg:empty{display:none}.sub-msg.ok{color:#1E5A32}.sub-msg.bad{color:#A8412F}
+/* Sign-up box: let items shrink and wrap on phones */
+.subscribe>*{min-width:0}
+.subscribe form{flex-wrap:wrap}
+.subscribe input{min-width:0}
+@media (max-width:640px){.subscribe{grid-template-columns:1fr;padding:22px 18px}.subscribe form .btn{width:100%}}

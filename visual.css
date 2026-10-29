@@ -251,3 +251,48 @@ a.s2-card .go{display:inline-block;margin-top:10px;font-size:13.5px;font-weight:
 @media (max-width:820px){.ai-grid{grid-template-columns:1fr;gap:28px}}
 @media (prefers-reduced-motion:reduce){.ai-col .ai-a{opacity:1;transform:none}}
 .ai-punch{margin-top:18px;font-family:var(--display);font-size:20px;font-weight:600;color:var(--copper);letter-spacing:-.01em}
+
+/* contact */
+.s2-hero.ct-hero .container{grid-template-columns:1fr 1fr;align-items:start}
+.ct-points{margin:6px 0 4px}
+.ct-points li{position:relative;padding-left:26px;color:rgba(255,255,255,.82);font-size:16px;margin-bottom:8px}
+.ct-points li:before{content:'';position:absolute;left:2px;top:7px;width:11px;height:6px;border-left:2px solid var(--copper);border-bottom:2px solid var(--copper);transform:rotate(-45deg)}
+.ct-panel{background:#fff;color:var(--ink);border-radius:20px;padding:26px 26px 20px}
+.ct-panel h2{font-size:24px;color:var(--ink)}
+.ct-panel>p{font-size:14.5px;margin:4px 0 14px}
+.ct-topics{border:0;padding:0;margin:0 0 14px}
+.ct-topics legend{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:8px}
+.ct-topics legend small{font-weight:400;color:var(--text-3);margin-left:4px}
+.ct-topics label{display:inline-block;margin:0 6px 6px 0;cursor:pointer}
+.ct-topics input{position:absolute;opacity:0;width:1px;height:1px}
+.ct-topics span{display:inline-block;font-size:13px;font-weight:500;padding:6px 11px;border-radius:999px;border:1px solid var(--line-2);color:var(--text);background:#fff;transition:all .15s}
+.ct-topics input:checked+span{background:var(--ink);color:#fff;border-color:var(--ink)}
+.ct-topics input:focus-visible+span{outline:3px solid var(--copper);outline-offset:2px}
+.ct-split{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:start}
+.ct-direct{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.ct-direct a{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-weight:600;color:var(--ink)}
+.ct-direct svg{width:18px;height:18px;stroke:var(--copper);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ct-quote{background:#fff}
+@media (max-width:820px){.s2-hero.ct-hero .container,.ct-split{grid-template-columns:1fr}}
+
+/* blog listing */
+.bl-feat{display:grid;grid-template-columns:1.1fr 1fr;gap:0;border:1px solid var(--line);border-radius:22px;overflow:hidden;background:#fff;color:inherit;margin-bottom:26px;transition:box-shadow .2s,transform .2s}
+.bl-feat:hover,.bl-card:hover{box-shadow:0 30px 50px -32px rgba(24,35,46,.45);transform:translateY(-3px)}
+.bl-feat .bl-img img{height:100%;min-height:300px;object-fit:cover}
+.bl-feat .bl-body{padding:30px 32px;display:flex;flex-direction:column;justify-content:center}
+.bl-feat h2{font-size:clamp(24px,2.6vw,32px);margin:12px 0 8px}
+.bl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:34px}
+.bl-card{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff;color:inherit;transition:box-shadow .2s,transform .2s}
+.bl-img{background:var(--surface);aspect-ratio:16/9;overflow:hidden}
+.bl-img img{width:100%;height:100%;object-fit:cover;object-position:top left;display:block}
+.bl-ph{background:linear-gradient(135deg,#18232E,#2C3A47);display:flex;flex-direction:column;justify-content:flex-end;padding:18px 20px}
+.bl-ph span{font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--copper)}
+.bl-ph b{font-family:var(--display);font-size:19px;color:#fff;line-height:1.25;margin-top:6px}
+.bl-body{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1}
+.bl-card h3{font-size:18px;margin:10px 0 6px;line-height:1.3}
+.bl-meta{font-size:13px;color:var(--text-3);margin-bottom:8px}
+.bl-body p:not(.bl-meta){font-size:14.5px;line-height:1.55}
+.bl-go{margin-top:auto;padding-top:12px;font-weight:600;font-size:14px;color:var(--copper-deep)}
+.bl-card .cs-tag,.bl-feat .cs-tag{align-self:flex-start}
+@media (max-width:1020px){.bl-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:760px){.bl-feat{grid-template-columns:1fr}.bl-feat .bl-img img{min-height:0}.bl-grid{grid-template-columns:1fr}}

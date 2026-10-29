@@ -273,7 +273,10 @@
     bar();
     if (i >= Q.length) return results();
     var q = Q[i], h = "<h3>" + esc(q.q) + "</h3><div class='rq-opts'>";
-    q.o.concat(["Not sure"]).forEach(function(o,k){ h += "<button type='button' class='rq-opt' data-k='" + k + "'>" + esc(o) + "</button>"; });
+    var order = q.o.map(function(_,k){ return k; });
+    for (var j = order.length - 1; j > 0; j--) { var r = Math.floor(Math.random() * (j + 1)), t = order[j]; order[j] = order[r]; order[r] = t; }
+    order.push(q.o.length);
+    order.forEach(function(k){ h += "<button type='button' class='rq-opt' data-k='" + k + "'>" + esc(k === q.o.length ? "Not sure" : q.o[k]) + "</button>"; });
     el.innerHTML = h + "</div><div id='rq-after'></div>";
     el.querySelectorAll(".rq-opt").forEach(function(b){ b.addEventListener("click", function(){ pick(+b.dataset.k); }); });
     var first = el.querySelector(".rq-opt"); if (first && i > 0) first.focus();
@@ -281,7 +284,8 @@
   function pick(k){
     var q = Q[i], ok = k === q.a, btns = el.querySelectorAll(".rq-opt");
     btns.forEach(function(b){ b.disabled = true; });
-    btns[q.a].classList.add("ok"); if (!ok) btns[k].classList.add("bad");
+    function btn(n){ return el.querySelector(".rq-opt[data-k='" + n + "']"); }
+    btn(q.a).classList.add("ok"); if (!ok) btn(k).classList.add("bad");
     if (ok) right++; else q.p.forEach(function(p){ wrong[p] = true; });
     var parts = q.p.map(function(p){ return "Part " + p; }).join(", ");
     document.getElementById("rq-after").innerHTML = "<p class='rq-why'><b>" + (ok ? "Right. " : (k === q.o.length ? "Good to check. " : "Not quite. ")) + "</b>" + esc(q.w) + " <em>(" + parts + ")</em></p>" +

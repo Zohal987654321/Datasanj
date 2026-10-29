@@ -187,3 +187,5 @@ a.s2-card .go{display:inline-block;margin-top:10px;font-size:13.5px;font-weight:
 @media (max-width:560px){.ab-work,.ab-risk{grid-template-columns:1fr}}
 .s2-hero .ab-hero{grid-template-columns:280px 1fr}
 @media (max-width:820px){.s2-hero .ab-hero{grid-template-columns:1fr}}
+.s2-proof div:first-child{background:var(--ink);border-color:var(--ink)}
+.s2-proof div:first-child b{color:#fff}.s2-proof div:first-child span{color:rgba(255,255,255,.7)}

@@ -342,6 +342,7 @@
           <a class="btn btn-primary" data-file="g" href="#download" download>Download the guide (PDF)</a>
           <a class="btn btn-outline" data-file="n" href="#download" download>Audit notebook (Fabric)</a>
         </p>
+        <p class="rls-small"><a href="#download" id="rls-reset">Not you? Use a different email</a></p>
         <p class="rls-small">Most checks need no code: the guide shows the clicks. The notebook is for monthly audits in Fabric; it only reads and changes nothing.</p>
       </div>
     </div>
@@ -360,6 +361,11 @@
     if(!fresh){ document.getElementById("rls-thanks").textContent="Welcome back. Your downloads are below."; }
     else { box.querySelector("a").focus(); }
   }
+  document.getElementById("rls-reset").addEventListener("click",function(e){
+    e.preventDefault(); try{ localStorage.removeItem(KEY); }catch(x){}
+    box.querySelectorAll("a[data-file]").forEach(function(a){ a.href="#download"; });
+    box.hidden=true; form.hidden=false; form.reset(); form.email.focus();
+  });
   window.dsGuideUnlocked=done;
   window.dsGuidePdf=function(){ return path("g"); };
   if(done()) unlock(false);

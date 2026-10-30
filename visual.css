@@ -544,3 +544,8 @@ a.ab-w:hover{border-color:var(--copper-line);box-shadow:0 20px 40px -28px rgba(2
 .pk li{position:relative;padding-left:22px;font-size:14px;margin-top:6px;color:var(--text)}
 .pk li:before{content:'';position:absolute;left:2px;top:7px;width:10px;height:5px;border-left:2px solid var(--copper);border-bottom:2px solid var(--copper);transform:rotate(-45deg)}
 @media (max-width:900px){.pk-grid{grid-template-columns:1fr}}
+.pk-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.pk ul{flex:1}
+.pk-h{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);font-size:13px;color:var(--text-3)}
+@media (max-width:1100px){.pk-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:620px){.pk-grid{grid-template-columns:1fr}}

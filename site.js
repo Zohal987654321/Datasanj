@@ -64,3 +64,9 @@ document.addEventListener('click',function(e){
 /* Pre-tick a topic on the contact form from ?topic= */
 (function(){try{var t=new URLSearchParams(location.search).get('topic');if(!t)return;
 document.querySelectorAll('input[name="topics"]').forEach(function(c){if(c.value===t)c.checked=true;});}catch(e){}})();
+
+/* Services dropdown: tap/click toggle, close on outside click or Escape */
+(function(){document.querySelectorAll('.nav-drop').forEach(function(d){var b=d.querySelector('.nav-dd');if(!b)return;
+b.addEventListener('click',function(e){e.stopPropagation();var o=d.classList.toggle('open');b.setAttribute('aria-expanded',o);});});
+document.addEventListener('click',function(e){document.querySelectorAll('.nav-drop.open').forEach(function(d){if(!d.contains(e.target)){d.classList.remove('open');d.querySelector('.nav-dd').setAttribute('aria-expanded','false');}});});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')document.querySelectorAll('.nav-drop.open').forEach(function(d){d.classList.remove('open');});});})();

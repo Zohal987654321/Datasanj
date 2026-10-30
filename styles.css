@@ -429,3 +429,30 @@ footer{padding:72px 0 32px;background:var(--ink-2);color:rgba(255,255,255,.75);f
   footer{padding-bottom:90px}
 }
 @media print{.m-cta{display:none!important}}
+
+/* ---------- Nav dropdown ---------- */
+.nav-drop{position:relative}
+.nav-dd{font:inherit;font-size:15px;font-weight:500;color:var(--text-2);background:none;border:0;padding:8px 12px;border-radius:var(--pill);cursor:pointer;display:inline-flex;align-items:center;gap:4px}
+.nav-dd svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:1.8;transition:transform .2s}
+.nav-dd:hover,.nav-dd.active,.nav-drop:focus-within .nav-dd{color:var(--ink);background:var(--surface)}
+.nav-sub{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);min-width:300px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 30px 60px -30px rgba(24,35,46,.35);padding:8px;z-index:200}
+.nav-sub:before{content:'';position:absolute;top:-10px;left:0;right:0;height:10px}
+.nav-drop:hover .nav-sub,.nav-drop.open .nav-sub{display:block}
+.nav-drop:hover .nav-dd svg,.nav-drop.open .nav-dd svg{transform:rotate(180deg)}
+.nav-sub a{display:block;border-radius:10px;padding:10px 12px}
+.nav-sub a b{display:block;font-size:14.5px;color:var(--ink);font-weight:600}
+.nav-sub a small{display:block;font-size:12.5px;color:var(--text-3);line-height:1.35;margin-top:1px}
+.nav-sub a:hover{background:var(--surface)}
+.nav-sub a.nav-all{font-size:14px;font-weight:600;color:var(--copper-deep);border-top:1px solid var(--line);border-radius:0 0 10px 10px;margin-top:4px}
+@media (max-width:1100px){
+  .nav-toggle{display:flex}
+  .nav-menu{display:none;position:absolute;top:72px;left:0;right:0;flex-direction:column;align-items:stretch;gap:2px;padding:10px 20px 18px;background:#fff;border-bottom:1px solid var(--line);max-height:calc(100vh - 72px);overflow:auto}
+  .nav-menu.open{display:flex}
+  .nav-menu a{padding:12px}
+  .nav-menu a.nav-cta{margin:8px 0 0;text-align:center}
+  .nav-dd{width:100%;justify-content:space-between;padding:12px}
+  .nav-sub{position:static;transform:none;box-shadow:none;border:0;border-left:2px solid var(--copper-line);border-radius:0;min-width:0;padding:0 0 0 8px;margin:0 0 6px 12px}
+  .nav-drop:hover .nav-sub{display:none}
+  .nav-drop.open .nav-sub{display:block}
+}
+@media (max-width:1100px){.nav-menu a.nav-cta{display:block}.nav-menu>li>a{display:block}}

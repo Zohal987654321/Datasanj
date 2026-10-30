@@ -534,3 +534,13 @@ a.ab-w:hover{border-color:var(--copper-line);box-shadow:0 20px 40px -28px rgba(2
 .me-ex{margin-top:14px;background:#fff;border:1px solid var(--copper-line);border-radius:14px;padding:14px 18px}
 .me-ex small{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--copper-deep)}
 .me-ex p{font-size:15px;margin-top:4px;color:var(--text)}
+.pk-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;counter-reset:pk}
+.pk{position:relative;border:1px solid var(--line);border-radius:18px;padding:24px;background:#fff;display:flex;flex-direction:column;gap:8px}
+.pk:first-child{border-color:var(--copper);box-shadow:0 20px 40px -30px rgba(217,98,42,.6)}
+.pk-n{width:36px;height:36px;border-radius:10px;background:var(--copper-tint);color:var(--copper-deep);display:grid;place-items:center;font-family:var(--display);font-weight:700}
+.pk:first-child .pk-n{background:var(--copper);color:#fff}
+.pk small{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3)}
+.pk h3{font-size:19px}.pk p{font-size:14.5px}
+.pk li{position:relative;padding-left:22px;font-size:14px;margin-top:6px;color:var(--text)}
+.pk li:before{content:'';position:absolute;left:2px;top:7px;width:10px;height:5px;border-left:2px solid var(--copper);border-bottom:2px solid var(--copper);transform:rotate(-45deg)}
+@media (max-width:900px){.pk-grid{grid-template-columns:1fr}}

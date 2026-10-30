@@ -51,7 +51,16 @@ document.addEventListener('click',function(e){
 (function(){
   if(/Contact\.html$/i.test(location.pathname))return;
   var bar=document.createElement('div');bar.className='m-cta';
-  bar.innerHTML='<a href="Contact.html" class="btn btn-primary" data-share="sticky-call">Book a free call</a><a href="ai-ready-scorecard.html" class="m-cta-2">Is your data AI-ready?</a>';
+  var pg=location.pathname.split('/').pop(),
+    mp={'month-end-reporting-automation.html':['Month-end%20reporting','free-guides.html#me','Free checklist'],
+        'multi-site-reporting.html':['Comparing%20sites','tel:+61435916536','Call Zohal'],
+        'microsoft-fabric-for-small-business.html':['Data%20ready%20for%20AI','ai-ready-scorecard.html','Is your data AI-ready?']},
+    c=mp[pg]||['', 'tel:+61435916536','Call Zohal'];
+  bar.innerHTML='<a href="Contact.html'+(c[0]?'?topic='+c[0]:'')+'" class="btn btn-primary" data-share="sticky-call">Book a free call</a><a href="'+c[1]+'" class="m-cta-2">'+c[2]+'</a>';
   document.body.appendChild(bar);
   var shown=false;window.addEventListener('scroll',function(){var s=window.scrollY>420;if(s!==shown){shown=s;bar.classList.toggle('show',s);}},{passive:true});
 })();
+
+/* Pre-tick a topic on the contact form from ?topic= */
+(function(){try{var t=new URLSearchParams(location.search).get('topic');if(!t)return;
+document.querySelectorAll('input[name="topics"]').forEach(function(c){if(c.value===t)c.checked=true;});}catch(e){}})();

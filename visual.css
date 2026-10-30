@@ -575,3 +575,5 @@ a.ab-w:hover{border-color:var(--copper-line);box-shadow:0 20px 40px -28px rgba(2
 .er-vis{grid-template-columns:minmax(0,1.3fr) 90px minmax(0,.8fr)}
 .er-lead{font-size:16px!important;color:var(--ink)!important;margin:0 0 18px!important;padding-bottom:16px;border-bottom:1px dashed var(--line)}
 @media (max-width:620px){.er-vis{grid-template-columns:1fr}}
+.q-go{display:inline-block;margin-top:10px;font-size:13.5px;font-weight:600;color:var(--copper-deep)}
+#you{scroll-margin-top:80px}

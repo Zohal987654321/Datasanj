@@ -531,3 +531,6 @@ a.ab-w:hover{border-color:var(--copper-line);box-shadow:0 20px 40px -28px rgba(2
 .ms-case cite{display:block;font-style:normal;font-size:13px;color:var(--text-3);margin-top:6px}
 @media (max-width:560px){.ms-res{grid-template-columns:auto 1fr}.ms-total em{margin-left:0}}
 @media (prefers-reduced-motion:reduce){.ms-r,.ms-bar i,.ms-total{animation:none!important}}
+.me-ex{margin-top:14px;background:#fff;border:1px solid var(--copper-line);border-radius:14px;padding:14px 18px}
+.me-ex small{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--copper-deep)}
+.me-ex p{font-size:15px;margin-top:4px;color:var(--text)}

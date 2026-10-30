@@ -418,3 +418,14 @@ footer{padding:72px 0 32px;background:var(--ink-2);color:rgba(255,255,255,.75);f
 .subscribe form{flex-wrap:wrap}
 .subscribe input{min-width:0}
 @media (max-width:640px){.subscribe{grid-template-columns:1fr;padding:22px 18px}.subscribe form .btn{width:100%}}
+/* sticky mobile call bar */
+.m-cta{display:none}
+@media (max-width:760px){
+  .m-cta{display:flex;position:fixed;left:10px;right:10px;bottom:10px;z-index:900;gap:8px;align-items:center;background:#18232E;border-radius:16px;padding:8px;box-shadow:0 16px 40px -12px rgba(0,0,0,.5);transform:translateY(140%);transition:transform .3s ease}
+  .m-cta.show{transform:none}
+  .m-cta .btn{flex:1;justify-content:center;padding:12px 10px;font-size:15px}
+  .m-cta-2{flex:none;color:#fff;font-size:12.5px;font-weight:600;padding:0 8px;line-height:1.2;max-width:110px;text-align:center}
+  body{padding-bottom:0}
+  footer{padding-bottom:90px}
+}
+@media print{.m-cta{display:none!important}}

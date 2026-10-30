@@ -46,3 +46,12 @@ document.addEventListener('click',function(e){
     var done=function(){if(lab){var o=lab.textContent;lab.textContent='Copied';setTimeout(function(){lab.textContent=o},1800);}};
     if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(u).then(done,done);}else{var t=document.createElement('textarea');t.value=u;document.body.appendChild(t);t.select();try{document.execCommand('copy')}catch(_){}document.body.removeChild(t);done();}}
 });
+
+// Sticky "Book a free call" bar on phones (not on Contact)
+(function(){
+  if(/Contact\.html$/i.test(location.pathname))return;
+  var bar=document.createElement('div');bar.className='m-cta';
+  bar.innerHTML='<a href="Contact.html" class="btn btn-primary" data-share="sticky-call">Book a free call</a><a href="ai-ready-scorecard.html" class="m-cta-2">Is your data AI-ready?</a>';
+  document.body.appendChild(bar);
+  var shown=false;window.addEventListener('scroll',function(){var s=window.scrollY>420;if(s!==shown){shown=s;bar.classList.toggle('show',s);}},{passive:true});
+})();

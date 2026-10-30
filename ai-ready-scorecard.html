@@ -65,6 +65,7 @@
     <button type="submit" class="btn btn-primary">See my score</button>
   </form>
   <div id="sc-result" class="sc-result" hidden tabindex="-1">
+    <div class="sc-printhead"><b>DATASANJ</b> · AI-ready data scorecard · <span id="sc-date"></span><br><small>datasanj.com · d_zohal@datasanj.com · +61 435 916 536</small></div>
     <div class="sc-top">
       <div class="sc-dial"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="52" fill="none" stroke="#E8ECEF" stroke-width="12"/><circle id="sc-arc" cx="60" cy="60" r="52" fill="none" stroke="#D9622A" stroke-width="12" stroke-linecap="round" stroke-dasharray="0 327" transform="rotate(-90 60 60)"/></svg><div><b id="sc-score">0</b><span>out of 20</span></div></div>
       <div><p class="s2-eyebrow" id="sc-band-k"></p><h2 id="sc-band"></h2><p id="sc-band-p"></p></div>
@@ -80,12 +81,12 @@
         <input type="hidden" name="score" id="sc-f-score"><input type="hidden" name="answers" id="sc-f-answers">
         <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
         <div class="success" role="status"></div>
-        <label for="sc-mail">Email me my results and action plan</label>
+        <label for="sc-mail">Get a personal action plan by email</label><p class="sc-note">Zohal reads your answers and replies personally within two business days.</p>
         <div class="sc-row"><input id="sc-mail" type="email" name="email" required autocomplete="email" placeholder="you@company.com.au"><button type="submit" class="btn btn-ink">Send</button></div>
         <label class="sc-check"><input type="checkbox" name="news" value="yes"> Also email me if I publish a new free guide or resource</label>
       </form>
     </div>
-    <p style="margin-top:14px"><button type="button" class="sc-again" id="sc-again">Start again</button></p>
+    <div class="sc-more"><button type="button" class="btn btn-outline" id="sc-print">Download my report (PDF)</button><a class="btn btn-outline" href="free-guides.html#ai">Free guide: AI-Ready Data in 10 steps</a><button type="button" class="sc-again" id="sc-again">Start again</button></div>
   </div>
 </div></section>
 <script>
@@ -116,6 +117,7 @@
     try{if(window.goatcounter&&goatcounter.count)goatcounter.count({path:'scorecard-complete-'+k.toLowerCase().replace(/ /g,'-'),title:'Scorecard completed',event:true});}catch(_){}
     f.hidden=true;res.hidden=false;res.focus();res.scrollIntoView({behavior:'smooth',block:'start'});
   });
+  document.getElementById('sc-print').addEventListener('click',function(){try{document.getElementById('sc-date').textContent=new Date().toLocaleDateString('en-AU',{day:'numeric',month:'long',year:'numeric'});}catch(_){}try{if(window.goatcounter&&goatcounter.count)goatcounter.count({path:'scorecard-pdf',title:'Scorecard PDF',event:true});}catch(_){}window.print();});
   document.getElementById('sc-again').addEventListener('click',function(){f.reset();prog();f.querySelectorAll('.sc-q').forEach(function(q){q.classList.remove('done','miss');});res.hidden=true;f.hidden=false;f.scrollIntoView({behavior:'smooth'});});
 })();
 </script>
@@ -130,7 +132,7 @@
         <a href="tel:+61435916536">+61 435 916 536</a>
         <a href="Contact.html">Canberra, ACT, Australia</a>
       </div>
-      <div><h4>Company</h4><a href="index.html">Home</a><a href="About.html">About</a><a href="services.html">Services</a><a href="Portfolio.html">Work</a><a href="Blog.html">Insights</a><a href="canberra-power-bi-consultant.html">Canberra</a><a href="Contact.html">Book a call</a></div>
+      <div><h4>Company</h4><a href="index.html">Home</a><a href="About.html">About</a><a href="services.html">Services</a><a href="Portfolio.html">Work</a><a href="Blog.html">Insights</a><a href="free-guides.html">Free guides</a><a href="canberra-power-bi-consultant.html">Canberra</a><a href="Contact.html">Book a call</a></div>
       <div><h4>What we do</h4><a href="services.html#month-end">Month-end reporting</a><a href="services.html#connect">Connecting your systems</a><a href="services.html#multi-site">Comparing sites</a><a href="services.html#forecasting">Budgets and cash flow</a><a href="services.html#fix-reports">Fixing Power BI reports</a><a href="services.html#rls-review">Report security</a><a href="services.html#team-training">Power BI training</a><a href="ai-ready-scorecard.html">AI-ready data scorecard</a></div>
       <div><h4>Trust</h4><a href="data-handling.html">How we handle your data</a><a href="https://g.page/r/CQdYbQkk3r9OEAI/review" target="_blank" rel="noopener">Leave us a Google review</a><a href="https://www.linkedin.com/in/dr-zohal-zahir-46128697/" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/Zohal987654321" target="_blank" rel="noopener">GitHub</a><a data-partner href="https://marketplace.microsoft.com/en-us/partners/5685b0ed-d7fa-4d1b-b1ca-23d85e710f1c/overview" target="_blank" rel="noopener" class="partner-link">DATASANJ on the Microsoft partner directory</a></div>
     </div>
